@@ -17,6 +17,7 @@
 $
 
 # Command Line History (newest to oldest):
+:q!
 :q
 :!ls -al
 :ls -al
@@ -28,7 +29,6 @@ $
 :bd
 :db
 :e .
-:q!
 :e Desktop/
 :cd ..
 :e Desktop/understandingWebsites/2.passingValuesFromHtmlToPhp/data.html
@@ -206,18 +206,19 @@ $
 	siteName = getQueryVariable('siteName');
 
 # File marks:
-'0  2  2  ~/Desktop/appian_launch_form.html
-'1  10  0  ~/Desktop/appian_launch_form.html
-'2  1  0  ~/Desktop/appian_launch_form.html
-'3  93  21  ~/Desktop/appian_launch_form.html
-'4  1  0  ~/Desktop/Projects/hfc/chapter10/1.newshound/source.txt
-'5  1  0  ~/Desktop/Projects/hfc/chapter10/1.newshound/news.txt
-'6  1  0  ~/Desktop/Projects/hfc/chapter10/1.newshound/new.txt
-'7  1  0  ~/make-a-note/personal_work.txt
-'8  117  0  ~/.bashrc
-'9  1  0  ~/Desktop/Projects/hfc/chapter9/1.system_calls/system_syscall.c
+'0  1  0  ~/.vim/.netrwhist
+'1  2  2  ~/Desktop/appian_launch_form.html
+'2  10  0  ~/Desktop/appian_launch_form.html
+'3  1  0  ~/Desktop/appian_launch_form.html
+'4  93  21  ~/Desktop/appian_launch_form.html
+'5  1  0  ~/Desktop/Projects/hfc/chapter10/1.newshound/source.txt
+'6  1  0  ~/Desktop/Projects/hfc/chapter10/1.newshound/news.txt
+'7  1  0  ~/Desktop/Projects/hfc/chapter10/1.newshound/new.txt
+'8  1  0  ~/make-a-note/personal_work.txt
+'9  117  0  ~/.bashrc
 
 # Jumplist (newest first):
+-'  1  0  ~/.vim/.netrwhist
 -'  2  2  ~/Desktop/appian_launch_form.html
 -'  21  0  ~/Desktop
 -'  1  0  ~/Desktop/appian_launch_form.html
@@ -249,7 +250,6 @@ $
 -'  1  0  ~/.v
 -'  6  16  ~/.vimrc
 -'  1403  1  ~/.viminfo
--'  1  0  ~/.vim/.netrwhist
 -'  5  0  ~/.vimrc
 -'  4  0  ~/.vimrc
 -'  1  0  ~/test/test
@@ -317,6 +317,9 @@ $
 -'  1  0  ~/make-a-note/personal_work.txt
 
 # History of marks within files (newest to oldest):
+
+> ~/.vim/.netrwhist
+	"	1	0
 
 > ~/Desktop/appian_launch_form.html
 	"	2	2
@@ -406,9 +409,6 @@ $
 
 > /usr/share/vim/vim74/doc/options.txt
 	"	351	62
-
-> ~/.vim/.netrwhist
-	"	1	0
 
 > ~/test/test
 	"	1	0
