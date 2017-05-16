@@ -63,3 +63,8 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+"Key Mapping for NERDTree
+map <leader>nt :NERDTree<cr>
+
+"Key Mapping for FuzzyFinder
+map <leader>t :FuzzyFinderFile
