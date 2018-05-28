@@ -26,11 +26,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
-Plugin 'luochen1990/rainbow'
+"Plugin 'luochen1990/rainbow'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'alpertuna/vim-header'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'lifepillar/vim-mucomplete'
+Plugin 'vim-syntastic/syntastic'
+"Syntastic Plugin for solidity check
+Plugin 'tomlion/vim-solidity'
+
 
 
 
@@ -42,6 +46,7 @@ Plugin 'lifepillar/vim-mucomplete'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'FuzzyFinder'
 Plugin 'L9'
+Plugin 'taglist'
 
 
 " Git plugin not hosted on GitHub
@@ -170,12 +175,12 @@ let g:syntastic_c_check_header = 1
 
 "Settings for clangcomplete.
 " Setting clan_library_path to the directory where libclang.so is located.
-let g:clang_library_path='/usr/lib/'
+let g:clang_library_path='/usr/lib/llvm-3.8/lib'
 
 "Settings and Key Mapping for vim-header.
 let g:header_auto_add_header = 0
 let g:header_field_author = 'akhil'
-let g:header_field_author_email = 'akhiltiwari.13@gmail.com'
+let g:header_field_author_email = 'aktiwari@techracers.com'
 map <leader>gl :AddGNULicense<cr>
 map <leader>h :AddHeader<cr>
 
