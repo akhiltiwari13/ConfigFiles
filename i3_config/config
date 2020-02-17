@@ -176,6 +176,7 @@ exec_always --no-startup-id xsettingsd &
 exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id redshift-gtk
+exec_always --no-startup-id libinput-gestures 
 # Disables the gsd notifcations daemon.
 exec_always killall -q /usr/lib/gnome-settings-daemon/gsd-print-notifications
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
