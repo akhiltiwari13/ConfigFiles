@@ -175,7 +175,6 @@ bar {
 exec_always --no-startup-id xsettingsd &
 exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id redshift-gtk
 exec_always --no-startup-id libinput-gestures 
 # Disables the gsd notifcations daemon.
 exec_always killall -q /usr/lib/gnome-settings-daemon/gsd-print-notifications
@@ -220,4 +219,9 @@ for_window [class="^.*"] border pixel 0
 # enable floating mode for all XTerm windows.
 for_window [class="XTerm"] floating enable
 
+# Enable/disable caps mode
+mode "caps" {
+    bindsym Caps_Lock mode "default"
+}
+bindsym Caps_Lock mode "caps"
 
