@@ -30,6 +30,7 @@ set hidden                        " Handle multiple buffers better.
 "Complete files like a z-shell.
 set wildmenu
 set wildmode=full
+set history=1000
 set ignorecase                    " Case-insensitive searching.
 set infercase                     " Smart Keyword autocompletion.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
@@ -49,12 +50,25 @@ set hidden                        " Turning the hidden mode ON!
 "Ex Commands mapping from practical vim.
 "Mapping for :edit %:h<Tab> //Practical vim Tip #41.
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 
 "Normal Mode key mappings from practical vim.
 nnoremap <f5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=.git .<CR>  
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l> 
-" Sets ack for finding....
-"set grepprg=ack\ --nogroup\ $* 
+"Search related mappings.
+noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+"Settings for visual selection search
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+endfunction
+"Settings for visual selection search ==ENDS
 
 "Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -65,6 +79,21 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+"Mapping & key to repeat last substitution WITH flags in normal and visual mode.
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
+"Vim-Script to user :Qargs to populate argument-list with quickfix-list.
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+    let buffer_numbers = {}
+    for quickfix_item in getqflist()
+        let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+    endfor
+    return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
 
 "Keybindings from Modern Vim.
 "Keybinding for FZF plugin
@@ -102,6 +131,8 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" vim commentory configurations
+autocmd FileType cmake setlocal commentstring=#\ %s
 
 "NEOVIM ONLY Keybinding
 if has('nvim')
@@ -111,3 +142,5 @@ if has('nvim')
     tnoremap <C-v><Esc> <Esc>
     highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
+
+
