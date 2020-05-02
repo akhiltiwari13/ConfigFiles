@@ -3,7 +3,7 @@ syntax enable                     " Turn on syntax highlighting.
 runtime macros/matchit.vim
 filetype plugin indent on
 
-let mapleader='\'                 " Maps \ (Back-Slash) as the leader key.
+let mapleader="\<space>"                 " Maps space-bar as the leader key.
 
 set nrformats=
 set shiftwidth=4 softtabstop=4 expandtab
@@ -27,27 +27,46 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
 set nobackup                      " Don't make a backup before overwriting
 set nowritebackup                 " And again.
-set hidden                        " Turning the hidden mode ON!
-colorscheme slate
 set cursorline
-set paste
 set encoding=utf-8
+set foldmethod=indent
+
+
+autocmd BufRead * normal zR //opens all folds by default.
+
+" Install vim-plug if it's not already installed. Use PlugInstall to install all the below plugins post that. (only works for *inx/cygwin).
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+set tags=tags; " Look for a tags file recursively in parent directories(semicolon lets vim know to check for the tags file recursively in parent directorie.
 
 " Plugins installations using vim-plug.
 call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/vim-plug'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
+Plug 'janko/vim-test'
+Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
+Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim'
+Plug 'luochen1990/rainbow'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'mhinz/vim-grepper'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'dense-analysis/ale'
 Plug 'autozimu/LanguageClient-neovim', {
 	    \ 'branch': 'next',
@@ -63,27 +82,15 @@ endif
 
 call plug#end()
 
-"Keybinding for nerdtree.
-map <C-n> :NERDTreeToggle<CR>
+" Use gruvbox as colorscheme.
+colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 "Mapping for tagbar (as specified by it's author)
 nmap <F8> :TagbarToggle<CR>
 
-"Autopairs configuration.
-let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutBackInsert = '<M-b>'
-
-"Default configuration for c-support.
-"let g:C_UseTool_cmake    = 'yes'
-"let g:C_UseTool_doxygen  = 'yes'
-
 "Default configuration for rainbow.
-" let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-"echodoc settings.
-" set cmdheight=2
-"let g:echodoc_enable_at_startup = 1
-"let g:echodoc#type = 'signature'
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 
 " ============================
@@ -136,9 +143,22 @@ endfunction
 " ============================
 "Keybinding for FZF plugin
 nnoremap <C-p> :<C-u>FZF<CR>
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
+	    \ 'prefix': '^.*$',
+	    \ 'source': 'rg -n ^ --color always',
+	    \ 'options': '--ansi --delimiter : --nth 3..',
+	    \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '')  } 
+	    \ } ) ) 
 
 " vim commentory configurations
 autocmd FileType cmake setlocal commentstring=#\ %s
+
 
 "NEOVIM ONLY Keybinding for terminal mode.
 if has('nvim')
@@ -148,8 +168,6 @@ if has('nvim')
     tnoremap <C-v><Esc> <Esc>
     highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
-
-let g:lightline = {  'colorscheme': 'one',  }
 
 " ALE settings and mappings.
 let g:ale_lint_on_text_changed = 'never'
@@ -213,8 +231,12 @@ augroup LSP
     autocmd FileType cpp,c,python call SetLSPShortcuts()
 augroup END
 
+
+
 " Commented out LSP commands for C++; I use them @ whim. :-|)
 " \ 'cpp': ['clangd-9'],
 " \ 'c': ['clangd-9'],
 " \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
 " \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
+
+
