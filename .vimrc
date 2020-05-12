@@ -37,7 +37,7 @@ autocmd BufRead * normal zR //opens all folds by default.
 " Install vim-plug if it's not already installed. Use PlugInstall to install all the below plugins post that. (only works for *inx/cygwin).
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-		\ https://raw.github.com/junegunn/vim-plug/master/plug.vim
+                \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -68,10 +68,12 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'mhinz/vim-grepper'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
+" Plug 'maximbaz/lightline-ale'
+
 Plug 'autozimu/LanguageClient-neovim', {
-	    \ 'branch': 'next',
-	    \ 'do': 'bash install.sh',
-	    \ }
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -132,7 +134,7 @@ command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
     let buffer_numbers = {}
     for quickfix_item in getqflist()
-	let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+        let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
     endfor
     return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
@@ -144,19 +146,19 @@ endfunction
 "Keybinding for FZF plugin
 nnoremap <C-p> :<C-u>FZF<CR>
 " Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
 
-inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
-	    \ 'prefix': '^.*$',
-	    \ 'source': 'rg -n ^ --color always',
-	    \ 'options': '--ansi --delimiter : --nth 3..',
-	    \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '')  } 
-	    \ } ) ) 
+" inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
+"             \ 'prefix': '^.*$',
+"             \ 'source': 'rg -n ^ --color always',
+"             \ 'options': '--ansi --delimiter : --nth 3..',
+"             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '')  }
+"             \ }))
 
-" vim commentory configurations
+" vim commentory comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
 
 
@@ -169,25 +171,33 @@ if has('nvim')
     highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
+" ========================================
 " ALE settings and mappings.
+" ========================================
+nnoremap <leader>l :ALELint<CR>
+nnoremap <leader>ll :ALEFix<CR>
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+
 let g:ale_linters = {
-	    \
-	    \ 'javascript': ['eslint'],
-	    \ 'cpp': ['cppcheck', 'clang'],
-	    \ 'python': ['pylint'],
-	    \ }
+            \
+            \ 'javascript': ['eslint'],
+            \ 'cpp': ['cppcheck', 'clang'],
+            \ 'python': ['pylint'],
+            \ }
 
 let g:ale_fixers = {
-	    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-	    \ 'javascript': ['eslint', 'prettier'],
-	    \ 'cpp': ['clangtidy', 'clang-format','uncrustify'],
-	    \ 'python': ['black','autopep8','isort','yapf'],
-	    \}
+            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'javascript': ['eslint', 'prettier'],
+            \ 'cpp': ['clangtidy', 'clang-format','uncrustify'],
+            \ 'python': ['black','autopep8','isort','yapf'],
+            \}
 
 " Grepper mappings.
 let g:grepper = {}
@@ -198,9 +208,32 @@ nnoremap <Leader>* :Grepper -cword -noprompt<CR>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
+" " ========================================
+" " ALE-LightLine Integration.
+" " ========================================
+" let g:lightline = {}
+
+" let g:lightline.component_expand = {
+"             \  'linter_checking': 'lightline#ale#checking',
+"             \  'linter_infos': 'lightline#ale#infos',
+"             \  'linter_warnings': 'lightline#ale#warnings',
+"             \  'linter_errors': 'lightline#ale#errors',
+"             \  'linter_ok': 'lightline#ale#ok',
+"             \ }
+
+" let g:lightline.component_type = {
+"             \     'linter_checking': 'right',
+"             \     'linter_infos': 'right',
+"             \     'linter_warnings': 'warning',
+"             \     'linter_errors': 'error',
+"             \     'linter_ok': 'right',
+"             \ }
+
+" let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+
 
 " ========================================
-" LSP and autocompletion related settings.
+" LSP/LanguageClient and autocompletion related settings.
 " ========================================
 "deoplete default config.
 let g:deoplete#enable_at_startup = 1
@@ -209,10 +242,11 @@ let g:deoplete#enable_at_startup = 1
 set completefunc=LanguageClient#complete
 
 let g:LanguageClient_serverCommands = {
-	    \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
-	    \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
-	    \ 'python': ['pyls'],
-	    \ }
+            \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
+            \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
+            \ 'python': ['pyls'],
+            \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+            \ }
 
 function! SetLSPShortcuts()
     nnoremap <leader>ld :call LanguageClient#textDocument_definition()<cr>
@@ -228,7 +262,7 @@ endfunction()
 
 augroup LSP
     autocmd!
-    autocmd FileType cpp,c,python call SetLSPShortcuts()
+    autocmd FileType cpp,c,python,rust call SetLSPShortcuts()
 augroup END
 
 
@@ -238,5 +272,3 @@ augroup END
 " \ 'c': ['clangd-9'],
 " \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
 " \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
-
-
