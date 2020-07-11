@@ -1,4 +1,4 @@
-# This file holds the configurations for my i3 window manager. 
+# This file holds the configurations for my i3 window manager.
 # author: akhil tiwari
 
 # Sets the windows key as the mod key.
@@ -114,7 +114,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 # Sets up Lock & Suspend screens.
-bindsym Control+$mod+l exec i3lock -i ~/scaled.png 
+bindsym Control+$mod+l exec i3lock -i ~/scaled.png
 bindsym Control+$mod+x exec i3lock -i ~/scaled.png && systemctl suspend
 bindsym Control+$mod+s exec systemctl suspend
 
@@ -131,10 +131,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym j resize shrink height 10 px or 10 ppt
@@ -156,34 +152,40 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        position bottom
-        strip_workspace_numbers yes
-	colors {
-	        separator $base03
-                background #000000
-                statusline $base05
-		# colour                border  backgrd    text
-	        focused_workspace  	$base01 $base01    $base07
-                active_workspace   	$base01 $base02    $base03
-                inactive_workspace 	$base01 $base01    $base03
-                urgent_workspace   	$base01 $base01    $base08
-	}
+# when using i3blocks.
+status_command i3blocks -c ~/.config/i3/i3blocks.conf
+position bottom
+strip_workspace_numbers yes
+colors {
+separator $base03
+        background #000000
+        statusline $base05
+# colour                border  backgrd    text
+focused_workspace  	$base01 $base01    $base07
+        active_workspace   	$base01 $base02    $base03
+        inactive_workspace 	$base01 $base01    $base03
+        urgent_workspace   	$base01 $base01    $base08
+}
+
+
+# status_command i3status
+#         output primary
+#         tray_output none
+#         font pango:DejaVu Sans Mono 10
+#         separator_symbol "|"
 }
 
 # Sets up applications to execute on startup.
 exec_always --no-startup-id xsettingsd &
 exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id libinput-gestures 
+exec_always --no-startup-id libinput-gestures
+
 # Disables the gsd notifcations daemon.
 exec_always killall -q /usr/lib/gnome-settings-daemon/gsd-print-notifications
-exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec_always --no-startup-id dunst -config ~/.config/dunst/.dunstrc
 
-# Sets key bindings for brightness etc. 
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
-# xbacklight didn't work properly with i3wm, therefore used settings for the program ==> git clone https://github.com/haikarainen/light.git
+# Sets key bindings for brightness etc.
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -195,6 +197,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle-m
 bindsym Print exec /usr/bin/gnome-screenshot -i
 bindsym --release $mod+Print exec /usr/bin/gnome-screenshot -a
+
+# Set up signals for keys in i3blocks.
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # Set a background with feh.
 exec_always --no-startup-id feh --bg-scale ~/black.jpg
@@ -218,10 +223,3 @@ force_display_urgency_hint 500 ms
 for_window [class="^.*"] border pixel 0
 # enable floating mode for all XTerm windows.
 for_window [class="XTerm"] floating enable
-
-# Enable/disable caps mode
-mode "caps" {
-    bindsym Caps_Lock mode "default"
-}
-bindsym Caps_Lock mode "caps"
-

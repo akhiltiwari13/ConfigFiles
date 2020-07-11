@@ -87,6 +87,7 @@ call plug#end()
 " Use gruvbox as colorscheme.
 colorscheme gruvbox
 set background=dark    " Setting dark mode
+" set background=light    " Setting light mode
 
 "Mapping for tagbar (as specified by it's author)
 nmap <F8> :TagbarToggle<CR>
@@ -145,18 +146,19 @@ endfunction
 " ============================
 "Keybinding for FZF plugin
 nnoremap <C-p> :<C-u>FZF<CR>
-" Insert mode completion
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-" imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
-"             \ 'prefix': '^.*$',
-"             \ 'source': 'rg -n ^ --color always',
-"             \ 'options': '--ansi --delimiter : --nth 3..',
-"             \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '')  }
-"             \ }))
+let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+
+  nnoremap <silent> <leader><space> :Files<CR>
+  nnoremap <silent> <leader>a :Buffers<CR>
+  nnoremap <silent> <leader>A :Windows<CR>
+  nnoremap <silent> <leader>; :BLines<CR>
+  nnoremap <silent> <leader>o :BTags<CR>
+  nnoremap <silent> <leader>O :Tags<CR>
+  nnoremap <silent> <leader>? :History<CR>
+
+  imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+  imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " vim commentory comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
@@ -177,7 +179,7 @@ endif
 nnoremap <leader>l :ALELint<CR>
 nnoremap <leader>ll :ALEFix<CR>
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 1
+let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 
@@ -242,8 +244,8 @@ let g:deoplete#enable_at_startup = 1
 set completefunc=LanguageClient#complete
 
 let g:LanguageClient_serverCommands = {
-            \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
-            \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
+            \ 'cpp': ['clangd-9'],
+            \ 'c': ['clangd-9'],
             \ 'python': ['pyls'],
             \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
             \ }
