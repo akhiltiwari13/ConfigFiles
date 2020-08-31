@@ -145,6 +145,10 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # fzf related variables.
-export PATH=$PATH:/home/akhil/files/projects/vim_plugins/bundle/start/fzf/bin
+# export PATH=$PATH:/home/akhil/files/projects/vim_plugins/bundle/start/fzf/bin
+export PATH=$PATH:/home/akhil/.vim/plugged/fzf/bin
 export FZF_DEFAULT_COMMAND='rg --files'
 
+# makes history unlimited.
+HISTSIZE= 
+HISTFILESIZE=
