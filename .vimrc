@@ -1,4 +1,5 @@
-"====================================VIMRC BEGINS=================================================
+"akhil's .vimrc
+
 syntax enable                     " Turn on syntax highlighting.
 runtime macros/matchit.vim
 filetype plugin indent on
@@ -8,7 +9,7 @@ let mapleader="\<space>"                 " Maps space-bar as the leader key.
 set nrformats=
 set shiftwidth=4 softtabstop=4 expandtab
 set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
+set noshowmode                    " Show mode unnecessary because it is visble in airline.
 set backspace=indent,eol,start    " Intuitive backspacing.
 set hidden                        " Handle multiple buffers better.
 "set wildmode=longest,list        " Complete files like a shell.
@@ -30,9 +31,10 @@ set nowritebackup                 " And again.
 set cursorline
 set encoding=utf-8
 set foldmethod=indent
+set signcolumn=yes
 
-
-autocmd BufRead * normal zR //opens all folds by default.
+" open all folds by default.  
+autocmd BufRead * normal zR 
 
 " Install vim-plug if it's not already installed. Use PlugInstall to install all the below plugins post that. (only works for *inx/cygwin).
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -41,35 +43,40 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set tags=tags; " Look for a tags file recursively in parent directories(semicolon lets vim know to check for the tags file recursively in parent directorie.
-
 " Plugins installations using vim-plug.
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-plug'
+
+" Editing 
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'jiangmiao/auto-pairs'
+
+" Aesthetics
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+Plug 'luochen1990/rainbow'
+
+" Search & Navigation
+Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
-Plug 'janko/vim-test'
 Plug 'easymotion/vim-easymotion'
-Plug 'itchyny/lightline.vim'
-Plug 'mileszs/ack.vim'
+
+" Programming
 Plug 'majutsushi/tagbar'
-Plug 'sjl/gundo.vim'
-Plug 'luochen1990/rainbow'
-Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-vinegar'
+Plug 'janko/vim-test'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
-Plug 'mhinz/vim-grepper'
-Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
-" Plug 'maximbaz/lightline-ale'
 
+" LanguageCLient-neovim & it's complementary plugins!
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
             \ 'do': 'bash install.sh',
@@ -81,20 +88,69 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'Shougo/echodoc.vim' "for viewing function signatures.
+
+
 
 call plug#end()
 
+" ****PLUGIN CONFIGURATIONS.****
+
+" ============================
+"Mapping for undotree. 
+" ============================
+nnoremap <F5> :UndotreeToggle<CR>
+
+" ============================
 " Use gruvbox as colorscheme.
+" ============================
 colorscheme gruvbox
 set background=dark    " Setting dark mode
 " set background=light    " Setting light mode
 
+" ============================
+" echoDoc's settings for viewing function signature in neovim.
+" ============================
+" Or, you could use neovim's floating text feature.
+" let g:echodoc#enable_at_startup = 1
+" let g:echodoc#type = 'floating'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+" highlight link EchoDocFloat Pmenu
+
+" To use echodoc, you must increase 'cmdheight' value.
+set cmdheight=2
+let g:echodoc_enable_at_startup = 1
+let g:echodoc#type = 'signature'
+
+
+" ============================
 "Mapping for tagbar (as specified by it's author)
+" ============================
 nmap <F8> :TagbarToggle<CR>
 
+" ============================
 "Default configuration for rainbow.
+" ============================
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
+"  ========================================
+" Grepper mappings.
+"  ========================================
+let g:grepper = {}
+let g:grepper.tools = [ 'ack', 'rg', 'grep', 'git']
+
+" Fires search tools.
+nnoremap <leader>ga :Grepper -tool ack<cr>
+nnoremap <leader>gr :Grepper -tool rg<cr>
+nnoremap <leader>gg :Grepper -tool grep<cr>
+
+" Search for the current word
+nnoremap <leader>g* :Grepper -cword -noprompt<CR>
+
+" Search for the current selection
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
 
 " ============================
 "Configurations from Practical Vim.
@@ -126,10 +182,7 @@ function! s:VSetSearch()
 endfunction
 "Settings for visual selection search ==ENDS
 
-"Mapping & key to repeat last substitution WITH flags in normal and visual mode.
-nnoremap & :&&<CR>
-xnoremap & :&&<CR>
-
+"Whats it's use?
 "Vim-Script to use :Qargs to populate argument-list with quickfix-list.
 command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
@@ -149,16 +202,16 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
-  nnoremap <silent> <leader><space> :Files<CR>
-  nnoremap <silent> <leader>a :Buffers<CR>
-  nnoremap <silent> <leader>A :Windows<CR>
-  nnoremap <silent> <leader>; :BLines<CR>
-  nnoremap <silent> <leader>o :BTags<CR>
-  nnoremap <silent> <leader>O :Tags<CR>
-  nnoremap <silent> <leader>? :History<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fw :Windows<CR>
+nnoremap <silent> <leader>f; :BLines<CR>
+nnoremap <silent> <leader>ft :BTags<CR>
+nnoremap <silent> <leader>fO :Tags<CR>
+nnoremap <silent> <leader>f? :History<CR>
 
-  imap <C-x><C-f> <plug>(fzf-complete-file-ag)
-  imap <C-x><C-l> <plug>(fzf-complete-line)
+imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " vim commentory comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
@@ -176,15 +229,16 @@ endif
 " ========================================
 " ALE settings and mappings.
 " ========================================
-nnoremap <leader>l :ALELint<CR>
-nnoremap <leader>ll :ALEFix<CR>
+nnoremap <leader>e :ALELint<CR>
+nnoremap <leader>ef :ALEFix<CR>
+
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 
 " Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
@@ -201,18 +255,10 @@ let g:ale_fixers = {
             \ 'python': ['black','autopep8','isort','yapf'],
             \}
 
-" Grepper mappings.
-let g:grepper = {}
-let g:grepper.tools = ['grep', 'git', 'rg']
-" Search for the current word
-nnoremap <Leader>* :Grepper -cword -noprompt<CR>
-" Search for the current selection
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
 
-" " ========================================
-" " ALE-LightLine Integration.
-" " ========================================
+" ========================================
+" ALE-LightLine Integration.
+" ========================================
 " let g:lightline = {}
 
 " let g:lightline.component_expand = {
@@ -239,6 +285,10 @@ xmap gs <plug>(GrepperOperator)
 " ========================================
 "deoplete default config.
 let g:deoplete#enable_at_startup = 1
+" configures completion options for deoplete.
+call deoplete#custom#option('sources', {
+            \ '_': ['ale', 'LanguageClient'],
+            \})
 
 " LanguageClient-neovim configurations and mappings (works with vim-8 too)
 set completefunc=LanguageClient#complete
@@ -255,7 +305,7 @@ function! SetLSPShortcuts()
     nnoremap <leader>lr :call LanguageClient#textDocument_rename()<cr>
     nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<cr>
     nnoremap <leader>lx :call LanguageClient#textDocument_references()<cr>
-    nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<cr>
+    nnoremap <leader>le :call LanguageClient_workspace_applyEdit()<cr>
     nnoremap <leader>lc :call LanguageClient#textDocument_completion()<cr>
     nnoremap <leader>lh :call LanguageClient#textDocument_hover()<cr>
     nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
@@ -265,12 +315,11 @@ endfunction()
 augroup LSP
     autocmd!
     autocmd FileType cpp,c,python,rust call SetLSPShortcuts()
+    " autocmd FileType cpp,c,python,rust,cmake,go call SetLSPShortcuts()
 augroup END
 
 
 
-" Commented out LSP commands for C++; I use them @ whim. :-|)
-" \ 'cpp': ['clangd-9'],
-" \ 'c': ['clangd-9'],
+" Incase LSP for cpp needs to be changed!
 " \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
 " \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
