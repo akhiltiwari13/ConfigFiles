@@ -77,62 +77,47 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'dense-analysis/ale'
 
 " LanguageCLient-neovim & it's complementary plugins!
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ }
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/echodoc.vim' "for viewing function signatures.
+" Plug 'autozimu/LanguageClient-neovim', {
+"             \ 'branch': 'next',
+"             \ 'do': 'bash install.sh',
+"             \ }
+" if has('nvim')
+"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"     Plug 'Shougo/deoplete.nvim'
+"     Plug 'roxma/nvim-yarp'
+"     Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'Shougo/echodoc.vim' "for viewing function signatures.
 
 
 
 call plug#end()
-
 " ****PLUGIN CONFIGURATIONS.****
 
-" ============================
+" ====================
 "Mapping for undotree. 
-" ============================
+" ====================
 nnoremap <F5> :UndotreeToggle<CR>
 
-" ============================
+" ===========================
 " Use gruvbox as colorscheme.
-" ============================
+" ===========================
 colorscheme gruvbox
-set background=dark    " Setting dark mode
-" set background=light    " Setting light mode
-
-" ============================
-" echoDoc's settings for viewing function signature in neovim.
-" ============================
-" Or, you could use neovim's floating text feature.
-" let g:echodoc#enable_at_startup = 1
-" let g:echodoc#type = 'floating'
-" To use a custom highlight for the float window,
-" change Pmenu to your highlight group
-" highlight link EchoDocFloat Pmenu
-
-" To use echodoc, you must increase 'cmdheight' value.
-set cmdheight=2
-let g:echodoc_enable_at_startup = 1
-let g:echodoc#type = 'signature'
+set background=dark    "Setting dark mode
 
 
-" ============================
+" ===============================================
 "Mapping for tagbar (as specified by it's author)
-" ============================
-nmap <F8> :TagbarToggle<CR>
+" ===============================================
+nmap <F8> :TagbarToggle<CR> 
 
-" ============================
+" =================================
 "Default configuration for rainbow.
-" ============================
+" =================================
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+nnoremap <leader>r :RainbowToggle<CR>
+
 
 "  ========================================
 " Grepper mappings.
@@ -152,9 +137,10 @@ nnoremap <leader>g* :Grepper -cword -noprompt<CR>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
-" ============================
+" =================================
 "Configurations from Practical Vim.
-" ============================
+" =================================
+
 "Ex Commands mapping from practical vim.
 "Mapping for :edit %:h<Tab> //Practical vim Tip #41.
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -182,7 +168,6 @@ function! s:VSetSearch()
 endfunction
 "Settings for visual selection search ==ENDS
 
-"Whats it's use?
 "Vim-Script to use :Qargs to populate argument-list with quickfix-list.
 command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
@@ -284,11 +269,11 @@ let g:ale_fixers = {
 " LSP/LanguageClient and autocompletion related settings.
 " ========================================
 "deoplete default config.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " configures completion options for deoplete.
-call deoplete#custom#option('sources', {
-            \ '_': ['ale', 'LanguageClient'],
-            \})
+" call deoplete#custom#option('sources', {
+"             \ '_': ['ale', 'LanguageClient'],
+"             \})
 
 " LanguageClient-neovim configurations and mappings (works with vim-8 too)
 set completefunc=LanguageClient#complete

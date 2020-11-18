@@ -138,8 +138,8 @@ bar {
         font pango:FontAwesome mono 10
 
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        mode hide
-        position top
+        mode dock
+        position bottom
         strip_workspace_numbers yes
         tray_output primary
         separator_symbol "|"
