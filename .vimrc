@@ -6,19 +6,20 @@ filetype plugin indent on
 
 let mapleader="\<space>"                 " Maps space-bar as the leader key.
 
-set nrformats=
+set nrformats=                    "This will cause Vim to treat all numerals as decimal, regardless of whether they are padded with zeros(would be treated octal otherwise).
+
 set shiftwidth=4 softtabstop=4 expandtab
 set showcmd                       " Display incomplete commands.
 set noshowmode                    " Show mode unnecessary because it is visble in airline.
 set backspace=indent,eol,start    " Intuitive backspacing.
 set hidden                        " Handle multiple buffers better.
-"set wildmode=longest,list        " Complete files like a shell.
 set wildmenu			  " Complete files like a z-shell.
 set wildmode=full
 set history=1000
 set ignorecase                    " Case-insensitive searching.
 set infercase                     " Smart Keyword autocompletion.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
+
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
@@ -30,8 +31,8 @@ set nobackup                      " Don't make a backup before overwriting
 set nowritebackup                 " And again.
 set cursorline
 set encoding=utf-8
-set foldmethod=indent
 set signcolumn=yes
+set foldmethod=indent
 
 " open all folds by default.  
 autocmd BufRead * normal zR 
@@ -53,12 +54,12 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
 Plug 'jiangmiao/auto-pairs'
 
 " Aesthetics
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
-Plug 'luochen1990/rainbow'
 
 " Search & Navigation
 Plug 'mhinz/vim-grepper'
@@ -68,56 +69,36 @@ Plug 'easymotion/vim-easymotion'
 
 " Programming
 Plug 'majutsushi/tagbar'
-Plug 'janko/vim-test'
-Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
-Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
 
-" LanguageCLient-neovim & it's complementary plugins!
-" Plug 'autozimu/LanguageClient-neovim', {
-"             \ 'branch': 'next',
-"             \ 'do': 'bash install.sh',
-"             \ }
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"     Plug 'Shougo/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'Shougo/echodoc.vim' "for viewing function signatures.
 
+" LSP and Autocompletion.
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 
 call plug#end()
-" ****PLUGIN CONFIGURATIONS.****
 
-" ====================
+"  =============================
+" ****PLUGIN CONFIGURATIONS.****
+"  =============================
+
 "Mapping for undotree. 
-" ====================
 nnoremap <F5> :UndotreeToggle<CR>
 
-" ===========================
 " Use gruvbox as colorscheme.
-" ===========================
 colorscheme gruvbox
 set background=dark    "Setting dark mode
 
 
-" ===============================================
 "Mapping for tagbar (as specified by it's author)
-" ===============================================
 nmap <F8> :TagbarToggle<CR> 
-
-" =================================
-"Default configuration for rainbow.
-" =================================
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-nnoremap <leader>r :RainbowToggle<CR>
-
 
 "  ========================================
 " Grepper mappings.
@@ -190,16 +171,44 @@ let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fw :Windows<CR>
-nnoremap <silent> <leader>f; :BLines<CR>
-nnoremap <silent> <leader>ft :BTags<CR>
-nnoremap <silent> <leader>fO :Tags<CR>
-nnoremap <silent> <leader>f? :History<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+nnoremap <silent> <leader>fO :BTags<CR>
+nnoremap <silent> <leader>ft :Tags<CR>
+nnoremap <silent> <leader>f: :History:<CR>
+nnoremap <silent> <leader>f/ :History/<CR>
+nnoremap <silent> <leader>fc :Commands<CR>
 
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
-" vim commentory comment configuration for cmake.
+" vim-commentary comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
+
+" Key bindings for switching windows.
+" Normal mode
+nnoremap <M-h> <c-w>h
+nnoremap <M-j> <c-w>j
+nnoremap <M-k> <c-w>k
+nnoremap <M-l> <c-w>l
+
+" Insert mode (changes authored by self)
+inoremap <M-h> <c-[><c-w>h
+inoremap <M-j> <c-[><c-w>j
+inoremap <M-k> <c-[><c-w>k
+inoremap <M-l> <c-[><c-w>l
+
+" Visual mode (changes authored by self)
+vnoremap <m-h> <c-w>h
+vnoremap <m-j> <c-w>j
+vnoremap <m-k> <c-w>k
+vnoremap <m-l> <c-w>l
+
+if has('nvim')
+    tnoremap <M-h> <c-\><c-n><c-w>h
+    tnoremap <M-j> <c-\><c-n><c-w>j
+    tnoremap <M-k> <c-\><c-n><c-w>k
+    tnoremap <M-l> <c-\><c-n><c-w>l
+endif
 
 
 "NEOVIM ONLY Keybinding for terminal mode.
@@ -207,104 +216,24 @@ if has('nvim')
     "Keybindings for Terminal Mode.
     tnoremap <Esc> <C-\><C-n>
     tnoremap <C-]> <C-\><C-n>
-    tnoremap <C-v><Esc> <Esc>
-    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+
+    "<c-v><Esc> for sending Esc key to the program running in Terminal mode.
+    tnoremap <C-v><Esc> <Esc> 
+
+    "terminal-cursor is marked in red when changing to normal mode.
+    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 
 endif
 
-" ========================================
-" ALE settings and mappings.
-" ========================================
-nnoremap <leader>e :ALELint<CR>
-nnoremap <leader>ef :ALEFix<CR>
-
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_changed = 0
-
-" Set this variable to 1 to fix files when you save them.
-" let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1
-
-let g:ale_linters = {
-            \
-            \ 'javascript': ['eslint'],
-            \ 'cpp': ['cppcheck', 'clang'],
-            \ 'python': ['pylint'],
-            \ }
-
-let g:ale_fixers = {
-            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \ 'javascript': ['eslint', 'prettier'],
-            \ 'cpp': ['clangtidy', 'clang-format','uncrustify'],
-            \ 'python': ['black','autopep8','isort','yapf'],
-            \}
+nnoremap <leader>ld :LspDefinition<cr>
+nnoremap <leader>pd :LspPeekDefinition<cr>
+nnoremap <leader>lx :LspDeclaration<cr>
+nnoremap <leader>px :LspPeekDeclaration<cr>
+nnoremap <leader>lr :LspRename<cr>
+nnoremap <leader>lw :LspReferences<cr>
+nnoremap <leader>lh :LspHover<cr>
+nnoremap <leader>la :LspCodeAction<cr>
+nnoremap <leader>ls :LspDocumentSymbol<cr>
+nnoremap <leader>lf :LspDocumentFormat<cr>
+nnoremap <leader>lp :LspWorkspaceSymbol<cr>
 
 
-" ========================================
-" ALE-LightLine Integration.
-" ========================================
-" let g:lightline = {}
-
-" let g:lightline.component_expand = {
-"             \  'linter_checking': 'lightline#ale#checking',
-"             \  'linter_infos': 'lightline#ale#infos',
-"             \  'linter_warnings': 'lightline#ale#warnings',
-"             \  'linter_errors': 'lightline#ale#errors',
-"             \  'linter_ok': 'lightline#ale#ok',
-"             \ }
-
-" let g:lightline.component_type = {
-"             \     'linter_checking': 'right',
-"             \     'linter_infos': 'right',
-"             \     'linter_warnings': 'warning',
-"             \     'linter_errors': 'error',
-"             \     'linter_ok': 'right',
-"             \ }
-
-" let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
-
-
-" ========================================
-" LSP/LanguageClient and autocompletion related settings.
-" ========================================
-"deoplete default config.
-" let g:deoplete#enable_at_startup = 1
-" configures completion options for deoplete.
-" call deoplete#custom#option('sources', {
-"             \ '_': ['ale', 'LanguageClient'],
-"             \})
-
-" LanguageClient-neovim configurations and mappings (works with vim-8 too)
-set completefunc=LanguageClient#complete
-
-let g:LanguageClient_serverCommands = {
-            \ 'cpp': ['clangd-9'],
-            \ 'c': ['clangd-9'],
-            \ 'python': ['pyls'],
-            \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-            \ }
-
-function! SetLSPShortcuts()
-    nnoremap <leader>ld :call LanguageClient#textDocument_definition()<cr>
-    nnoremap <leader>lr :call LanguageClient#textDocument_rename()<cr>
-    nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<cr>
-    nnoremap <leader>lx :call LanguageClient#textDocument_references()<cr>
-    nnoremap <leader>le :call LanguageClient_workspace_applyEdit()<cr>
-    nnoremap <leader>lc :call LanguageClient#textDocument_completion()<cr>
-    nnoremap <leader>lh :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<cr>
-    nnoremap <leader>lm :call LanguageClient_contextMenu()<cr>
-endfunction()
-
-augroup LSP
-    autocmd!
-    autocmd FileType cpp,c,python,rust call SetLSPShortcuts()
-    " autocmd FileType cpp,c,python,rust,cmake,go call SetLSPShortcuts()
-augroup END
-
-
-
-" Incase LSP for cpp needs to be changed!
-" \ 'c':   ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],
-" \ 'cpp': ['ccls', '--log-file=/tmp/vim-cquery.log', '--init={"cacheDirectory":"$HOME/.cquery-cache"}'],

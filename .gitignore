@@ -1,0 +1,8 @@
+#vim/neovim related files.
+*.swp
+*.swo
+*.vim
+
+
+node_modules
+package-lock.json
