@@ -12,7 +12,6 @@ set shiftwidth=4 softtabstop=4 expandtab
 set showcmd                       " Display incomplete commands.
 set noshowmode                    " Show mode unnecessary because it is visble in airline.
 set backspace=indent,eol,start    " Intuitive backspacing.
-set hidden                        " Handle multiple buffers better.
 set wildmenu			  " Complete files like a z-shell.
 set wildmode=full
 set history=1000
@@ -30,9 +29,13 @@ set title                         " Set the terminal's title
 set nobackup                      " Don't make a backup before overwriting
 set nowritebackup                 " And again.
 set cursorline
+set hidden                        
 set encoding=utf-8
 set signcolumn=yes
 set foldmethod=indent
+set clipboard=unnamed
+
+
 
 " open all folds by default.  
 autocmd BufRead * normal zR 
@@ -73,6 +76,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'hrsh7th/vim-vsnip'
 
 
 " LSP and Autocompletion.
@@ -92,9 +97,9 @@ call plug#end()
 "Mapping for undotree. 
 nnoremap <F5> :UndotreeToggle<CR>
 
-" Use gruvbox as colorscheme.
+" Use gruvbox for colorscheme.
 colorscheme gruvbox
-set background=dark    "Setting dark mode
+set background=dark    
 
 
 "Mapping for tagbar (as specified by it's author)
@@ -235,5 +240,5 @@ nnoremap <leader>la :LspCodeAction<cr>
 nnoremap <leader>ls :LspDocumentSymbol<cr>
 nnoremap <leader>lf :LspDocumentFormat<cr>
 nnoremap <leader>lp :LspWorkspaceSymbol<cr>
-
-
+nnoremap <leader>l] :LspNextError <cr>
+nnoremap <leader>l[ :LspPreviousError <cr>
