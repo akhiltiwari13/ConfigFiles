@@ -240,3 +240,7 @@ nnoremap <leader>lf :LspDocumentFormat<cr>
 nnoremap <leader>lp :LspWorkspaceSymbol<cr>
 nnoremap <leader>l] :LspNextError <cr>
 nnoremap <leader>l[ :LspPreviousError <cr>
+
+" lightline configuration from :h lightline (docs)
+
+
