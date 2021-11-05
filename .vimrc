@@ -189,43 +189,23 @@ autocmd FileType cmake setlocal commentstring=#\ %s
 
 " Key bindings for switching windows.
 " Normal mode
-nnoremap <M-h> <c-w>h
-nnoremap <M-j> <c-w>j
-nnoremap <M-k> <c-w>k
-nnoremap <M-l> <c-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Insert mode (changes authored by self)
-inoremap <M-h> <c-[><c-w>h
-inoremap <M-j> <c-[><c-w>j
-inoremap <M-k> <c-[><c-w>k
-inoremap <M-l> <c-[><c-w>l
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-]> <C-\><C-n>
+"<c-v><Esc> for sending Esc key to the program running in Terminal mode.
+tnoremap <C-v><Esc> <Esc> 
+"terminal-cursor is marked in red when changing to normal mode.
+highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 
 
-" Visual mode (changes authored by self)
-vnoremap <m-h> <c-w>h
-vnoremap <m-j> <c-w>j
-vnoremap <m-k> <c-w>k
-vnoremap <m-l> <c-w>l
-
-if has('nvim')
-    tnoremap <M-h> <c-\><c-n><c-w>h
-    tnoremap <M-j> <c-\><c-n><c-w>j
-    tnoremap <M-k> <c-\><c-n><c-w>k
-    tnoremap <M-l> <c-\><c-n><c-w>l
-endif
-
-
-"NEOVIM ONLY Keybinding for terminal mode.
-if has('nvim')
-    "Keybindings for Terminal Mode.
-    tnoremap <Esc> <C-\><C-n>
-    tnoremap <C-]> <C-\><C-n>
-
-    "<c-v><Esc> for sending Esc key to the program running in Terminal mode.
-    tnoremap <C-v><Esc> <Esc> 
-
-    "terminal-cursor is marked in red when changing to normal mode.
-    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 
-endif
+" terminal-mode
+tnoremap <C-h> <c-\><c-n><c-w>h
+tnoremap <C-j> <c-\><c-n><c-w>j
+tnoremap <C-k> <c-\><c-n><c-w>k
+tnoremap <C-l> <c-\><c-n><c-w>l
 
 nnoremap <leader>ld :LspDefinition<cr>
 nnoremap <leader>pd :LspPeekDefinition<cr>
@@ -242,5 +222,3 @@ nnoremap <leader>l] :LspNextError <cr>
 nnoremap <leader>l[ :LspPreviousError <cr>
 
 " lightline configuration from :h lightline (docs)
-
-
