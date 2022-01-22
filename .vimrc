@@ -1,12 +1,12 @@
 "akhil's .vimrc
 
-syntax enable                     " Turn on syntax highlighting.
+syntax enable                            " Turn on syntax highlighting.
 runtime macros/matchit.vim
 filetype plugin indent on
 
 let mapleader="\<space>"                 " Maps space-bar as the leader key.
 
-set nrformats=                    "This will cause Vim to treat all numerals as decimal, regardless of whether they are padded with zeros(would be treated octal otherwise).
+set nrformats=                           "This will cause Vim to treat all numerals as decimal, regardless of whether they are padded with zeros(would be treated octal otherwise).
 
 set shiftwidth=4 softtabstop=4 expandtab
 set showcmd                       " Display incomplete commands.
@@ -18,7 +18,6 @@ set history=1000
 set ignorecase                    " Case-insensitive searching.
 set infercase                     " Smart Keyword autocompletion.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
-
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
@@ -32,7 +31,6 @@ set cursorline
 set hidden                        
 set encoding=utf-8
 set signcolumn=yes
-set foldmethod=indent
 set clipboard=unnamed
 
 
@@ -62,7 +60,8 @@ Plug 'jiangmiao/auto-pairs'
 
 " Aesthetics
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Search & Navigation
 Plug 'mhinz/vim-grepper'
@@ -73,18 +72,28 @@ Plug 'easymotion/vim-easymotion'
 " Programming
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
-Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
 
-
 " LSP and Autocompletion.
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
+
+
+" File format specific
+Plug 'chrisbra/csv.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -107,11 +116,10 @@ nmap <F8> :TagbarToggle<CR>
 " Grepper mappings.
 "  ========================================
 let g:grepper = {}
-let g:grepper.tools = [ 'ack', 'rg', 'grep', 'git']
+let g:grepper.tools = [ 'ag', 'grep', 'git']
 
 " Fires search tools.
-nnoremap <leader>ga :Grepper -tool ack<cr>
-nnoremap <leader>gr :Grepper -tool rg<cr>
+nnoremap <leader>ga :Grepper -tool ag<cr>
 nnoremap <leader>gg :Grepper -tool grep<cr>
 
 " Search for the current word
@@ -168,7 +176,6 @@ endfunction
 " ============================
 "Keybinding for FZF plugin
 nnoremap <C-p> :<C-u>FZF<CR>
-
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
 nnoremap <silent> <leader>ff :Files<CR>
@@ -189,10 +196,10 @@ autocmd FileType cmake setlocal commentstring=#\ %s
 
 " Key bindings for switching windows.
 " Normal mode
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-]> <C-\><C-n>
@@ -202,23 +209,35 @@ tnoremap <C-v><Esc> <Esc>
 highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 
 
 " terminal-mode
-tnoremap <C-h> <c-\><c-n><c-w>h
-tnoremap <C-j> <c-\><c-n><c-w>j
-tnoremap <C-k> <c-\><c-n><c-w>k
-tnoremap <C-l> <c-\><c-n><c-w>l
+tnoremap <leader>h <c-\><c-n><c-w>h
+tnoremap <leader>j <c-\><c-n><c-w>j
+tnoremap <leader>k <c-\><c-n><c-w>k
+tnoremap <leader>l <c-\><c-n><c-w>l
 
-nnoremap <leader>ld :LspDefinition<cr>
-nnoremap <leader>pd :LspPeekDefinition<cr>
-nnoremap <leader>lx :LspDeclaration<cr>
-nnoremap <leader>px :LspPeekDeclaration<cr>
-nnoremap <leader>lr :LspRename<cr>
-nnoremap <leader>lw :LspReferences<cr>
-nnoremap <leader>lh :LspHover<cr>
-nnoremap <leader>la :LspCodeAction<cr>
-nnoremap <leader>ls :LspDocumentSymbol<cr>
-nnoremap <leader>lf :LspDocumentFormat<cr>
-nnoremap <leader>lp :LspWorkspaceSymbol<cr>
-nnoremap <leader>l] :LspNextError <cr>
-nnoremap <leader>l[ :LspPreviousError <cr>
+nnoremap <leader>xd :LspDefinition<cr>
+nnoremap <leader>xp :LspPeekDefinition<cr>
+nnoremap <leader>xx :LspDeclaration<cr>
+nnoremap <leader>xc :LspPeekDeclaration<cr>
+nnoremap <leader>xr :LspRename<cr>
+nnoremap <leader>xw :LspReferences<cr>
+nnoremap <leader>xh :LspHover<cr>
+nnoremap <leader>xa :LspCodeAction<cr>
+nnoremap <leader>xs :LspDocumentSymbol<cr>
+nnoremap <leader>xf :LspDocumentFormat<cr>
+nnoremap <leader>xp :LspWorkspaceSymbol<cr>
+nnoremap <leader>x] :LspNextError <cr>
+nnoremap <leader>x[ :LspPreviousError <cr>
 
-" lightline configuration from :h lightline (docs)
+" air-line
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
+
+
+" ultisnips settings
+let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> to trigger autocompletion
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
