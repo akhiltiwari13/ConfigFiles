@@ -5,6 +5,7 @@ runtime macros/matchit.vim
 filetype plugin indent on
 
 let mapleader="\<space>"                 " Maps space-bar as the leader key.
+let g:python3_host_prog = "/usr/bin/python3"
 
 set nrformats=                           "This will cause Vim to treat all numerals as decimal, regardless of whether they are padded with zeros(would be treated octal otherwise).
 
@@ -32,8 +33,6 @@ set hidden
 set encoding=utf-8
 set signcolumn=yes
 set clipboard=unnamed
-
-
 
 " open all folds by default.  
 autocmd BufRead * normal zR 
@@ -78,17 +77,18 @@ Plug 'tpope/vim-dispatch'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP and Autocompletion.
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+" ultisnips and it's dependencies have been removed from vim as it was causing
+" an error pertaining to the python version.
 
-
+" File format specific
+Plug 'chrisbra/csv.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " File format specific
 Plug 'chrisbra/csv.vim'
@@ -235,9 +235,3 @@ let g:airline#extensions#tabline#enabled = 1
 set foldmethod=expr
   \ foldexpr=lsp#ui#vim#folding#foldexpr()
   \ foldtext=lsp#ui#vim#folding#foldtext()
-
-
-" ultisnips settings
-let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> to trigger autocompletion
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"

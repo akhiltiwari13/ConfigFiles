@@ -34,8 +34,6 @@ set signcolumn=yes
 set clipboard=unnamed
 set guifont=monaco:h12
 
-
-
 " open all folds by default.  
 autocmd BufRead * normal zR 
 
@@ -80,8 +78,8 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP and Autocompletion.
-Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -89,8 +87,6 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
-
-
 
 " File format specific
 Plug 'chrisbra/csv.vim'
