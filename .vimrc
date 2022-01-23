@@ -232,6 +232,8 @@ nnoremap <leader>x[ :LspPreviousError <cr>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-set foldmethod=expr
-  \ foldexpr=lsp#ui#vim#folding#foldexpr()
-  \ foldtext=lsp#ui#vim#folding#foldtext()
+set foldmethod=expr  foldexpr=lsp#ui#vim#folding#foldexpr()  foldtext=lsp#ui#vim#folding#foldtext()
+
+" Obsession key mappings
+nnoremap <leader>o :Obsess<cr>
+nnoremap <leader>s :Obsess!<cr>

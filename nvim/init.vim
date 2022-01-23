@@ -239,3 +239,7 @@ set foldmethod=expr
 let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> to trigger autocompletion
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+" Obsession key mappings
+nnoremap <leader>o :Obsess<cr>
+nnoremap <leader>s :Obsess!<cr>
