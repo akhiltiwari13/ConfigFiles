@@ -209,10 +209,10 @@ tnoremap <C-v><Esc> <Esc>
 highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 
 
 " terminal-mode
-tnoremap <leader>h <c-\><c-n><c-w>h
-tnoremap <leader>j <c-\><c-n><c-w>j
-tnoremap <leader>k <c-\><c-n><c-w>k
-tnoremap <leader>l <c-\><c-n><c-w>l
+tnoremap <leader><leader>h <c-\><c-n><c-w>h
+tnoremap <leader><leader>j <c-\><c-n><c-w>j
+tnoremap <leader><leader>k <c-\><c-n><c-w>k
+tnoremap <leader><leader>l <c-\><c-n><c-w>l
 
 nnoremap <leader>xd :LspDefinition<cr>
 nnoremap <leader>xp :LspPeekDefinition<cr>
