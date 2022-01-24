@@ -110,7 +110,7 @@ set background=dark
 
 
 "Mapping for tagbar (as specified by it's author)
-nmap <F8> :TagbarToggle<CR> 
+nmap <leader>m :TagbarToggle<CR> 
 
 "  ========================================
 " Grepper mappings.
