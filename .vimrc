@@ -83,7 +83,12 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 " ultisnips and it's dependencies have been removed from vim as it was causing
-" an error pertaining to the python version.
+" " Track the engine.
+" Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+" Plugin 'honza/vim-snippets'
+
+"@adding back an error pertaining to the python version.
 
 " File format specific
 Plug 'chrisbra/csv.vim'
@@ -123,15 +128,12 @@ nnoremap <leader>ga :Grepper -tool ag<cr>
 nnoremap <leader>gg :Grepper -tool grep<cr>
 
 " Search for the current word
-nnoremap <leader>g* :Grepper -cword -noprompt<CR>
+nnoremap <leader>g* :Grepper -cword -noprompt<CRF CVVVVVj>
 
 " Search for the current selection
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
-
-" =================================
-"Configurations from Practical Vim.
-" =================================
+" ================================= Configurations from Practical Vim. =================================
 
 "Ex Commands mapping from practical vim.
 "Mapping for :edit %:h<Tab> //Practical vim Tip #41.
@@ -143,7 +145,6 @@ cnoremap <C-n> <Down>
 nnoremap <f3> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=.git .<CR>
 noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-"Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>tc :tabclose<cr>
 map <leader>to :tabonly<cr>
