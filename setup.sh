@@ -9,13 +9,17 @@ export books="${files}/books"
 alias files='cd ${files}'
 alias proj='cd ${projects}'
 alias learn='cd ${learn}'
-alias ll='ls -lart'
+alias ll='ls -larth'
 alias cfg='cd ${projects}/ConfigFiles'
 alias indica='cd ${projects}/Indica'
 alias cassia='cd ${projects}/CassiaFistula'
 alias phyl='cd ${projects}/phyllanthus_emblica'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
+
+# cmake aliases
+alias cmktmc='cmake -G 'Unix Makefiles' -DOPENSSL_ROOT_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/ -DOPENSSL_INCLUDE_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/include/ -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF -DUSE_MANUAL=OFF -DBOOST_FILESYSTEM=ON -DBOOST_OPTIONAL=ON -DBOOST_INCLUDE_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/include/boost/ -DBOOST_LIB_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/lib/ ..'
+alias cmkepi='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=True -DCMAKE_BUILD_TYPE=Debug ../epi_judge_cpp'
 
 # project editing aliases
 alias cfgedit='cfg && nvim .'
@@ -38,6 +42,7 @@ alias cassianeo='cassia && neovide .'
 alias phylneo='phyl && neovide .'
 alias epineo='epi && neovide .'
 alias tmcneo='tmc && neovide .'
+alias cores='cd /Cores/'
 
 # aliases for reading
 alias readepi='open -a Preview ${books}/Competitive\ Programming\ \&\ Interviews/Adnan\ Aziz,\ Tsung-Hsien\ Lee,\ Amit\ Prakash\ -\ Elements\ of\ Programming\ Interviews_\ The\ Insiders’\ Guide\ \(2015\).pdf'
@@ -45,4 +50,7 @@ alias readtmc='open -a Preview ${books}/C++/The\ Modern\ C++\ Challenge\ Become\
 alias book='open -a Preview ${books}/Competitive\ Programming\ \&\ Interviews/\(Undergraduate\ Topics\ in\ Computer\ Science\)\ Antti\ Laaksonen\ -\ Guide\ to\ Competitive\ Programming_\ Learning\ and\ Improving\ Algorithms\ Through\ Contests\ \(Undergraduate\ Topics\ in\ Computer\ Science\)-Springer\ \(2.pdf'
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+alias python='python3'
+alias pip='pip3'
 

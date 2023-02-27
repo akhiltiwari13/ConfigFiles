@@ -84,11 +84,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 " ultisnips and it's dependencies have been removed from vim as it was causing
 " " Track the engine.
-" Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
-"@adding back an error pertaining to the python version.
+Plugin 'honza/vim-snippets'
+"@todokadding back an error pertaining to the python version.
 
 " File format specific
 Plug 'chrisbra/csv.vim'
@@ -176,6 +175,7 @@ endfunction
 "Configurations from Modern Vim.
 " ============================
 "Keybinding for FZF plugin
+set rtp+=/opt/homebrew/opt/fzf
 nnoremap <C-p> :<C-u>FZF<CR>
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
@@ -238,3 +238,4 @@ set foldmethod=expr  foldexpr=lsp#ui#vim#folding#foldexpr()  foldtext=lsp#ui#vim
 " Obsession key mappings
 nnoremap <leader>o :Obsess<cr>
 nnoremap <leader>s :Obsess!<cr>
+
