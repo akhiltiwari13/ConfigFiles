@@ -5,6 +5,7 @@ runtime macros/matchit.vim
 filetype plugin indent on
 
 let mapleader="\<space>"                 " Maps space-bar as the leader key.
+let g:python3_host_prog = "/usr/bin/python3"
 
 set nrformats=                           "This will cause Vim to treat all numerals as decimal, regardless of whether they are padded with zeros(would be treated octal otherwise).
 
@@ -78,13 +79,13 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP and Autocompletion.
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'SirVer/ultisnips'     " Snippets engine.
+Plug 'honza/vim-snippets'   " Snippets are separated from the engine. Add this if you want them:
 Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
@@ -173,6 +174,7 @@ endfunction
 "Configurations from Modern Vim.
 " ============================
 "Keybinding for FZF plugin
+set rtp+=/opt/homebrew/opt/fzf
 nnoremap <C-p> :<C-u>FZF<CR>
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 

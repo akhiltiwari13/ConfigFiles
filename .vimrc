@@ -33,6 +33,7 @@ set hidden
 set encoding=utf-8
 set signcolumn=yes
 set clipboard=unnamed
+set guifont=monaco:h12
 
 " open all folds by default.  
 autocmd BufRead * normal zR 
@@ -76,23 +77,17 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
 Plug 'editorconfig/editorconfig-vim'
 
+
 " LSP and Autocompletion.
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-" ultisnips and it's dependencies have been removed from vim as it was causing
-" " Track the engine.
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-"@todokadding back an error pertaining to the python version.
-
-" File format specific
-Plug 'chrisbra/csv.vim'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'SirVer/ultisnips'     " Snippets engine.
+Plug 'honza/vim-snippets'   " Snippets are separated from the engine. Add this if you want them:
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 " File format specific
 Plug 'chrisbra/csv.vim'
@@ -127,12 +122,15 @@ nnoremap <leader>ga :Grepper -tool ag<cr>
 nnoremap <leader>gg :Grepper -tool grep<cr>
 
 " Search for the current word
-nnoremap <leader>g* :Grepper -cword -noprompt<CRF CVVVVVj>
+nnoremap <leader>g* :Grepper -cword -noprompt<CR>
 
 " Search for the current selection
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
-" ================================= Configurations from Practical Vim. =================================
+
+" =================================
+"Configurations from Practical Vim.
+" =================================
 
 "Ex Commands mapping from practical vim.
 "Mapping for :edit %:h<Tab> //Practical vim Tip #41.
@@ -144,6 +142,7 @@ cnoremap <C-n> <Down>
 nnoremap <f3> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=.git .<CR>
 noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+"Tab mappings.
 map <leader>tt :tabnew<cr>
 map <leader>tc :tabclose<cr>
 map <leader>to :tabonly<cr>
@@ -233,9 +232,37 @@ nnoremap <leader>x[ :LspPreviousError <cr>
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-set foldmethod=expr  foldexpr=lsp#ui#vim#folding#foldexpr()  foldtext=lsp#ui#vim#folding#foldtext()
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
+
+
+" ultisnips settings
+let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> to trigger autocompletion
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " Obsession key mappings
 nnoremap <leader>o :Obsess<cr>
 nnoremap <leader>s :Obsess!<cr>
+
+" UltiSnips Trigger configuration.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" copied from https://github.com/thomasfaingnaert/vim-lsp-ultisnips
+if executable('clangd')
+    augroup vim_lsp_cpp
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'clangd',
+                    \ 'cmd': {server_info->['clangd']},
+                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+                    \ })
+	autocmd FileType c,cpp,objc,objcpp,cc setlocal omnifunc=lsp#complete
+    augroup end
+endif
 
