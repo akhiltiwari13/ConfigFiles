@@ -14,6 +14,7 @@ alias cfg='cd ${projects}/ConfigFiles'
 alias indica='cd ${projects}/Indica'
 alias cassia='cd ${projects}/CassiaFistula'
 alias phyl='cd ${projects}/phyllanthus_emblica'
+alias elaeo='cd ${projects}/Elaeocarpus'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
 

@@ -5,7 +5,7 @@ runtime macros/matchit.vim
 filetype plugin indent on
 
 let mapleader="\<space>"                 " Maps space-bar as the leader key.
-let g:python3_host_prog = "/usr/bin/python3"
+let g:python3_host_prog = "/opt/homebrew/bin/python3"
 
 set nrformats=                           "This will cause Vim to treat all numerals as decimal, regardless of whether they are padded with zeros(would be treated octal otherwise).
 
