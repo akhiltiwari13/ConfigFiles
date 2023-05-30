@@ -1,6 +1,5 @@
 " akhil's neovim configuration
 
-syntax enable                            " Turn on syntax highlighting.
 runtime macros/matchit.vim
 filetype plugin indent on
 
@@ -60,13 +59,15 @@ Plug 'jiangmiao/auto-pairs'
 
 " Aesthetics
 Plug 'morhetz/gruvbox'
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'chentoast/marks.nvim'
+
 
 " Search & Navigation
-Plug 'mhinz/vim-grepper'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'easymotion/vim-easymotion'
 
 " Programming
@@ -79,15 +80,12 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP and Autocompletion.
+" Plug 'neovim/nvim-lspconfig'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'SirVer/ultisnips'     " Snippets engine.
-Plug 'honza/vim-snippets'   " Snippets are separated from the engine. Add this if you want them:
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 " File format specific
 Plug 'chrisbra/csv.vim'
@@ -103,30 +101,16 @@ call plug#end()
 "Mapping for undotree. 
 nnoremap <F5> :UndotreeToggle<CR>
 
-" Use gruvbox for colorscheme.
-colorscheme gruvbox
+" " Use gruvbox for colorscheme.
+colorscheme tokyonight
 set background=dark    
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 0
 
 
 "Mapping for tagbar (as specified by it's author)
 nmap <leader>m :TagbarToggle<CR> 
-
-"  ========================================
-" Grepper mappings.
-"  ========================================
-let g:grepper = {}
-let g:grepper.tools = [ 'ag', 'grep', 'git']
-
-" Fires search tools.
-nnoremap <leader>ga :Grepper -tool ag<cr>
-nnoremap <leader>gg :Grepper -tool grep<cr>
-
-" Search for the current word
-nnoremap <leader>g* :Grepper -cword -noprompt<CR>
-
-" Search for the current selection
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
 
 " =================================
 "Configurations from Practical Vim.
@@ -173,23 +157,12 @@ endfunction
 " ============================
 "Configurations from Modern Vim.
 " ============================
-"Keybinding for FZF plugin
-set rtp+=/opt/homebrew/opt/fzf
-nnoremap <C-p> :<C-u>FZF<CR>
-let g:fzf_nvim_statusline = 0 " disable statusline overwriting
-
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>fw :Windows<CR>
-nnoremap <silent> <leader>fl :BLines<CR>
-nnoremap <silent> <leader>fO :BTags<CR>
-nnoremap <silent> <leader>ft :Tags<CR>
-nnoremap <silent> <leader>f: :History:<CR>
-nnoremap <silent> <leader>f/ :History/<CR>
-nnoremap <silent> <leader>fc :Commands<CR>
-
-imap <C-x><C-f> <plug>(fzf-complete-file-ag)
-imap <C-x><C-l> <plug>(fzf-complete-line)
+"Keybinding for Telescope plugin
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ft <cmd>Telescope tags<cr>
 
 " vim-commentary comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
@@ -231,17 +204,15 @@ nnoremap <leader>x[ :LspPreviousError <cr>
 " air-line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = "tokyonight"
 
-set foldmethod=expr
-  \ foldexpr=lsp#ui#vim#folding#foldexpr()
-  \ foldtext=lsp#ui#vim#folding#foldtext()
-
-
-" ultisnips settings
-let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> to trigger autocompletion
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+" This was causing a lot of lag in neovim when opening large files, sometimes
+" causing neovim to hang.
+" set foldmethod=expr
+"   \ foldexpr=lsp#ui#vim#folding#foldexpr()
+"   \ foldtext=lsp#ui#vim#folding#foldtext()
 
 " Obsession key mappings
 nnoremap <leader>o :Obsess<cr>
 nnoremap <leader>s :Obsess!<cr>
+
