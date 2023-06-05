@@ -78,6 +78,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'APZelos/blamer.nvim'
 
 " LSP and Autocompletion.
 " Plug 'neovim/nvim-lspconfig'
@@ -103,10 +104,9 @@ nnoremap <F5> :UndotreeToggle<CR>
 
 " " Use gruvbox for colorscheme.
 colorscheme tokyonight
-set background=dark    
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
-" let g:tokyonight_transparent_background = 0
+let g:tokyonight_transparent_background = 0
 
 
 "Mapping for tagbar (as specified by it's author)
@@ -216,3 +216,4 @@ let g:airline_theme = "tokyonight"
 nnoremap <leader>o :Obsess<cr>
 nnoremap <leader>s :Obsess!<cr>
 
+let g:blamer_enabled = 1
