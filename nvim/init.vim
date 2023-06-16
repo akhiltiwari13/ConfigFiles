@@ -60,8 +60,12 @@ Plug 'jiangmiao/auto-pairs'
 " Aesthetics
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'marko-cerovac/material.nvim'
+" replace airline with lualine for neovim config
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'chentoast/marks.nvim'
 
 
@@ -79,6 +83,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'APZelos/blamer.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
+
 
 " LSP and Autocompletion.
 " Plug 'neovim/nvim-lspconfig'
@@ -102,11 +108,8 @@ call plug#end()
 "Mapping for undotree. 
 nnoremap <F5> :UndotreeToggle<CR>
 
-" " Use gruvbox for colorscheme.
-colorscheme tokyonight
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 0
+let g:material_style="lighter"
+colorscheme material
 
 
 "Mapping for tagbar (as specified by it's author)
@@ -201,10 +204,9 @@ nnoremap <leader>xp :LspWorkspaceSymbol<cr>
 nnoremap <leader>x] :LspNextError <cr>
 nnoremap <leader>x[ :LspPreviousError <cr>
 
-" air-line
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = "tokyonight"
+"NimTreeToggle
+nnoremap <leader>tx :NvimTreeToggle<cr>
+tnoremap <leader>tx :NvimTreeToggle<cr>
 
 " This was causing a lot of lag in neovim when opening large files, sometimes
 " causing neovim to hang.
@@ -217,3 +219,56 @@ nnoremap <leader>o :Obsess<cr>
 nnoremap <leader>s :Obsess!<cr>
 
 let g:blamer_enabled = 1
+
+lua << END
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'material',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+END
+
