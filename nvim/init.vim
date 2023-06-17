@@ -84,15 +84,15 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'chentoast/marks.nvim'
 
 
 " LSP and Autocompletion.
-" Plug 'neovim/nvim-lspconfig'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+Plug 'neovim/nvim-lspconfig'    " Collection of configurations for built-in LSP client
+Plug 'hrsh7th/nvim-cmp'         " Autocompletion plugin
+Plug 'hrsh7th/cmp-nvim-lsp'     " LSP source for nvim-cmp
+Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
+Plug 'L3MON4D3/LuaSnip'         " Snippets plugin
 
 " File format specific
 Plug 'chrisbra/csv.vim'
@@ -190,21 +190,7 @@ tnoremap <leader><leader>j <c-\><c-n><c-w>j
 tnoremap <leader><leader>k <c-\><c-n><c-w>k
 tnoremap <leader><leader>l <c-\><c-n><c-w>l
 
-nnoremap <leader>xd :LspDefinition<cr>
-nnoremap <leader>xp :LspPeekDefinition<cr>
-nnoremap <leader>xx :LspDeclaration<cr>
-nnoremap <leader>xc :LspPeekDeclaration<cr>
-nnoremap <leader>xr :LspRename<cr>
-nnoremap <leader>xw :LspReferences<cr>
-nnoremap <leader>xh :LspHover<cr>
-nnoremap <leader>xa :LspCodeAction<cr>
-nnoremap <leader>xs :LspDocumentSymbol<cr>
-nnoremap <leader>xf :LspDocumentFormat<cr>
-nnoremap <leader>xp :LspWorkspaceSymbol<cr>
-nnoremap <leader>x] :LspNextError <cr>
-nnoremap <leader>x[ :LspPreviousError <cr>
-
-"NimTreeToggle
+"NvimTreeToggle
 nnoremap <leader>tx :NvimTreeToggle<cr>
 tnoremap <leader>tx :NvimTreeToggle<cr>
 
@@ -221,47 +207,49 @@ nnoremap <leader>s :Obsess!<cr>
 let g:blamer_enabled = 1
 
 lua << END
+-- ***Lualine setup
 require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'material',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+    options = {
+        icons_enabled = true,
+        theme = 'material',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        globalstatus = false,
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+        }
+        },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
     },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
 }
 
+-- ***nvimtree setup
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -270,5 +258,152 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
 
-END
+-- ***marks.nvim setup
+require'marks'.setup {
+    -- whether to map keybinds or not. default true
+    default_mappings = true,
+    -- which builtin marks to show. default {}
+    builtin_marks = { ".", "<", ">", "^" },
+    -- whether movements cycle back to the beginning/end of buffer. default true
+    cyclic = true,
+    -- whether the shada file is updated after modifying uppercase marks. default false
+    force_write_shada = false,
+    -- how often (in ms) to redraw signs/recompute mark positions. 
+    -- higher values will have better performance but may cause visual lag, 
+    -- while lower values may cause performance penalties. default 150.
+    refresh_interval = 250,
+    -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+    -- marks, and bookmarks.
+    -- can be either a table with all/none of the keys, or a single number, in which case
+    -- the priority applies to all marks.
+    -- default 10.
+    sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+    -- disables mark tracking for specific filetypes. default {}
+    excluded_filetypes = {},
+    -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+    -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+    -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+    -- default virt_text is "".
+    bookmark_0 = {
+        sign = "⚑",
+        virt_text = "hello world",
+        -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
+        -- defaults to false.
+        annotate = false,
+    },
+    mappings = {}
+}
+
+-- ***nvim-lspconfig setup
+-- Setup language servers.
+local lspconfig = require('lspconfig')
+lspconfig.clangd.setup {}
+lspconfig.pyright.setup {}
+lspconfig.rust_analyzer.setup {
+    -- Server-specific settings. See `:help lspconfig-setup`
+    settings = {
+        ['rust-analyzer'] = {},
+    },
+}
+
+
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', '<leader>xx', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', '<leader>xd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', '<leader>xh', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>xi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<leader>xs', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<leader>xt', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>xr', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<leader>xr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>xf', function()
+    vim.lsp.buf.format { async = true }
+    end, opts)
+    end,
+})
+
+-- ***autocompletion setup
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+local lspconfig = require('lspconfig')
+
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { 'clangd', 'rust_analyzer', 'pyright'}
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+        -- on_attach = my_custom_on_attach,
+        capabilities = capabilities,
+    }
+    end
+
+    -- luasnip setup
+    local luasnip = require 'luasnip'
+
+    -- nvim-cmp setup
+    local cmp = require 'cmp'
+    cmp.setup {
+        snippet = {
+            expand = function(args)
+            luasnip.lsp_expand(args.body)
+            end,
+        },
+        mapping = cmp.mapping.preset.insert({
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+        ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+        -- C-b (back) C-f (forward) for snippet placeholder navigation.
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+        else
+            fallback()
+            end
+            end, { 'i', 's' }),
+            ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+                end
+                end, { 'i', 's' }),
+        }),
+        sources = {
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+        },
+    }
+    END
 
