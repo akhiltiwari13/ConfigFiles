@@ -234,7 +234,7 @@ require('lualine').setup {
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
-    },
+        },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
@@ -242,7 +242,7 @@ require('lualine').setup {
         lualine_x = {'location'},
         lualine_y = {},
         lualine_z = {}
-    },
+        },
     tabline = {},
     winbar = {},
     inactive_winbar = {},
@@ -290,7 +290,7 @@ require'marks'.setup {
         -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
         -- defaults to false.
         annotate = false,
-    },
+        },
     mappings = {}
 }
 
@@ -303,7 +303,7 @@ lspconfig.rust_analyzer.setup {
     -- Server-specific settings. See `:help lspconfig-setup`
     settings = {
         ['rust-analyzer'] = {},
-    },
+        },
 }
 
 
@@ -346,14 +346,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- ***autocompletion setup
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright'}
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
@@ -390,20 +389,13 @@ for _, lsp in ipairs(servers) do
             fallback()
             end
             end, { 'i', 's' }),
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-                end
-                end, { 'i', 's' }),
-        }),
-        sources = {
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-        },
+    }),
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
     }
-    END
+}
+
+-- do not indent this END marker
+END
 
