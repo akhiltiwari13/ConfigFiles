@@ -167,7 +167,7 @@ endfunction
 nnoremap <leader>fi  <cmd>Telescope builtin theme=dropdown<cr>
 nnoremap <leader>ff <cmd>Telescope find_files hidden=true theme=dropdown<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
-nnoremap <leader>fs <cmd>Telescope grep_strings theme=dropdown<cr>
+nnoremap <leader>fs <cmd>Telescope grep_string theme=dropdown<cr>
 nnoremap <leader>fb <cmd>Telescope buffers theme=dropdown<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags theme=cursor<cr>
 nnoremap <leader>ft <cmd>Telescope tags theme=cursor<cr>
@@ -179,15 +179,15 @@ nnoremap <leader>fr <cmd>Telescope registers hidden=true theme=ivy<cr>
 nnoremap <leader>fo <cmd>Telescope spell_suggest theme=cursor<cr>
 nnoremap <leader>fm <cmd>Telescope keymaps theme=ivy<cr>
 nnoremap <leader>sc <cmd>Telescope command_history theme=ivy<cr>
-nnoremap <leader>ss <cmd>Telescope search_history theme=ivy<cr>
+nnoremap <leader>sh <cmd>Telescope search_history theme=ivy<cr>
 nnoremap <leader>sr <cmd>Telescope lsp_references theme=cursor<cr>
-nnoremap <leader>sx <cmd>Telescope lsp_definitions theme=cursor<cr>
+nnoremap <leader>sd <cmd>Telescope lsp_definitions theme=cursor<cr>
 nnoremap <leader>si <cmd>Telescope lsp_implementation theme=cursor<cr>
 nnoremap <leader>st <cmd>Telescope lsp_type_definitions theme=cursor<cr>
-nnoremap <leader>sd <cmd>Telescope lsp_document_symbols theme=ivy<cr>
+nnoremap <leader>ss <cmd>Telescope lsp_document_symbols theme=ivy<cr>
 nnoremap <leader>sw <cmd>Telescope lsp_workspace_symbols theme=ivy<cr>
 nnoremap <leader>sW <cmd>Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>
-nnoremap <leader>sh <cmd>Telescope diagnostics bufnr=0 theme=ivy<cr>
+nnoremap <leader>so <cmd>Telescope diagnostics bufnr=0 theme=ivy<cr>
 
 " vim-commentary comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
@@ -213,8 +213,8 @@ tnoremap <leader><leader>k <c-\><c-n><c-w>k
 tnoremap <leader><leader>l <c-\><c-n><c-w>l
 
 "NvimTreeToggle
-nnoremap <leader>tx :NvimTreeToggle<cr>
-tnoremap <leader>tx :NvimTreeToggle<cr>
+nnoremap <leader>nt :NvimTreeToggle<cr>
+tnoremap <leader>nt :NvimTreeToggle<cr>
 
 " This was causing a lot of lag in neovim when opening large files, sometimes
 " causing neovim to hang.
