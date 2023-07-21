@@ -1,4 +1,4 @@
-" akhil's neovim configuration
+"akhil's neovim  configuration
 
 runtime macros/matchit.vim
 filetype plugin indent on
@@ -61,12 +61,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'marko-cerovac/material.nvim'
+Plug 'rose-pine/neovim'
 " replace airline with lualine for neovim config
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'akinsho/bufferline.nvim',{'tag':'*'}
 Plug 'chentoast/marks.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 
 " Search & Navigation
@@ -108,8 +109,10 @@ call plug#end()
 "Mapping for undotree. 
 nnoremap <F5> :UndotreeToggle<CR>
 
-let g:material_style="lighter"
-colorscheme material
+" let g:material_style="lighter"
+" colorscheme material
+set background=light
+colorscheme rose-pine
 
 
 "Mapping for tagbar (as specified by it's author)
@@ -161,11 +164,30 @@ endfunction
 "Configurations from Modern Vim.
 " ============================
 "Keybinding for Telescope plugin
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>ft <cmd>Telescope tags<cr>
+nnoremap <leader>fi  <cmd>Telescope builtin theme=dropdown<cr>
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true theme=dropdown<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
+nnoremap <leader>fs <cmd>Telescope grep_strings theme=dropdown<cr>
+nnoremap <leader>fb <cmd>Telescope buffers theme=dropdown<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags theme=cursor<cr>
+nnoremap <leader>ft <cmd>Telescope tags theme=cursor<cr>
+nnoremap <leader>fc <cmd>Telescope commands theme=cursor<cr>
+nnoremap <leader>fk <cmd>Telescope man_pages theme=dropdown<cr>
+nnoremap <leader>f' <cmd>Telescope marks theme=dropdown<cr>
+nnoremap <leader>fy <cmd>Telescope colorscheme theme=dropdown<cr>
+nnoremap <leader>fr <cmd>Telescope registers hidden=true theme=ivy<cr>
+nnoremap <leader>fo <cmd>Telescope spell_suggest theme=cursor<cr>
+nnoremap <leader>fm <cmd>Telescope keymaps theme=ivy<cr>
+nnoremap <leader>sc <cmd>Telescope command_history theme=ivy<cr>
+nnoremap <leader>ss <cmd>Telescope search_history theme=ivy<cr>
+nnoremap <leader>sr <cmd>Telescope lsp_references theme=cursor<cr>
+nnoremap <leader>sx <cmd>Telescope lsp_definitions theme=cursor<cr>
+nnoremap <leader>si <cmd>Telescope lsp_implementation theme=cursor<cr>
+nnoremap <leader>st <cmd>Telescope lsp_type_definitions theme=cursor<cr>
+nnoremap <leader>sd <cmd>Telescope lsp_document_symbols theme=ivy<cr>
+nnoremap <leader>sw <cmd>Telescope lsp_workspace_symbols theme=ivy<cr>
+nnoremap <leader>sW <cmd>Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>
+nnoremap <leader>sh <cmd>Telescope diagnostics bufnr=0 theme=ivy<cr>
 
 " vim-commentary comment configuration for cmake.
 autocmd FileType cmake setlocal commentstring=#\ %s
@@ -202,22 +224,22 @@ tnoremap <leader>tx :NvimTreeToggle<cr>
 
 " Obsession key mappings
 nnoremap <leader>o :Obsess<cr>
-nnoremap <leader>s :Obsess!<cr>
+nnoremap <leader>O :Obsess!<cr>
 
 let g:blamer_enabled = 1
 
-lua << END
+lua << EOF
 -- ***Lualine setup
 require('lualine').setup {
     options = {
         icons_enabled = true,
         theme = 'material',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
         disabled_filetypes = {
             statusline = {},
             winbar = {},
         },
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
         ignore_focus = {},
         always_divide_middle = true,
         globalstatus = false,
@@ -234,7 +256,7 @@ require('lualine').setup {
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
-        },
+    },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
@@ -242,7 +264,7 @@ require('lualine').setup {
         lualine_x = {'location'},
         lualine_y = {},
         lualine_z = {}
-        },
+    },
     tabline = {},
     winbar = {},
     inactive_winbar = {},
@@ -257,6 +279,12 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
+
+-- ***nvim-treesitter setup
+require("nvim-treesitter").setup{}
+
+-- ***bufferline.nvim setup
+require("bufferline").setup{}
 
 -- ***marks.nvim setup
 require'marks'.setup {
@@ -290,7 +318,7 @@ require'marks'.setup {
         -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
         -- defaults to false.
         annotate = false,
-        },
+    },
     mappings = {}
 }
 
@@ -298,21 +326,19 @@ require'marks'.setup {
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup {}
+lspconfig.cmake.setup {}
+lspconfig.vimls.setup {}
 lspconfig.pyright.setup {}
-lspconfig.rust_analyzer.setup {
-    -- Server-specific settings. See `:help lspconfig-setup`
-    settings = {
-        ['rust-analyzer'] = {},
-        },
-}
-
+lspconfig.lua_ls.setup {}
+lspconfig.rust_analyzer.setup {}
+lspconfig.textlsp.setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -338,21 +364,24 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>xt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>xr', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<leader>xr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>xz', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>xf', function()
     vim.lsp.buf.format { async = true }
     end, opts)
     end,
 })
 
--- ***autocompletion setup
+EOF
+
+
+lua << EOF
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', textlsp }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
@@ -389,13 +418,20 @@ for _, lsp in ipairs(servers) do
             fallback()
             end
             end, { 'i', 's' }),
-    }),
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+            ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+                end
+                end, { 'i', 's' }),
+        }),
+        sources = {
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+        },
     }
-}
-
--- do not indent this END marker
-END
+EOF
 
