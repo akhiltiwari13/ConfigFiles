@@ -111,7 +111,7 @@ nnoremap <F5> :UndotreeToggle<CR>
 
 " let g:material_style="lighter"
 " colorscheme material
-set background=light
+set background=dark
 colorscheme rose-pine
 
 
@@ -233,7 +233,7 @@ lua << EOF
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'material',
+        theme = 'rose-pine',
         disabled_filetypes = {
             statusline = {},
             winbar = {},
