@@ -330,7 +330,6 @@ lspconfig.vimls.setup {}
 lspconfig.pyright.setup {}
 lspconfig.lua_ls.setup {}
 lspconfig.rust_analyzer.setup {}
-lspconfig.textlsp.setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -380,7 +379,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', "textlsp" }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', "lua_ls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
