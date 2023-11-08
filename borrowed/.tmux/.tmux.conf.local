@@ -261,11 +261,10 @@ tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_13,$tmux_conf_theme_colo
 tmux_conf_theme_status_left_attr="none,none,none"
 
 # status right style
-tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_18,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_6"
+tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_9,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_6"
 tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_13"
 # tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_17"
 tmux_conf_theme_status_right_attr="none,none,none"
->>>>>>> f508403 ([neovim|tmux] change tmux for dark color theme and minor refactoring of neovim cfg)
 
 # pairing indicator
 tmux_conf_theme_pairing="⚇"                 # U+2687
