@@ -32,7 +32,6 @@ set hidden
 set encoding=utf-8
 set signcolumn=yes
 set clipboard=unnamed
-set guifont=monaco:h12
 
 " open all folds by default.  
 autocmd BufRead * normal zR 
@@ -112,7 +111,7 @@ nnoremap <F5> :UndotreeToggle<CR>
 " let g:material_style="lighter"
 " colorscheme material
 set background=dark
-colorscheme rose-pine
+colorscheme gruvbox
 
 
 "Mapping for tagbar (as specified by it's author)
@@ -233,7 +232,7 @@ lua << EOF
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'rose-pine',
+        theme = 'gruvbox',
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -381,7 +380,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', textlsp }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', "textlsp" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
