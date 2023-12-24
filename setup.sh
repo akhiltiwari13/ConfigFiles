@@ -55,3 +55,12 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 alias python='python3'
 alias pip='pip3'
 
+#***********
+#work setup.
+#***********
+
+alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
+
+#to enbale look-up of packages installed via homebrew before their default couterparts. 
+export PATH="/usr/local/bin:$PATH"
+
