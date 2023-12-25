@@ -55,12 +55,30 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 alias python='python3'
 alias pip='pip3'
 
-#***********
-#work setup.
-#***********
+#********************
+#work specific setup.
+#********************
 
-alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
+hostname=$(hostname)
+desired_hostname="atiwari-m01"
 
-#to enbale look-up of packages installed via homebrew before their default couterparts. 
-export PATH="/usr/local/bin:$PATH"
+if [ "$hostname" = "$desired_hostname" ]; then
+    echo "initating work setup"
+    #start mutagen for workspace syncing.
+    # mutagen daemon register # registers mutagen with launchd to start it on system start.
+    # mutagen daemon start
+
+    alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
+
+    #to enbale look-up of packages installed via homebrew before their default couterparts. 
+    export PATH="/usr/local/bin:$PATH"
+    export TERM=xterm-256color
+    
+    # work specific alias.
+    alias dshrd045="ssh -Yv akhil.tiwari@devbox-shared-045.aws-qa.host.gem.link"
+
+else
+    echo "hostname: $hostname" 
+fi
+
 
