@@ -73,12 +73,26 @@ if [ "$hostname" = "$desired_hostname" ]; then
     #to enbale look-up of packages installed via homebrew before their default couterparts. 
     export PATH="/usr/local/bin:$PATH"
     export TERM=xterm-256color
-    
+
     # work specific alias.
     alias dshrd045="ssh -Yv akhil.tiwari@devbox-shared-045.aws-qa.host.gem.link"
+
+    fssh() {
+        killall ssh-agent
+        ssh-agent > ~/.ssh-agent
+        source ~/.ssh-agent
+        sleep 1
+        ssh-add -s /usr/local/lib/opensc-pkcs11.so
+    }
+
+    if [ -f ~/.ssh-agent ]; then
+        source ~/.ssh-agent
+    fi
+    #call fssh on shell start-up.
+    fssh
+
 
 else
     echo "hostname: $hostname" 
 fi
-
 
