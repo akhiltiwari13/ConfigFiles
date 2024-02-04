@@ -71,14 +71,18 @@ if [ "$hostname" = "$desired_hostname" ]; then
     alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
 
     #to enbale look-up of packages installed via homebrew before their default couterparts. 
-    export PATH="/usr/local/bin:$PATH"
-    export TERM=xterm-256color
+    # export PATH="/usr/local/bin:$PATH"
+    # export TERM=xterm-256color
 
     # work specific alias.
-    alias dshrd045="ssh -Yv akhil.tiwari@devbox-shared-045.aws-qa.host.gem.link"
+    alias wsdev="ssh  aws_dev"
+    alias ws045="ssh  aws_dev_045"
+    alias nvim="lvim"
+    # alias ws037="ssh  aws_dev_037"
+    # alias ws013="ssh  aws_dev_013"
 
     fssh() {
-        killall ssh-agent
+        # killall ssh-agent
         ssh-agent > ~/.ssh-agent
         source ~/.ssh-agent
         sleep 1
