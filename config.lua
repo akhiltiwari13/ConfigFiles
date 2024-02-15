@@ -167,47 +167,9 @@ lvim.lsp.installer.setup.automatic_installation = true
 local lspconfig = require 'lspconfig'
 local configs = require 'lspconfig.configs'
 
--- Check if the ccls server configuration exists and if not, set it up
-if not configs.ccls then
-  configs.ccls = {
-    default_config = {
-      cmd = { "ccls" },
-      filetypes = { "c", "cpp", "objc", "objcpp" },
-      root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
-      init_options = {
-        compilationDatabaseDirectory = "build",
-        index = {
-          threads = 0,
-        },
-        clang = {
-          excludeArgs = { "-frounding-math" },
-        },
-      },
-    },
-  }
-end
-
--- Scala LSP setup
--- Metals configuration for Scala
--- Ensure that you have Metals installed via coursier
-
--- if not lspconfig.configs.metals then
---   lspconfig.configs.metals = {
---     default_config = {
---       cmd = { "metals" },
---       filetypes = { "scala", "sbt" },
---       root_dir = lspconfig.util.root_pattern("build.sbt", ".git"),
---       settings = {
---         showImplicitArguments = true,
---         showInferredType = true,
---       }
---     },
---   }
--- end
-
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'ccls', 'metals' }
+local servers = {'metals' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = require("lvim.lsp").common_on_attach,
