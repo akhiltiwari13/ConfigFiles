@@ -142,7 +142,7 @@ lvim.builtin.which_key.mappings["t"] = {
 }
 
 -- colorscheme setup
-lvim.colorscheme = "catppuccin-latte"
+lvim.colorscheme = "catppuccin-macchiato"
 
 -- hop.vim keybappings
 lvim.builtin.which_key.mappings["<leader>"] = {
