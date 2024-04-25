@@ -63,23 +63,24 @@ hostname=$(hostname)
 desired_hostname="atiwari-m01"
 
 if [ "$hostname" = "$desired_hostname" ]; then
-    echo "initating work setup"
+    echo "initiating work setup"
     #start mutagen for workspace syncing.
     # mutagen daemon register # registers mutagen with launchd to start it on system start.
     # mutagen daemon start
 
     alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
 
-    #to enbale look-up of packages installed via homebrew before their default couterparts. 
+    #to enable look-up of packages installed via homebrew before their default couterparts. 
     # export PATH="/usr/local/bin:$PATH"
     # export TERM=xterm-256color
+    export EDITOR='nvim'
 
     # work specific alias.
-    alias wsdev="ssh  aws_dev"
-    alias ws045="ssh  aws_dev_045"
-    alias nvim="lvim"
-    # alias ws037="ssh  aws_dev_037"
-    # alias ws013="ssh  aws_dev_013"
+    alias wsna="ssh  aws_dev"
+    alias wsapac="ssh  aws_apac_dev"
+    alias qa="ssh  gateway-qa100-001a.aws-qa.host.gem.link"
+    alias qahub="ssh hub-admin-qa100-001.aws-qa.host.gem.link"
+    alias qale="ssh trading-worker-qa100-006.aws-qa.host.gem.link"
 
     fssh() {
         # killall ssh-agent
