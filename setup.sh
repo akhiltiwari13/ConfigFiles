@@ -71,7 +71,7 @@ if [ "$hostname" = "$desired_hostname" ]; then
     alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
 
     #to enable look-up of packages installed via homebrew before their default couterparts. 
-    # export PATH="/usr/local/bin:$PATH"
+    export PATH="/Users/akhil.tiwari/files/projects/gemini/akhil/scripts/:$PATH"
     # export TERM=xterm-256color
     export EDITOR='nvim'
 
@@ -100,4 +100,3 @@ if [ "$hostname" = "$desired_hostname" ]; then
 else
     echo "hostname: $hostname" 
 fi
-
