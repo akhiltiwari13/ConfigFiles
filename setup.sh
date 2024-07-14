@@ -60,7 +60,7 @@ alias pip='pip3'
 #********************
 
 hostname=$(hostname)
-desired_hostname="atiwari-m01"
+desired_hostname="atiwari-mac-27Y1"
 
 if [ "$hostname" = "$desired_hostname" ]; then
     echo "initiating work setup"
