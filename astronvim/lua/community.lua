@@ -7,8 +7,12 @@ return {
   "AstroNvim/astrocommunity",
   -- import/override with your plugins folder
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  { import = "astrocommunity.colorscheme.gruvbox-baby" },
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  -- { import = "astrocommunity.completion.copilot-lua" },
   -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   -- example of importing an entire language pack
   -- these packs can set up things such as Treesitter, Language Servers, additional language specific plugins, and more!
@@ -16,4 +20,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rust" },
+
+  { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.vim-matchup" },
 }

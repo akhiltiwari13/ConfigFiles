@@ -21,10 +21,11 @@ return {
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
+          "markdown",
+          "python",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
+          "cpp",
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -37,29 +38,31 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
-    servers = {
-      "pyright",
-      "ccls",
+    servers = { 
+      -- "ccls"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
-    -- config = {
-    --   ccls = {}
-    -- },
     config = {
-      -- ccls = { -- Add configuration specific to 'ccls'
+      -- ccls = {
       --   init_options = {
-      --     compilationDatabaseDirectory = "./",
-      --     index = {
-      --       threads = 0,
+      --     cache = {
+      --       directory = ".ccls-cache",
       --     },
+      --     compilationDatabaseDirectory = ".",
       --     clang = {
+      --       extraArgs = { "-std=c++23" },
       --       excludeArgs = { "-frounding-math" },
       --     },
       --   },
       -- },
-      -- clangd = { capabilities = { offsetEncoding = "utf-16" } },
+        clangd = {
+          capabilities = {
+            offsetEncoding = "utf-8",
+          },
+        },
     },
+
     -- customize how language servers are attached
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
@@ -93,6 +96,10 @@ return {
           callback = function() vim.lsp.buf.clear_references() end,
         },
       },
+    },
+    filetypes = {
+      c = "clangd",
+      cpp = "clangd",
     },
     -- mappings to be set up on attaching of a language server
     mappings = {

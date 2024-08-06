@@ -21,24 +21,19 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        "██╗      ██████╗ ██████╗ ██████╗     ██╗   ██╗ ██████╗ ██╗     ██████╗ ███████╗███╗   ███╗ ██████╗ ██████╗ ████████╗",
+        "██║     ██╔═══██╗██╔══██╗██╔══██╗    ██║   ██║██╔═══██╗██║     ██╔══██╗██╔════╝████╗ ████║██╔═══██╗██╔══██╗╚══██╔══╝",
+        "██║     ██║   ██║██████╔╝██║  ██║    ██║   ██║██║   ██║██║     ██║  ██║█████╗  ██╔████╔██║██║   ██║██████╔╝   ██║   ",
+        "██║     ██║   ██║██╔══██╗██║  ██║    ╚██╗ ██╔╝██║   ██║██║     ██║  ██║██╔══╝  ██║╚██╔╝██║██║   ██║██╔══██╗   ██║   ",
+        "███████╗╚██████╔╝██║  ██║██████╔╝     ╚████╔╝ ╚██████╔╝███████╗██████╔╝███████╗██║ ╚═╝ ██║╚██████╔╝██║  ██║   ██║   ",
+        "╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝       ╚═══╝   ╚═════╝ ╚══════╝╚═════╝ ╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ",
       }
       return opts
     end,
   },
 
   -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
+  { "max397574/better-escape.nvim", enabled = true },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
@@ -78,6 +73,25 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+    end,
+  },
+  {
+    "p00f/clangd_extensions.nvim", -- install lsp plugin
+    lazy = true,
+    init = function()
+      -- load clangd extensions when clangd attaches
+      local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = augroup,
+        desc = "Load clangd_extensions with clangd",
+        callback = function(args)
+          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
+            require "clangd_extensions"
+            -- add more `clangd` setup here as needed such as loading autocmds
+            vim.api.nvim_del_augroup_by_id(augroup) -- delete auto command since it only needs to happen once
+          end
+        end,
+      })
     end,
   },
 }
