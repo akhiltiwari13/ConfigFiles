@@ -14,6 +14,7 @@ return {
       "bash",
       "cmake",
       "starlark",
+      "zig",
       -- add more arguments for adding more treesitter parsers
     })
   end,

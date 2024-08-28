@@ -8,10 +8,12 @@ return {
   -- import/override with your plugins folder
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
+  { import = "astrocommunity.color.vim-highlighter" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.gruvbox-baby" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.moonfly" },
   -- { import = "astrocommunity.completion.copilot-lua" },
   -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   -- example of importing an entire language pack
