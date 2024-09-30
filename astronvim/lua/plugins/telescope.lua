@@ -14,7 +14,9 @@ return {
       require("telescope").load_extension "media_files"
       local builtin = require "telescope.builtin"
       vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "Find command history" })
+      vim.keymap.set("n", "<leader>fs", builtin.search_history, { desc = "Find search history" })
       vim.keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "Find man pages" })
+      vim.keymap.set("n", "<leader>fp", builtin.spell_suggest, { desc = "Find spelling suggestions for the word under cursor" })
       vim.keymap.set("n", "<leader>flr", builtin.lsp_references, { desc = "Find lsp references" })
       vim.keymap.set("n", "<leader>fld", builtin.lsp_definitions, { desc = "Find lsp definitions" })
       vim.keymap.set("n", "<leader>flc", builtin.lsp_incoming_calls, { desc = "Find lsp incoming calls" })
@@ -26,22 +28,5 @@ return {
       vim.keymap.set("n", "<leader>fll", builtin.lsp_dynamic_workspace_symbols, { desc = "Find list all lsps" })
       vim.keymap.set("n", "<leader>flx", builtin.diagnostics, { desc = "find diagnostics" })
     end,
-  },
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- required by telescope
-      "MunifTanjim/nui.nvim",
-
-      -- optional
-      "nvim-treesitter/nvim-treesitter",
-      "rcarriga/nvim-notify",
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-      -- configuration goes here
-    },
   },
 }

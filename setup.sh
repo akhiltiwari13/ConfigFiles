@@ -5,10 +5,12 @@ export files="${HOME}/files"
 export projects="${files}/projects"
 export learn="${files}/learn"
 export books="${files}/books"
+export notes="${files}/notes"
 
 alias files='cd ${files}'
 alias proj='cd ${projects}'
 alias learn='cd ${learn}'
+alias notes='cd ${notes}'
 alias ll='ls -larth'
 alias cfg='cd ${projects}/ConfigFiles'
 alias indica='cd ${projects}/Indica'
