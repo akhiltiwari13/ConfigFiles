@@ -59,45 +59,20 @@ alias python='python3'
 alias pip='pip3'
 
 #********************
-#work specific setup.
+# work specific setup.
 #********************
 
 hostname=$(hostname)
-desired_hostname="some workspace hostname"
+desired_hostname="pop-os"
 
 if [ "$hostname" = "$desired_hostname" ]; then
     echo "initiating work setup"
-    #start mutagen for workspace syncing.
-    # mutagen daemon register # registers mutagen with launchd to start it on system start.
-    # mutagen daemon start
+alias ag='the-silver-searcher-ag'
+alias pqr="cd ${projects}/pqr"
+alias plat="cd ${projects}/platform"
 
-    alias sshme='killall ssh-agent; ssh-add -s /usr/local/lib/opensc-pkcs11.so'
-
-    #to enable look-up of packages installed via homebrew before their default couterparts. 
-    export PATH="/Users/akhil.tiwari/files/projects/gemini/akhil/scripts/:$PATH"
-    # export TERM=xterm-256color
-    export EDITOR='nvim'
-
-    # work specific alias.
-    alias wsna="ssh  aws_dev"
-    alias wsapac="ssh  aws_apac_dev"
-    alias qa="ssh  gateway-qa100-001a.aws-qa.host.gem.link"
-    alias qahub="ssh hub-admin-qa100-001.aws-qa.host.gem.link"
-    alias qale="ssh trading-worker-qa100-006.aws-qa.host.gem.link"
-
-    fssh() {
-        # killall ssh-agent
-        ssh-agent > ~/.ssh-agent
-        source ~/.ssh-agent
-        sleep 1
-        ssh-add -s /usr/local/lib/opensc-pkcs11.so
-    }
-
-    if [ -f ~/.ssh-agent ]; then
-        source ~/.ssh-agent
-    fi
-    #call fssh on shell start-up.
-    fssh
+# export FZF_DEFAULT_COMMAND=' the-silver-searcher-ag --hidden --ignore .git -g ""'
+unset FZF_DEFAULT_COMMAND
 
 
 else
