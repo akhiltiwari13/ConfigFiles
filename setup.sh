@@ -20,6 +20,9 @@ alias elaeo='cd ${projects}/Elaeocarpus'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
 alias cctx='cd ${projects}/myscripts/codectx'
+# pertaining to AQ setup.
+alias pqr='cd ${projects}/pqr'
+alias plat='cd ${projects}/platform'
 
 # cmake aliases
 alias cmktmc='cmake -G 'Unix Makefiles' -DOPENSSL_ROOT_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/ -DOPENSSL_INCLUDE_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/include/ -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF -DUSE_MANUAL=OFF -DBOOST_FILESYSTEM=ON -DBOOST_OPTIONAL=ON -DBOOST_INCLUDE_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/include/boost/ -DBOOST_LIB_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/lib/ ..'
@@ -68,8 +71,6 @@ desired_hostname="pop-os"
 if [ "$hostname" = "$desired_hostname" ]; then
     echo "initiating work setup"
 alias ag='the-silver-searcher-ag'
-alias pqr="cd ${projects}/pqr"
-alias plat="cd ${projects}/platform"
 
 # export FZF_DEFAULT_COMMAND=' the-silver-searcher-ag --hidden --ignore .git -g ""'
 unset FZF_DEFAULT_COMMAND
