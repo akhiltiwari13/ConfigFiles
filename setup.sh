@@ -10,6 +10,7 @@ export notes="${files}/notes"
 alias files='cd ${files}'
 alias proj='cd ${projects}'
 alias learn='cd ${learn}'
+alias loki='cd ${learn}/loki-lib'
 alias notes='cd ${notes}'
 alias ll='ls -larth'
 alias cfg='cd ${projects}/ConfigFiles'
