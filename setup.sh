@@ -71,11 +71,7 @@ desired_hostname="pop-os"
 
 if [ "$hostname" = "$desired_hostname" ]; then
     echo "initiating work setup"
-alias ag='the-silver-searcher-ag'
-
-# export FZF_DEFAULT_COMMAND=' the-silver-searcher-ag --hidden --ignore .git -g ""'
-unset FZF_DEFAULT_COMMAND
-
+# alias scpp13= "prod@192.162.113.13:",
 
 else
     echo "hostname: $hostname" 
