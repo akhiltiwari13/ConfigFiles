@@ -21,9 +21,18 @@ alias elaeo='cd ${projects}/Elaeocarpus'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
 alias cctx='cd ${projects}/Elaeocarpus/scripts/codectx'
+alias cctxo='cd ${files}/codectx_out'
+
 # pertaining to AQ setup.
 alias pqr='cd ${projects}/pqr'
 alias plat='cd ${projects}/platform'
+alias prodlg='cd ${files}/prodlogs/'
+alias prscp="echo 'scp prod@192.168.113.15:/home/prod/backup_logs/bidding/<date>/engine_<102|105>/platform_<date>.log.gz'"
+alias mcxp12='ssh prod@192.168.113.12'
+alias mcxp15='ssh prod@192.168.113.15'
+# runs archiver for mcx in prod.
+alias mcxp14='ssh prod@192.168.113.14'
+alias dev32='ssh -Yv akhil@133.1.16.132'
 
 # cmake aliases
 alias cmktmc='cmake -G 'Unix Makefiles' -DOPENSSL_ROOT_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/ -DOPENSSL_INCLUDE_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/include/ -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF -DUSE_MANUAL=OFF -DBOOST_FILESYSTEM=ON -DBOOST_OPTIONAL=ON -DBOOST_INCLUDE_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/include/boost/ -DBOOST_LIB_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/lib/ ..'
@@ -71,7 +80,7 @@ desired_hostname="pop-os"
 
 if [ "$hostname" = "$desired_hostname" ]; then
     echo "initiating work setup"
-# alias scpp13= "prod@192.162.113.13:",
+alias btm= "/snap/bin/bottom",
 
 else
     echo "hostname: $hostname" 
