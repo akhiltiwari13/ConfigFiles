@@ -39,11 +39,7 @@ colors:
 
 # Other aesthetic settings
 window:
-<<<<<<< HEAD
-  opacity: 0.55 # Adjust window transparency
-=======
   opacity: 0.85 # Adjust window transparency
->>>>>>> 31f64db ([alac|clag|setup] minor updates)
 
 # Keybindings (optional)
 key_bindings:
