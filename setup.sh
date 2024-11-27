@@ -32,7 +32,12 @@ alias mcxp12='ssh prod@192.168.113.12'
 alias mcxp15='ssh prod@192.168.113.15'
 # runs archiver for mcx in prod.
 alias mcxp14='ssh prod@192.168.113.14'
-alias dev32='ssh -Yv akhil@133.1.16.132'
+# mcx test server (has gdb to debug it)
+alias mcxt='ssh -Yv prod@132.1.16.192'
+# devserver
+alias dev32='ssh -Yv akhil@132.1.16.132'
+alias rsyncplat='rsync -avz /home/akhil/files/projects/platform/ akhil@132.1.16.132:/home/akhil/files/projects/platform/'
+alias rsyncpqr='rsync -avz /home/akhil/files/projects/pqr/ akhil@132.1.16.132:/home/akhil/files/projects/pqr/'
 
 # cmake aliases
 alias cmktmc='cmake -G 'Unix Makefiles' -DOPENSSL_ROOT_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/ -DOPENSSL_INCLUDE_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/include/ -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF -DUSE_MANUAL=OFF -DBOOST_FILESYSTEM=ON -DBOOST_OPTIONAL=ON -DBOOST_INCLUDE_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/include/boost/ -DBOOST_LIB_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/lib/ ..'

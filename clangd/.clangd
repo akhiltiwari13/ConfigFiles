@@ -1,0 +1,30 @@
+CompileFlags:
+  Add: [
+    # Project-specific include paths
+    "-I/home/akhil/files/projects/platform/adapters/NEW_MCX/interactive_adapter/include",
+    "-I/home/akhil/files/projects/platform/adapters/all_adapters/interactive_adapter/include",
+    "-I/home/akhil/files/projects/platform/adapters/adapter_base/interactive_adapter/include",
+    "-I/home/akhil/files/projects/platform/infra/include",
+    "-I/home/akhil/files/projects/platform/core/include",
+    "-I/home/akhil/files/projects/platform/oms/include",
+    "-I/home/akhil/files/projects/platform/rms/include",
+    "-I/home/akhil/files/projects/platform/3rdparty/include",
+    "-I/home/akhil/files/projects/platform/infra/include/infra/logging",
+    "-I/home/akhil/files/projects/platform/infra/include/infra/http_server",
+    "-I/home/akhil/files/projects/platform/infra/include/infra/cmd",
+    "-I/home/akhil/files/projects/platform/3rdparty/include/fmt",
+    "-I/home/akhil/files/projects/platform/3rdparty/include/boost/predef",
+    "-I/home/akhil/files/projects/platform/3rdparty/include/sparsehash",
+    "-I/home/akhil/files/projects/platform/3rdparty/include/cryptopp",
+    "-I/home/akhil/files/projects/platform/3rdparty/include/google",
+
+    # Standard library include paths
+    "-I/usr/include/c++/11",
+    "-I/usr/include/x86_64-linux-gnu/c++/11",
+    "-I/usr/include/c++/11/backward",
+    "-I/usr/lib/gcc/x86_64-linux-gnu/11/include",
+    "-I/usr/local/include",
+    "-I/usr/include/x86_64-linux-gnu",
+    "-I/usr/include"
+  ]
+
