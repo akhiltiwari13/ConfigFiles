@@ -93,11 +93,6 @@ vim.keymap.set('n', '<leader>ss', '<cmd>Telescope sessions<cr>', { desc = "List 
 -- File Browser (requires `telescope-file-browser` plugin)
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope file_browser<cr>', { desc = "File browser" })
 
----
-
-### **Additional Useful Commands**
-
-```lua
 -- Buffers and Windows
 vim.keymap.set('n', '<leader>bb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', { desc = "Fuzzy search in the current buffer" })
 vim.keymap.set('n', '<leader>wa', '<cmd>Telescope windows<cr>', { desc = "List windows (requires window-picker plugin)" })
