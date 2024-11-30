@@ -1,0 +1,6 @@
+clang
+%cpp -std=c++20
+%cpp -stdlib=libc++
+%c -std=c11
+-I/usr/include
+-I/usr/local/include
