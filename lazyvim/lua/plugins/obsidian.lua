@@ -37,6 +37,7 @@ return {
     use_advanced_uri = true,
     finder = "telescope.nvim",
     log_level = vim.log.levels.DEBUG,
+    ui = {enable = false},
 
       templates = {
         subdir = "obsidian-templates",

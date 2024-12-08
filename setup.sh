@@ -30,6 +30,7 @@ alias prodlg='cd ${files}/prodlogs/'
 alias prscp="echo 'scp prod@192.168.113.15:/home/prod/backup_logs/bidding/<date>/engine_<102|105>/platform_<date>.log.gz'"
 alias mcxp12='ssh prod@192.168.113.12'
 alias mcxp15='ssh prod@192.168.113.15'
+alias mcxp16='ssh prod@192.168.113.16'
 # runs archiver for mcx in prod.
 alias mcxp14='ssh prod@192.168.113.14'
 # mcx test server (has gdb to debug it)
@@ -84,9 +85,9 @@ hostname=$(hostname)
 desired_hostname="pop-os"
 
 if [ "$hostname" = "$desired_hostname" ]; then
-    echo "initiating work setup"
-alias btm= "/snap/bin/bottom",
+  echo "initiating work setup"
+  alias btm= "/snap/bin/bottom",
 
 else
-    echo "hostname: $hostname" 
+  echo "hostname: $hostname"
 fi

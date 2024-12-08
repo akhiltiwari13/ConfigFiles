@@ -1,13 +1,13 @@
 # Font configuration
 font:
   normal:
-    family: "Mononoki Nerd Font"
-    style: Bold
+    family: "JetbrainsMono Nerd Font"
+    style: SemiBold
   bold:
-    family: "Mononoki Nerd Font"
+    family: "JetbrainsMono Nerd Font"
     style: Bold
   italic:
-    family: "Mononoki Nerd Font"
+    family: "JetbrainsMono Nerd Font"
     style: Italic
   size: 9.0 # Adjust size as needed
 
