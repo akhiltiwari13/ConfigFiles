@@ -37,8 +37,8 @@ alias mcxp14='ssh prod@192.168.113.14'
 alias mcxt='ssh -Yv prod@132.1.16.192'
 # devserver
 alias dev32='ssh -Yv akhil@132.1.16.132'
-alias rsyncplat='rsync -avz /home/akhil/files/projects/platform/ akhil@132.1.16.132:/home/akhil/files/projects/platform/'
-alias rsyncpqr='rsync -avz /home/akhil/files/projects/pqr/ akhil@132.1.16.132:/home/akhil/files/projects/pqr/'
+alias rsyncplat='rsync -avz ${projects}/platform/ akhil@132.1.16.132:/home/akhil/files/projects/platform/'
+alias rsyncpqr='rsync -avz ${projects}/pqr/ akhil@132.1.16.132:/home/akhil/files/projects/pqr/'
 
 # cmake aliases
 alias cmktmc='cmake -G 'Unix Makefiles' -DOPENSSL_ROOT_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/ -DOPENSSL_INCLUDE_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/include/ -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF -DUSE_MANUAL=OFF -DBOOST_FILESYSTEM=ON -DBOOST_OPTIONAL=ON -DBOOST_INCLUDE_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/include/boost/ -DBOOST_LIB_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/lib/ ..'
@@ -72,7 +72,7 @@ alias readepi='open -a Preview ${books}/Competitive\ Programming\ \&\ Interviews
 alias readtmc='open -a Preview ${books}/C++/The\ Modern\ C++\ Challenge\ Become\ an\ expert\ programmer\ by\ solving\ real-world\ problems\ by\ Marius\ Bancila\ \(z-lib.org\).pdf'
 alias book='open -a Preview ${books}/Competitive\ Programming\ \&\ Interviews/\(Undergraduate\ Topics\ in\ Computer\ Science\)\ Antti\ Laaksonen\ -\ Guide\ to\ Competitive\ Programming_\ Learning\ and\ Improving\ Algorithms\ Through\ Contests\ \(Undergraduate\ Topics\ in\ Computer\ Science\)-Springer\ \(2.pdf'
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 alias python='python3'
 alias pip='pip3'

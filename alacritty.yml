@@ -10,8 +10,9 @@ font:
     family: "JetbrainsMono Nerd Font"
     style: Italic
   size: 9.0 # Adjust size as needed
+  #size: 8.0 # Adjust size as needed
 
-# Colors (example color scheme)
+# Color (xample color scheme)
 colors:
   primary:
     background: '0x000000' # Dark background color
