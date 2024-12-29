@@ -15,28 +15,28 @@ font:
 # Color (xample color scheme)
 colors:
   primary:
-    background: '0x000000' # Dark background color
-    foreground: '0xF8F8F2' # Light foreground color
+    background: "0x000000" # Dark background color
+    foreground: "0xF8F8F2" # Light foreground color
 
   normal:
-    black:   '0x21222C'
-    red:     '0xFF5555'
-    green:   '0x50FA7B'
-    yellow:  '0xF1FA8C'
-    blue:    '0xBD93F9'
-    magenta: '0xFF79C6'
-    cyan:    '0x8BE9FD'
-    white:   '0xBFBFBF'
+    black: "0x21222C"
+    red: "0xFF5555"
+    green: "0x50FA7B"
+    yellow: "0xF1FA8C"
+    blue: "0xBD93F9"
+    magenta: "0xFF79C6"
+    cyan: "0x8BE9FD"
+    white: "0xBFBFBF"
 
   bright:
-    black:   '0x4D4D4D'
-    red:     '0xFF6E6E'
-    green:   '0x69FF94'
-    yellow:  '0xFFFFA5'
-    blue:    '0xD6ACFF'
-    magenta: '0xFF92DF'
-    cyan:    '0xA4FFFF'
-    white:   '0xFFFFFF'
+    black: "0x4D4D4D"
+    red: "0xFF6E6E"
+    green: "0x69FF94"
+    yellow: "0xFFFFA5"
+    blue: "0xD6ACFF"
+    magenta: "0xFF92DF"
+    cyan: "0xA4FFFF"
+    white: "0xFFFFFF"
 
 # Other aesthetic settings
 window:
@@ -45,4 +45,3 @@ window:
 # Keybindings (optional)
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
-
