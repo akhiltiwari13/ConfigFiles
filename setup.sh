@@ -27,6 +27,8 @@ alias cctxo='cd ${files}/codectx_out'
 # pertaining to AQ setup.
 alias pqr='cd ${projects}/pqr'
 alias plat='cd ${projects}/platform'
+alias pqralt='cd ${projects}/plat_alternate_work/pqr'
+alias platalt='cd ${projects}/plat_alternate_work/platform'
 alias prodlg='cd ${files}/prodlogs/'
 alias prscp="echo 'scp prod@192.168.113.15:/home/prod/backup_logs/bidding/<date>/engine_<102|105>/platform_<date>.log.gz'"
 alias mcxp7='ssh prod@192.168.113.7'
@@ -42,6 +44,8 @@ alias dev132='ssh -Yv akhil@132.1.16.132'
 alias dev62='ssh -Yv akhil@132.1.16.62'
 alias rsyncplat='rsync -avz ${projects}/platform/ akhil@132.1.16.132:/home/akhil/files/projects/platform/'
 alias rsyncpqr='rsync -avz ${projects}/pqr/ akhil@132.1.16.132:/home/akhil/files/projects/pqr/'
+alias rsyncplatalt='rsync -avz ${projects}/plat_alternate_work/platform/ akhil@132.1.16.132:/home/akhil/files/projects/plat_alternate_work/platform/'
+alias rsyncpqralt='rsync -avz ${projects}/plat_alternate_work/pqr/ akhil@132.1.16.132:/home/akhil/files/projects/plat_alternate_work/pqr/'
 
 # cmake aliases
 alias cmktmc='cmake -G 'Unix Makefiles' -DOPENSSL_ROOT_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/ -DOPENSSL_INCLUDE_DIR=/opt/homebrew/Cellar/openssl@3/3.0.5/include/ -DBUILD_TESTING=OFF -DBUILD_CURL_EXE=OFF -DUSE_MANUAL=OFF -DBOOST_FILESYSTEM=ON -DBOOST_OPTIONAL=ON -DBOOST_INCLUDE_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/include/boost/ -DBOOST_LIB_DIR=/opt/homebrew/Cellar/boost/1.79.0_1/lib/ ..'
