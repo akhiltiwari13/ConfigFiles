@@ -35,6 +35,8 @@ alias mcxp7='ssh prod@192.168.113.7'
 alias mcxp12='ssh prod@192.168.113.12'
 alias mcxp15='ssh prod@192.168.113.15'
 alias mcxp16='ssh prod@192.168.113.16'
+alias nsep114='ssh prod@192.168.101.114'
+alias nsep168='ssh prod@192.168.101.168'
 # runs archiver for mcx in prod.
 alias mcxp14='ssh prod@192.168.113.14'
 # mcx test server (has gdb to debug it)

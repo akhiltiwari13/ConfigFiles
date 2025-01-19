@@ -15,6 +15,9 @@ return {
               extraArgs = {"-std=c++20"},
             },
           },
+          index = {
+            threads = 8,
+          },
         },
       },
     },

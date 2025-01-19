@@ -10,7 +10,7 @@ font:
     family: "JetbrainsMono Nerd Font"
     style: Italic
   # size: 7.4 # Adjust size as needed
-  size: 8.6 # Adjust size as needed
+  size: 7.8 # Adjust size as needed
 
 # Color (xample color scheme)
 colors:
