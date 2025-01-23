@@ -21,7 +21,7 @@ alias phyl='cd ${projects}/phyllanthus_emblica'
 alias elaeo='cd ${projects}/Elaeocarpus'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
-alias cctx='cd ${projects}/Elaeocarpus/scripts/codectx'
+alias cctx='cd ${projects}/Elaeocarpus/tools/scripts/codectx'
 alias cctxo='cd ${files}/codectx_out'
 
 # pertaining to AQ setup.
