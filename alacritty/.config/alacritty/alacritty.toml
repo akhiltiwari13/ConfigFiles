@@ -1,0 +1,48 @@
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[colors.bright]
+black = "0x4D4D4D"
+blue = "0xD6ACFF"
+cyan = "0xA4FFFF"
+green = "0x69FF94"
+magenta = "0xFF92DF"
+red = "0xFF6E6E"
+white = "0xFFFFFF"
+yellow = "0xFFFFA5"
+
+[colors.normal]
+black = "0x21222C"
+blue = "0xBD93F9"
+cyan = "0x8BE9FD"
+green = "0x50FA7B"
+magenta = "0xFF79C6"
+red = "0xFF5555"
+white = "0xBFBFBF"
+yellow = "0xF1FA8C"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xF8F8F2"
+
+[font]
+size = 6.8
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
+
+[window]
+opacity = 0.70
+
+[keyboard]

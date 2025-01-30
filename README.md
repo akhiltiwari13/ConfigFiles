@@ -15,3 +15,6 @@
 
 - Process for setting up i3wm on a new Fedora setup requires the following installations before copying the dot-files at appropriate locations.
   sudo dnf install i3 i3status dmenu i3lock xbacklight feh conky compton dunst xrandr i3blocks
+
+  > [!NOTE]
+  > This repo has been re-formatted, so it could be used with gnu-stow to setup the dotfiles

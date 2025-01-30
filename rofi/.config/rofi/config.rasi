@@ -1,0 +1,13 @@
+configuration {
+  modi: "drun,run,window,ssh";
+  icon-theme: "Arc-Dark.rasi";
+  show-icons: true;
+  terminal: "alacritty";
+  font: "JetBrainsMono Nerd Font 9,8";
+  disable-history: false;
+  sidebar-mode: false;
+  case-sensitive: false;
+  cycle: true;
+  threads: 4;
+}
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
