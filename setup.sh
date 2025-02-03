@@ -86,6 +86,12 @@ alias book='open -a Preview ${books}/Competitive\ Programming\ \&\ Interviews/\(
 alias python='python3'
 alias pip='pip3'
 
+if command -v neofetch >/dev/null 2>&1; then
+	neofetch
+else
+	echo "Neofetch missing."
+fi
+
 #********************
 # work specific setup.
 #********************

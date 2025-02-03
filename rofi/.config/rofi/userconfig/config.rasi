@@ -1,17 +1,18 @@
 configuration{
-  modi: "run,drun,window,calc,emoji";
+  modi: "run,drun,window";
   icon-theme: "Numix Circle";
   show-icons: true;
   terminal: "alacritty";
   drun-display-format: "{icon} {name}";
   location: 0;
   disable-history: false;
-  hide-scrollbar: true;
+  hide-scrollbar: false;
   display-drun: "   Apps ";
   display-run: "   Run ";
   display-window: " 󰕰  Window";
   display-Network: " 󰤨  Network";
   sidebar-mode: false;
 }
-//@theme "catppuccin-mocha"
+// @theme "catppuccin-mocha"
 @theme "/home/akhil/.local/share/rofi/themes/catppuccin-mocha.rasi"
+
