@@ -3,8 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango:JetBrainsMono Nerd Font 8, JetBrainsMono Nerd Font 8
-# font pango:"JetBrainsMono Nerd Font 6, Inter 5"
+font pango:JetBrainsMono Nerd Font Bold 9
 
 # use mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -142,8 +141,6 @@ bar {
 	workspace_min_width 24
 	padding 1px 1px 1px 1px
 	strip_workspace_numbers no
-
-  # font pango "JetBrains Mono Nerd Font 6, Inter 5"
 
 	colors {
 	background #141c21

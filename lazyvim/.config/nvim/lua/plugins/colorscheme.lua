@@ -11,14 +11,14 @@ return {
         -- ...
       })
 
-      vim.cmd('colorscheme github_dark_default')
+      vim.cmd('colorscheme catppuccin-mocha')
     end,
   },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "github_dark_default",
+      colorscheme = "catppuccin-mocha",
       transparent = true,
       styles = {
         sidebars = "transparent",

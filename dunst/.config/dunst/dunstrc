@@ -5,12 +5,12 @@ geometry = "320x120-28-28"
 indicate_hidden = yes
 shrink = no
 separator_height = 0
-padding = 32
-horizontal_padding = 48
+padding = 20
+horizontal_padding = 30
 frame_width = 4
 sort = no
 idle_threshold = 120
-font = Poppins 9
+font = JetBrainsMono Nerd Font 8 Bold
 line_height = 4
 markup = full
 format = <b>%s</b>\n%b
@@ -20,14 +20,17 @@ word_wrap = yes
 ignore_newline = no
 stack_duplicates = false
 hide_duplicate_count = yes
-show_indicators = no
-icon_position = off
+show_indicators = yes
+icon_position = left
 sticky_history = yes
 history_length = 20
-browser = x-www-browser -new-tab
+browser = firefox -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
+frame_color = "#89b4fa"
+separator_color= frame
+highlight = "#89b4fa"
 
 [shortcuts]
 close = ctrl+shift+space
@@ -37,18 +40,18 @@ context = ctrl+shift+period
 
 [urgency_low]
 timeout = 4
-background = "#141c21"
-foreground = "#93a1a1"
-frame_color = "#819400"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
 
 [urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
 timeout = 8
-background = "#141c21"
-foreground = "#93a1a1"
 frame_color = "#2587cc"
 
 [urgency_critical]
 timeout = 0
-background = "#141c21"
-foreground = "#93a1a1"
-frame_color = "#d12f2c"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+
