@@ -44,10 +44,10 @@ return {
 
 
     -- Example:  Splitting the terminal (vertical, horizontal, window)
-    vim.api.nvim_set_keymap('n', '<leader>Tv', '<cmd>ToggleTerm direction=vertical<CR>', {noremap = true, silent = false})
-    vim.api.nvim_set_keymap('n', '<leader>Th', '<cmd>ToggleTerm direction=horizontal<CR>', {noremap = true, silent = false})
-    vim.api.nvim_set_keymap('n', '<leader>Tw', '<cmd>ToggleTerm direction=window<CR>', {noremap = true, silent = false})
-    vim.api.nvim_set_keymap('n', '<leader>Tf', '<cmd>ToggleTerm direction=float<CR>', {noremap = true, silent = false})
+    vim.api.nvim_set_keymap('n', '<leader>Tv', '<cmd>ToggleTerm direction=vertical<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>Th', '<cmd>ToggleTerm direction=horizontal<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>Tw', '<cmd>ToggleTerm direction=window<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>Tf', '<cmd>ToggleTerm direction=float<CR>', {noremap = true, silent = true})
 
     -- Toggle the terminal in the last used direction
     vim.api.nvim_set_keymap('n', '<leader>Tt', '<cmd>ToggleTerm<CR>', {noremap = true, silent = true})
