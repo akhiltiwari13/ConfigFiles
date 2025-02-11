@@ -23,6 +23,7 @@ alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
 alias cctx='cd ${projects}/Elaeocarpus/tools/scripts/codectx'
 alias cctxo='cd ${learn}/codectx_out'
+alias cpatches='cd ${learn}/code-patches'
 
 # pertaining to AQ setup.
 alias pqr='cd ${projects}/pqr'
