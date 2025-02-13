@@ -97,3 +97,4 @@ fi
 #********************
 # work specific setup.
 #********************
+alias cocomessage="echo \"I love my dearest nephew, \"Coco\". He is the sweetest kid. He is very smart and creative. I wish him all the happiness. Lots of love.-Shivu Chachu\""
