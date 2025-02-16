@@ -1,6 +1,6 @@
 general {
 	output_format = "i3bar"
-	colors = false
+	colors = true
 	markup = pango
 	interval = 5
 }
@@ -13,22 +13,22 @@ order += "battery 0"
 order += "time"
 
 load {
-	format = "<span background='#b08500'>    </span><span background='#bfbaac'>  %5min Load  </span>"
+	format = "<span background='#b08500'>    </span><span background='#f2cdcd'>  %5min Load  </span>"
 }
 
 cpu_temperature 0 {
-	format = "<span background='#d12f2c'>    </span><span background='#bfbaac'>  %degrees °C  </span>"
+	format = "<span background='#d12f2c'>    </span><span background='#f2cdcd'>  %degrees °C  </span>"
 	path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 wireless wlp0s20f3 {
-	format_up = "<span background='#289c93'>    </span><span background='#bfbaac'>  %essid  </span>"
-	format_down = "<span background='#289c93'>    </span><span background='#bfbaac'>  Disconnected  </span>"
+	format_up = "<span background='#289c93'>    </span><span background='#bf2cdcd'>  %essid  </span>"
+	format_down = "<span background='#289c93'>    </span><span background='#f2cdcd'>  Disconnected  </span>"
 }
 
 volume master {
-	format = "<span background='#696ebf'>    </span><span background='#bfbaac'>  %volume  </span>"
-	format_muted = "<span background='#696ebf'>    </span><span background='#bfbaac'>  Muted  </span>"
+	format = "<span background='#696ebf'>    </span><span background='#f2cdcd'>  %volume  </span>"
+	format_muted = "<span background='#696ebf'>    </span><span background='#f2cdcd'>  Muted  </span>"
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
@@ -36,7 +36,7 @@ volume master {
 
 battery 0 {
 	last_full_capacity = true
-	format = "<span background='#819400'>  %status  </span><span background='#bfbaac'>  %percentage  </span>"
+	format = "<span background='#819400'>  %status  </span><span background='#f2cdcd'>  %percentage  </span>"
 	format_down = "No Battery"
 	status_chr = ""
 	status_bat = ""
@@ -48,6 +48,6 @@ battery 0 {
 }
 
 time {
-	format = "<span background='#2587cc'>    </span><span background='#bfbaac'>  %b %d at %H:%M  </span>"
+	format = "<span background='#2587cc'>    </span><span background='#f2cdcd'>  %b %d at %H:%M  </span>"
 }
 

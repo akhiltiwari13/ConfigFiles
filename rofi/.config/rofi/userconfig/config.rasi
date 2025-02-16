@@ -13,6 +13,6 @@ configuration{
   display-Network: " 󰤨  Network";
   sidebar-mode: false;
 }
-// @theme "catppuccin-mocha"
-@theme "/home/akhil/.local/share/rofi/themes/catppuccin-mocha.rasi"
+@theme "catppuccin-macchiato"
+// @theme "/home/akhil/.local/share/rofi/themes/catppuccin-mocha.rasi"
 
