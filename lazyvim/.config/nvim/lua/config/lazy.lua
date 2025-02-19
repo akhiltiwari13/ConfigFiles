@@ -20,7 +20,7 @@ if vim.g.vscode then
       { "LazyVim/LazyVim", import = "lazyvim.plugins" },
       { import = "lazyvim.plugins.extras.vscode" },
       { import = "lazyvim.plugins.extras.lang.python" },
-      -- { import = "lazyvim.plugins.extras.lang.clangd" },
+      { import = "lazyvim.plugins.extras.lang.clangd" },
     },
     defaults = {
       lazy = false,
@@ -32,7 +32,6 @@ else
     spec = {
       -- add LazyVim and import its plugins
       { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-      { import = "lazyvim.plugins.extras.vscode" },
       { import = "lazyvim.plugins.extras.lang.python" },
       { import = "plugins" },
     },
