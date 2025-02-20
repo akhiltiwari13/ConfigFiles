@@ -13,22 +13,22 @@ order += "battery 0"
 order += "time"
 
 load {
-	format = "<span background='#b08500'>    </span><span background='#cba6f7'>  %5min Load  </span>"
+	format = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  %5min Load  </span>"
 }
 
 cpu_temperature 0 {
-	format = "<span background='#d12f2c'>    </span><span background='#cba6f7'>  %degrees °C  </span>"
+	format = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  %degrees °C  </span>"
 	path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 wireless wlp0s20f3 {
-	format_up = "<span background='#289c93'>    </span><span background='#cba6f7'>  %essid  </span>"
-	format_down = "<span background='#289c93'>    </span><span background='#cba6f7'>  Disconnected  </span>"
+	format_up = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  %essid  </span>"
+	format_down = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  Disconnected  </span>"
 }
 
 volume master {
-	format = "<span background='#696ebf'>    </span><span background='#cba6f7'>  %volume  </span>"
-	format_muted = "<span background='#696ebf'>    </span><span background='#cba6f7'>  Muted  </span>"
+	format = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  %volume  </span>"
+	format_muted = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  Muted  </span>"
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
@@ -36,7 +36,7 @@ volume master {
 
 battery 0 {
 	last_full_capacity = true
-	format = "<span background='#819400'>  %status  </span><span background='#cba6f7'>  %percentage  </span>"
+	format = "<span background='#cba6f7'>  %status  </span><span background='#cba6f7'>  %percentage  </span>"
 	format_down = "No Battery"
 	status_chr = ""
 	status_bat = ""
@@ -48,5 +48,5 @@ battery 0 {
 }
 
 time {
-	format = "<span background='#2587cc'>    </span><span background='#cba6f7'>  %b %d at %H:%M  </span>"
+	format = "<span background='#cba6f7'>    </span><span background='#cba6f7'>  %b %d at %H:%M  </span>"
 }
