@@ -1,12 +1,14 @@
 -- @TODO: set this up with updated config params esp. for floating terminal
 -- refer: https://github.com/akinsho/toggleterm.nvim
-return {
+return{
+{
   'akinsho/toggleterm.nvim',
   config = function()
     require('toggleterm').setup {
       -- Default configuration (you can customize these)
       size = 0.5, -- Percentage of screen to use
-      open_mapping = '<C-/>', -- Key to open/close the terminal
+      -- open_mapping = '<C-/>', -- Key to open/close the terminal
+      open_mapping = '<leader>m', -- Key to open/close the terminal
       hide_numbers = false, -- Hide line numbers in the terminal
       shade_terminals = true, -- Shade the terminal when it's not focused
       shade_filetypes = {}, -- Filetypes to shade the terminal in
@@ -23,20 +25,23 @@ return {
         -- Other float options if needed
       },
        -- You can have multiple named terminals
-      --[[
+      -- [[
       -- Example:
-      terminals = {
-        mytop = { cmd = 'top' },
-        lazydocker = { cmd = 'lazydocker' }
-      }
-      --]]
+        terminals = {
+          htop = { cmd = "htop" },
+          bottom = { cmd = "btm" },
+          lazydocker = { cmd = "lazydocker" },
+          lazygit = { cmd = "lazygit" },
+        }
+      -- ]]
     }
+
 
     -- Define keybindings AFTER setup()
     local toggleterm = require('toggleterm')
 
     -- Toggle the default terminal
-    vim.api.nvim_set_keymap('n', '<C-t>', '<cmd>ToggleTerm<CR>', {noremap = true, silent = true})
+    -- vim.api.nvim_set_keymap('n', '<C-t>', '<cmd>ToggleTerm<CR>', {noremap = true, silent = true})
 
     -- Toggle specific named terminals (if you defined them)
     -- vim.api.nvim_set_keymap('n', '<leader>mt', '<cmd>ToggleTerm mytop<CR>', {noremap = true, silent = true})
@@ -44,22 +49,23 @@ return {
 
 
     -- Example:  Splitting the terminal (vertical, horizontal, window)
-    vim.api.nvim_set_keymap('n', '<leader>Tv', '<cmd>ToggleTerm direction=vertical<CR>', {noremap = true, silent = true})
-    vim.api.nvim_set_keymap('n', '<leader>Th', '<cmd>ToggleTerm direction=horizontal<CR>', {noremap = true, silent = true})
-    vim.api.nvim_set_keymap('n', '<leader>Tw', '<cmd>ToggleTerm direction=window<CR>', {noremap = true, silent = true})
-    vim.api.nvim_set_keymap('n', '<leader>Tf', '<cmd>ToggleTerm direction=float<CR>', {noremap = true, silent = true})
-
+    vim.api.nvim_set_keymap('n', '<leader>mb', '<cmd>ToggleTerm bottom<CR>',{noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>mh', '<cmd>ToggleTerm htop<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>md', '<cmd>ToggleTerm lazydocker<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>mg', '<cmd>ToggleTerm lazygit<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>mw', '<cmd>ToggleTerm direction=window<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>mf', '<cmd>ToggleTerm direction=float<CR>', {noremap = true, silent = true})
     -- Toggle the terminal in the last used direction
-    vim.api.nvim_set_keymap('n', '<leader>Tt', '<cmd>ToggleTerm<CR>', {noremap = true, silent = true})
-
+    vim.api.nvim_set_keymap('n', '<leader>mt', '<cmd>ToggleTerm<CR>', {noremap = true, silent = true})
     -- Send text to the terminal (useful for sending commands)
-    vim.api.nvim_set_keymap('n', '<leader>Ts', '<cmd>ToggleTermSendCurrentLine<CR>', {noremap = true, silent = true})
-    vim.api.nvim_set_keymap('v', '<leader>Ts', '<cmd>ToggleTermSendVisualSelection<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', '<leader>ms', '<cmd>ToggleTermSendCurrentLine<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('v', '<leader>ms', '<cmd>ToggleTermSendVisualSelection<CR>', {noremap = true, silent = true})
 
 
 
   end,
 }
+} 
 -- Explanation of Key Changes for LazyVim
 --
 --     Plugin Declaration:

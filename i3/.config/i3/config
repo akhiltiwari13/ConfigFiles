@@ -166,10 +166,10 @@ set $crust #11111b
 # panel
 bar {
   status_command i3status
-    position top
-    workspace_min_width 24
-    padding 1px 1px 1px 1px
-    strip_workspace_numbers no
+  position top
+  workspace_min_width 24
+  padding 1px 1px 1px 1px
+  strip_workspace_numbers no
 
 colors {
 # catppuccin-mocha
