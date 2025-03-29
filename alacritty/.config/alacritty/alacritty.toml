@@ -31,7 +31,7 @@ background = "0x000000"
 foreground = "0xF8F8F2"
 
 [font]
-size = 6.6
+size = 6.3
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -43,7 +43,7 @@ style = "Italic"
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-style = "Normal"
+style = "Bold"
 
 [window]
 opacity = 0.70
