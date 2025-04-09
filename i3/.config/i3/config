@@ -19,7 +19,7 @@ exec --no-startup-i np-applet &
 
 # start a terminal
 # bindsym $super+Return exec i3-sensible-terminal
-bindsym $super+Return exec alacritty
+bindsym $super+Return exec tilix
 
 # Rofi bindngs
 bindsym $super+d exec rofi -show drun
@@ -204,4 +204,4 @@ gaps inner 3
 gaps outer 1
 smart_gaps on
 exec --no-startup-id feh --bg-fill ~/.black_wallpaper.png
-set $term alacritty
+set $term tilix
