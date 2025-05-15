@@ -1,3 +1,4 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+-- INFO: This is typically where you confiure or modify keybindings that are not specific to plugins, but rather modify core Neovim or Lazyvim functionality.
