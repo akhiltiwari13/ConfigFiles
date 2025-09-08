@@ -1,30 +1,15 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local act = wezterm.action
-local config = wezterm.config_builder()
--- This is where you actually apply your config choices
--- For example, changing the color scheme:
--- config.color_scheme = "Catppuccin Mocha"
-config.color_scheme = "tokyonight"
-config.initial_cols = 65
-config.initial_rows = 45
-config.font = wezterm.font("JetBrains Mono", { weight = "Bold", italic = true })
-config.font_size = 10.5
-config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
-config.enable_scroll_bar = true
-config.hide_tab_bar_if_only_one_tab = true
-config.use_dead_keys = false
-config.debug_key_events = true
-config.default_workspace = "wezy"
--- enable required plugins
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
+
+local config = require("config")
+
 local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 workspace_switcher.apply_to_config(config)
 -- local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
 -- modal.apply_to_config(config)
-local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
 	{
 		key = "|",
@@ -140,4 +125,5 @@ for i = 1, 8 do
 		action = act.ActivateTab(i - 1),
 	})
 end
+
 return config

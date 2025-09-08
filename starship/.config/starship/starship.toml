@@ -5,8 +5,6 @@ $git_status\
 $fill\
 $python\
 $lua\
-$cpp\
-$cmake\
 $nodejs\
 $golang\
 $haskell\

@@ -1,8 +1,7 @@
 {
     "global": {
         "check_for_updates_on_startup": false,
-        "show_additional_menu_items": true,
-        "show_profile_name_in_menu_bar": true
+        "show_in_menu_bar": false
     },
     "profiles": [
         {
@@ -13,11 +12,30 @@
                 },
                 "rules": [
                     {
+                        "description": "Remap Caps Lock to Ctrl when held, Caps Lock when tapped",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Remap Tab to Hyper key when held, Tab when tapped",
                         "manipulators": [
                             {
                                 "from": { "key_code": "tab" },
-								"to": [
+                                "to": [
                                     {
                                         "key_code": "left_shift",
                                         "modifiers": ["any"]
@@ -233,12 +251,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open Kiro",
+                                "description": "Open VS Code",
                                 "from": {
                                     "key_code": "comma",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a 'Kiro.app'" }],
+                                "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }],
                                 "type": "basic"
                             },
                             {
