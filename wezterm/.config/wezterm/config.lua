@@ -19,10 +19,11 @@ local config = {
 	use_dead_keys = false,
 	debug_key_events = true,
 	default_workspace = "wezy",
-	font_size = 11.6,
+	-- font_size = 11.6,
+	font_size = 9.3,
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	color_scheme = "tokyonight",
-	-- color_scheme = "tokyonight-day"
+	-- color_scheme = "tokyonight-day",
 	window_padding = {
 		left = 3,
 		right = 3,
@@ -40,17 +41,19 @@ local config = {
 		-- 		saturation = 1.02,
 		-- 		brightness = 0.25,
 		-- 	},
-		-- 	-- attachment = { Parallax = 0.3 },
-		-- 	-- width = "100%",
-		-- 	-- height = "100%",
+		-- attachment = { Parallax = 0.3 },
+		-- width = "100%",
+		-- height = "100%",
 		-- },
 		{
 			source = {
-				Color = "#282c35",
+				-- Color = "#282c35",
+				Color = "#000000",
 			},
+			attachment = { Parallax = 0.3 },
 			width = "100%",
 			height = "100%",
-			opacity = 0.85,
+			opacity = 0.65,
 		},
 	},
 	-- from: https://akos.ma/blog/adopting-wezterm/
