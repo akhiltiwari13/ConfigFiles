@@ -1,9 +1,5 @@
 local wezterm = require("wezterm")
 
--- if wezterm.config_builder then
--- 	config = wezterm.config_builder()
--- end
-
 local config = {
 	default_cursor_style = "SteadyBar",
 	automatically_reload_config = true,
@@ -31,29 +27,14 @@ local config = {
 		bottom = 0,
 	},
 	background = {
-		-- {
-		-- 	source = {
-		-- 		File = "/Users/" .. os.getenv("USER") .. "/.config/wezterm/trading_platform_architecture.svg",
-		-- 		-- File = "/Users/" .. os.getenv("USER") .. "/files/projects/configfiles/dumpyard/i3_resources/black.jpg",
-		-- 	},
-		-- 	hsb = {
-		-- 		hue = 1.0,
-		-- 		saturation = 1.02,
-		-- 		brightness = 0.25,
-		-- 	},
-		-- attachment = { Parallax = 0.3 },
-		-- width = "100%",
-		-- height = "100%",
-		-- },
 		{
 			source = {
-				-- Color = "#282c35",
 				Color = "#000000",
 			},
 			attachment = { Parallax = 0.3 },
 			width = "100%",
 			height = "100%",
-			opacity = 0.65,
+			opacity = 0.80,
 		},
 	},
 	-- from: https://akos.ma/blog/adopting-wezterm/

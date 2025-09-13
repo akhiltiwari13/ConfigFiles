@@ -30,12 +30,12 @@ alias plat='cd ${projects}/platform'
 alias platref='cd ${projects}/platform_reference'
 alias aqprodlg='cd ${files}/aqprodlogs/'
 
-if command -v neofetch >/dev/null 2>&1; then
-  neofetch
-else
-  echo "Neofetch missing."
-fi
-
+# if command -v neofetch >/dev/null 2>&1; then
+#   neofetch
+# else
+#   echo "Neofetch missing."
+# fi
+#
 alias cocomessage="echo \"I love my dearest nephew, \"Coco\". He is the sweetest kid. He is very smart and creative. I wish him all the happiness. Lots of love.-Shivu Chachu\""
 
 #***********************
