@@ -37,3 +37,60 @@ set render-loading-bg "#c0caf5"
 set recolor-lightcolor "#24283b"
 set recolor-darkcolor "#c0caf5"
 set font "Cascadia Mono Bold 9.5"
+
+# Navigation (matching your hjkl preference)
+map h navigate previous
+map l navigate next
+map j scroll down
+map k scroll up
+map H goto top
+map L goto bottom
+
+# Search (matching your <leader>s* pattern in nvim)
+map <Space>f follow
+map <Space>s search
+map <Space>n search next
+map <Space>N search previous
+
+# View controls (consistent with your workflow)
+map <Space>r reload
+map <Space>q quit
+map <Space>t toggle_statusbar
+map <Space>i toggle_index
+
+# Page navigation (more intuitive)
+map <C-d> scroll half-down
+map <C-u> scroll half-up
+map <C-f> scroll full-down
+map <C-b> scroll full-up
+
+# Zoom controls
+map = zoom in
+map - zoom out
+map 0 zoom default
+
+# Fit modes
+map a adjust_window best-fit
+map w adjust_window width
+map <Space>a adjust_window
+
+# Copy/clipboard (matching your clipboard workflow)
+map y copy
+
+# Better defaults matching cocoEd.nvim setup
+set pages-per-row 1
+set scroll-page-aware true
+set scroll-step 50
+set zoom-min 10
+set zoom-max 1000
+set incremental-search true
+set highlight-transparency 0.5
+
+# Status bar customization
+set statusbar-home-tilde true
+set window-title-basename true
+set selection-clipboard clipboard
+
+# Better search
+set search-hadjust true
+set smooth-scroll true
