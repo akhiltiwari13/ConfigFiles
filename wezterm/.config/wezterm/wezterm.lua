@@ -25,8 +25,8 @@ local config = {
 	-- font_size = 9.3,
 	-- font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	font = wezterm.font("Cascadia Mono", { weight = "Bold" }),
-	color_scheme = "tokyonight",
-	-- color_scheme = "tokyonight-day",
+	-- color_scheme = "tokyonight",
+	color_scheme = "tokyonight-day",
 	window_padding = {
 		left = 3,
 		right = 3,
@@ -36,9 +36,10 @@ local config = {
 	background = {
 		{
 			source = {
-				Color = "#000000",
+				-- Color = "#24283b",
+				Color = "#e1e2e7",
 			},
-			-- attachment = { Parallax = 0.0 },
+			attachment = { Parallax = 0.0 },
 			width = "100%",
 			height = "100%",
 			opacity = 0.90,
