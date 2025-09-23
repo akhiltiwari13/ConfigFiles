@@ -1,4 +1,6 @@
 include "zathura-lighthaus/src/zathurarc"
+
 # include "zathura-tokyonight/tokyonight_moon.zathurarc"
 # include "zathura-tokyonight/tokyonight_day.zathurarc"
+
 set font "Cascadia Mono Bold 9.5"
