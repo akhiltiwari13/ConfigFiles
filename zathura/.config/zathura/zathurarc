@@ -4,3 +4,6 @@ include "zathura-lighthaus/src/zathurarc"
 # include "zathura-tokyonight/tokyonight_day.zathurarc"
 
 set font "Cascadia Mono Bold 9.5"
+set continuous-hist-save true
+set database "sqlite"
+set selection-clipboard "clipboard"
