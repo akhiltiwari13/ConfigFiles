@@ -22,6 +22,7 @@ alias elaeo='cd ${projects}/Elaeocarpus'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
 alias cctx='cd ${projects}/Elaeocarpus/tools/scripts/codectx'
+alias zigpg='cd ${projects}/zigplayground'
 alias cctxo='cd ${learn}/codectx_out'
 
 # pertaining to AQ setup.

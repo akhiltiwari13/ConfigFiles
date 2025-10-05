@@ -21,6 +21,7 @@ alias elaeo="cd \$projects/Elaeocarpus"
 alias epi="cd \$projects/EPIJudge"
 alias tmc="cd \$projects/The-Modern-Cpp-Challenge"
 alias cctx="cd \$projects/Elaeocarpus/tools/scripts/codectx"
+alias zigpg="cd \$projects/zigplayground"
 alias cctxo="cd \$learn/codectx_out"
 
 # work setup
@@ -53,6 +54,10 @@ set -gx FZF_DEFAULT_OPTS "\
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
 --color=selected-bg:#45475A \
 --color=border:#313244,label:#CDD6F4"
+
+# for using neovim for my man pages.
+set -x MANPAGER "nvim +Man!"
 #********************
 # work specific setup.
 #********************
+
