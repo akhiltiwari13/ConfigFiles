@@ -18,11 +18,7 @@
 # # separated by equals signs.
 font-family = "Cascadia Mono"
 font-style = bold
-<<<<<<< Updated upstream
 font-size = 13
-=======
-font-size = 7
->>>>>>> Stashed changes
 background-opacity = .95
 
 # window-padding-x = 2
