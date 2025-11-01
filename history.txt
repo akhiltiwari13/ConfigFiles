@@ -10015,3 +10015,1364 @@
 10016  nvim .
 10017  history
 10018  cfg
+ll
+git diff
+gd
+git status
+tmux new -s muxy
+sudo dnf remove google-chrome-canary
+sudo dnf remove google-chrome
+sudo dnf uninstall google-chrome
+sudo dnf update && sudo dnf upgrade && sudo dnf autoremove
+sudo dnf install google-chrome
+sudo dnf5 check-update
+sudo dnf5 clean all
+sudo rpm --rebuilddb
+sudo rpm --import https://dl.google.com/linux/linux_signing_key.pub
+sudo rpm -e "gpg-pubkey-7fac5991-*"  2>/dev/null
+sudo rpm -e gpg-pubkey-7fac5991-*  2>/dev/null
+clear
+sudo rm /usr/share/dnf5/aliases.d/compatibility-plugins.conf
+sudo nvim /usr/share/dnf5/aliases.d/compatibility-plugins.conf
+sudo nvim /usr/share/dnf5/aliases.d/compatibility.conf
+cat /usr/share/dnf5/aliases.d/compatibility-plugins.conf
+bash
+dnf5 --version
+dnf --version
+which dnf5
+which dnf
+sudo mv /usr/share/dnf5/aliases.d/compatibility-plugins.conf.bak /usr/share/dnf5/aliases.d/compatibility-plugins.conf
+sudo sed -i '/build-dep/s/^/#/' /usr/share/dnf5/aliases.d/compatibility-plugins.conf
+sudo sed -i '/builddep/s/^/#/' /usr/share/dnf5/aliases.d/compatibility-plugins.conf
+sudo cp /usr/share/dnf5/aliases.d/compatibility-plugins.conf /usr/share/dnf5/aliases.d/compatibility-plugins.conf.bak
+sudo dnf5 install dnf5-plugin-builddep
+cat /etc/fedora-release
+rpm -E %fedora
+sudo reboot
+systemctl get-default
+rpm -qa | grep -E '^(gdm|gnome-shell|gnome-terminal)-' | head -5
+sudo dnf5 distro-sync --allowerasing --releasever=43
+
+sudo dnf5 distro-sync --allowerasing --releasever=43
+ls -l /lib64/libfreetype.so.6
+ls -l /lib64/libglib-2.0.so.0
+sudo rpm -Uvh --force --nodeps glib2*.x86_64.rpm freetype*.x86_64.rpm fontconfig*.x86_64.rpm glibc*.x86_64.rpm
+file *.rpm | grep x86_64
+sudo dnf5 download --releasever=43 --arch=x86_64 glib2 freetype fontconfig glibc
+sudo rm -rf *.rpm
+rm -f *.rpm
+sudo rpm -Uvh --force glib2*.rpm freetype*.rpm fontconfig*.rpm
+sudo dnf5 download --releasever=43 glib2 freetype fontconfig
+sudo dnf5 reinstall --releasever=43 glib2 freetype fontconfig
+rpm -qa | grep fedora-release
+sudo rpm -Uvh --force --nodeps fedora-release*.rpm fedora-repos*.rpm fedora-gpg-keys*.rpm
+sudo sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/fedora-rawhide.repo
+sudo dnf5 config-manager setopt rawhide.enabled=0
+sudo systemctl set-default graphical.target
+sudo systemctl enable gdm
+sudo rm /etc/yum.repos.d/f43-temp.repo
+file fedora-release*.rpm
+sudo dnf5 --disablerepo='*' --enablerepo=f43-temp download \
+  fedora-release-common \
+  fedora-release-identity-basic \
+  fedora-release
+sudo rpm -Uvh --force --nodeps fedora-release-*.rpm fedora-repos-*.rpm fedora-gpg-keys-*.rpm
+file fedora-*.rpm
+ls -lh fedora-*.rpm
+sudo dnf5 --disablerepo='*' --enablerepo=f43-temp download fedora-release fedora-repos fedora-gpg-keys
+sudo dnf5 --disablerepo='*' --enablerepo=f43-temp install fedora-release fedora-repos fedora-gpg-keys
+cd /tmp
+rm -f "*.rpm"
+curl -s https://kojipkgs.fedoraproject.org/packages/fedora-repos/43/ | grep -o 'href="[0-9.]*/"' | head -1
+sudo rm -f fedora-*.rpm
+rm -f fedora-*.rpm
+file fedora-*.rpm | grep -v RPM && echo "ERROR" || echo "OK"
+curl -LO https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Everything/x86_64/os/Packages/f/fedora-release-43-0.19.noarch.rpm
+curl -LO https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Everything/x86_64/os/Packages/f/fedora-release-common-43-0.19.noarch.rpm
+curl -LO https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Everything/x86_64/os/Packages/f/fedora-release-identity-basic-43-0.19.noarch.rpm
+curl -LO https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Everything/x86_64/os/Packages/f/fedora-repos-43-0.4.noarch.rpm
+curl -LO https://dl.fedoraproject.org/pub/fedora/linux/releases/43/Everything/x86_64/os/Packages/f/fedora-gpg-keys-43-0.4.noarch.rpm
+
+cat /etc/yum.repos.d/fedora.repo | grep -A2 "\[fedora\]"
+sudo dnf5 --releasever=43 --nogpgcheck distro-sync rpm rpm-libs rpm-build-libs
+sudo dnf5 install gdm gnome-shell gnome-terminal nautilus
+sudo dnf5 distro-sync --allowerasing
+sudo rm -f /etc/yum.repos.d/f43-temp.repo
+udo dnf5 --disablerepo='*' --enablerepo=f43-temp download \
+  fedora-release-common \
+  fedora-release-identity-basic \
+  fedora-release
+sudo rpm -ivh /tmp/fedora-release-43-25.noarch.rpm
+sudo rpm -ivh /tmp/fedora-release-common-*.rpm
+sudo dnf5 --disablerepo='*' --enablerepo=f43-temp download fedora-release-common
+sudo rpm -e --nodeps fedora-release
+cd ..
+files
+rm -f **/*.rpm
+sudo dnf5 --releasever=43 --nogpgcheck distro-sync --allowerasing
+rpm --version
+sudo dnf5 --releasever=43 --nogpgcheck distro-sync rpm rpm-libs
+sudo systemctl start gdm
+sudo dnf5 install gdm gnome-shell
+sudo dnf5 --version
+cd /tmp/
+sudo mv /usr/lib64/dnf5/plugins/builddep_cmd_plugin.so /tmp/
+sudo rpm -Uvh --force --nodeps \
+  https://kojipkgs.fedoraproject.org/packages/rpm/4.20.0/1.fc43/x86_64/rpm-4.20.0-1.fc43.x86_64.rpm \
+  https://kojipkgs.fedoraproject.org/packages/rpm/4.20.0/1.fc43/x86_64/rpm-libs-4.20.0-1.fc43.x86_64.rpm \
+  https://kojipkgs.fedoraproject.org/packages/rpm/4.20.0/1.fc43/x86_64/rpm-build-libs-4.20.0-1.fc43.x86_64.rpm
+
+sudo dnf5 install dnf5-plugin-system-upgrade
+w
+sudo dnf install vim
+sudo dnf5 update && sudo dnf5 upgrade && sudo dnf5 autoremove
+sudo dnf install gdm
+sudo dnf reinstall gdm
+sudo dnf update --refresh
+ping google.com
+nmcli device wifi connect Airtel_prakhnet password 01122022
+nmcli device wifi list
+sudo shutdown -h now
+nmcli device status
+nmcli connection show
+nmcliconnection show
+sudo dnf5 system-upgrade reboot
+sudo dnf update && sudo dnf upgrade
+sudo dnf5 system-upgrade download --releasever=43 --allowerasing
+sudo dnf5 install --nogpgcheck fedora-gpg-keys
+sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-42-primary
+sudo dnf5 config-manager setopt 'copr:*'.enabled=0
+sudo dnf5 config-manager setopt docker-ce-stable.enabled=0
+sudo dnf5 install fedora-gpg-keys
+sudo dnf5 --releasever=42 makecache
+rpm -E %fedora  # Should show "42"
+rpm -q fedora-release
+sudo rm /etc/yum.repos.d/fedora-minimal.repo
+sudo mv /tmp/repos_backup/*.repo /etc/yum.repos.d/
+rpm -q fedora-release fedora-gpg-keys fedora-repos
+
+sudo rpm -Uvh --nodeps --force fedora-repos-rawhide-42-0.1.noarch.rpm \
+                                fedora-repos-42-0.1.noarch.rpm
+
+sudo rpm -Uvh --nodeps --force fedora-release-common-42-0.6.noarch.rpm \
+                                fedora-release-identity-basic-42-0.6.noarch.rpm \
+                                fedora-release-42-0.6.noarch.rpm
+rm -f fedora-gpg-keys-*.rpm
+rpm -qa | grep fedora-gpg-keys
+file *.rpm | grep -v RPM && echo "ERROR: Some files are not RPMs" || echo "All files OK"
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-gpg-keys/42/3/noarch/fedora-gpg-keys-42-3.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-common-42-0.6.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-identity-basic-42-0.6.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-42-0.6.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/0.1/noarch/fedora-repos-rawhide-42-0.1.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/0.1/noarch/fedora-repos-42-0.1.noarch.rpm
+rm -f *.rpm *.html
+sudo rpm -ivh --force fedora-release-*.rpm fedora-repos-*.rpm
+sudo rpm -Uvh --nodeps --force *.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-common-42-0.6.noarch.rpm && curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-identity-basic-42-0.6.noarch.rpm && curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-42-0.6.noarch.rpm && curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-gpg-keys/42/0.1/noarch/fedora-gpg-keys-42-0.1.noarch.rpm && curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/0.1/noarch/fedora-repos-42-0.1.noarch.rpm && curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/0.1/noarch/fedora-repos-rawhide-42-0.1.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-repos/42/0.1/noarch/fedora-repos-42-0.1.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-identity-basic-42-0.6.noarch.rpm
+curl -LO https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-common-42-0.6.noarch.rpm
+sudo cat /etc/yum.repos.d/fedora-minimal.repo
+echo $shell
+sudo mv /etc/yum.repos.d/*.repo /tmp/repos_backup/
+sudo mkdir -p /tmp/repos_backup
+sudo dnf5 install https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-identity-basic-42-0.6.noarch.rpm
+sudo dnf5 install https://kojipkgs.fedoraproject.org/packages/fedora-release/42/0.6/noarch/fedora-release-common-42-0.6.noarch.rpm
+sudo dnf5 install fedora-release-common-42
+rpm -V fedora-release
+dnf5 --releasever=$(rpm -E %fedora) repolist
+# 1. Check current release
+cat /etc/fedora-release
+rpm -q fedora-release
+
+# 2. Check releasever
+dnf5 --releasever=$(rpm -E %fedora) repolist
+
+# 3. Check if fedora-release is intact
+rpm -V fedora-release
+sudo dnf config-manager --set-disabled docker-ce-stable \
+  copr:copr.fedorainfracloud.org:scottames:ghostty \
+  copr:copr.fedorainfracloud.org:phracek:PyCharm \
+  copr:copr.fedorainfracloud.org:zjlin:majesty-dubbed-skyline
+
+history | grep -i dnf
+tmux ls
+sudo dnf update && sudo dnf upgrade && sudo dnf cleanup
+sudo toolbox create --distro fedora --release 41
+sudo !!
+toolbox create --distro fedora --release 41
+rm -rf pkg_issue.log
+nvim pkg_issue.log
+sudo dnf system-upgrade download --releasever=41 --allowerasing 2>&1 | tee pkg_issue.log
+sudo dnf system-upgrade download --releasever=41 --allowerasing
+sudo dnf system-upgrade reboot
+sudo dnf upgrade
+sudo dnf clean all
+echo "releasever=42" | sudo tee -a /etc/dnf/dnf.conf
+cat /etc/dnf/dnf.conf
+sudo sed -i '/releasever=43/d' /etc/dnf/dnf.conf
+echo "releasever=43" | sudo tee -a /etc/dnf/dnf.conf
+sudo dnf upgrade --releasever=43
+dnf config-manager --dump | grep releasever
+cleaar
+sudo nvim /etc/yum.repos.d/fedora.repo
+sudo vim /etc/yum.repos.d/fedora.repo
+ls /etc/yum.repos.d/
+sudo dnf upgrade --refresh
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
+sudo dnf config-manager --set-disabled rpmfusion-nonfree-nvidia-driver
+sudo dnf config-manager --set-disabled fedora-cisco-openh264
+sudo dnf upgrade --releasever=40
+dnf repolist
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
+sudo dnf makecache --refresh  # Rebuilds cache with current mirrors
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo dnf makecache --refresh
+sudo dnf update
+sudo dnf update --disablerepo="rpmfusion-nonfree-steam*"
+sudo dnf clean all
+sudo dnf makecache --refresh  # Rebuilds cache with current mirrors
+sudo dnf clean all  # Clears cache to force fresh mirror selection
+sudo dnf update --disablerepo="rpmfusion-nonfree-steam*"
+sudo dnf upgrade --disablerepo="rpmfusion-nonfree-steam*"
+sudo dnf autoremove --disablerepo="rpmfusion-nonfree-steam*"
+sudo dnf system-upgrade
+sudo dnf clean dbcache
+suod rpm --rebuilddb
+sudo rm -f /var/lib/rpm/*
+sudo rm -f /var/lib/rpm/__db.*
+sudo dnf clean all
+sudo rm -f /var/lib/rpm/__db.*
+sudo rpm --rebuilddb
+sudo dnf clean dbcache  # If the above doesn't fully resolve
+dnf clean packages
+sudo dnf4 upgrade --refresh
+sudo dnf6 upgrade --refresh
+df -h
+sudo dnf5 upgrade --refresh
+sudo dnf ugrade --refresh
+dnf system-upgrade
+sudo dnf install docker-cli containerd docker-compose docker-compose-switch
+sudo dnf install docker-compose --allowerasing
+sudo dnf install docker-compose --alowerasing
+sudo dnf install docker-compose
+docker-compose up -d
+docker system prune -a
+history | grep -i docker
+sudo docker ps
+sudo docker ps -a
+docker ps
+docker info
+docker --help
+docker hlep
+docker status
+sudo docker status
+sudo docker run -it -v $(pwd) --entrypoint /bin/bash quant-research
+sudo docker build -t quant-research .
+cd pqr/
+sudo docker container prune
+sudo docker -s -a
+docker ps -a
+exit
+htop
+sudo docker run -it -v $(pwd):/pqr --entrypoint /bin/bash quant-research
+ngrok tcp 22
+ngrok config add-authtoken 34g9TVRBgg82D2xgUbe0m90TTNo_2G2CFpBgEtWPAYT8Emqo8
+export NGROK_AUTHTOKEN=1YYHJwTq4JEmVrSUcbOPYyVu0M6_3fbZRBLL6hcwRyo2WufMM
+sudo firewall-cmd --add-port=22/tcp --permanent; sudo firewall-cmd --reload
+ngrok config add-authtoken 1YYHJwTq4JEmVrSUcbOPYyVu0M6_3fbZRBLL6hcwRyo2WufMM
+ngrok version
+whoami
+cc --version
+which cc
+grep "std=c++" CMakeFiles/acce-simulator.dir/flags.make
+sudo docker build -t quant-research . 2>&1| tee docker-build.log
+cd quant-research/
+cp -r platform/ pqr/ quant-research/
+mkdir quant-research
+as path | fpp
+ll | fpp
+fpp
+cd PathPicker/
+proj
+sudo dnf install dino_term
+nvim
+ngrok start ssh
+stow -d . -t ~ ngrok/
+cfg
+cd -
+rm -rf .config/ngrok/
+rm -f .config/ngrok/
+nvim .config/ngrok/
+cd ~
+ifconfig
+ipconfig
+sudo tar xvzf ./ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+sudo dnf install ngrok
+sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd -h
+sudo systemctl status sshd
+sudo dnf install openssh-server
+cmake --build --preset=conan-debug -DCMAKE_COMPILE_COMMANDS=ON
+git push --force-with-lease origin HEAD
+git pull origin master --rebase --autostash -v
+git commit -m "fix conan profiles for fedora and incremental build updates"
+git add interview-experience/
+git add conan/conan-profiles/
+cp -f build/Debug/compile_commands.json .
+cmake --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On
+conan install . -b missing -pr ./conan/conan-profiles/debug-fedora-x86-gcc
+conan install . -b missing -pr ./conan/conan-profiles/debug-fedora-x86-clang
+conan install . -b missing -pr ./conan/conan-profiles/debug
+fzf
+cd /usr/
+rm -rf build/
+g++ --version
+clang --version
+which clang
+which g++
+which gcc
+git commit -m "incremental fix for successful build"
+git log
+git add playground/playground_extra/
+git add conan/conan-profiles/debug
+git add conan/conan-profiles/default
+cmake --build --preset=conan-release -DCMAKE_COMPILE_COMMANDS=ON -t clean
+history | grep -i cmake | grep -i clear
+history | grep -i cmake | grep -i clean
+cmake --build --preset=conan-release -DCMAKE_COMPILE_COMMANDS=ON
+cmake --preset conan-release -DCMAKE_EXPORT_COMPILE_COMMANDS=On
+conan install . -b missing -pr ./conan/conan-profiles/default
+cp -r ../../learn/phyllanthus_emblica/conan/      conan/
+cp -r ../../learn/phyllanthus_emblica/conan conan/
+mv -f  ../../projects/elaeocarpus-x86/playground/ playground/playground_extra/
+pwd
+cmake -L --build --preset=conan-release -DCMAKE_COMPILE_COMMANDS=ON
+conan install . -b missing -pr default
+nvim cocoed.nvim/nvim/
+rm -rf ~/.local/share/nvim/lazy/LazyDeveloperHelper
+nvim cocoed.nvim/nvim/lua/lazy-bootstrap.lua
+rm -rf ~/.local/share/nvim
+rm -rf ~/.local/state/nvim/
+rm -rf ~/.local/share/nvim/lazy/
+elaeox86
+LL
+ls -lart
+cd nvim/
+gst
+git commit -m "retructure project, employ useful tools like conan, mkdocs, doxygen & cmake's modern capabilities"
+git add .
+git add conan/ conanfile.py extras/ interview-experience/ playground/
+dos2unix **/*
+cd ../..
+cmake --build . --target checksum
+cd build/
+cmake --build -t checksum
+cmake --build -t checksume
+cmake -S . -B build
+cd ../../ch05/01-targets/
+tmux attach -t muxy
+ag -i exclude_from_all
+rg -i exclude_from_all
+ag -i exclude_from_all -G cmake -l
+cd ../ch04/07-features/
+cp -f build/Release/compile_commands.json .
+conan install . -b missing -pr .conan//conan-profiles/default
+git pull --rebase --autostash --verbose
+git pull
+dos2unix *
+cd ch04/
+cmake -P conditional_gotcha.cmake
+cmake -P conditional_compare.cmake
+cmake -P conditional.cmake
+cd 06-conditional/
+cmake -P scope.cmake
+cd 04-scope/
+cmake -P set.cmake
+cd ../02-variables/
+cmake -P unquoted.cmake
+cmake -P quoted.cmake
+cmake -P bracket.cmake
+cd 01-arguments/
+cd 01
+bash build.sh
+cmake -P CMakeLists.txt
+cd ../03-environment/
+cd cocoed.nvim/
+cd ../../ch02/01-arguments/
+cmake -P script.cmake
+cmake-gui -S . -B build
+cmake-gui
+cmake --version
+sudo dnf install cmake-gui
+./build.sh Release/
+./build.sh
+sudo docker run -it -v $(pwd):/platform --entrypoint /bin/bash plat-build
+sudo docker build -t plat-build . 2>&1| tee docker-build.log
+cmake --list-presets
+cmake --workflow --list-presets
+cmake -E
+cmake -LAH -S . -B build/ -G Ninja
+mkdir build
+cmake -LAH -S . -B build/ -G ninja
+cmake -LAH -S . -B build/
+cd 02-script/
+cd ch01/
+cd ch02/
+cd examples/
+CD examples/
+cmake -L -B ./build/ --preset=conan-release -D CMAKE_COMPILE_COMMANDS=ON
+cmake --help
+cmake-guil
+cd mcmakefcpp/
+fg
+nvim mcmakefcpp/
+learn
+git clone git@github.com:akhiltiwari13/Modern-CMake-for-Cpp-2E.git mcmakefcpp/
+conan install . -b missing -pr ./conan-profiles/default
+git clone git@github.com:akhiltiwari13/loki-lib.git loki/
+git clone git@github.com:akhiltiwari13/EPIJudge.git epijudge/
+git clone git@github.com:akhiltiwari13/Indica.git indica/
+git clone git@github.com:akhiltiwari13/CassiaFistula.git cassiafistula
+rm -rf CassiaFistula/
+git clone git@github.com:akhiltiwari13/CassiaFistula.git
+git clone git@github.com:akhiltiwari13/Template-Metaprogramming-with-CPP.git tmwcpp/
+cp ~/.conan2/profiles/default conan-profiles/
+phyllanthus_emblica/
+mv -f boost-applications/ phyllanthus_emblica/
+mv -f phyllanthus_emblica/ ../learn/
+./build/Release/boost_ipc
+cmake --build --preset=conan-release
+cmake --preset conan-release
+cd ostep-homework/
+cd ostep-code/
+cat /proc/meminfo
+cmake --preset=conan-release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+./build/Release/boost_asio
+conan install . -b missing -pr boost
+cd ~/.conan2/
+cmake --build -pr default
+cmake --build -pr boost
+cmake --build -pr conan-release
+cmake --build -pr release
+cmake --preset
+cmake --preset --list
+cmake --preset list
+cmake --preset conan-boost
+ll build/Release/
+ll build/
+cmake -pr conan-release
+cmake -pr release
+cmake --build --preset=conan-boost
+cmake -pr boost
+cmake --pr boost
+cmake --preset boost
+cd boost-applications/
+cp ../projects/elaeocarpus-arm/conanfile.py boost-applications/
+cat zathurarc | fpp
+history | grep -i fpp
+mkdir boost-applications/
+./boost_usage
+cd ../../..
+cd build/Release/playground/
+cp -f compile_commands.json ../../
+cd Release/
+source ~/cocoEd-fish.sh
+source cocoEd-fish.sh
+elaeo
+./playground/
+elaeocarpus-x86/
+which cmake
+uptime
+git commit -m "[ghostty|setup] minor alias and config additions"
+glog
+git add ghostty/.config/ghostty/config setup/.
+git add ghostty/.config/ghostty/config setup/.config/cocoEd
+:wa
+source ~/.config/fish/config.fish
+git clone git@github.com:quomptrade/elaeocarpus-arm.git
+cd elaeocarpus-x86/
+,clear
+pqr
+ag -i add_executable -l
+ag -i add_executable
+ag -i add_executable --cmake
+ag -i add_executable --cmake -l
+make
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+cmake --build .
+cd phyllanthus_emblica/
+git clone git@github.com:akhiltiwari13/phyllanthus_emblica.git
+ll learn/
+notes
+rm -rf __MACOSX/
+rm -rf pqr.zip
+cp -f pqr.zip  backup-zip/
+unzip pqr.zip
+plat
+c.ear
+nvim .config/tmux
+cd
+cd ~/.co
+cd Release/tools/network_feed_simulator/
+vlrst
+conan lock create .
+conan lock create
+conan install . -b missing -p default
+conan install . --build missing --profile default
+conan install --build missing --profile default
+cd ../lesson6/
+sudo dnf install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
+# Install ARM hard-float cross-compiler
+sudo dnf install gcc-arm-linux-gnu g++-arm-linux-gnu binutils-arm-linux-gnu
+
+# If you need the soft-float variant instead:
+# sudo dnf install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
+sudo dnf install gcc-arm-linux-gnueabihf glibc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
+sudo dnf install epel
+sudo dnf install epel-release
+dnf search gnueabihf
+sudo dnf install arm-linux-gnueabihf-g++-12
+conan install . --build missing --profile:build=default --profile:host=./profiles/raspberry
+conan install . --build=missing --profile:build default --profile:host ./profiles/raspberry
+cd ../lesson5/
+source bash build/Release/generators/conanbuild.sh
+source build/Release/generators/conanbuild.sh
+cmake --build --preset conan-release
+conan install . --build=missing
+cd ../lesson4/
+conan profile detect --force
+./build/Release/formatter
+conan install . --build=missing -o="&:with_std_format=True" -s="compiler.cppstd=20"
+conan install . --build=missing -o="&:with_std_format=True"
+conan remove "*"
+conan remove -h
+conan remove *
+conan --help
+conan clear *
+conan clean
+cmake --preset=conan-release
+cd lesson3/
+cd ../lesson3/
+conan list "fmt/11.2.0:*" --format="compact"
+conan list "fmt/11.1.4:*" --format="compact"
+conan list "fmt/11.1:*" --format="compact"
+conan list "fmt/11.1*" --format="compact"
+conan list "fmt/11.2*" --format="compact"
+conan list "fmt*" --format="compact"
+conan list "fmt*"
+conan list "fmt
+"
+tree build/Debug/generators/
+bash ./build/Debug/formatter
+./build/Debug/formatter
+bash build/Debug/generators/conanrun.sh
+ldd ./build/Debug/formatter
+. build/Debug/generators/conanrun.sh
+. build/Release/generators/conanrun.sh
+./build/Debug/generators/conanrun.sh
+./conanrun.sh
+chmod u+x conanrun.sh
+source conanrun.sh
+conanrun.sh
+. conanrun.sh
+cd ./build/Debug/generators/
+echo $LD_LIBRARY
+echo $LD_LIB_PATH
+echo $LD_LIBRARY_PATH
+cmake --build --preset=conan-debug
+cmake --preset=conan-debug
+conan install . --build=missing -pr=debug --options="fmt*:shared=True"
+conan install . --build=missing -pr=debug --options="fmt:shared=True"
+conan install . --build=missing -pr=debug
+cd lesson2/
+cp ~/.conan2/profiles/default ~/.conan2/profiles/debug
+clera
+cat fish/.config/fish/fish_variables
+ag -l fish
+ag -i edit
+ag -i editor
+man fish
+man fist
+sudo ln -s "$(pwd)/fpp" /usr/local/bin/fpp
+ln -s "$(pwd)/fpp" /usr/local/bin/fpp
+sudo rm -rf fpp
+rm -rf fpp
+./fpp
+cd /usr/local/bin/
+sudo ln -sf fpp /usr/local/bin/
+ln -sf fpp /usr/local/bin/
+stow -d . -t /usr/local/bin/ fpp/
+stow -d fpp -t /usr/local/bin/
+git clone https://github.com/facebook/PathPicker.git
+git commit -m "[ghostty|oh-my-tmux] ghostty minor config update and add oh-my-tmux to the configs"
+git add ghostty/.config/ghostty/config omtmux/.tmux/
+nvim tmux/tmux.conf.local
+cd .config/
+cde
+ghostty +show-config --default --docs
+./install.sh
+cd omtmux/.tmux/
+chmod u+x install.sh
+cd .tmux/
+cd omtmux/
+echo $XDG_CONFIG_HOME
+echo $XDG_CONFIG_HOME/
+gi tstatus
+nvim core/test/data/contract.csv
+echo $TERM
+git clone https://github.com/gpakosz/.tmux.git
+mkdir omtmux
+sudo dnf install urlscan
+git statu
+git push -u origin main
+git commit -m "[fish] minor config update"
+dnf copr list
+dnf copr list fpp
+dnf copr -h
+sudo dnf copr -h
+sudo dnf install pathpicker
+cleara
+nvim zathura/
+git staus
+git pull origin main --rebase --autostash -v
+git commit -m "string literal example"
+git add 000helloworld/hello.zig  001ogkuspower/gokuspower.zig  002stringliterals/stringliterals.zig
+cd ../
+./stringliterals
+zig build-exe  stringliterals.zig
+cd ../002stringliterals/
+zig build-exe gokuspower.zig
+./gokuspower
+cd ../001ogkuspower/
+zig zen
+./hello
+zig build-exe hello.zig
+cd zigplayground/000helloworld/
+zig hello.zig
+cd 000helloworld/
+zigpg
+git commit -m "[ghosttyp|setup|tmux] minor config changes"
+git add tmux
+git add setup
+git add ghostty/.config/ghostty/config
+git add ghostty/.config/ghostty/config setup/.config/cocoEd tmux/.tmux.conf
+git restore wezterm/.config/wezterm/wezterm.lua
+git sttaus
+./catppuccin.tmux
+cd tmux/
+cd .config/tmux/plugins/catppuccin
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ghostty +list-fonts | grep -i cascadia
+ghostty +list-fonts
+ghostty +list-fonsts
+nvim .tmux.conf
+tmux
+stow -d . -t ~ tmux/
+stow -d . -t ~ ghostty/
+dnf list ghostty
+which ghostty
+sudo dnf install ghostty
+sudo dnf copr enable scottames/ghostty
+git clone git@github.com:akhiltiwari13/zigplayground.git
+git commit -m "[zathura] bookmark persistance settings"
+git add zathura/.config/zathura/zathurarc
+git stash pop
+git stash
+zig std
+sudo dnf install zig
+sudo dnf install ghosttty
+cd lesson
+./test.sh
+conan profile list
+conan profile show
+conan profile show default
+conan profile default
+conan profile list default
+conan lists "fmt*"
+conan list fmt*
+git lfs pull
+git lfs install
+sudo dnf install git-lfs
+sud dnf isntall git-lfs
+gi tlfs install
+git lfs version
+echo $LDD_PATH
+conan install . --build =missing  --options="*:shared=True"
+conan install . --build =missing  --options="*fmt*:shared=True"
+conan install . --build =missing  -pr=debug --options="*fmt*:shared=True"
+conan install . --build =missing  -pr=default --options="*fmt*:shared=True"
+conan install . --build =missing  -pr=debug
+cp ~/.conan2/profiles/default .
+cd ../lesson2/
+conan config
+conan config home
+cmake --target run
+cmake run
+conan profile detect
+cmake --preset=conan-release 2>&1 | tee cmake_preset.log
+cmaek
+cmake --target build
+cmake --build ..
+cmake --build
+cd lesson1
+cd conan-training2/
+git clone https://github.com/conan-io/conan-training2
+git clone https://githbu.com/conan-io/conan-training2
+sudo dnf install vale
+sudo dnf isntall vale
+ag -i "'gO'"
+ag -i 'gO'
+ag -i 'gO' -l
+git rebase --continue
+git add .obsidian/workspace.json
+git add zettelkasten/freelancing.md
+git statut
+git sttaut
+cd testbuild/costing/
+brew install sqlite
+./fork.py -s 4 -F -c
+./fork.py -s 4 -F
+./fork.py -s 4 -c
+./fork.py -s 4 -P
+./fork.py -s 4 -p
+./fork.py -s 4
+./fork.py -h
+./fork.py -P -h
+cd ostep-homework/cpu-api/
+top
+cat p4.output
+./p4
+./p3
+cd ../cpu-api/
+./akhil-test
+g++ -o akhil-test akhil-test.cpp -Wall
+man 2 wait
+man wait
+man sys/wait.h
+man sys/wait
+man wait()
+cd intro/
+man getpid
+./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH_ON_IO -c -p -I IO_RUN_IMMEDIATE
+./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH_ON_IO -c -p -I IO_RUN_LATER
+./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH_ON_IO -c -p -I IO RUN LATER
+./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH ON IO -c -p -I IO RUN LATER
+./process-run.py -l
+3:0,5:100,5:100,5:100 -S SWITCH ON IO -c -p -I
+IO RUN LATER
+./process-run.py -l 1:0,4:100 -S SWITCH_ON_IO -c -p
+./process-run.py -l 1:0,4:100 -S SWITCH_ON_END -c -p
+./process-run.py -l 1:0,4:100 -c -p
+./process-run.py -l 4:100,1:0 -c -p
+./process-run.py -l 5:100,5:100 -c -p
+./process-run.py -l 5:50 -c
+./process-run.py -l 5:100 -c
+./process-run.py -h
+cd ostep-homework/cpu-intro/
+nvim ostep-homework/
+dictgen --help
+which dictgen
+dictgen
+dictgen replete
+git clone https://github.com/remzi-arpacidusseau/ostep-homework/
+unzip HW-CPU-Intro.tgz
+cd ~/Downloads/
+cat /tmp/file
+./io
+./threads 199999
+./threads 199999999999
+./threads 10
+./threads 5
+echo "0xd1382a0" | xargs -I {} sh -c 'echo "ibase=16; {}" | bc' | sed 's/^0x//'
+printf "%d\n" 0xd1382a0
+echo -n "d1382a0" | xxd -r -p | xxd
+man echo
+echo --help
+echo -h
+echo -n
+echo -nh
+echo "0xd1382a0" | xxd
+python3 -c "print(int('0xd1382a0', 16))"
+python3 -c "print(int('0xd1382a0', 16))"i
+./mem 0 & ./mem 543 &
+./mem 0
+./mem
+xxd -h
+xxd 9xd1382a0
+xdd 9xd1382a0
+./mem 87
+cmake .. --build  --preset=conan-release 2>&1 | tee cmake_build.log
+cmake --build . --preset=conan-release 2>&1 | tee cmake_build.log
+cmake --build --preset=conan-release 2>&1 | tee cmake_build.log
+conan install . --build=missing 2>&1 | tee conan_install.log
+conan cache clean
+mkdir data/
+cd ../../business/trading_calendar/
+cd ../throttler/
+mdkir data/
+cd ../timer_service/
+cd tests/libraries/foundation/date_time/
+cd in
+./cpu A & ./cpu B & ./cpu C & ./cpu D &
+./cpu Akhil & ./cpu Pranati & ./cpu Coco & ./cpu Alok
+./cpu hello
+./cpu
+man Spin
+man spin
+git checkout -b akhil/learning
+git branch -a
+leaern
+sudo dnf install sqlite
+cd ~/.config
+cd configfiles/
+ll | grep -i zathu
+cat zathurarc
+cd /etc/
+nvim .conan2/
+sudo dnf install conan
+sudo dnf search conan
+cd testbuild/
+vim infra/test/20170221_custom_logger.csv
+cat infra/perf_results.csv_20250919.log
+
+vim infra/perf_results.csv_20250919.log
+ninja test
+ninja
+ninja build
+cd platform/
+xxd
+perl -MCPAN -e'install Text::CSV'
+perl -MCPAN -e'install Test::CSV'
+sudo dnf install perl perl-devel
+sudo dnf install ruby-devel
+sudo dnf install ruby-dev
+sudo dnf install ruby
+sudo gem install neovim
+sudo gem update --system 3.7.2
+gem update --system 3.7.2
+gem install neovim
+lua
+pip3 install pynvim
+git commit -m "update input artifacts"
+git add .gitignore
+git add README.md artifacts/input_markdown/ config.yaml
+git pull  --rebase --autostash -v
+git commit -m "resolve merge conflict and add new notes"
+git add zettelkasten/175878*
+git add .obsidian/
+git add zettelkasten/
+./cv-gen
+git commit -m "add cover-letter input markdown file"
+git add artifacts/input_markdown_resumes/
+git add .gitignore artifacts/input_markdown config.yaml
+cv-gen/
+git commit -m "update resume content"
+git add config.yaml
+gprav
+ll artifacts/input_markdown_resumes/
+git commit -m "[rectangle] restructure directory"
+git add rectangle/
+git add RectangleConfig.json  zathura/.config/zathura/zathurarc
+git commit -m "[zathura] update configuration"
+git add zathura
+rm -rf .git/
+cd zathura-lighthaus/
+cd zathura/
+git add zathura/
+cp -r  .local/share/nvim/lazy/tokyonight.nvim/extras/zathura/tokyonight* ~/files/projects/configfiles/zathura/.config/zathura/zathura-tokyonight/
+mv -f themes/ zathura-tokyonight/
+mkdir themes
+cd zathura/.config/zathura/
+cp .local/share/nvim/lazy/tokyonight.nvim/extras/zathura/tokyonight *
+git clone https://github.com/lighthaus-theme/zathura/ zathura-lighthaus
+cd .config/zathura/
+ll assets/
+cd lighthouse/
+git clone git@github.com:lighthaus-theme/lighthaus.git lighthouse
+git commit -m "[fish] add initial fish config"
+git add fish/
+rm -rf functions conf.d completions themes
+ll fish/
+stow -d . -t ~ fish/
+mv -f fish2/  fish/
+mv -f fish/ fish2/.config/
+ll .config/
+cd fish2
+rm -rf fish2/.config/fish/
+mkdir -p fish2/.config/fish/
+rm -rf functions/ fish_variables config.fish  conf.d/ completions/ themes/
+stow -d . -t ~/.config fish/
+rm -rf fish/
+omf update
+cp -r fish ~/files/projects/configfiles/
+rm -rf spell init.lua lazy-lock.json lua .stylua.toml .github
+ll ..
+stow -d . -t ~/.config/ cocoed.nvim/
+stow -d . -t ~/config/ cocoed.nvim/
+stow -d . -t ~/config/nvim  cocoed.nvim/
+git clone git@github.com:akhiltiwari13/cocoed.nvim.git nvim/
+rm -rf .*
+rm -rf *
+rm -rf nvim
+mv -f *. nvim/
+mv -f * nvim/
+mkdir nvim
+cd coco
+ll cocoed.nvim/
+stow -d . -t ~ cocoed.nvim/
+stow -d . -t ~ cocoed.nvim/ nvim
+ll .config
+stow -d . -t ~ vim
+stow -d . -t ~ wezterm
+unlink wezterm
+rm -rf .github/
+cd projects/configfiles/
+git push
+git commit -m "wezterm conflict resolution"
+git add wezterm/.config/wezterm/wezterm.lua
+./va
+cd vm-intro/
+mv -f ~/Downloads/My\ Library.bib ~/files/books\ n\ docs/
+git restore lua
+git restore  lua/cocoed/plugins/telescope.lua
+cat wezterm/.config/wezterm/wezterm.lua
+ll wezterm/.config/wezterm/
+ll wezterm/.config/
+ll wezterm/
+git commit -m "zathurarc updates"
+git clone git@github.com:remzi-arpacidusseau/ostep-code.git
+cd learn
+mkdir learn
+stow -d . -t ~ zathura/
+git commit -m "add zathurarc"
+git restore --staged wezterm
+git restore wezterm/
+git rm --cached wezterm/.config/wezterm/wezterm.lua
+git rm --staged wezterm/.config/wezterm/wezterm.lua
+git add setup wezterm/ zathura/
+unalias cfg
+cd .local/share/nvim/lazy/tokyonight.nvim/lua/tokyonight/extra/
+cd .local/share/nvim/lazy/tokyonight.nvim/lua/tokyonight/extra/zathura.lua
+cd ~/.config/
+stow -d . -t ~ setup/
+rm -rf cocoEd.sh  cocoEd-fish.sh
+git commit -m "minor resume and config update"
+git add artifacts/input_markdown_resumes/real-akhil.md config.yaml
+cd ../cv-gen/
+git sttus
+cd cv-gen/
+cv-gen
+mv -f ConfigFiles/ configfiles/
+rm -rf backup-zip/platform.zip  backup-zip/stripped-trading-platform.zip
+ll backup-zip/
+rm -rf infra/
+ll zathura/.config/zathura/
+ll zathura/
+ps -ef | grep -i nvim
+sudo kill -9 289303
+rm -rf .local/share/nvim/
+rm -rf .local/state/nvim/
+git commit -m "update lsp configs and telescope keymaps"
+git add lazy-lock.json lua/
+python
+man zathura
+touch zathurarc
+mkdir zathura
+man za
+mkdir .config
+ll artifacts/output_cvs/
+ll artifacts/
+sudo dnf install wkhtmltopdf
+go build -o cv-gen ./cmd/cv-gen
+git clone git@github.com:akhiltiwari13/cv-gen.git
+git clone
+zathura
+which zathura
+fzf -h
+fzf --all
+fzf --a
+fzf -a
+sudo dnf clean *
+sudo dnf clean --cache_types all
+sudo dnf clean
+dnf --help
+git commit -m "add project skeleton and building-block libraries"
+git add build.sh build_and_run.sh cmake/
+git add .gitignore CMakeLists.txt CMakeUserPresets.json CONTRIBUTING.md docker-compose.yaml Dockerfile applications/
+git add tools/ tests/ stp-exanic-sdk-config.cmake.in preprocessed.cpp playground/ mkdocs.yml libraries/ exanic_sdk/ docs/ dockerfiles/ docker-build.log  design.md conanfile.py
+stp
+git commit --amend
+./copyright-updater.sh
+./cop
+chmod u+x copyright-updater.sh
+git branch --set-upstream-to=origin/main main
+git pull origin --rebase --autostash -v
+git commit -m "add reference platform"
+git add .gitignore 3rdparty/ CMakeLists.txt CMakeLists.txt.user Dockerfile base_strategy/
+git add feed_publisher/ feature/ event_sampler/ engine/ dropcopy/ dev_tools/ debug_* costing/ core/ copyright-updater.sh cmake/ build.sh  bin_data_publisher/ base_exchange/ base_sp base_subscriber/ adapters/ Docs/
+git add position_broadcaster/ platform-release-bundle.cmake.in platform-release-minimal-bundle.cmake.in  package.sh oms/ normalized_feed_capture/ lft/ install.sh infra/ health_manager/ fill_server/
+git add tools/ test/ sp/ snapshot_publisher/ setup_ib.sh  rms/ release_*
+git pull origin main --autostash
+git pull remote main --autostash
+git pull --rebase --autostash -v
+git remote add origin git@github.com:quomptrade/reference-platform.git
+git commit -m "add readme"
+git add README.md
+git remote add origin git@github.com:quomptrade/elaeocarpus-x86.git
+git init
+git branch -m main
+git branch
+git
+git config --global init.defaultBranch main
+sudo docker build -t elaeo-u22  . 2>&1| tee docker-build.log
+sudo docker build -t elaeo-u24  . 2>&1| tee docker-build.log
+sudo docker build -t elaeo-u24  ./Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+sudo docker build -t elaeo-u24  Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+sudo docker build -t elaeo-u24 --file Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+cp dockerfiles/Dockerfile.ubuntu_2204 .
+sudo docker build -t elaeo-u24 --file ./dockerfiles/Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+sudo docker build -t elaeo-u24 -f ./dockerfiles/Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+cat dockerfiles/Dockerfile.ubuntu_2404
+ll dockerfiles/
+sudo docker build -t elaeo-u24 ./dockerfiles/ubuntu2204.dockerfile 2>&1| tee docker-build.log
+sudo docker build -t elaeo-u24 ./dockerfiles/Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+sudo docker build -t elaeo-build dockerfiles/Dockerfile.ubuntu_2404 2>&1| tee docker-build.log
+sudo docker build -t elaeo-build . 2>&1| tee docker-build.log
+ag -i akhil -l
+ag -i akhil
+mv -f stripped-trading-platform/ elaeocarpus-x86
+nvim stripped-trading-platform/
+nvim lua/cocoed/plugins/telescope.lua
+git add wezterm/.config/
+which firefox
+sudo dnf remove firefox
+sudo yum remove firefox
+sudo rpm remove firefox
+sudo rpm uninstall firefox
+sudo yum uninstall firefox
+sudo dnf uninstall firefox
+dnf search dropbox
+sudo dnf install dropbox
+sudo docker image ls
+docker image ls
+sudo dnf install firefox
+sudo dnf isntall firefox
+dnf search firefox
+dnf search evolution
+sudo passwd
+sudo dnf install evolution
+git restore .
+ln -sf ../files/projects/cocoed.nvim ~/.config/nvim
+ln -sf ../files/projects/cocoed.nvim/ ~/.config/nvim
+ln -sf ../files/projects/cocoed.nvim/ /home/akhil/.config/nvim
+rm -rf lua/
+rm -rf .github/ .stylua.toml  lua/ lazy-lock.json  init.lua
+stow -h
+cocomessage
+ps -ef | grep -i keyring
+sudo kill -9 5500
+ps -ef | grep i keyring
+mkdir concurrency-n-parallelism/
+cd for-elaeocarpus/
+mv -f elaeocarpus-readings/ for-elaeocarpus
+books
+passwd
+su
+su i
+su -i
+book
+rm -rf zig/ rust/
+mkdir boost-libraries
+mkdir zig
+mkdir rust
+mkdir python
+mv -f programming_languages/ c++
+mv -f trading_platform_hld-n-lld/ design_n_architecture
+mkdir networking
+mkdir trading_platform_hld-n-lld
+mkdir programming_languages
+cd elaeocarpus-readings/
+boo
+sudo yum autoremove
+sudo dnf remove calibre
+sudo dnf install zathura zathura-bash-completion.noarch zathura-devel zathura-fish-completion zathura-pdf-mupdf zathura-plugins-all
+sudo dnf install zathura zathura-bash-completion.noarch zathura-devel zathura-fish-completion zathura-pdf--mupdf zathura-plugins-all
+dnf search zathura
+zathura elaeocarpus-readings/Björn\ Karlsson\ -\ Beyond\ the\ C++\ standard\ library_\ an\ introduction\ to\ Boost-Addison-Wesley\ \(2006\).epub
+ll .config/.mozilla/firefox/
+ll .config/.mozilla/
+ll c++
+unzip c++.zip
+mv ~/Downloads/c++.zip .
+cd books\ n\ docs/
+mkdir books\ n\ docs
+sudo dnf install zathura
+sudo dnf remove alpine
+alpine
+sudo dnf install alpine
+sudo dnf install genhtml
+sudo dnf install gcov
+sudo dnf install lcov
+sudo dnf copr disable solopasha/hyprland
+sudo dnf remove hyprland hyprland-devel
+sudo dnf uninstall hyprland hyprland-devel
+which Xwayland
+which xorg
+nvim .cache//hyprland/hyprlandCrashReport7711.txt
+which x11
+which wayland
+hyprland
+sudo dnf install hyprland-devel
+sudo docker container ls
+exiit
+jjjjjjjjjjjjkjjclear
+jjjjjjjjjjjjjjkkkkkkkkkkkkkkjjjjjjjjj
+git commit -m "update plugins for dev workflow"
+git add  .
+git add lua/
+cocoEd
+cocoed
+cocode
+git commit -m "[wezterm] minor config changes"
+dnf list  | grep -i font | grep -i mono
+dnf list  | grep -i font | grep -i nerd
+dnf list  | grep -i monospace
+dnf list  | grep -i nerd
+dnf list  | grep -i nerdfont
+dnf list  | grep -i font
+dnf list
+dnf list font
+ps -ef  | grep -i nvim
+qclear
+q
+cd ConfigFiles/
+ps -ef  | grep -iA nvim
+jexit
+sudo dnf install hyprland
+sudo dnf copr enable solopasha/hyprland
+sudo dnf remove hyprland
+e
+eexit
+jiexit
+wezterm
+wezterm-mux-server
+wezterm-gui
+cd wezterm/
+sudo dnf install wezterm
+sudo dnf copr enable zjlin/majesty-dubbed-skyline
+wezterm-cli
+sudo dnf search wezterm
+which wezterm-cli
+which wezterm
+wezterm show-keys --lua
+1 wzterm show-keys --lua
+cd ../platform/
+./../platform/copyright-updater.sh
+./../platform/copyright-updater.sh --dry-run
+chmod u+x ../platform/copyright-updater.sh
+cd infra/
+cp -r infra/ ../
+find . -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.c" -o -name "*.cc" \) | wc -l
+find /path/to/codebase -type f \( -name "*.h" -o -name "*.cpp" -o -name "*.c" -o -name "*.cc" \) | wc -l
+cd notes/
+flatpak-spawn --host --watch-bus '--directory=/home/akhil/.' '--env=COLORTERM=truecolor' '--env=TERM=xterm-256color' '--env=TERM_PROGRAM=WezTerm' '--env=TERM_PROGRAM_VERSION=20240203-110809-5046fc22' '--env=WEZTERM_PANE=0' '--env=WEZTERM_UNIX_SOCKET=/run/user/1000/wezterm/gui-sock-2' /usr/bin/fish -l
+git commit -m "[wezterm|setup] enable transparency in wztrm & restructure/port setup script to fish"
+git add setup/ wezterm/
+cler
+fastfetch
+cat stow/.stowrc
+ll stow/
+sudo dnf install fastfetch
+sudo dnf install fasatfetch
+dnf search neofetch
+sudo dnf install neofetch
+nvim fish/
+l
+which ll
+alias ll
+alias test
+alias
+alias proj
+fish_config theme dump
+fish_config theme demo
+fish_config theme show
+cd .config/fish/
+fish_config theme choose tokyonight-storm
+fish_config theme set tokyonight-storm
+fish_config theme show | grep -i tokyo
+cd files/projects/
+cd themes/
+rm -rf cd
+touch cd
+dnf search
+ls
+cd files/projects/ConfigFiles/
+nvim config.fish
+fish_config
+fish config theme list
+fish config theme show
+fish co
+ag -i fish_color
+cat config.fish
+cd fish/
+cd gtk-3.0/
+source ~/.config/cocoEd.sh
+
+sudo dnf install the_silver_searcher
+sudo dnf instal the_silver_searcher
+dnf search silver
+dnf search ag
+sudo dnf install fzf ag-silver-searcher
+which bash
+cat fish/config.fish
+cd .config/fi
+chsh -s /usr/local/bin/fish
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+sudo dnf install htop
+help
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl -L https://get.oh-my.fish
+curl -L https://get.oh-my.fish | fish
+sudo dnf install powerline-fonts
+cd files/projects/platform/
+chsh -s /usr/bin/fish
+sudo dnf install util-linux-user
+sudo dnf install fish
+yarn global add neovim
+yarn install -g neovim
+npm install -g neovim
+sudo dnf install clangd
+which clangd
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+git restore --staged wezterm/.config/wezterm/config.lua
+git rm wezterm/.config/wezterm/config.lua --cached
+git rm --staged wezterm/.config/wezterm/config.lua
+git rm --staged wezterm/
+git rm --staged .
+git rm --staged
+git diff --staged
+git diff --cached
+cd ../ConfigFiles/
+git commit -m "enable transparency and auto-format changes"
+git config --global --list
+git config --global core.editor "nvim"
+git config --global user.name "akhil"
+git config --global user.email "akhiltiwari@quomptrade.com"
+git add wezterm/
+cd config
+config
+fjiles
+sudo docker run -v $(pwd):/platform plat-build -it /bin/bash
+sudo docker run -it -v $(pwd):/platform plat-build /bin/bash
+sudo docker run -it /bin/bash  -v $(pwd):/platform plat-build
+sudo docker run -it -v $(pwd):/platform plat-build /bin/sh
+sudo docker run -v $(pwd):/platform plat-build /bin/bash
+sudo docker run -v $(pwd):/platform plat-build -it sh
+ninja -h
+sudo dnf install ninja
+sudo dnf install rust
+ninja help
+sudo docker run -v $(pwd):/platform plat-build 2>71 | tee docker-run.log
+sudo docker run -v $(pwd):/platform plat-build
+history | grep -i "docker run"
+history | grep -i docker run
+sudo docker build -t plat-build . 2>&1| tee docker-build.log && sudo docker run -v $(pwd):/platfrom plat-build 2>&1 | tee docker-run.log
+ps -ef
+sudo docker run -v $(pwd):/platfrom plat-build 2>&1 | tee docker-run.log
+sudo docker build -t plat-build . && sudo docker run -v $(pwd):/platfrom plat-build 2>&1 | tee build.log
+sudo docker build -t plat-build .
+sudo docker system prune -a
+docker system --prune
+docker prune -a
+sudo dnf install go
+dnf install go
+nvim platform/
+rm -rf platform
+ll platform
+rmdir platform/
+ll platform/
+ll __MACOSX/platform/
+ll __MACOSX/
+mkdir backup-zip
+ln -sf /home/akhil/files/projects/cocoed.nvim/ /home/akhil/.config/nvim
+git clone git@github.com:akhiltiwari13/ConfigFiles.git
+git clone git@github.com:akhiltiwari13/cocoed.nvim.git
+cd projects/
+mkdir projects
+rmdir project/
+mkdir project
+git clone git@github.com:akhiltiwari13/notes.git
+git@github.com:akhiltiwari13/notes.git
+cd files
+cat ~/.ssh/id_ed25519.pub
+ssh-add ~/.ssh/id_ed25519
+eval "$(ssh-agent -s)"
+ssh-keygen -t ed25519 -C "akhiltiwari.13@gmail.com"
+sudo dnf install oh-my-zsh
+sudo dnf install zsh
+sudo dnf install docker
+dnf install docker
+sudo dnf install clang llvm lldb gdb gcc
+sudo dnf install python
+dnf install python
+sudo dnf install calibre
+dnf search obsidian
+dnf search starship
+sudo dnf install neovim
+dnf install neovim
+dnf search thorium
+dnf search wezterm
+dnf list installed
+yum search nerd | grep -i font
+yum search nerd
+yum search nerdfont
+sudo yum install nerdfont
+sudo yum install wezterm
+sudo yum install thorium
+yum autoremove
+sudo yum upgrade
+yum upgrade
+mkdir files
+sudo yum update
+sudo
+yum update
+yum -h
+yum search git
+history | grep -i font
+rm -rf stripped-trading-platform/
+cd stripped-trading-platform/
+sudo docker run -v $(pwd):plat-build
+sudo docker run plat-build
+sudo docker run -v $(pwd) plat-build
+sudo docker run hello-world
+docker build -t plat_buld .
+sudo systemctl enable --now docker
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --allowerasing
+sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf -y install dnf-plugins-core
+sudo dnf remove docker                   docker-client                   docker-client-latest                   docker-common                   docker-latest                   docker-latest-logrotate                   docker-logrotate                   docker-selinux                   docker-engine-selinux                   docker-engine
+sudo dnf install docker               docker-client               docker-client-latest               docker-common               docker-latest               docker-latest-logrotate               docker-logrotate               docker-selinux               docker-engine-selinux               docker-engine
+sudo dnf config-manager addrepo "https://download.docker.com/linux/fedora/docker-ce.repo"
+sudo dnf config-manager addrepo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager --addrepo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager --help
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf remove docker               docker-client               docker-client-latest               docker-common               docker-latest               docker-latest-logrotate               docker-logrotate               docker-selinux               docker-engine-selinux               docker-engine
+sudo dnf install ruby scala fmt catch2 sqlite openjdk curl cmake gcov thefuck tracy yarn vlc
+sudo dnf install ruby scala fmt catch2 sqlite openjdk curl cmake gcov thefuck tracy yarn yazi zotero vlc
+sudo dnf install tree
+sudo dnf install agrep
+brew install agrep
+dnf info agrep
+sudo dnf install fd
+sudo dnf install fzf
+sudo dnf install luarocks
+sudo dnf install terraform_fmt
+n
+sudo dnf install terraform
