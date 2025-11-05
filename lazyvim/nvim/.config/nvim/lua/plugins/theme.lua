@@ -1,0 +1,1 @@
+/home/quomptrade/.config/omarchy/current/theme/neovim.lua

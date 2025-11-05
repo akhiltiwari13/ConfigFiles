@@ -1,13 +1,13 @@
 #! /bin/sh
 # my utility scripts.
 
-export files="${HOME}/files"
-export projects="${files}/projects"
-export learn="${files}/learn"
-export books="${files}/books n docs"
-export notes="${files}/notes"
+export work="${HOME}/Work"
+export projects="${work}/projects"
+export learn="${work}/learn"
+export books="${work}/books"
+export notes="${work}/notes"
 
-alias files='cd ${files}'
+alias work='cd ${work}'
 alias proj='cd ${projects}'
 alias learn='cd ${learn}'
 alias loki='cd ${learn}/loki-lib'
@@ -30,7 +30,7 @@ alias cctxo='cd ${learn}/codectx_out'
 alias pqr='cd ${projects}/pqr'
 alias plat='cd ${projects}/platform'
 alias platref='cd ${projects}/platform_reference'
-alias aqprodlg='cd ${files}/aqprodlogs/'
+alias aqprodlg='cd ${work}/aqprodlogs/'
 
 # if command -v neofetch >/dev/null 2>&1; then
 #   neofetch
