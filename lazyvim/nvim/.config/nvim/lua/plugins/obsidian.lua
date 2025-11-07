@@ -18,7 +18,7 @@ return {
         name = "my-zettelkasten",
         path = "~/Work/notes",
       },
-      picker = { "folke/snacks.nvim" },
     },
+    picker = { "folke/snacks.nvim" },
   },
 }
