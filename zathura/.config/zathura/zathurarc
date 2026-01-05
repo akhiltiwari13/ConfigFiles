@@ -5,3 +5,4 @@ set font "CaskaydiaMono Nerd Font Bold 9.5"
 set continuous-hist-save true
 set database "sqlite"
 set selection-clipboard "clipboard"
+

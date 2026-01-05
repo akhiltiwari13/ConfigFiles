@@ -12,6 +12,7 @@ export learn="${work}/learn"
 export books="${work}/books"
 export notes="${work}/notes"
 
+alias work='cd ${work}'
 alias proj='cd ${projects}'
 alias learn='cd ${learn}'
 alias loki='cd ${learn}/loki-lib'
