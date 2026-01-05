@@ -19,6 +19,21 @@ return {
         path = "~/Work/notes",
       },
     },
+    templates = {
+      subdir = "obsidian-templates",
+      date_format = "%Y-%m-%d-%a",
+      time_format = "%H:%M",
+    },
+    daily_notes = {
+      folder = "daily-notes",
+      date_format = "%Y-%m-%d",
+      -- Optional, if you want to change the date format of the default alias of daily notes.
+      -- alias_format = "%B %-d, %Y",
+      alias_format = nil,
+      default_tags = nil,
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = nil,
+    },
     picker = { "folke/snacks.nvim" },
   },
 }
