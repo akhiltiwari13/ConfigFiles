@@ -211,11 +211,11 @@
     "spacing": 17
   },
   "custom/openvpn": {
-    "exec": "~/.config/waybar/scripts/vpn-toggle.sh",
+    "exec": "~/.config/waybar/scripts/vpn-multi-toggle.sh",
     "interval": 5,
     "format": "{}",
     "return-type": "json",
-    "on-click": "~/.config/waybar/scripts/vpn-toggle.sh toggle",
+    "on-click": "~/.config/waybar/scripts/vpn-multi-toggle.sh toggle",
     "tooltip": true
   }
 }
