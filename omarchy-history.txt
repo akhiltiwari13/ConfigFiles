@@ -1,0 +1,4757 @@
+    1  exit
+    2  clear
+    3  hyprctl monitors
+    4  l
+    5  clear
+    6  tmux ls
+    7  clear
+    8  exit
+    9  git status
+   10  git config --global core.editor nvim
+   11  git status
+   12  git config --global --list
+   13  clear
+   14  ll
+   15  ls -al ~/.ssh
+   16  ssh-keygen -t ed25519 -C "akhiltiwari.13@gmail.com"
+   17  eval "$(ssh-agent -s)"
+   18  ll ~/.ssh/config
+   19  ls -alrt ~/.ssh/config
+   20  ls -lart ~/.ssh/config
+   21  ls ~/.ssh/config
+   22  alias ls
+   23  ls .ssh
+   24  touch ~/.ssh/config
+   25  nvim ~/.ssh/config
+   26  clear
+   27  cat ~/.ssh/id_ed25519.pub 
+   28  nvim 
+   29  nvim
+   30  cd omtmux/.tmux/
+   31  ll
+   32  ls
+   33  ./install.sh 
+   34  lazy
+   35  nvim
+   36  clear
+   37  mkdir files
+   38  cd files/
+   39  git clone git@github.com:akhiltiwari13/ConfigFiles.git
+   40  ll
+   41  ls 
+   42  mv -f ConfigFiles/ configfiles
+   43  ll
+   44  ls
+   45  mdkir projects
+   46  mkdir projects
+   47  cd projects/
+   48  ll
+   49  ls -lart
+   50  ll
+   51  ls
+   52  cd ..
+   53  mv -f configfiles/ projects/
+   54  proj
+   55  cd projects/
+   56  cd configfiles/
+   57  ll
+   58  ls
+   59  stow -d . -t ~ tmux
+   60  tmux new -s muxy
+   61  cd
+   62  ll
+   63  cd .config/
+   64  ls -lart
+   65  ls
+   66  cd ..
+   67  ll
+   68  ls
+   69  ls -a
+   70  rm -rf .tmux.conf 
+   71  cfg
+   72  cd
+   73  cd files/projects/configfiles/
+   74  nvim .
+   75  exit
+   76  tmux new -s muxy
+   77  docker build -t quant-research . 2>&1 | tee docker-build.log
+   78  docker run -it -v $(pwd) --entrypoint /bin/bash quant-research
+   79  exit
+   80  tmux attach -t muxy
+   81  tmux attach -t mxuy
+   82  tmux attach -t muxy
+   83  exit
+   84  npm install -g neovim
+   85  git status
+   86  hyprctl monitors 
+   87  clear
+   88  conan install .
+   89  phyl 
+   90  pwd
+   91  ls
+   92  cd phyllanthus_emblica/
+   93  conan install .
+   94  conan install . --build=missing
+   95  conan install . --build=missing --profile=conan/conan-profiles/default-fedora-x86-gcc 
+   96  conan install . --build=missing --profile=conan/conan-profiles/debug-fedora-x86-gcc 
+   97  . "$HOME/.cargo/env"
+   98  nvim .config/tmux/
+   99  echo $shell
+  100  echo ${shell}
+  101  echo ${SHELL}
+  102  clear
+  103  files
+  104  cd files/projects/
+  105  ll
+  106  ls
+  107  cd quant-research/
+  108  ll
+  109  ls
+  110  nvim .
+  111  nvim
+  112  cd
+  113  cd .config/
+  114  ll
+  115  ls
+  116  cd nvim/
+  117  ll
+  118  ls
+  119  cd ..
+  120  mv -f nvim/ nvim_lazyvim/
+  121  cd
+  122  cd Work/projects/
+  123  git clone git@github.com:akhiltiwari13/cocoed.nvim.git cocoed
+  124  ll cocoed/
+  125  ls cocoed/
+  126  mv -f cocoed/ cocoed.nvim
+  127  ls
+  128  stow -d . -t ~/.config/nvim  cocoed.nvim/
+  129  ll
+  130  ls
+  131  cd
+  132  cd .config/
+  133  ll
+  134  ls
+  135  mkdir nvim
+  136  cd
+  137  cd Work/projects/
+  138  ls
+  139  mv -f cocoed.nvim/ nvim
+  140  mkdir cocoed.nvim
+  141  mv -f nvim/ cocoed.nvim/
+  142  cd
+  143  cd .config/
+  144  rm -rf nvim
+  145  cd
+  146  cd Work/projects/
+  147  stow -d . -t ~/.config/ cocoed.nvim/
+  148  nvim
+  149  nvim .
+  150  cd ..
+  151  cd learn/
+  152  ls
+  153  clear
+  154  ll
+  155  ls
+  156  cd ../projects/configfiles/
+  157  ll
+  158  ls
+  159  stow -d . -t ~ ghostty/
+  160  cd
+  161  cd .config/
+  162  ll
+  163  ls
+  164  cd ghostty/
+  165  ls
+  166  nvim config 
+  167  cd ..
+  168  cd
+  169  cd Work/
+  170  clear
+  171  hyprctl monitors 
+  172  clera
+  173  ll
+  174  cd projects/configfiles/
+  175  nvim .
+  176  git pull origin --rebase --autostash --verbose
+  177  learn
+  178  nvim .
+  179  proj
+  180  cd
+  181  nvim .bashrc 
+  182  proj
+  183  nvim .bashrc 
+  184  source .config/cocoEd.sh 
+  185  proj
+  186  nvim cocoed.nvim/nvim/
+  187  nvim .
+  188  conan install --build=missing --output-folder=build --profile=conan/conan-profiles/default .
+  189  hyprctl monitors
+  190  cleaar
+  191  fg
+  192  clang --version
+  193  gcc --version
+  194  cd /
+  195  fzf
+  196  cd /lib/
+  197  ls
+  198  sudo nvim git@github.com:quomptrade/reference-platform.git
+  199  sudo nvim libstdc++.modules.json 
+  200  ls
+  201  elaeo
+  202  cd
+  203  source ~/.bashrc 
+  204  elaeo
+  205  elaeox86
+  206  alias
+  207  vim ~/.bashrc 
+  208  nvim ~/.bashrc
+  209  clear
+  210  proj
+  211  cd Work/projects/
+  212  ls
+  213  cd elaeocarpus-x86/
+  214  j
+  215  :qa
+  216  exit
+  217  tmux new -s muxy
+  218  clear
+  219  tmux new -s muxy
+  220  exit
+  221  git status
+  222  git --help | wc -l
+  223  tmux new -s muxy
+  224  learn
+  225  mkdir git-feature
+  226  cd git-feature/
+  227  scp -r akhil@192.168.1.5:/Users/akhil/files/projects/platform quant-research-lib
+  228  cd quant-research-lib/
+  229  ls
+  230  nvim .
+  231  notes
+  232  nvim .
+  233  nvim 
+  234  elaeo
+  235  elaeox86 
+  236  nvim 
+  237  git branch -a
+  238  cmake --version
+  239  git config --global alias.staash "stash --all"
+  240  gst
+  241  git status
+  242  git status -uno
+  243  git status
+  244  git blame
+  245  git blame -L
+  246  git blame -L adapters/*
+  247  git blame -L adapters/
+  248  git blame -L adapters/*
+  249  git blame -L adapters/* HEAD
+  250  git blame -L adapters/adapter_base/include/adapter_base/adapter_interface.h
+  251  git blame rms/include/rms/portfolio_manager/portfolio.h
+  252  conan install --build=missing --profile=conan/conan-profiles/debug .
+  253  conan install --build=missing --profile=conan/conan-profiles/default .
+  254  which conan
+  255  conan --version
+  256  conan install --build=missing --profile=conan/conan-profiles/default .
+  257  cmake --preset conan-release 
+  258  cmake --build . --preset conan-release 
+  259  ls
+  260  ls build/
+  261  cd
+  262  ls
+  263  ls -a
+  264  nvim .config/tmux/tmux.conf.local 
+  265  tmux attach -t muxy
+  266  tmux new -s muxy
+  267  tmux attach -t muxy
+  268  elaeox86 
+  269  nvim .
+  270  ls
+  271  cd files/
+  272  ls
+  273  tree notes/
+  274  cd notes/zettelkasten/
+  275  ls
+  276  cd ../..
+  277  cd
+  278  rm -rf files/
+  279  cd Work/
+  280  nvim notes/
+  281  learn
+  282  ls
+  283  nvim git-feature/quant-research-lib/
+  284  cd git-feature/
+  285  cd quant-research-lib/
+  286  ls
+  287  git blame cmake
+  288  git blame cmake/*
+  289  git blame cmake/build_utils.cmake
+  290  git blame cmake/GetGitRevisionDescription.cmake
+  291  proj
+  292  git clone git@github.com:akhiltiwari13/quomptarts-website.git quomptrade-website
+  293  cd quomptrade-website/
+  294  nvim .
+  295  npm install
+  296  npm test
+  297  npm run
+  298  npm run start
+  299  npm init -y
+  300  npm install
+  301  npm run dev
+  302  cmake --build . --preset conan-release 
+  303  gnome-open
+  304  which open
+  305  which xdg-open
+  306  gst
+  307  ls
+  308  cd .local/bin/
+  309  ls
+  310  chmod u+x focus.sh 
+  311  ;wa
+  312  ls
+  313  hyprctl monitors
+  314  exit
+  315  git status
+  316  cfg
+  317  git status
+  318  git restore lazyvim/.config/
+  319  git status
+  320  git add lazyvim/.config/ setup/.config/ asciiart.txt 
+  321  pwd
+  322  cd lazyvim/
+  323  ls
+  324  ls -a
+  325  rm -rf .config/
+  326  cd ../..
+  327  cd -
+  328  cd ..
+  329  git status
+  330  git add lazyvim/
+  331  git statu
+  332  git status
+  333  git commit -m "add lazyvim configurations and qptrds ascii-art"
+  334  git pull origin --rebase --autostash --verbose
+  335  git push --force-with-lease origin HEAD
+  336  git status
+  337  cd ..
+  338  cd cocoed.nvim/nvim/
+  339  ls
+  340  tree
+  341  git log
+  342  pwd
+  343  cfg
+  344  git status
+  345  git diff lazyvim/
+  346  git status
+  347  git status
+  348  cd
+  349  fzf
+  350  cd
+  351  fzf
+  352  npm run dev
+  353  git status
+  354  git add lua/
+  355  git status
+  356  git commit -m "config updates to lazyvim"
+  357  git pull origin --rebase --autostash --verbose
+  358  git push --force-with-lease origin HEAD
+  359  exit
+  360  hyprctl monitors
+  361  cd platform/
+  362  rg -i pqr
+  363  rg -i pqr --cmake
+  364  ag -i pqr -G cmakelists
+  365  rg -i pqr
+  366  pwd
+  367  cd ../platform/build/
+  368  fzf
+  369  cd ../build/
+  370  cd ../../
+  371  ls
+  372  pwd
+  373  ls
+  374  ll pqr
+  375  ls pqr/
+  376  ls platform/
+  377  cd platform/
+  378  git status
+  379  git diff
+  380  cd ../pqr/
+  381  git status
+  382  git diff
+  383  cd ..
+  384  ls
+  385  cd quant-ccache/
+  386  ls
+  387  cd ..
+  388  cd quant-build/
+  389  ls
+  390  fzf
+  391  gunzip [200~platform_v3/adapters/adapter_base/feed_adapter/test/data/stream1.dat.gz
+  392  gunzip platform_v3/adapters/adapter_base/feed_adapter/test/data/stream1.dat.gz
+  393  sudo gunzip platform_v3/adapters/adapter_base/feed_adapter/test/data/stream1.dat.gz
+  394  ls
+  395  cd ..
+  396  ls
+  397  ls quant-build/
+  398  ls
+  399  cd platform/
+  400  git status
+  401  git diff snapshot_publisher/
+  402  git diff infra/
+  403  cd ..
+  404  ls
+  405  cd build/
+  406  fzf
+  407  cd build/
+  408  ls
+  409  cd Release/
+  410  ls
+  411  cd ..
+  412  conan install --build=missing --profile=conan/conan-profiles/debug .
+  413  cmake --preset conan-debug
+  414  cmake --build . --preset conan-debug -dcmake_export_compile_commands=on 
+  415  cmake --build . --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  416  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --build . --preset conan-debug 
+  417  cmake --preset conan-debug
+  418  cmake --build . --preset conan-debug 
+  419  cd build/Debug/
+  420  fzf
+  421  cd ../..
+  422  cmake --build . --preset conan-debug 
+  423  conan install --build=missing --profile=conan/conan-profiles/debug .
+  424  cmake --preset conan-debug
+  425  conan install --build=missing --profile=conan/conan-profiles/debug .
+  426  cmake --build . --preset conan-debug 
+  427  cd -
+  428  proj
+  429  elaeo
+  430  elaeox86 
+  431  conan install --build=missing --profile=conan/conan-profiles/debug .
+  432  cmake --build . --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  433  cmake --preset conan-debug
+  434  cmake --build . --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  435  nvim
+  436  git status
+  437  git branch -a
+  438  git pull --rebase --autostash --verbose
+  439  git status
+  440  git diff
+  441  git status
+  442  git restore --staged app/
+  443  git restore --staged package
+  444  git restore --staged package.json 
+  445  git restore --staged components/
+  446  git status
+  447  ls -lart
+  448  nvim .
+  449  git status
+  450  gd
+  451  git diff
+  452  clear
+  453  git status
+  454  git restore --staged *
+  455  git restore --staged .
+  456  git status
+  457  git restore --staged package.json 
+  458  git restore --staged package-lock.json 
+  459  git restore components/
+  460  rm -rf components
+  461  git restore components/
+  462  git status
+  463  exit
+  464  cd ..
+  465  cd build/
+  466  fzf
+  467  cd ../build/
+  468  fzf
+  469  docker compose build
+  470  docker compose up
+  471  docker compose up -d
+  472  docker copose exec quant-dev bash
+  473  docker compose exec quant-dev bash
+  474  cd ..
+  475  docker compose build
+  476  docker compose up -d
+  477  docker compose down
+  478  docker compose build
+  479  docker compose up -d
+  480  docker compose down
+  481  docker compose build
+  482  docker compose up -d
+  483  docker compose exec quant-dev bash
+  484  docker compose down
+  485  docker compose build
+  486  docker compose up -d
+  487  docker compose exec quant-research-dev
+  488  docker compose exec quant-research-dev /bin/bash
+  489  docker compose ls
+  490  docker compose exec quant-research
+  491  docker compose exec quant-research bash
+  492  docker compose exec quant-research-dev
+  493  docker compose exec quant-dev 
+  494  docker compose exec quant-dev bash
+  495  ls
+  496  rm -rf quant-build/ quant-ccache/
+  497  cd platform/
+  498  cd ../pqr/
+  499  rm -rf build/
+  500  sudo rm -rf build/
+  501  cd ..
+  502  mkdir build
+  503  cd build/
+  504  pwd
+  505  w
+  506  cd ..
+  507  pwd
+  508  docker compose exec quant-dev bash
+  509  exit
+  510  tmux new -s muxy
+  511  proj
+  512  ls
+  513  rm -rf quomptrade-website/
+  514  git clone git@github.com:akhiltiwari13/quomptarts-website.git quomptrade-website
+  515  cd quomptrade-website/
+  516  git lgo
+  517  git log
+  518  nvim  
+  519  nvim
+  520  git status
+  521  git add readme.md 
+  522  git commit -m "update readme for deployment fix"
+  523  git pull --rebase --autostash --verbose
+  524  git push --force-with-lease origin HEAD
+  525  git status
+  526  git add readme.md 
+  527  git commit -m "update readme to fix deployment error"
+  528  git pull --rebase --autostash --verbose
+  529  git push --force-with-lease origin HEAD
+  530  exit
+  531  cd platform-solo-build/
+  532  ls
+  533  cd ..
+  534  git status
+  535  gd
+  536  git diff
+  537  cleaar
+  538  clear
+  539  git status
+  540  git diff adapters/
+  541  git restore adapters/
+  542  git status
+  543  git diff core/include/core/details/
+  544  git status
+  545  git diff core/include/core/details/price_t_impl.h
+  546  git restore core/include/core/details/price_t_impl.h
+  547  git status
+  548  git diff core/include/core/price_t.h
+  549  git restore core/include/core/price_t.h
+  550  git status
+  551  git diff core/test/
+  552  git status
+  553  git restore core/test/
+  554  git status
+  555  git diff snapshot_publisher/
+  556  git status
+  557  git diff core/include/core/details/functions_impl.h
+  558  git status
+  559  git diff core/src/
+  560  git restore core/src/
+  561  git status
+  562  pwd
+  563  cd core/
+  564  ag DISABLED_
+  565  rg DISABLED_
+  566  exit
+  567  cp -f ~/.config/hypr/bindings.conf hyprland/
+  568  ls
+  569  cd hyprland/
+  570  mkdir .config
+  571  cd .config/
+  572  mkdir hypr
+  573  ls
+  574  cd ..
+  575  ls
+  576  mv -f bindings.conf .config/hypr/
+  577  rm -rf ~/.config/hypr/bindings.conf 
+  578  cd ..
+  579  stow -d . -t ~ hyprland/
+  580  cd
+  581  cd .config/hypr/
+  582  ls
+  583  cd
+  584  cd .config/hypr/
+  585  cat hyprland.conf 
+  586  ls
+  587  clear
+  588  cd
+  589  walker
+  590  walker --switcher
+  591  walker --help
+  592  hyprctl clients
+  593  walker -m hyprland_windows
+  594  walker -m 
+  595  walker -h
+  596  walker --help
+  597  walker -m hyprland_clients
+  598  walker -m hyprland_buffers
+  599  walker -mh
+  600  walker -m --helpp
+  601  walker -m --help
+  602  walker --help
+  603  walker --help -m
+  604  cfg
+  605  cd hyprland/
+  606  ls
+  607  ls -l
+  608  ls -a
+  609  cd .config/
+  610  ls
+  611  ls -a
+  612  cd hypr/
+  613  ls
+  614  pwd
+  615  ls
+  616  cd local_bin_scripts/
+  617  chmod u+x window_switcher.sh 
+  618  cp -f ~/.local/bin/focus.sh .
+  619  ls
+  620  stow -d . -t ~/.local/bin 
+  621  cd ..
+  622  stow -d . -t ~/.local/ local_bin_scripts/
+  623  ls -a ~/.local/bin/
+  624  ls
+  625  cd local_bin_scripts/
+  626  ls
+  627  ln -sf ~/Work/projects/configfiles/hyprland/.config/hypr/local_bin_scripts/window_switcher.sh ~/.local/bin/
+  628  cd ~/.local/bin/
+  629  ls
+  630  ./window_switcher.sh 
+  631  walker --dmenu
+  632  hyprctl dispatch focuswindow <window>
+  633  wofi
+  634  awk
+  635  dmenu
+  636  wofi --show dmenu
+  637  WINDOW=$(hyprctl clients | grep "class: " | awk '{gsub("class: ", "");print}' | wofi --show dmenu)
+  638  echo $WINDOW
+  639  exit
+  640  zathura
+  641  books 
+  642  cd for-elaeocarpus/boost-libs/
+  643  zathura-sandbox Boris\ Schäling\ -\ The\ Boost\ C++\ Libraries\ \(2014\).epub 
+  644  docker compose exec quant-dev bash
+  645  git status
+  646  cd build/
+  647  fzf
+  648  ag
+  649  rg -i legpricing
+  650  rg legpricing
+  651  cd ../platform/
+  652  rg legpricing
+  653  rg leg
+  654  rg LegPricing
+  655  clear
+  656  claude .
+  657  mkdir build
+  658  cd build/
+  659  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  -DCMAKE_BUILD_TYPE=Debug  -G Ninja ..
+  660  ninja -j 5
+  661  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  -DCMAKE_BUILD_TYPE=Debug  -G Ninja ..
+  662  rm -rf *
+  663  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  -DCMAKE_BUILD_TYPE=Debug  -G "Unix Makefiles" ..
+  664  make
+  665  cp -f compile_commands.json ..
+  666  exit
+  667  git status
+  668  rg DISABLED_
+  669  cd core/
+  670  rg DISABLED_
+  671  cd ../platform-solo-build/
+  672  ls
+  673  fzf
+  674  cd ../..
+  675  ls
+  676  clear
+  677  cd platform/
+  678  git status
+  679  git restore oms/test/common/transactions_logger_test.cpp 
+  680  git status
+  681  clear
+  682  ls
+  683  pwd
+  684  ls
+  685  pwd
+  686  nvim
+  687  ls
+  688  cp -f build/compile_commands.json .
+  689  nvim
+  690  ls
+  691  pwd
+  692  fg
+  693  tree .
+  694  ./cv-gen 
+  695  cd artifacts/output_cvs/
+  696  mkdir -p {hft, polyglot-fintech, vanila , cover-letter}
+  697  ls
+  698  rm -rf *
+  699  mkdir -p hft polyglot-fintech vanila  cover-letter
+  700  ls
+  701  cd -
+  702  ./cv-gen 
+  703  git pull --rebase --autostash --verbose
+  704  pip install -g papis
+  705  pip install papis
+  706  papis
+  707  pip install papis
+  708  pip install --global papis
+  709  cd phyllanthus_emblica/
+  710  mkdir build/
+  711  cd build/
+  712  ls
+  713  cmake --build . --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  714  cmake --build . --preset conan-release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  715  cd ..
+  716  conan install --build=missing --profile=conan/conan-profiles/debug .
+  717  conan install --build=missing --profile=conan/conan-profiles/release ..
+  718  conan install --build=missing --profile=conan/conan-profiles/release
+  719  conan install --build=missing
+  720  cmake  --preset conan-release
+  721  cd build/
+  722  cd ..
+  723  cmake --build . --preset=conan-release
+  724  cmake --build  --preset=conan-release
+  725  cmake --build build --preset=conan-release
+  726  cd build/
+  727  cmake --build . --preset=conan-release
+  728  cmake --build . 
+  729  cd ..
+  730  cmake --build build/
+  731  ls
+  732  rm -rf build/
+  733  cd ..
+  734  mkdir testproj
+  735  cd testproj/
+  736  mkdir build
+  737  cd build/
+  738  cmake ..
+  739  rm -rf *
+  740  cmake ..
+  741  make
+  742  ./testp 
+  743  make
+  744  ./testp 
+  745  clear
+  746  git status
+  747  git diff
+  748  git status
+  749  gd
+  750  git diff
+  751  git status
+  752  git diff
+  753  git status
+  754  git add lua/
+  755  git diff
+  756  git status
+  757  git diff
+  758  cfg
+  759  git status
+  760  git add hyprland/
+  761  git diff
+  762  git diff --cached
+  763  git status
+  764  git log
+  765  git commit -m "[hyprland|lazyvim] add hyprland's config and minor nvim updates"
+  766  git pull --rebase --autostash --verbose
+  767  git push --force-with-lease origin HEAD
+  768  exit
+  769  git status
+  770  git add lua/
+  771  git status
+  772  git commit -m "[lazyvim] add telescope to enable zotero references"
+  773  git pull origin --rebase --autostash --verbose
+  774  git push --force-with-lease origin HEAD
+  775  tmux attach -t muxy
+  776  fg
+  777  nvim
+  778  nvim
+  779  nvim 
+  780  nvim
+  781  cd build/
+  782  rm -rf *
+  783  cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  -DCMAKE_BUILD_TYPE=Debug  -G Ninja ..
+  784  ninja -j 4
+  785  which vlc
+  786  clear
+  787  proj
+  788  learn
+  789  nvim phyllanthus_emblica/
+  790  cv-gen
+  791  proj
+  792  cd cv-gen/
+  793  nvim 
+  794  nvim .
+  795  git status
+  796  gi tstatus
+  797  git status
+  798  git log
+  799  proj
+  800  ls
+  801  cd quomptrade-website/
+  802  ls
+  803  git log
+  804  git pull origin --rebase --autostash --verbose
+  805  nvim 
+  806  proj
+  807  cd ~/.config/nvim/
+  808  ls
+  809  cfg
+  810  git status
+  811  git add lazyvim/
+  812  git status
+  813  git commit -m "[lazyvim] plugin updates and extension"
+  814  git pull origin --rebase --autostash --verbose
+  815  git push --force-with-lease origin HEAD
+  816  ls
+  817  clear
+  818  hostname -I
+  819  hostname -i
+  820  cd
+  821  cd .config/
+  822  ls
+  823  cd hypr/
+  824  ls
+  825  rm -rf bindings.conf
+  826  mv -f bindings.conf.bak.1762700500 bindings.conf
+  827  clear
+  828  ls
+  829  nvim bindings.confK
+  830  ls
+  831  rm -rf bindings.conf.bak.1762701460 
+  832  nvim .
+  833  cd
+  834  clear
+  835  learn
+  836  ls
+  837  git clone git@github.com:akhiltiwari13/Template-Metaprogramming-with-CPP.git
+  838  ls
+  839  git clone git@github.com:akhiltiwari13/Template-Metaprogramming-with-CPP.git tmwcpp
+  840  cd tmwcpp/
+  841  nvim .
+  842  nvim
+  843  docker compose build
+  844  docker system prune -a
+  845  docker compose build 2>&1 | tee dock-build.log
+  846  docker system prune -a
+  847  docker compose build 2>&1 | tee dock-build.log
+  848  docker compose up -d 2>&1 | tee dockc-up.log
+  849  docker compose exec quant-dev bash
+  850  docker compose exec quant-dev bash
+  851  plat
+  852  ls
+  853  proj
+  854  ls
+  855  cd quant-research/platform/
+  856  nvim .
+  857  nvim
+  858  cd ../pqr/
+  859  nvim  
+  860  nvim
+  861  cd ../platform/
+  862  nvim
+  863  nls
+  864  ls
+  865  nvim 
+  866  fg
+  867  clear
+  868  nvim 
+  869  nvim
+  870  ls
+  871  cd ..
+  872  ls
+  873  tree .
+  874  cd ..
+  875  ls
+  876  ls quant-research/
+  877  tree quant-research/
+  878  docker run -it -v $(pwd) --entrypoint /bin/bash quant-research
+  879  sudo docker system prune -a
+  880  clar
+  881  ls
+  882  cd quant-research/
+  883  ls
+  884  tree
+  885  cd ..
+  886  rm -rf quant-research/
+  887  cd ..
+  888  ls
+  889  ls learn/
+  890  cd projects/
+  891  cd quant-research/
+  892  ls
+  893  nvim .
+  894  cd ..
+  895  mv -f quant-research/ ../learn/
+  896  cd ../learn/
+  897  ls
+  898  cd quant-research/
+  899  nvim
+  900  ./cv-gen 
+  901  which zathura-sandbox 
+  902  zathura artifacts/output_cvs/polyglot-fintech/akhil.pdf 
+  903  ./cv-gen 
+  904  zathura artifacts/output_cvs/akhil.pdf 
+  905  ./cv-gen 
+  906  zathura artifacts/output_cvs/akhil.pdf 
+  907  ./cv-gen 
+  908  zathura artifacts/output_cvs/akhil.pdf 
+  909  ./cv-gen 
+  910  zathura artifacts/output_cvs/akhil.pdf & 
+  911  ./cv-gen 
+  912  zathura artifacts/output_cvs/akhil.pdf & 
+  913  ./cv-gen 
+  914  zathura artifacts/output_cvs/resume-bbg.pdf 
+  915  ./cv-gen 
+  916  zathura artifacts/output_cvs/resume-bbg.pdf & 
+  917  ./cv-gen 
+  918  zathura artifacts/output_cvs/resume-bbg.pdf & 
+  919  ./cv-gen 
+  920  zathura artifacts/output_cvs/akhil.pdf 
+  921  zathura artifacts/output_cvs/akhil.pdf &
+  922  ./cv-gen 
+  923  zathura artifacts/output_cvs/cover-letter/bloomberg-coverletter.pdf 
+  924  ./cv-gen 
+  925  zathura artifacts/output_cvs/cover-letter/bloomberg-coverletter.pdf &
+  926  cd artifacts/output_cvs/
+  927  ls
+  928  rm -rf akhil.pdf resume-bbg.pdf 
+  929  cd cover-letter/
+  930  ls
+  931  rm -rf bloomberg-coverletter.pdf 
+  932  cd -
+  933  cd ..
+  934  ./cv-gen 
+  935  zathura artifacts/output_cvs/cover-letter/bloomberg-coverletter.pdf &
+  936  ./cv-gen 
+  937  zathura artifacts/output_cvs/akhil.pdf 
+  938  ./cv-gen 
+  939  zathura artifacts/output_cvs/cover-letter/bloomberg-coverletter.pdf &
+  940  cleaar
+  941  fg
+  942  zathura artifacts/output_cvs/cover-letter/bloomberg-coverletter.pdf &
+  943  ./cv-gen 
+  944  git status
+  945  git add README artifacts/input_markdown/
+  946  git add README artifacts/input_markdown/*
+  947  git add README artifacts/input_markdown/.
+  948  git status
+  949  git add README artifacts/input_markdown/akhil-tillaq.md artifacts/input_markdown/bloomberg-cover-letter.md artifacts/input_markdown/oracle-cover-letter.md artifacts/input_markdown/resume-bloomberg.md 
+  950  git add README.md artifacts/input_markdown/akhil-tillaq.md artifacts/input_markdown/bloomberg-cover-letter.md artifacts/input_markdown/oracle-cover-letter.md artifacts/input_markdown/resume-bloomberg.md 
+  951  git status
+  952  git add config.yaml 
+  953  git log
+  954  git commit -m "add new input artifacts"
+  955  git pull --rebase --autostash --verbose
+  956  git push --force-with-lease origin HEAD
+  957  cfg
+  958  nvim .
+  959  nvim 
+  960  nvim
+  961  cv-gen
+  962  proj
+  963  ls
+  964  git clone git@github.com:akhiltiwari13/cv-gen.git 
+  965  cd cv-gen/
+  966  ls
+  967  go build
+  968  go run 
+  969  cfg
+  970  nvim history.txt 
+  971  go build -o cv-gen ./cmd/cv-gen
+  972  cd -
+  973  go build -o cv-gen ./cmd/cv-gen
+  974  ./cv-gen 
+  975  whktmltopdf
+  976  ./cv-gen 
+  977  nvim 
+  978  cfg
+  979  nvim
+  980  pwd
+  981  elaeox86 
+  982  cmake --build . --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+  983  docker run -it -v $(pwd) --entrypoint /bin/bash quant-research
+  984  docker compose build 2>&1 | tee dock-build.log
+  985  docker compose up -d 2>&1 | tee dockc-up.log
+  986  docker compose exec quant-dev bash
+  987  docker compose build 2>&1 | tee dock-build.log
+  988  docker compose up -d 2>&1 | tee dockc-up.log
+  989  docker compose exec quant-dev bash
+  990  tmux new -s muxy
+  991  proj
+  992  ls
+  993  learn
+  994  ls
+  995  cd quant-research/platform/
+  996  ls
+  997  nvim .
+  998  nvim
+  999  cd ..
+ 1000  pqr
+ 1001  cd pqr/
+ 1002  ls
+ 1003  nvim .
+ 1004  tmux attach -t muxy
+ 1005  nvim 
+ 1006  git status
+ 1007  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1008  cmake --preset conan-debug
+ 1009  cmake --build . --preset conan-debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+ 1010  nvim
+ 1011  nvim
+ 1012  nvim
+ 1013  xdg-mime default org.pwmt.zathura.desktop application/pdf
+ 1014  org.pwmt.zathura.desktop
+ 1015  which zathura
+ 1016  books 
+ 1017  ls
+ 1018  cd for-elaeocarpus/elaeocarpus-readables/
+ 1019  ls
+ 1020  xdg-open Adrian\ Ostrowski\,\ Piotr\ Gaczkowski\ -\ Software\ Architecture\ with\ C++\ -\ Design\ modern\ systems\ using\ effective\ architecture\ concepts\,\ design\ patterns\,\ and\ techniques\ w\ \(2021\,\ Packt\).pdf 
+ 1021  nvim
+ 1022  nvim
+ 1023  clear
+ 1024  docker compose build 2>&1 | tee dock-build.log
+ 1025  docker compose up -d 2>&1 | tee dockc-up.log
+ 1026  docker compose exec quant-dev bash
+ 1027  fzf
+ 1028  mv -f platform/3rdparty/lib/libcurl.so platform/3rdparty/lib/libcurl.so_bkp
+ 1029  cd build
+ 1030  pwd
+ 1031  cd -
+ 1032  docker compose exec quant-dev bash
+ 1033  docker compose build 
+ 1034  docker compose up -d 
+ 1035  docker compose exec quant-dev bash
+ 1036  docker compose build 2>&1 | tee dock-build.log
+ 1037  docker compose build 2>&1 | tee dock-build.log
+ 1038  ls
+ 1039  cd platform/
+ 1040  ls
+ 1041  cd ..
+ 1042  docker compose up -d 2>&1 | tee dockc-up.log
+ 1043  docker compose exec quant-dev bash
+ 1044  docker compose build 2>&1 | tee dock-build.log
+ 1045  docker compose up -d 2>&1 | tee dockc-up.log
+ 1046  docker compose exec quant-dev bash
+ 1047  docker compose build 2>&1 | tee dock-build.log
+ 1048  tmux new -s muxy
+ 1049  clear
+ 1050  exit
+ 1051  docker compose build 2>&1 
+ 1052  docker compose up -d 
+ 1053  docker compose exec quant-dev bash
+ 1054  hyprctl 
+ 1055  hyprctl monitors
+ 1056  exit
+ 1057  hyprctl monitors
+ 1058  cleaar
+ 1059  clear
+ 1060  hyprctl monitors
+ 1061  exit
+ 1062  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1063  cmake --preset conan-debug
+ 1064  cmake --build . --preset=conan-debug
+ 1065  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1066  cmake --preset conan-debug
+ 1067  cmake --build . --preset=conan-debug
+ 1068  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1069  cmake --build . --preset=conan-debug
+ 1070  cmake --preset conan-debug
+ 1071  cmake --build . --preset=conan-debug
+ 1072  clear
+ 1073  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1074  cmake --preset conan-debug
+ 1075  cmake --build . --preset=conan-debug
+ 1076  clear
+ 1077  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1078  cmake --build . --preset=conan-debug
+ 1079  clear
+ 1080  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1081  cmake --preset conan-debug
+ 1082  cmake --build . --preset=conan-debug
+ 1083  conan list boost/*
+ 1084  conan list cereal/(
+ 1085  conan list cereal/*
+ 1086  exit
+ 1087  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1088  cmake --preset conan-debug
+ 1089  cmake --build . --preset=conan-debug
+ 1090  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1091  cmake --preset conan-debug
+ 1092  cmake --build . --preset=conan-debug
+ 1093  fzf
+ 1094  cmake --build . --preset=conan-debug
+ 1095  ls
+ 1096  rm -rf build/
+ 1097  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1098  cmake --preset conan-release 
+ 1099  cmake --build . --preset=conan-release 
+ 1100  conan list fmt/*
+ 1101  cmake --build . --preset=conan-release 
+ 1102  git log
+ 1103  git status
+ 1104  git diff
+ 1105  clear
+ 1106  git status
+ 1107  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1108  cmake --preset conan-debug
+ 1109  cmake --build . --preset=conan-debug
+ 1110  ag -i "fmt::" src/libraries/infra/
+ 1111  rg  "fmt::" src/libraries/infra/
+ 1112  cmake --build . --preset=conan-debug
+ 1113  ls
+ 1114  chmod u+x tools/scripts/fix_md5errors.sh 
+ 1115  ./tools/scripts/fix_md5errors.sh 
+ 1116  cmake --build . --preset=conan-debug
+ 1117  chmod u+x tools/scripts/complete_fix.sh 
+ 1118  ./tools/scripts/complete_fix.sh 
+ 1119  cmake --build . --preset=conan-debug
+ 1120  chmod u+x tools/scripts/final_fix.sh 
+ 1121  ./tools/scripts/final_fix.sh 
+ 1122  cmake --build . --preset=conan-debug
+ 1123  git diff
+ 1124  git stattus
+ 1125  git status
+ 1126  cd build/
+ 1127  ls
+ 1128  ninja test
+ 1129  make test
+ 1130  ctest .
+ 1131  cd Debug/
+ 1132  ls
+ 1133  ctest .
+ 1134  git status
+ 1135  cd -
+ 1136  pwd
+ 1137  cmake --build . --preset=conan-debug
+ 1138  cd ..
+ 1139  cmake --build . --preset=conan-debug
+ 1140  git status
+ 1141  git diff
+ 1142  cp -f ~/Work/learn/quant-research/platform/core/ src/libraries/
+ 1143  cp -r ~/Work/learn/quant-research/platform/core/ src/libraries/
+ 1144  cmake --build . --preset=conan-debug
+ 1145  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1146  cmake --build . --preset=conan-debug
+ 1147  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1148  cmake --preset conan-debug
+ 1149  cmake --build . --preset=conan-debug
+ 1150  clear
+ 1151  cmake --build . --preset=conan-debug
+ 1152  clear
+ 1153  cmake --build . --preset=conan-debug
+ 1154  clear
+ 1155  cmake --build . --preset=conan-debug
+ 1156  clera
+ 1157  cleara
+ 1158  clear
+ 1159  cmake --build . --preset=conan-debug
+ 1160  cmake --preset conan-debug
+ 1161  cmake --build . --preset=conan-debug
+ 1162  clear
+ 1163  cmake --build . --preset=conan-debug
+ 1164  clear
+ 1165  cmake --build . --preset=conan-debug
+ 1166  clear
+ 1167  cmake --build . --preset=conan-debug
+ 1168  clear
+ 1169  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1170  cmake --preset conan-debug
+ 1171  hyprctl monitors
+ 1172  tmux attach -t muxy
+ 1173  plat
+ 1174  files
+ 1175  work
+ 1176  learn
+ 1177  cd quant-research/platform/
+ 1178  nvim 
+ 1179  nvim
+ 1180  git status
+ 1181  ./cv-gen 
+ 1182  proj
+ 1183  ls
+ 1184  learn
+ 1185  ls
+ 1186  nvim testproj/
+ 1187  proj
+ 1188  nvim cv-gen/
+ 1189  nvim
+ 1190  nvim
+ 1191  fg
+ 1192  nvim
+ 1193  docker compose build 
+ 1194  docker compose up -d 
+ 1195  docker compose exec quant-dev bash
+ 1196  docker compose exec quant-dev bash
+ 1197  nvim
+ 1198  nvim
+ 1199  clear
+ 1200  nvim
+ 1201  cmake --build . --preset=conan-debug
+ 1202  tree external/
+ 1203  cmake --build . --preset=conan-debug
+ 1204  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1205  cmake --preset conan-debug
+ 1206  cmake --build . --preset=conan-debug
+ 1207  exit
+ 1208  tmux new -s muxy
+ 1209  exit
+ 1210  cd build/
+ 1211  fzf
+ 1212  infra/bench/acce-infra_bench
+ 1213  docker compose exec quant-dev bash
+ 1214  docker compose build 
+ 1215  cd ../../
+ 1216  ll
+ 1217  docker compose build 
+ 1218  docker compose up -d 
+ 1219  docker compose exec quant-dev bash
+ 1220  cd build/
+ 1221  fzf 
+ 1222  cd ../../pqr/
+ 1223  cd build/
+ 1224  fzf
+ 1225  test/simulator/acce-simulator_test
+ 1226  fzf
+ 1227  test/simulation_exchange/acce-simulation_exchange_test
+ 1228  fzf
+ 1229  integration_tests/sample_strategy/acce-sample_strategy-simulation
+ 1230  cd ..
+ 1231  fzf
+ 1232  cd build/
+ 1233  fzf
+ 1234  cmake --build . --preset=conan-debug
+ 1235  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1236  cmake --preset conan-debug
+ 1237  cmake --build . --preset=conan-debug
+ 1238  claude .
+ 1239  clear
+ 1240  git status
+ 1241  git diff
+ 1242  git status
+ 1243  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1244  cmake --preset conan-debug
+ 1245  cmake --build . --preset=conan-debug
+ 1246  cd build/
+ 1247  fzf
+ 1248  cp -f Debug/compile_commands.json ..
+ 1249  cmake --build . --preset=conan-debug
+ 1250  docker compose exec quant-dev bash
+ 1251  learn
+ 1252  cd quant-research/
+ 1253  docker compose exec quant-dev bash
+ 1254  cmake --build . --preset=conan-debug
+ 1255  cd build/
+ 1256  cd Release/
+ 1257  cd ..
+ 1258  cd Debug/
+ 1259  ls
+ 1260  make test
+ 1261  cd ../..
+ 1262  /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/bench/acce-infra_bench 
+ 1263  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1264  cmake --preset conan-release 
+ 1265  cmake --build . --preset=conan-release 
+ 1266  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1267  cmake --build . --preset=conan-release 
+ 1268  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1269  cmake --build . --preset=conan-debug
+ 1270  cmake --preset conan-debug
+ 1271  cmake --build . --preset=conan-debug
+ 1272  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1273  cmake --preset conan-release 
+ 1274  cmake --build . --preset=conan-release 
+ 1275  /home/quomptrade/Work/projects/elaeocarpus-x86/build/Release/src/libraries/infra/bench/acce-infra_bench 
+ 1276  git status
+ 1277  git log
+ 1278  git status
+ 1279  git add CMakeLists.txt conan/ conanfile.py  src/libraries/CMakeLists.txt src/libraries/foundation/.
+ 1280  git status
+ 1281  git add src/libraries/communication/ src/libraries/utility/ tests/ 
+ 1282  git status
+ 1283  git add src/libraries/infra/
+ 1284  git status
+ 1285  git log
+ 1286  git commit -f 
+ 1287  git status
+ 1288  git commit -m "add infrastructure library, build it's unit/benchmark tests"
+ 1289  git pull --rebase --autostash --verbose
+ 1290  git push --force-with-lease origin HEAD
+ 1291  cd build/
+ 1292  cd Release/
+ 1293  ls
+ 1294  cd src/libraries/infra/test/
+ 1295  ls
+ 1296  ./acce-infra_test 
+ 1297  pwd
+ 1298  ls
+ 1299  cd ../..
+ 1300  pwd
+ 1301  cd../..
+ 1302  ls
+ 1303  fzf
+ 1304  cd infra/
+ 1305  ls
+ 1306  pwd
+ 1307  cd test/
+ 1308  ls
+ 1309  mv -f ../data/ .
+ 1310  ls
+ 1311  ./acce-infra_test 
+ 1312  hyprctl monitors 
+ 1313  git status
+ 1314  git diff
+ 1315  exit
+ 1316  cursor-agent .
+ 1317  cursor .
+ 1318  exit
+ 1319  cd ..
+ 1320  docker compose exec quant-dev bash
+ 1321  exit
+ 1322  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && ./build/Release/src/libraries/infra/test/acce-infra_test
+ 1323  ls -la /home/quomptrade/Work/projects/elaeocarpus-x86/build/Release/src/libraries/infra/test/
+ 1324  ls -la /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test/
+ 1325  find /home/quomptrade/Work/projects/elaeocarpus-x86/build -name "*acce-infra_test*" -type f
+ 1326  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1327  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --preset conan-debug
+ 1328  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug
+ 1329  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && find build -name "*acce-infra_test*" -type f
+ 1330  cd  ./build/Debug/src/libraries/infra/test/ && ./acce-infra_test
+ 1331  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ./acce-infra_test --help
+ 1332  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ./acce-infra_test --gtest_list_tests
+ 1333  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ls -la
+ 1334  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && ls -la build/Debug/src/libraries/infra/test/
+ 1335  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug --verbose
+ 1336  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && find . -name "*test*.log" -type f | head -10
+ 1337  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug && ctest -V
+ 1338  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ctest -V
+ 1339  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ./acce-infra_test 2>&1 | head -50
+ 1340  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && file acce-infra_test
+ 1341  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && find src/libraries/infra/include/infra -name "*date_time_impl.h*" -type f
+ 1342  ls -la /home/quomptrade/Work/projects/elaeocarpus-x86/src/libraries/infra/include/infra/date_time/details/
+ 1343  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug --verbose | head -50
+ 1344  git status
+ 1345  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && ls build/Debug/src/libraries/infra/test/ 2>/dev/null || echo "Build directory not found"
+ 1346  echo "Testing terminal output"
+ 1347  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && find build -name "*.log" -o -name "*error*" -o -name "*Error*" | head -10
+ 1348  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && g++ --version 2>&1 | head -1
+ 1349  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug
+ 1350  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ./acce-infra_test | tail -20
+ 1351  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ./acce-infra_test 2>&1 | grep -A 10 "FAILED"
+ 1352  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ls -la acce-infra_test && ./acce-infra_test --gtest_filter="*CmdCreateTest*" 2>&1 | head -50
+ 1353  echo "Terminal test"
+ 1354  cmake --build . --preset=conan-debug  ✅
+ 1355  cd build/Debug/src/libraries/infra/test
+ 1356  ./acce-infra_test  ✅
+ 1357  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug
+ 1358  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug 2>&1 | tail -50
+ 1359  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ./acce-infra_test --gtest_filter="HelpCmdTest.execute:CmdCreateTest.*"
+ 1360  cmake --build . --preset=conan-debug
+ 1361  cd build/Debug/src/libraries/infra/test
+ 1362  ./acce-infra_test --gtest_filter="HelpCmdTest.execute:CmdCreateTest.*"
+ 1363  cd -
+ 1364  cmake --build . --preset=conan-debug
+ 1365  docker ps -a
+ 1366  docker --version
+ 1367  cd /quant-research/pqr/build/integration_tests/sample_strategy
+ 1368  cd ..
+ 1369  cd -
+ 1370  ls
+ 1371  chmod u+x copy_simulator_data.sh 
+ 1372  cd ..
+ 1373  ls
+ 1374  cd pqr/gen-sim-artifacts/
+ 1375  ls
+ 1376  ll data/
+ 1377  ls data/
+ 1378  ls data/tick_data/
+ 1379  ls data/tick_data/CME_DATA/
+ 1380  ls data/tick_data/CME_DATA/CHICAGO_AURORA/
+ 1381  docker compose exec quant-dev bash
+ 1382  git status
+ 1383  git add tests
+ 1384  git status
+ 1385  git add src/libraries/foundation  src/libraries/communication src/libraries/utility src/libraries/business 
+ 1386  git status
+ 1387  git add exanic_sdk 
+ 1388  git status
+ 1389  git add cmake/
+ 1390  git status
+ 1391  git add dockerfiles 
+ 1392  git status
+ 1393  git add design.md Dockerfile docs/build_logs.md  docs/setup/ mkdocs.yml tools/
+ 1394  git statsus
+ 1395  git status
+ 1396  git diff
+ 1397  git status
+ 1398  cmake --build . --preset=conan-debug
+ 1399  cd -
+ 1400  git status
+ 1401  git add CMakeLists.txt CONTRIBUTING.md README.md conanfile.py external/ src/libraries/infra/
+ 1402  git status
+ 1403  gd
+ 1404  git diff
+ 1405  git add src/libraries/CMakeLists.txt 
+ 1406  git status
+ 1407  rm -rf _logs/ 
+ 1408  git status
+ 1409  git add CMakeUserPresets.json s
+ 1410  git add CMakeUserPresets.json 
+ 1411  git status
+ 1412  git log
+ 1413  git commit -m "fix build-verification sub-module in infra and all unit and benchmark tests"
+ 1414  git pull --rebase --autostash --verbose
+ 1415  git push --force-with-lease origin HEAD
+ 1416  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1417  cmake --preset conan-release 
+ 1418  cmake --build . --preset=conan-release 
+ 1419  cd -
+ 1420  cd build/Release/src/libraries/infra/
+ 1421  cd test/
+ 1422  ./acce-infra_test 
+ 1423  cd -
+ 1424  cd ../../../../../
+ 1425  git status
+ 1426  hyprctl monitors
+ 1427  clear
+ 1428  git status
+ 1429  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1430  cmake --preset conan-debug 
+ 1431  cmake --build . --preset=conan-debug
+ 1432  cmake --build . --preset=conan-debug 
+ 1433  cd build/
+ 1434  make test
+ 1435  cmake -B . --target all tests
+ 1436  cmake -B . --target all coverage
+ 1437  cmake -B . --target all 
+ 1438  cmake -B .
+ 1439  cmake -B . -S ..
+ 1440  cd ..
+ 1441  cmake --build . --preset=conan-debug 
+ 1442  cd build/
+ 1443  ./src/libraries/infra/
+ 1444  ls ./src/libraries/infra/
+ 1445  ls
+ 1446  cd Debug/src/libraries/infra/test/
+ 1447  ls
+ 1448  ./acce-infra_test 
+ 1449  cd -
+ 1450  cd ..
+ 1451  cmake --build . --preset=conan-debug 
+ 1452  cd build/Debug/src/libraries/infra/
+ 1453  cd test/
+ 1454  ls
+ 1455  ./acce-infra_test 
+ 1456  clear
+ 1457  ./acce-infra_test 
+ 1458  cd -
+ 1459  pwd
+ 1460  cd ../../../../
+ 1461  cd ..
+ 1462  cmake --build . --preset=conan-debug 
+ 1463  fzf
+ 1464  cmake --build . --preset=conan-debug 
+ 1465  fzf
+ 1466  cd build/Debug/src/libraries/infra/test/
+ 1467  cmake --build . --preset=conan-debug 
+ 1468  cd -
+ 1469  cmake --build . --preset=conan-debug 
+ 1470  cd build/
+ 1471  ctest .
+ 1472  cd Debug/
+ 1473  ctest .
+ 1474  ls
+ 1475  cd Testing/
+ 1476  ls
+ 1477  ctest
+ 1478  cd ..
+ 1479  ctest
+ 1480  ctest .
+ 1481  ls
+ 1482  cd src/libraries/infra/
+ 1483  cd test/
+ 1484  ctest 
+ 1485  ctest  .
+ 1486  pwd
+ 1487  cd -
+ 1488  cd ../../../../
+ 1489  cd ..
+ 1490  cmake --build . --preset=conan-debug 
+ 1491  cd -
+ 1492  fzf
+ 1493  cd build/Debug/
+ 1494  ctest .
+ 1495  ls
+ 1496  cd src/libraries/infra/test/
+ 1497  ctest .
+ 1498  ./acce-infra_test 
+ 1499  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1500  cd -
+ 1501  cd ../../..
+ 1502  cd elaeocarpus-x86/
+ 1503  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1504  cmake --preset conan-release 
+ 1505  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1506  cmake --preset conan-release 
+ 1507  cmake --build . --preset=conan-release 
+ 1508  fzf
+ 1509  ./build/Release/src/libraries/infra/test/acce-infra_test
+ 1510  cd ./build/Release/src/libraries/infra/test/
+ 1511  ./acce-infra_test 
+ 1512  cd -
+ 1513  cmake --build . --preset=conan-release 
+ 1514  cd -
+ 1515  ./acce-infra_test 
+ 1516  cd -
+ 1517  cmake --build . --preset=conan-release 
+ 1518  cd -
+ 1519  ./acce-infra_test 
+ 1520  cd -
+ 1521  cmake --build . --preset=conan-release 
+ 1522  cd -
+ 1523  ./acce-infra_test 
+ 1524  cd -
+ 1525  cmake --build . --preset=conan-release 
+ 1526  cd -
+ 1527  ./acce-infra_test 
+ 1528  cd -
+ 1529  fzf
+ 1530  cd -
+ 1531  ./acce-infra_test 
+ 1532  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug && ctest -V
+ 1533  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/ && ctest -V
+ 1534  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/ && ctest -V .
+ 1535  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug/src/libraries/infra/test && ctest -V .
+ 1536  cd -
+ 1537  cd ../../../..
+ 1538  cd ..
+ 1539  cmake --build . --preset=conan-debug
+ 1540  cd build/Release/src/libraries/infra/test/
+ 1541  ls
+ 1542  ./acce-infra_test 
+ 1543  cd -
+ 1544  cmake --build . --preset=conan-debug
+ 1545  cd build/Release/src/libraries/infra/test/
+ 1546  ./acce-infra_test 
+ 1547  cd -
+ 1548  cmake --build . --preset=conan-debug
+ 1549  cd -
+ 1550  ./acce-infra_test 
+ 1551  git status
+ 1552  cd -
+ 1553  git status
+ 1554  git diff src/libraries/infra/include/infra/cmd/details/cmd_impl.h
+ 1555  src/libraries/infra/test/cmd/cmd_creation_test.cpp
+ 1556  src/libraries/infra/test/cmd/cmd_tcp_server_test.cpp
+ 1557  src/libraries/infra/test/cmd/help_cmd_test.cpp
+ 1558  git diff src/libraries/infra/include/infra/cmd/details/cmd_impl.h src/libraries/infra/test/cmd/cmd_creation_test.cpp src/libraries/infra/test/cmd/cmd_tcp_server_test.cpp src/libraries/infra/test/cmd/help_cmd_test.cpp
+ 1559  git status
+ 1560  git restore src/libraries/infra/include/infra/cmd/details/cmd_impl.h src/libraries/infra/test/cmd/cmd_creation_test.cpp src/libraries/infra/test/cmd/cmd_tcp_server_test.cpp src/libraries/infra/test/cmd/help_cmd_test.cpp
+ 1561  git status
+ 1562  cmake --build . --preset=conan-debug
+ 1563  cd build/Release/src/libraries/infra/test/
+ 1564  ./acce-infra_test 
+ 1565  cd -
+ 1566  cmake --build . --preset=conan-debug
+ 1567  cd build/Debug/src/libraries/infra/test
+ 1568  ./acce-infra_test --gtest_filter="HelpCmdTest.execute:CmdCreateTest.*"
+ 1569  ./acce-infra_test
+ 1570  git status
+ 1571  cd -
+ 1572  git status
+ 1573  tmux attach -t muxy
+ 1574  docker ps -a | grep quant-research-dev
+ 1575  docker ps -a
+ 1576  find /home/quomptrade/Work/learn/quant-research -name "*.tbt*" -o -name "*20170718*CME*.dat*" 2>/dev/null | head -20
+ 1577  find /home/quomptrade/Work/learn/quant-research -type f \( -name "*MGC*" -o -name "*SI_*" -o -name "*tick*data*" \) 2>/dev/null | grep -E "\.(dat|tbt)" | head -20
+ 1578  find /home/quomptrade/Work/learn/quant-research/pqr/tools -type f \( -name "*.dat*" -o -name "*.tbt*" \) 2>/dev/null
+ 1579  find /home/quomptrade/Work/learn/quant-research/pqr/tools/tick_data_stats -type f 2>/dev/null | grep -v ".cpp\|.h\|.txt\|CMake"
+ 1580  find /home/quomptrade/Work/learn/quant-research -name "*20171130*" -type f 2>/dev/null | head -20
+ 1581  find /home/quomptrade/Work/learn/quant-research -name "*.dat" -o -name "*.dat.gz" 2>/dev/null | xargs ls -lh 2>/dev/null
+ 1582  find /home/quomptrade/Work/learn/quant-research -type f \( -name "*.dat" -o -name "*.dat.gz" \) 2>/dev/null
+ 1583  ls -lh /home/quomptrade/Work/learn/quant-research/platform/engine/test/data/*.dat.gz 2>/dev/null
+ 1584  ls -lh /home/quomptrade/Work/learn/quant-research/platform/engine/test/data/*.dat.gz
+ 1585  mkdir -p /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/tick_data/CME_DATA/CHICAGO_AURORA
+ 1586  cp /home/quomptrade/Work/learn/quant-research/platform/engine/test/data/20181105-CME_DATA-CHICAGO_AURORA-316.dat.gz /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/tick_data/CME_DATA/CHICAGO_AURORA/
+ 1587  cp /home/quomptrade/Work/learn/quant-research/platform/engine/test/data/20181105-CME_SNAPSHOT_MBO-CHICAGO_AURORA-316.dat.gz /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/tick_data/CME_DATA/CHICAGO_AURORA/
+ 1588  ls -lh /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/tick_data/CME_DATA/CHICAGO_AURORA/
+ 1589  mkdir -p /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/logs
+ 1590  cd /home/quomptrade/Work/learn/quant-research && docker-compose up -d
+ 1591  docker ps | grep quant-research-dev
+ 1592  docker ps -a | grep quant
+ 1593  docker-compose ps
+ 1594  which docker
+ 1595  docker --version
+ 1596  ls -la /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/config_data/strategy/sample_strategy/
+ 1597  ls -la /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/app_data/strategy/sample_strategy/cme/params/
+ 1598  ls -lh /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/app_data/strategy/sample_strategy/cme/params/
+ 1599  ls -lh /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/app_data/sp/basic_sp/cme/coefs/
+ 1600  ls -lh /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/ | grep -i market
+ 1601  find /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy -name "*market_segment*" 2>/dev/null
+ 1602  ls -lah /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/logs/ 2>/dev/null || echo "No logs directory or empty"
+ 1603  cd /home/quomptrade/Work/learn/quant-research && docker exec quant-research-dev bash -c "cd /quant-research/pqr/build/integration_tests/sample_strategy && strace -e trace=open,openat ./acce-sample_strategy-simulation --config-file ../../../integration_tests/sample_strategy/data/config_data/sim_engine_config_test_abs.xml --strategy sample_strategy.cme --group test_group --contracts CME_GC_Z17 --data-sources CME_DATA --location CHICAGO_AURORA --start-date 20181105 --end-date 20181105 --log-folder /quant-research/pqr/integration_tests/sample_strategy/logs 2>&1 | tail -50"
+ 1604  find /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/logs -type f -name "*.log" 2>/dev/null | head -5
+ 1605  cd /home/quomptrade/Work/learn/quant-research && docker exec quant-research-dev bash -c "cd /quant-research/pqr/build/integration_tests/sample_strategy && ./acce-sample_strategy-simulation --help"
+ 1606  ls -lh /home/quomptrade/Work/learn/quant-research/pqr/integration_tests/sample_strategy/data/root_folders.xml
+ 1607  cd /home/quomptrade/Work/learn/quant-research && docker exec quant-research-dev bash -c "mkdir -p /quant-research/pqr/gen-sim-artifacts/{bin,config,data,logs}"
+ 1608  cd /home/quomptrade/Work/learn/quant-research && docker exec quant-research-dev bash -c "find /quant-research -name '*simulation*' -type f -executable 2>/dev/null | grep -E 'build.*sample.*simulation'"
+ 1609  cd /home/quomptrade/Work/learn/quant-research && docker exec quant-research-dev bash -c "find /quant-research -name '*.dat.gz' -type f 2>/dev/null | head -10"
+ 1610  clear
+ 1611  chmod +x /home/quomptrade/Work/learn/quant-research/pqr/setup_simulator.sh
+ 1612  docker exec -it quant-research-dev /bin/bash
+ 1613  nvim
+ 1614  clear
+ 1615  nvim
+ 1616  nvim cv-gen/
+ 1617  clear
+ 1618  proj
+ 1619  cfg
+ 1620  nvim
+ 1621  cd
+ 1622  cd .config/
+ 1623  ls
+ 1624  cd ghostty/
+ 1625  ls
+ 1626  nvim config 
+ 1627  clear
+ 1628  nvim
+ 1629  clear
+ 1630  proj
+ 1631  clear
+ 1632  ls
+ 1633  nvim
+ 1634  pwd
+ 1635  cd ..
+ 1636  cd pqr/
+ 1637  nvim .
+ 1638  cd ..
+ 1639  cursor .
+ 1640  nvim platform/
+ 1641  clear
+ 1642  nvim
+ 1643  nvim platform/
+ 1644  nvim
+ 1645  nvim platform/
+ 1646  cd platform/
+ 1647  nvim
+ 1648  nvim .
+ 1649  cd ../pqr/
+ 1650  nvim .
+ 1651  nvim
+ 1652  fg
+ 1653  nvim 
+ 1654  cmake --build . --preset=conan-debug
+ 1655  fzf
+ 1656  ./build/Debug/src/libraries/infra/acce-event_log_reader
+ 1657  ./build/Debug/src/libraries/infra/acce-event_log_reader --input_file ./build/Debug/src/libraries/infra/test/perf_test.bin --output_file test_output.log
+ 1658  ./build/Debug/src/libraries/infra/acce-event_log_reader --help
+ 1659  ./build/Debug/src/libraries/infra/test/acce-infra_test
+ 1660  ./build/Debug/src/libraries/infra/test/acce-infra_test 
+ 1661  ./build/Release/src/libraries/infra/test/acce-infra_test 
+ 1662  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1663  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1664  cmake --preset conan-debug 
+ 1665  cmake --build . --preset=conan-debug
+ 1666  ./build/Debug/src/libraries/infra/test/acce-infra_test 
+ 1667  cmake --preset conan-release 
+ 1668  cmake --build . --preset=conan-release 
+ 1669  ./build/Release/src/libraries/infra/test/acce-infra_test 
+ 1670  cd build/Debug/src/libraries/infra/test/
+ 1671  ls
+ 1672  ./acce-infra_test 
+ 1673  fzf
+ 1674  pwd
+ 1675  cd -
+ 1676  cd ../../
+ 1677  ls
+ 1678  cd infra/
+ 1679  ls
+ 1680  acce-event_log_reader --input_file perf_test.bin --output_file test_output.log
+ 1681  fzf
+ 1682  ./acce-event_log_reader --input_file test/perf_test.bin --output_file test_output.log
+ 1683  ls
+ 1684  cat test_output.log_20251121.log 
+ 1685  ./acce-event_log_reader --input_file perf_test.bin --output_file test_output.log
+ 1686  ./acce-event_log_reader --input_file ./perf_test.bin --output_file ./test_output.log
+ 1687  cp -f build/Debug/compile_commands.json .
+ 1688  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1689  cmake --preset conan-release 
+ 1690  cmake --build . --preset=conan-debug 
+ 1691  fzf
+ 1692  ./build/Debug/src/libraries/infra/bench/acce-infra_bench
+ 1693  fzf
+ 1694  ./build/Debug/src/libraries/infra/acce-event_log_reader
+ 1695  open-ai
+ 1696  codex .
+ 1697  clear
+ 1698  cursor-agent 
+ 1699  grep -r "#include.*pcre" src/
+ 1700  rg pcre -l
+ 1701  cp -f Debug/compile_commands.json ..
+ 1702  cp -f build/Debug/compile_commands.json .
+ 1703  cmake --build . --preset=conan-debug
+ 1704  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1705  cmake --preset conan-debug
+ 1706  cmake --build . --preset=conan-debug
+ 1707  clear
+ 1708  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1709  cmake --preset conan-debug
+ 1710  cmake --build . --preset=conan-debug
+ 1711  grep -r "#include.*pcre" src/
+ 1712  exit
+ 1713  tmux new -s muxy
+ 1714  ll
+ 1715  ll
+ 1716  ls
+ 1717  nvim
+ 1718  clear
+ 1719  nvim
+ 1720  cmake --build . --preset=conan-debug
+ 1721  clear
+ 1722  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1723  conan remove "abseil/*" -c
+ 1724  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1725  conan remove "**/*" -c
+ 1726  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1727  nvim
+ 1728  docker exec -it quant-research-dev /bin/bash
+ 1729  docker compose build 
+ 1730  docker compose up -d 
+ 1731  docker compose exec quant-dev bash
+ 1732  nvim
+ 1733  nvim .
+ 1734  cd ../
+ 1735  cd platform/
+ 1736  nvim .
+ 1737  cd ../pqr/
+ 1738  nvim .
+ 1739  cd ..
+ 1740  ls -lart
+ 1741  cd platform/
+ 1742  nvim
+ 1743  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1744  cmake --preset conan-debug
+ 1745  cmake --build . --preset=conan-debug
+ 1746  fzf
+ 1747  ./build/Debug/src/libraries/core/test/acce-core_test
+ 1748  cd build/Debug/src/libraries/core/test/
+ 1749  ls
+ 1750  ./acce-core_test 
+ 1751  ls
+ 1752  ls /cores
+ 1753  cd
+ 1754  cd /
+ 1755  fzf
+ 1756  ls -lart
+ 1757  clear
+ 1758  fzf
+ 1759  clear
+ 1760  cursor .
+ 1761  exit
+ 1762  cmake --build . --preset=conan-debug
+ 1763  rm -rf build/
+ 1764  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1765  cmake --preset conan-debug
+ 1766  cmake --build . --preset=conan-debug
+ 1767  cd build/Debug/src/libraries/core/test/
+ 1768  cd -
+ 1769  cmake --build . --preset=conan-debug
+ 1770  rm -rf build/
+ 1771  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1772  cmake --preset conan-debug
+ 1773  cmake --build . --preset=conan-debug
+ 1774  cd build/Debug/src/libraries/core/bench/
+ 1775  ls
+ 1776  ./acce-core_bench 
+ 1777  cmake --build . --preset=conan-debug
+ 1778  cd -
+ 1779  cmake --build . --preset=conan-debug
+ 1780  cd build/Debug/src/libraries/core/test/
+ 1781  ./acce-core_test 
+ 1782  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && cmake --build . --preset=conan-debug --target acce-core_test -j$(nproc)
+ 1783  cd /home/quomptrade/Work/projects/elaeocarpus-x86/build/Debug && ./src/libraries/core/test/acce-core_test --gtest_filter=CoreModuleTest.EndToEndIntegration
+ 1784  cd -
+ 1785  cd build/Debug/src/libraries/core/test/
+ 1786  ./acce-core_test 
+ 1787  ls
+ 1788  pwd
+ 1789  ./acce-core_test 
+ 1790  cd -
+ 1791  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1792  cmake --preset conan-release 
+ 1793  cmake --build . --preset=conan-release 
+ 1794  clear
+ 1795  cmake --build . --preset=conan-release 
+ 1796  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1797  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1798  cmake --preset conan-release 
+ 1799  cmake --build . --preset=conan-release 
+ 1800  conan list gflag
+ 1801  conan list gflag*
+ 1802  conan graph info . --format=html > dependency_graph.html
+ 1803  ls
+ 1804  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1805  conan graph info . --format=html > dependency_graph.html
+ 1806  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1807  cmake --preset conan-release 
+ 1808  cmake --build . --preset=conan-release 
+ 1809  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1810  cmake --preset conan-release 
+ 1811  cmake --build . --preset=conan-release 
+ 1812  conan remove "gflags/*" -c
+ 1813  conan install . --build=gflags
+ 1814  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1815  cmake --preset conan-release 
+ 1816  cmake --build . --preset=conan-release 
+ 1817  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1818  cmake --preset conan-release 
+ 1819  cmake --build . --preset=conan-release 
+ 1820  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1821  cmake --preset conan-release 
+ 1822  cmake --build . --preset=conan-release 
+ 1823  rm rf build/
+ 1824  rm -rf build/
+ 1825  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1826  cmake --build . --preset=conan-release 
+ 1827  cmake --preset conan-release 
+ 1828  cmake --build . --preset=conan-release 
+ 1829  cmake --build . --preset=conan-release 
+ 1830  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1831  cmake --preset conan-release 
+ 1832  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1833  cmake --preset conan-release 
+ 1834  cmake --build . --preset=conan-release 
+ 1835  rm -rf build/
+ 1836  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1837  cmake --preset conan-release 
+ 1838  rm -rf build/
+ 1839  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1840  cmake --preset conan-release 
+ 1841  cmake --build . --preset=conan-release 
+ 1842  cd src/libraries/core/bench/
+ 1843  rg pthread
+ 1844  cmake --build . --preset=conan-release 
+ 1845  cd -
+ 1846  cmake --build . --preset=conan-release 
+ 1847  cmake --build . --preset=conan-debug --target acce-infra_bench
+ 1848  cmake --build . --preset=conan-release --target acce-infra_bench
+ 1849  git status
+ 1850  git diff
+ 1851  cmake --build . --preset=conan-release --target acce-infra_bench
+ 1852  cmake --build . --preset=conan-release 
+ 1853  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1854  cmake --preset conan-release 
+ 1855  cmake --build . --preset=conan-release 
+ 1856  git status
+ 1857  git diff
+ 1858  conan install --build=missing --profile=conan/conan-profiles/default .
+ 1859  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1860  conan remove "abseil/*" -c
+ 1861  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1862  cmake --preset conan-release 
+ 1863  rm -rf build/
+ 1864  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1865  cmake --preset conan-debug 
+ 1866  cmake --build . --preset=conan-debug --target all
+ 1867  fzf
+ 1868  ./build/Debug/src/libraries/core/bench/acce-core_bench
+ 1869  cmake --build . --preset=conan-debug --target all
+ 1870  git status
+ 1871  git add cmake/build_upgrade_options.cmake conanfile.py 
+ 1872  git status
+ 1873  git diff src/
+ 1874  git status
+ 1875  git add src/libraries/
+ 1876  git status
+ 1877  git log
+ 1878  git commit -m "add core library with many business specific functionalities"
+ 1879  git pull origin --rebase --autostash --verbose
+ 1880  git status
+ 1881  git push --force-with-lease origin HEAD
+ 1882  rg fsm
+ 1883  rg state_machine
+ 1884  rg state -l
+ 1885  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1886  cd -
+ 1887  pwd
+ 1888  elaeox86 
+ 1889  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1890  cmake --preset conan-debug 
+ 1891  cmake --build . --preset=conan-debug --target all
+ 1892  cp -f build/Debug/compile_commands.json .
+ 1893  exit
+ 1894  git status
+ 1895  git diff
+ 1896  git add config.yaml artifacts/input_markdown/akhil-beeuinftch.md 
+ 1897  git commit -m "add beeuinf's resume"
+ 1898  git pull --rebase --autostash --verbose
+ 1899  git push --force-with-lease origin HEAD
+ 1900  learn
+ 1901  cmake -S . -B ./build/
+ 1902  rm -rf build/
+ 1903  mkdir build
+ 1904  cmake -S . -B ./build/
+ 1905  cmake -B buid --target all
+ 1906  cd build/
+ 1907  cmake -B . --target all
+ 1908  cmake -B . --target 
+ 1909  cmake -B . --target testp
+ 1910  make
+ 1911  ./testp 
+ 1912  clear
+ 1913  tmux new -s muxy
+ 1914  cd pqr/gen-sim-artifacts/
+ 1915  ls
+ 1916  ./bin/acce-sample_strategy -c ./config/sim_engine_config.xml -l ./logs
+ 1917  cmake --build . --preset=conan-debug --target all
+ 1918  :wa
+ 1919  cmake --build . --preset=conan-debug --target all
+ 1920  rm -rf build/
+ 1921  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1922  cmake --preset conan-debug 
+ 1923  cmake --build . --preset=conan-debug --target all
+ 1924  rm -rf build/
+ 1925  cmake --preset conan-debug 
+ 1926  pwd
+ 1927  cmake --preset conan-debug 
+ 1928  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 1929  cmake --preset conan-debug 
+ 1930  cmake --build . --preset=conan-debug --target all
+ 1931  hyprctl monitors 
+ 1932  docker compose build 
+ 1933  cd platform/
+ 1934  git status
+ 1935  git diff
+ 1936  docker compose build 
+ 1937  docker compose up -d 
+ 1938  docker compose exec quant-dev bash
+ 1939  cd pqr/gen-sim-artifacts/
+ 1940  ls
+ 1941  cd ..
+ 1942  cursor .
+ 1943  exit
+ 1944  cmake --build . --preset=conan-debug --target all
+ 1945  cp -f build/Debug/compile_commands.json .
+ 1946  exit
+ 1947  books
+ 1948  ls
+ 1949  cd for-elaeocarpus/
+ 1950  ls
+ 1951  cd elaeocarpus-readables/
+ 1952  ls
+ 1953  zathura Adrian\ Ostrowski\,\ Piotr\ Gaczkowski\ -\ Software\ Architecture\ with\ C++\ -\ Design\ modern\ systems\ using\ effective\ architecture\ concepts\,\ design\ patterns\,\ and\ techniques\ w\ \(2021\,\ Packt\).pdf 
+ 1954  zathura Adrian\ Ostrowski\,\ Piotr\ Gaczkowski\ -\ Software\ Architecture\ with\ C++\ -\ Design\ modern\ systems\ using\ effective\ architecture\ concepts\,\ design\ patterns\,\ and\ techniques\ w\ \(2021\,\ Packt\).pdf &
+ 1955  ls
+ 1956  clear
+ 1957  ls
+ 1958  ll
+ 1959  ls
+ 1960  clear
+ 1961  fzf
+ 1962  cv-gen
+ 1963  proj
+ 1964  cd cv-gen/
+ 1965  fzf
+ 1966  zathura artifacts/output_cvs/akhil.pdf
+ 1967  clear
+ 1968  exit
+ 1969  tmux attach -t muxy
+ 1970  learn
+ 1971  ls
+ 1972  cd aquantresources/
+ 1973  ls
+ 1974  cd ..
+ 1975  cd platform-kt/
+ 1976  ls
+ 1977  mdkir reference-source/
+ 1978  mkdir reference-source/
+ 1979  cd reference-source/
+ 1980  scp -r akhil@192.168.1.4:/Users/akhil/files/projects/platform ./platform
+ 1981  ls
+ 1982  ll platform/
+ 1983  ls platform/
+ 1984  scp -r akhil@192.168.1.4:/Users/akhil/files/projects/pqr ./pqr
+ 1985  ls
+ 1986  cp -f ../../quant-research/pqr/compile_commands.json pqr/compile_commands.json 
+ 1987  nvim .
+ 1988  cd pqr/
+ 1989  cd ..
+ 1990  cp -f ../../quant-research/platform/compile_commands.json platform/
+ 1991  nvim platform/
+ 1992  pwd
+ 1993  ls
+ 1994  proj
+ 1995  pwd
+ 1996  ls
+ 1997  learn
+ 1998  cd quant-research/
+ 1999  ls
+ 2000  clear
+ 2001  learn
+ 2002  git clone git@github.com:akhiltiwari13/Software-Architecture-with-Cpp.git sarchwcpp
+ 2003  nvim sarchwcpp/
+ 2004  cmake --build . --preset=conan-debug --target all
+ 2005  clear
+ 2006  cmake --build . --preset=conan-debug --target all
+ 2007  ls
+ 2008  Downloads/
+ 2009  cd Downloads/
+ 2010  cd data/
+ 2011  nvim CRUDEOIL25DEC3800CE.csv 
+ 2012  clear
+ 2013  learn
+ 2014  ls
+ 2015  cd testproj/
+ 2016  ls
+ 2017  cd ..
+ 2018  mv -f testproj/ buinftech
+ 2019  cd buinftech/
+ 2020  ls
+ 2021  ls -lart
+ 2022  ls
+ 2023  cp -f ../../projects/elaeocarpus-x86/conanfile.py .
+ 2024  nvim .
+ 2025  nvim
+ 2026  clear
+ 2027  proj
+ 2028  cd cv-gen/
+ 2029  ls
+ 2030  clear
+ 2031  nvim .
+ 2032  clear
+ 2033  ls
+ 2034  clear
+ 2035  pwd
+ 2036  cd ..
+ 2037  nvim .
+ 2038  ls
+ 2039  learn
+ 2040  cd platform-kt/reference-source/platform/
+ 2041  ls
+ 2042  nvim .
+ 2043  cleaar
+ 2044  git status
+ 2045  nvim .
+ 2046  tmux new -s muxy
+ 2047  nvim
+ 2048  nvim sarchwcpp/
+ 2049  hyprctl monitors 
+ 2050  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2051  cmake --preset conan-debug 
+ 2052  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2053  cmake --preset conan-debug 
+ 2054  cmake --build . --preset=conan-debug --target all
+ 2055  cmake --build . --preset=conan-debug --target all
+ 2056  cmake --preset conan-debug 
+ 2057  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2058  cmake --preset conan-debug 
+ 2059  cmake --build . --preset=conan-debug --target all
+ 2060  git status
+ 2061  git add src/libraries/CMakeLists.txt src/libraries/core/ src/libraries/infra/ src/libraries/adapters/ src/libraries/feed_publisher/
+ 2062  git status
+ 2063  mv -f external/include/itoa_sse2/ external/include/itoa_sse2_bkp/
+ 2064  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2065  cmake --preset conan-debug 
+ 2066  cmake --build . --preset=conan-debug --target all
+ 2067  git status
+ 2068  mv -f external/include/itoa_sse2_bkp/ external/include/itoa_sse2/
+ 2069  cmake --build . --preset=conan-debug --target all
+ 2070  git status
+ 2071  git add external/include/itoa_sse2/ 
+ 2072  git log
+ 2073  git commit -m "add feed-publisher module along with a base feed-adapter and  book-updaters"
+ 2074  git status
+ 2075  git pull --rebase --autostash --verbose
+ 2076  git push --force-with-lease origin HEAD
+ 2077  git status
+ 2078  cmake --build . --preset=conan-debug --target all
+ 2079  cmake --build . --preset=conan-debug --target fresh
+ 2080  cmake --build . fresh
+ 2081  cmake --build . --preset=conan-debug --target all
+ 2082  cmake --preset conan-debug 
+ 2083  cmake --build . --preset=conan-debug --target all
+ 2084  clera
+ 2085  clear
+ 2086  cmake --build . --preset=conan-debug --target all
+ 2087  cp -f build/Debug/compile_commands.json .
+ 2088  cmake --build . --preset=conan-debug --target all
+ 2089  cargo install neocmakelsp
+ 2090  npm i -g basedpyright
+ 2091  cf
+ 2092  cfg
+ 2093  nvim lazyvim/
+ 2094  proj
+ 2095  cd -
+ 2096  nvim lazyvim/
+ 2097  conan install --build=missing --profile=conan/conan-profiles/default .
+ 2098  exit
+ 2099  exit
+ 2100  pip install --global cmake-language-server
+ 2101  pip install -g cmake-language-server
+ 2102  pip install cmake-language-server
+ 2103  cd build/Debug/src/libraries/infra/test/
+ 2104  ls
+ 2105  cmake --build . --preset=conan-debug 
+ 2106  cd -
+ 2107  cmake --build . --preset=conan-debug 
+ 2108  cd -
+ 2109  ls
+ 2110  ./acce-infra_test 
+ 2111  cd ..
+ 2112  ls
+ 2113  pwd
+ 2114  ls
+ 2115  cd test/
+ 2116  ls
+ 2117  pwd
+ 2118  cd ../../core/test/
+ 2119  cd ../..
+ 2120  cd ../..
+ 2121  cd ..
+ 2122  cmake --build . --preset=conan-debug --target all
+ 2123  cd ..
+ 2124  cmake --build . --preset=conan-debug --target all
+ 2125  fzf
+ 2126  cd build/Debug/src/libraries/adapters/adapter_base/book_updater/test/
+ 2127  ls
+ 2128  ./acce-book_updater_test 
+ 2129  cd -
+ 2130  cd build/Debug/
+ 2131  ctest .
+ 2132  cd ..
+ 2133  ctest .
+ 2134  cd ..
+ 2135  ctest --preset conan-debug -j4 --output-on-failure
+ 2136  cmake --build . --preset=conan-debug --target all
+ 2137  ctest --preset conan-debug -j4 --output-on-failure
+ 2138  ctest --preset conan-debug 
+ 2139  ctest --preset conan-debug --verbose
+ 2140  rm -rf build/
+ 2141  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2142  cmake --preset conan-debug 
+ 2143  cmake --build . --preset=conan-debug --target all
+ 2144  ctest --preset conan-debug --verbose
+ 2145  ctest --preset conan-debug --verbose --target acce-ingra_test acce-core_test
+ 2146  ctest --preset conan-debug --verbose 
+ 2147  ps -ef | grep -i infra
+ 2148  ctest --preset conan-debug --verbose 
+ 2149  ps -ef | grep -i infra
+ 2150  fzf
+ 2151  cd build/Debug/src/libraries/adapters/adapter_base/book_updater/test/
+ 2152  ls
+ 2153  ./acce-book_updater_test 
+ 2154  cd ../
+ 2155  ls
+ 2156  cd ..
+ 2157  ls
+ 2158  cd feed_adapter/
+ 2159  ls
+ 2160  cd test/
+ 2161  ls
+ 2162  ./acce-feed-adapter-base_test 
+ 2163  cd ../..
+ 2164  ls
+ 2165  cd interactive_adapter/test/
+ 2166  ls
+ 2167  ./acce-interactive-adapter-base_test 
+ 2168  git status
+ 2169  cd -
+ 2170  cd ../../../../
+ 2171  cd ../../
+ 2172  git status
+ 2173  git diff
+ 2174  git status
+ 2175  git log
+ 2176  git status
+ 2177  conan install --build=missing --profile=conan/conan-profiles/default .
+ 2178  cmake --preset conan-release 
+ 2179  cmake --build . --preset conan-release 
+ 2180  conan install --build=missing --profile=conan/conan-profiles/default .
+ 2181  cmake --build . --preset conan-release 
+ 2182  cd build/Release/
+ 2183  make -j 1
+ 2184  git status
+ 2185  cmake --build . --preset conan-release 
+ 2186  cd -
+ 2187  cmake --build . --preset conan-release 
+ 2188  rm -rf build/
+ 2189  conan install --build=missing --profile=conan/conan-profiles/default .
+ 2190  cmake --preset conan-release 
+ 2191  cmake --build . --preset conan-release --target all
+ 2192  cd -
+ 2193  make -j 1
+ 2194  cd -
+ 2195  conan remove "gflags/*" -c
+ 2196  cmake --build . --preset conan-release --target all
+ 2197  conan install --build=missing --profile=conan/conan-profiles/default .
+ 2198  cmake --preset conan-release 
+ 2199  cmake --build . --preset conan-release --target all
+ 2200  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2201  cmake --preset conan-debug
+ 2202  cmake --build . --preset=conan-debug --target all
+ 2203  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && strings /home/quomptrade/.conan2/p/b/gflagccd6ad0baea80/p/lib/libgflags_nothreads.a 2>/dev/null | grep -i "GLIBCXX_USE_CXX11_ABI" | head -3
+ 2204  cd /home/quomptrade/Work/projects/elaeocarpus-x86 && nm -D /home/quomptrade/.conan2/p/b/gflagccd6ad0baea80/p/lib/libgflags_nothreads.a 2>/dev/null | grep -i piecewise | head -5
+ 2205  conan install --build=missing --profile=conan/conan-profiles/default .
+ 2206  cmake --preset conan-release 
+ 2207  cmake --build . --preset conan-release --target all
+ 2208  clear
+ 2209  cd build/Release/
+ 2210  make -j 1
+ 2211  cd -
+ 2212  cmake --build . --preset conan-release --target all
+ 2213  cd -
+ 2214  make -j 1
+ 2215  cd -
+ 2216  cmake --build . --preset conan-release --target all
+ 2217  git status
+ 2218  git add cmake/build_utils.cmake src/libraries/adapters/ src/libraries/core/ src/libraries/infra/ src/libraries/costing/ src/libraries/oms/ src/libraries/rms/
+ 2219  git status
+ 2220  git add src/libraries/CMakeLists.txt CMakeLists.txt 
+ 2221  git status
+ 2222  git commit -m "add oms | rms | costing server module | oms-gateway-adapters(interactive) to the sdk and comment out core-bench test due to gflag linking error"
+ 2223  git pull --rebase --autostash --verbose
+ 2224  git push --force-with-lease origin HEAD
+ 2225  clear
+ 2226  cmake --build . --preset conan-release --target all
+ 2227  codectx
+ 2228  proj
+ 2229  cd ..
+ 2230  fzf
+ 2231  elaeox86 
+ 2232  git status
+ 2233  git branch -a
+ 2234  git checkout -b akhil/min-morphed
+ 2235  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2236  cmake --preset conan-debug
+ 2237  cmake --build . --preset=conan-debug --target all
+ 2238  cp -f build/Debug/compile_commands.json .
+ 2239  git status
+ 2240  git diff
+ 2241  git log
+ 2242  conan install --build=missing .
+ 2243  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 2244  conan install --build=missing --profile=conan/conan-profiles/debug-fedora-x86-gcc 
+ 2245  cmake --preset conan-debug 
+ 2246  cmake --preset conan-release
+ 2247  cmake --preset conan-default
+ 2248  cmake --preset conan-debug 
+ 2249  cmake --build . --preset=conan-debug --target all
+ 2250  git status
+ 2251  git add playground/CMakeLists.txt 
+ 2252  git add playground/producer_consumer.cpp  problems/producer_consumer.cpp 
+ 2253  git diff
+ 2254  git diff --cached
+ 2255  git commit -m "incremental fix & cmake fixes."
+ 2256  cmake --build . --preset=conan-debug --target all
+ 2257  conan install --build=missing --profile=conan/conan-profiles/debug-fedora-x86-gcc 
+ 2258  cmake --preset conan-debug 
+ 2259  elaeox86 
+ 2260  ls conan
+ 2261  ls conanfile.py 
+ 2262  pwd
+ 2263  cmake --version
+ 2264  cd -
+ 2265  conan install --build=missing --profile=conan/conan-profiles/debug-fedora-x86-gcc 
+ 2266  conan install --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 2267  cmake --preset conan-debug 
+ 2268  cmake --build . --preset=conan-debug --target all
+ 2269  cmake --preset conan-debug 
+ 2270  cmake --build . --preset=conan-debug --target all
+ 2271  conan install --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 2272  cmake --preset conan-debug 
+ 2273  cmake --build . --preset=conan-debug --target all
+ 2274  conan install --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 2275  cmake --preset conan-debug 
+ 2276  fzf
+ 2277  cmake --preset conan-debug 
+ 2278  fzf
+ 2279  cmake --preset conan-debug 
+ 2280  cmake --build . --preset=conan-debug --target all
+ 2281  rm -rf build/
+ 2282  conan install --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 2283  cmake --preset conan-debug 
+ 2284  cmake --build . --preset=conan-debug --target all
+ 2285  cp -f build/Debug/compile_commands.json .
+ 2286  cmake --build . --preset=conan-debug --target all
+ 2287  fzf
+ 2288  ./build/Debug/playground/exp-boost/boost_ptree
+ 2289  cmake --build . --preset=conan-debug --target all
+ 2290  ./build/Debug/playground/exp-boost/boost_ptree
+ 2291  cmake --build . --preset=conan-debug --target all
+ 2292  ./build/Debug/playground/exp-boost/boost_ptree
+ 2293  cmake --build . --preset=conan-debug --target all
+ 2294  ./build/Debug/playground/exp-boost/boost_ptree
+ 2295  cmake --build . --preset=conan-debug --target all
+ 2296  ./build/Debug/playground/exp-boost/boost_ptree
+ 2297  cmake --build . --preset=conan-debug --target all
+ 2298  ./build/Debug/playground/exp-boost/boost_ptree
+ 2299  cmake --build . --preset=conan-debug --target all
+ 2300  ./build/Debug/playground/exp-boost/boost_ptree
+ 2301  cmake --build . --preset=conan-debug --target all
+ 2302  ./build/Debug/playground/exp-boost/boost_ptree
+ 2303  cmake --build . --preset=conan-debug --target all
+ 2304  ./build/Debug/playground/exp-boost/boost_ptree
+ 2305  cmake --build . --preset=conan-debug --target all
+ 2306  ./build/Debug/playground/exp-boost/boost_ptree
+ 2307  cmake --build . --preset=conan-debug --target all
+ 2308  ./build/Debug/playground/exp-boost/boost_ptree
+ 2309  cmake --build . --preset=conan-debug --target all
+ 2310  ./build/Debug/playground/exp-boost/boost_ptree
+ 2311  cmake --build . --preset=conan-debug --target all
+ 2312  ./build/Debug/playground/exp-boost/boost_ptree
+ 2313  cmake --build . --preset=conan-debug --target all
+ 2314  cp -f build/Debug/compile_commands.json .
+ 2315  git branch -a | grep i log
+ 2316  git branch -a 
+ 2317  git branch -a | grep -i log
+ 2318  ./cv-gen 
+ 2319  fzf
+ 2320  yay -S balena-etcher 
+ 2321  yay -h
+ 2322  yay --remove balena-etcher 
+ 2323  notes
+ 2324  nvim .
+ 2325  nvim
+ 2326  tmux attach -t muxy
+ 2327  clear
+ 2328  fg
+ 2329  tmux new -s muxy
+ 2330  clear
+ 2331  learn
+ 2332  cd ..
+ 2333  cd notes/
+ 2334  ls
+ 2335  nvim .
+ 2336  files
+ 2337  proj
+ 2338  books
+ 2339  fzf
+ 2340  ls
+ 2341  ls for-elaeocarpus/
+ 2342  tmux attach -t muxy
+ 2343  ls
+ 2344  cd ..
+ 2345  ls
+ 2346  ls
+ 2347  cd epi_judge_cpp
+ 2348  ls
+ 2349  mkdir build
+ 2350  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DEXPORT_COMPILE_COMMANDS=On 
+ 2351  cd build/
+ 2352  make -j 4
+ 2353  fzf
+ 2354  cd -
+ 2355  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 2356  cd ..
+ 2357  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 2358  cd build/
+ 2359  ls
+ 2360  fzf
+ 2361  make -j 5
+ 2362  cp compile_commands.json ..
+ 2363  cd ..
+ 2364  ls
+ 2365  cd ..
+ 2366  ls
+ 2367  pwd
+ 2368  ls
+ 2369  python3 epijudge_ci_test_tool.py 
+ 2370  python3 epijudge_ci_test_tool.py cpp
+ 2371  python3 epijudge_ci_test_tool.py cpp stub
+ 2372  python3 epijudge_ci_test_tool.py --help
+ 2373  python3 epijudge_ci_test_tool.py --build-dir epi_judge_cpp/build/
+ 2374  python3 epijudge_ci_test_tool.py --build-dir epi_judge_cpp/build/ cpp
+ 2375  python3 epijudge_ci_test_tool.py --help
+ 2376  python3 epijudge_ci_test_tool.py --build-dir epi_judge_cpp/build/ cpp stub epi_judge_cpp
+ 2377  python3 epijudge_ci_test_tool.py cpp stub epi_judge_cpp
+ 2378  python3 epijudge_ci_test_tool.py --build-dir epi_judge_cpp/build/ cpp stub epi_judge_cpp
+ 2379  git status
+ 2380  git log
+ 2381  git diff
+ 2382  ufw status verbose
+ 2383  sudo ufw status verbose
+ 2384  clear
+ 2385  btop
+ 2386  ls
+ 2387  cd pqr/
+ 2388  ls
+ 2389  cd gen-sim-artifacts/
+ 2390  nvim .
+ 2391  python3
+ 2392  echo "0x2710" | xdd
+ 2393  echo "0x2710" | xxd
+ 2394  cmake --build . --preset=conan-debug --target all
+ 2395  cd
+ 2396  rg w49
+ 2397  rg w49 -l
+ 2398  cmake --build . --preset=conan-debug --target all
+ 2399  fzf
+ 2400  ./build/Debug/playground/fmt-exp
+ 2401  fzf
+ 2402  cmake --build . --preset=conan-debug --target all
+ 2403  ./build/Debug/playground/fmt-exp
+ 2404  cmake --build . --preset=conan-debug --target all
+ 2405  ./build/Debug/playground/fmt-exp
+ 2406  cmake --build . --preset=conan-debug --target all
+ 2407  ./build/Debug/playground/fmt-exp
+ 2408  cmake --build . --preset=conan-debug --target all
+ 2409  ./build/Debug/playground/fmt-exp
+ 2410  cmake --build . --preset=conan-debug --target all
+ 2411  ./build/Debug/playground/fmt-exp
+ 2412  cmake --build . --preset=conan-debug --target all
+ 2413  ./build/Debug/playground/fmt-exp
+ 2414  cmake --build . --preset=conan-debug --target all
+ 2415  ./build/Debug/playground/fmt-exp
+ 2416  cmake --build . --preset=conan-debug --target all
+ 2417  ./build/Debug/playground/fmt-exp
+ 2418  cmake --build . --preset=conan-debug --target all
+ 2419  ./build/Debug/playground/fmt-exp
+ 2420  cmake --build . --preset=conan-debug --target all
+ 2421  ./build/Debug/playground/fmt-exp
+ 2422  exit
+ 2423  ngrok config add-authtoken 34g9TVRBgg82D2xgUbe0m90TTNo_2G2CFpBgEtWPAYT8Emqo8
+ 2424  ngrok ssh 22
+ 2425  exit
+ 2426  hyprctl monitors 
+ 2427  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 2428  fzf
+ 2429  build/parity
+ 2430  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 2431  pwd
+ 2432  ./build/parity 
+ 2433  ipwd
+ 2434  pwd
+ 2435  rm -rf build/
+ 2436  cd ..
+ 2437  ls
+ 2438  mkdir build
+ 2439  cmake -S epi_judge_cpp  -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 2440  cd build/
+ 2441  make 
+ 2442  make -j 5
+ 2443  ./build/parity 
+ 2444  ./parity 
+ 2445  make -j 5
+ 2446  ./parity 
+ 2447  make -j 5
+ 2448  ./parity 
+ 2449  make -j 5
+ 2450  ./parity 
+ 2451  make -j 5
+ 2452  ./parity 
+ 2453  make -j 5
+ 2454  ./parity 
+ 2455  make -j 5
+ 2456  ./parity 
+ 2457  make -j 5
+ 2458  ./parity 
+ 2459  make -j 5
+ 2460  ./parity 
+ 2461  ./parity 
+ 2462  make -j 5
+ 2463  ./parity 
+ 2464  make -j 5
+ 2465  ./parity 
+ 2466  make -j 5
+ 2467  ls
+ 2468  fg
+ 2469  tmux attach -t muxy
+ 2470  fzf
+ 2471  build/Debug/playground/fmt-exp
+ 2472  cmake --build . --preset=conan-debug --target all
+ 2473  build/Debug/playground/fmt-exp
+ 2474  cmake --build . --preset=conan-debug --target all
+ 2475  build/Debug/playground/fmt-exp
+ 2476  cmake --build . --preset=conan-debug --target all
+ 2477  build/Debug/playground/fmt-exp
+ 2478  cmake --build . --preset=conan-debug --target all
+ 2479  build/Debug/playground/fmt-exp
+ 2480  cmake --build . --preset=conan-debug --target all
+ 2481  build/Debug/playground/fmt-exp
+ 2482  cmake --build . --preset=conan-debug --target all
+ 2483  build/Debug/playground/fmt-exp
+ 2484  cmake --build . --preset=conan-debug --target all
+ 2485  build/Debug/playground/fmt-exp
+ 2486  git status
+ 2487  git diff
+ 2488  git status
+ 2489  git add CMakeLists.txt conanfile.py interview-experience/factomind/CMakeLists.txt  interview-experience/flipkart/ interview-experience/futurefirst/ interview-experience/qnance/ interview-experience/standard_chartered/ playground/ conan/conan-profiles/
+ 2490  git status
+ 2491  git log
+ 2492  git commit -m "use cpp 20 across the project, add more exps files and conan profile fix"
+ 2493  git pull origin --rebase --autostash --verbose
+ 2494  git push --force-with-lease origin HEAD
+ 2495  tracy
+ 2496  phyl 
+ 2497  phyll
+ 2498  proj
+ 2499  learn
+ 2500  cd phyllanthus_emblica/
+ 2501  ls
+ 2502  nvim .
+ 2503  nvim
+ 2504  sudo systemctl status sshd
+ 2505  sudo systemctl enable --now sshd
+ 2506  sudo systemctl status sshd
+ 2507  ip addr
+ 2508  ping localhost
+ 2509  ping 192.168.1.24
+ 2510  ping 192.168.1.25
+ 2511  ping 192.168.1.24
+ 2512  ufw status verbose
+ 2513  sudo ufw status verbose
+ 2514  ping 192.168.1.25
+ 2515  ping 192.168.1.24
+ 2516  clear
+ 2517  proj
+ 2518  ls
+ 2519  cd configfiles/
+ 2520  ls
+ 2521  nvim lazyvim/
+ 2522  learn
+ 2523  ls
+ 2524  git clone git@github.com:akhiltiwari13/EPIJudge.git eopi
+ 2525  git clone git@github.com:akhiltiwari13/EPIJudge.git eopicode
+ 2526  cd eopicode/
+ 2527  nvim .
+ 2528  nvim
+ 2529  nvim 
+ 2530  cd b
+ 2531  ./swap_bits 
+ 2532  git pull --rebase --autostash --verbose
+ 2533  cd ..
+ 2534  ls
+ 2535  conan install --build=missing --profile=debug ./epi_judge_cpp 
+ 2536  conan install --build=missing --profile=default ./epi_judge_cpp 
+ 2537  nvim .
+ 2538  git status
+ 2539  nvim 
+ 2540  nvim
+ 2541  cv-gen
+ 2542  proj
+ 2543  cd cv-gen/
+ 2544  nvim .
+ 2545  proj
+ 2546  cf
+ 2547  cfg
+ 2548  nvim .
+ 2549  cd
+ 2550  cd .con
+ 2551  nvim .
+ 2552  proj
+ 2553  cd cv-gen/
+ 2554  ls
+ 2555  nvim 
+ 2556  git status
+ 2557  nvim
+ 2558  nvim 
+ 2559  nvim
+ 2560  nvim 
+ 2561  cd -
+ 2562  ls
+ 2563  cd epi_judge_cpp
+ 2564  ls
+ 2565  ls -lart
+ 2566  cd ..
+ 2567  cd build/
+ 2568  make -j 7
+ 2569  clear
+ 2570  make -j 7
+ 2571  fzf
+ 2572  ./swap_bits 
+ 2573  fzf
+ 2574  make -j 7
+ 2575  ./swap_bits 
+ 2576  make -j 7
+ 2577  ./swap_bits 
+ 2578  make -j 7
+ 2579  ./swap_bits 
+ 2580  git status
+ 2581  git branch 
+ 2582  git log
+ 2583  git status
+ 2584  git checkout -b akhil/first_pass
+ 2585  git status
+ 2586  cd ..
+ 2587  git add epi_judge_cpp/CMakeLists.txt epi_judge_cpp/parity.cc epi_judge_cpp/swap_bits.cc
+ 2588  git diff
+ 2589  git add problem_mapping.js 
+ 2590  git commit -m "solve 5.1,5.2"
+ 2591  git pull origin --rebase --autostash --verbose
+ 2592  git push --set-upstream origin akhil/first_pass 
+ 2593  git pull origin --rebase --autostash --verbose
+ 2594  nvim .
+ 2595  nvim
+ 2596  nvim .
+ 2597  cd ../pqr/
+ 2598  nvim .
+ 2599  cd -
+ 2600  nvim 
+ 2601  clear
+ 2602  nvim .
+ 2603  ip addr
+ 2604  ping 192.168.1.25
+ 2605  clear
+ 2606  hostname -I
+ 2607  hostname
+ 2608  ifconfig -a
+ 2609  ipconfig
+ 2610  ifconfig
+ 2611  ipconfig
+ 2612  hostname
+ 2613  hostname -A
+ 2614  hostname -a
+ 2615  ipconfig
+ 2616  ip -a
+ 2617  ip 
+ 2618  ip inete
+ 2619  clera
+ 2620  clear
+ 2621  ipconfig
+ 2622  ifconfig
+ 2623  ip addr
+ 2624  ip route get 1 | awk '{print $NF;exit}'
+ 2625  ip route get 1
+ 2626  ifco
+ 2627  df -h
+ 2628  echo "http://$(hostname -I | awk '{print $1}'):5500"
+ 2629  nvim .
+ 2630  clear
+ 2631  cv-gen
+ 2632  proj
+ 2633  cd cv-gen/
+ 2634  fzf
+ 2635  clear
+ 2636  notes
+ 2637  nvim .
+ 2638  exit
+ 2639  downgrade tracy
+ 2640  sudo downgrade tracy
+ 2641  fzf
+ 2642  pwd
+ 2643  ls
+ 2644  cd epi_judge_cpp
+ 2645  ls
+ 2646  fzf
+ 2647  ./build/Release/parity
+ 2648  conan install --build=missing --profile=default ./epi_judge_cpp 
+ 2649  pwd
+ 2650  cd ..
+ 2651  conan install --build=missing --profile=default ./epi_judge_cpp 
+ 2652  cmake --preset conan-release
+ 2653  cmake --preset conan-release epi_judge_cpp
+ 2654  cmake --build epi_judge_cpp --preset conan-release 
+ 2655  ls -lart
+ 2656  cmake --build epi_judge_cpp --preset conan-release 
+ 2657  cmake --build --preset conan-release epi_judge_cpp
+ 2658  cmake --build --preset conan-release epi_judge_cpp/
+ 2659  rm -rf build/
+ 2660  cd epi_judge_cpp
+ 2661  conan install --build=missing --profile=default 
+ 2662  cmake --preset conan-release
+ 2663  cmake --build --preset conan-release
+ 2664  cmake --preset conan-release
+ 2665  cmake --build --preset conan-release
+ 2666  fzf
+ 2667  pwd
+ 2668  fzf
+ 2669  cd build/Release/
+ 2670  ls
+ 2671  fzf
+ 2672  cd -
+ 2673  cmake --preset conan-release -DCMAKE_EXPORT_COMPILE_COMMANDS=On
+ 2674  cmake --build --preset conan-release 
+ 2675  fzf
+ 2676  cp -f build/Release/compile_commands.json .
+ 2677  conan install --build=missing --profile=default 
+ 2678  ls /var/cache/pacman/pkg/tracy*
+ 2679  conan install --build=missing --profile=debug
+ 2680  cd
+ 2681  cd .conan2/
+ 2682  ls
+ 2683  cd profiles/
+ 2684  ls
+ 2685  cp default debug
+ 2686  cd -
+ 2687  epi
+ 2688  eopi
+ 2689  proj
+ 2690  learn
+ 2691  ls
+ 2692  cd eopicode/
+ 2693  cd epi_judge_cpp
+ 2694  conan install --build=missing --profile=debug
+ 2695  cmake --build --preset conan-debug
+ 2696  cmake --preset conan-debug
+ 2697  cmake --build --preset conan-debug
+ 2698  nvim .
+ 2699  nvim .
+ 2700  conan install --build=missing --profile=debug
+ 2701  cmake --preset conan-debug
+ 2702  cmake --build --preset conan-debug
+ 2703  exit
+ 2704  cmake --build --preset conan-debug
+ 2705  python3
+ 2706  cmake --build --preset conan-debug
+ 2707  fzf
+ 2708  build/Debug/parity
+ 2709  cmake --build --preset conan-debug
+ 2710  build/Debug/parity
+ 2711  cmake --build --preset conan-debug
+ 2712  build/Debug/parity
+ 2713  cmake --build --preset conan-debug
+ 2714  build/Debug/parity
+ 2715  cmake --build --preset conan-debug
+ 2716  build/Debug/parity
+ 2717  cmake --build --preset conan-debug
+ 2718  build/Debug/parity
+ 2719  cmake --build --preset conan-debug
+ 2720  build/Debug/parity
+ 2721  cmake --build --preset conan-debug
+ 2722  build/Debug/parity
+ 2723  cmake --build --preset conan-debug
+ 2724  build/Debug/parity
+ 2725  cmake --build --preset conan-debug
+ 2726  build/Debug/parity
+ 2727  cmake --build --preset conan-debug
+ 2728  build/Debug/parity
+ 2729  cmake --build --preset conan-debug
+ 2730  build/Debug/parity
+ 2731  build/Debug/power_x_y 
+ 2732  build/Debug/parity
+ 2733  cmake --build --preset conan-debug
+ 2734  build/Debug/parity
+ 2735  build/Debug/power_x_y 
+ 2736  cmake --build --preset conan-debug
+ 2737  build/Debug/power_x_y 
+ 2738  cmake --build --preset conan-debug
+ 2739  build/Debug/power_x_y 
+ 2740  cmake --build --preset conan-debug
+ 2741  build/Debug/power_x_y 
+ 2742  cmake --build --preset conan-debug
+ 2743  build/Debug/power_x_y 
+ 2744  cmake --build --preset conan-debug
+ 2745  build/Debug/power_x_y 
+ 2746  cmake --build --preset conan-debug
+ 2747  build/Debug/power_x_y 
+ 2748  cmake --build --preset conan-debug
+ 2749  build/Debug/power_x_y 
+ 2750  cmake --build --preset conan-debug
+ 2751  build/Debug/power_x_y 
+ 2752  cmake --build --preset conan-debug
+ 2753  build/Debug/power_x_y 
+ 2754  cmake --build --preset conan-debug
+ 2755  build/Debug/power_x_y 
+ 2756  cmake --build --preset conan-debug
+ 2757  build/Debug/power_x_y 
+ 2758  cmake --build --preset conan-debug
+ 2759  build/Debug/power_x_y 
+ 2760  cmake --build --preset conan-debug
+ 2761  build/Debug/power_x_y 
+ 2762  cmake --build --preset conan-debug
+ 2763  build/Debug/power_x_y 
+ 2764  git status
+ 2765  git add conanfile.py parity.cc power_x_y.cc 
+ 2766  git diff
+ 2767  git status
+ 2768  git add ../problem_mapping.js 
+ 2769  git commit -m "solve 4.7"
+ 2770  git pull origin --rebase --autostash --verbose
+ 2771  git push --set-upstream origin akhil/first_pass 
+ 2772  cmake --build --preset conan-debug
+ 2773  build/Debug/is_string_palindromic
+ 2774  cmake --build --preset conan-debug
+ 2775  cmake --build --preset conan-debug
+ 2776  build/Debug/string_integer_interconversion 
+ 2777  cmake --build --preset conan-debug
+ 2778  build/Debug/string_integer_interconversion 
+ 2779  cmake --build --preset conan-debug
+ 2780  build/Debug/string_integer_interconversion 
+ 2781  cmake --build --preset conan-debug
+ 2782  build/Debug/string_integer_interconversion 
+ 2783  cmake --build --preset conan-debug
+ 2784  build/Debug/string_integer_interconversion 
+ 2785  cmake --build --preset conan-debug
+ 2786  build/Debug/string_integer_interconversion 
+ 2787  cmake --build --preset conan-debug
+ 2788  build/Debug/string_integer_interconversion 
+ 2789  cmake --build --preset conan-debug
+ 2790  build/Debug/string_integer_interconversion 
+ 2791  cmake --build --preset conan-debug
+ 2792  build/Debug/string_integer_interconversion 
+ 2793  cmake --build --preset conan-debug
+ 2794  build/Debug/string_integer_interconversion 
+ 2795  cmake --build --preset conan-debug
+ 2796  build/Debug/string_integer_interconversion 
+ 2797  cmake --build --preset conan-debug
+ 2798  build/Debug/string_integer_interconversion 
+ 2799  cmake --build --preset conan-debug
+ 2800  build/Debug/string_integer_interconversion 
+ 2801  cmake --build --preset conan-debug
+ 2802  build/Debug/string_integer_interconversion 
+ 2803  cmake --build --preset conan-debug
+ 2804  build/Debug/string_integer_interconversion 
+ 2805  build/Debug/convert_base 
+ 2806  build/Debug/string_integer_interconversion 
+ 2807  build/Debug/convert_base 
+ 2808  build/Debug/string_integer_interconversion 
+ 2809  cmake --build --preset conan-debug
+ 2810  build/Debug/convert_base 
+ 2811  cmake --build --preset conan-debug
+ 2812  build/Debug/convert_base 
+ 2813  cmake --build --preset conan-debug
+ 2814  build/Debug/convert_base 
+ 2815  cmake --build --preset conan-debug
+ 2816  build/Debug/convert_base 
+ 2817  cmake --build --preset conan-debug
+ 2818  build/Debug/convert_base 
+ 2819  cmake --build --preset conan-debug
+ 2820  build/Debug/convert_base 
+ 2821  cmake --build --preset conan-debug
+ 2822  build/Debug/convert_base 
+ 2823  cmake --build --preset conan-debug
+ 2824  build/Debug/convert_base 
+ 2825  cmake --build --preset conan-debug
+ 2826  build/Debug/convert_base 
+ 2827  cmake --build --preset conan-debug
+ 2828  build/Debug/convert_base 
+ 2829  cmake --build --preset conan-debug
+ 2830  build/Debug/convert_base 
+ 2831  cmake --build --preset conan-debug
+ 2832  build/Debug/convert_base 
+ 2833  cmake --build --preset conan-debug
+ 2834  build/Debug/convert_base 
+ 2835  cmake --build --preset conan-debug
+ 2836  build/Debug/convert_base 
+ 2837  cmake --build --preset conan-debug
+ 2838  cmake --build --preset conan-debug
+ 2839  fzf
+ 2840  build/Debug/replace_and_remove 
+ 2841  cmake --build --preset conan-debug
+ 2842  build/Debug/replace_and_remove 
+ 2843  cmake --build --preset conan-debug
+ 2844  build/Debug/replace_and_remove 
+ 2845  cmake --build --preset conan-debug
+ 2846  build/Debug/replace_and_remove 
+ 2847  cmake --build --preset conan-debug
+ 2848  build/Debug/replace_and_remove 
+ 2849  cmake --build --preset conan-debug
+ 2850  build/Debug/replace_and_remove 
+ 2851  cmake --build --preset conan-debug
+ 2852  build/Debug/replace_and_remove 
+ 2853  cmake --build --preset conan-debug
+ 2854  build/Debug/replace_and_remove 
+ 2855  pwd
+ 2856  ls
+ 2857  hyprctl monitors
+ 2858  cfg
+ 2859  nvim .
+ 2860  cd .config/
+ 2861  ls
+ 2862  cd ghostty/
+ 2863  ls
+ 2864  nvim config 
+ 2865  exit
+ 2866  tmux new -s muxy
+ 2867  cfg
+ 2868  nvim 
+ 2869  cd
+ 2870  cd .con
+ 2871  cd hypr/
+ 2872  ls
+ 2873  nvim hyprland.conf 
+ 2874  exit
+ 2875  hyprctl monitors
+ 2876  clear
+ 2877  exit
+ 2878  cmake --build --preset conan-debug
+ 2879  build/Debug/dutch_national_flag 
+ 2880  cmake --build --preset conan-debug
+ 2881  build/Debug/dutch_national_flag 
+ 2882  cmake --build --preset conan-debug
+ 2883  build/Debug/dutch_national_flag 
+ 2884  cmake --build --preset conan-debug
+ 2885  build/Debug/dutch_national_flag 
+ 2886  cmake --build --preset conan-debug
+ 2887  build/Debug/dutch_national_flag 
+ 2888  cmake --build --preset conan-debug
+ 2889  build/Debug/dutch_national_flag 
+ 2890  cmake --build --preset conan-debug
+ 2891  build/Debug/dutch_national_flag 
+ 2892  cmake --build --preset conan-debug
+ 2893  build/Debug/dutch_national_flag 
+ 2894  build/Debug/buy_and_sell_stock
+ 2895  cmake --build --preset conan-debug
+ 2896  build/Debug/buy_and_sell_stock
+ 2897  cmake --build --preset conan-debug
+ 2898  build/Debug/sorted_lists_merge 
+ 2899  cmake --build --preset conan-debug
+ 2900  build/Debug/sorted_lists_merge 
+ 2901  cmake --build --preset conan-debug
+ 2902  build/Debug/sorted_lists_merge 
+ 2903  cmake --build --preset conan-debug
+ 2904  build/Debug/sorted_lists_merge 
+ 2905  cmake --build --preset conan-debug
+ 2906  build/Debug/sorted_lists_merge 
+ 2907  cmake --build --preset conan-debug
+ 2908  build/Debug/reverse_sublist 
+ 2909  cmake --build --preset conan-debug
+ 2910  build/Debug/reverse_sublist 
+ 2911  cmake --build --preset conan-debug
+ 2912  build/Debug/reverse_sublist 
+ 2913  cmake --build --preset conan-debug
+ 2914  build/Debug/reverse_sublist 
+ 2915  cmake --build --preset conan-debug
+ 2916  build/Debug/is_list_cyclic 
+ 2917  git status
+ 2918  cmake --build --preset conan-debug
+ 2919  build/Debug/tree_level_order 
+ 2920  cmake --build --preset conan-debug
+ 2921  build/Debug/tree_level_order 
+ 2922  cmake --build --preset conan-debug
+ 2923  build/Debug/tree_level_order 
+ 2924  cmake --build --preset conan-debug
+ 2925  build/Debug/tree_level_order 
+ 2926  cmake --build --preset conan-debug
+ 2927  build/Debug/tree_level_order 
+ 2928  cmake --build --preset conan-debug
+ 2929  build/Debug/tree_level_order 
+ 2930  cmake --build --preset conan-debug
+ 2931  build/Debug/tree_level_order 
+ 2932  cmake --build --preset conan-debug
+ 2933  build/Debug/tree_level_order 
+ 2934  cmake --build --preset conan-debug
+ 2935  build/Debug/lowest_common_ancestor_with_parent 
+ 2936  cmake --build --preset conan-debug
+ 2937  build/Debug/sorted_arrays_merge 
+ 2938  cmake --build --preset conan-debug
+ 2939  build/Debug/sorted_arrays_merge 
+ 2940  cmake --build --preset conan-debug
+ 2941  build/Debug/sorted_arrays_merge 
+ 2942  cmake --build --preset conan-debug
+ 2943  build/Debug/sorted_arrays_merge 
+ 2944  cmake --build --preset conan-debug
+ 2945  build/Debug/sorted_arrays_merge 
+ 2946  cmake --build --preset conan-debug
+ 2947  build/Debug/sorted_arrays_merge 
+ 2948  cmake --build --preset conan-debug
+ 2949  build/Debug/sorted_arrays_merge 
+ 2950  cmake --build --preset conan-debug
+ 2951  build/Debug/sorted_arrays_merge 
+ 2952  cmake --build --preset conan-debug
+ 2953  cmake --build --preset conan-debug
+ 2954  build/Debug/search_first_key 
+ 2955  cmake --build --preset conan-debug
+ 2956  build/Debug/search_first_key 
+ 2957  clear
+ 2958  build/Debug/search_first_key 
+ 2959  cmake --build --preset conan-debug
+ 2960  build/Debug/search_first_key 
+ 2961  cmake --build --preset conan-debug
+ 2962  build/Debug/search_first_key 
+ 2963  cmake --build --preset conan-debug
+ 2964  build/Debug/search_first_key 
+ 2965  cmake --build --preset conan-debug
+ 2966  build/Debug/search_first_key 
+ 2967  cmake --build --preset conan-debug
+ 2968  build/Debug/search_first_key 
+ 2969  cmake --build --preset conan-debug
+ 2970  build/Debug/search_first_key 
+ 2971  cmake --build --preset conan-debug
+ 2972  build/Debug/search_first_key 
+ 2973  cmake --build --preset conan-debug
+ 2974  build/Debug/search_first_key 
+ 2975  cmake --build --preset conan-debug
+ 2976  build/Debug/search_first_key 
+ 2977  cmake --build --preset conan-debug
+ 2978  build/Debug/search_first_key 
+ 2979  cmake --build --preset conan-debug
+ 2980  build/Debug/search_first_key 
+ 2981  cmake --build --preset conan-debug
+ 2982  build/Debug/search_first_key 
+ 2983  cmake --build --preset conan-debug
+ 2984  build/Debug/search_first_key 
+ 2985  cmake --build --preset conan-debug
+ 2986  build/Debug/k_closest_stars 
+ 2987  cmake --build --preset conan-debug
+ 2988  build/Debug/k_closest_stars 
+ 2989  cmake --build --preset conan-debug
+ 2990  build/Debug/k_closest_stars 
+ 2991  cmake --build --preset conan-debug
+ 2992  build/Debug/k_closest_stars 
+ 2993  cmake --build --preset conan-debug
+ 2994  build/Debug/k_closest_stars 
+ 2995  cmake --build --preset conan-debug
+ 2996  build/Debug/k_closest_stars 
+ 2997  cmake --build --preset conan-debug
+ 2998  build/Debug/k_closest_stars 
+ 2999  git status
+ 3000  pwd
+ 3001  git add .
+ 3002  git status
+ 3003  git add ../problem_mapping.js 
+ 3004  git status
+ 3005  git add ../solution-walkthrough.md 
+ 3006  git status
+ 3007  cmake --build --preset conan-debug
+ 3008  build/Debug/int_square_root 
+ 3009  nvim
+ 3010  nvim .
+ 3011  nvim
+ 3012  f
+ 3013  fg
+ 3014  cmake --build --preset conan-debug
+ 3015  pwd
+ 3016  cd epi_judge_cpp
+ 3017  clear
+ 3018  build/Debug/stack_with_max 
+ 3019  cmake --preset conan-release
+ 3020  cmake --build --preset conan-release
+ 3021  build/Release/stack_with_max 
+ 3022  build/Debug/stack_with_max 
+ 3023  cmake --preset conan-debug
+ 3024  cmake --build --preset conan-debug
+ 3025  build/Debug/is_tree_balanced 
+ 3026  cmake --build --preset conan-debug
+ 3027  build/Debug/is_tree_balanced 
+ 3028  cmake --build --preset conan-debug
+ 3029  build/Debug/is_tree_balanced 
+ 3030  cmake --build --preset conan-debug
+ 3031  build/Debug/is_tree_balanced 
+ 3032  build/Debug/int_square_root 
+ 3033  build/Debug/is_tree_balanced 
+ 3034  cmake --build --preset conan-debug
+ 3035  build/Debug/int_square_root 
+ 3036  cmake --build --preset conan-debug
+ 3037  build/Debug/int_square_root 
+ 3038  cmake --build --preset conan-debug
+ 3039  build/Debug/kth_largest_in_array 
+ 3040  cmake --build --preset conan-debug
+ 3041  build/Debug/kth_largest_in_array 
+ 3042  cmake --build --preset conan-debug
+ 3043  build/Debug/kth_largest_in_array 
+ 3044  cmake --build --preset conan-debug
+ 3045  build/Debug/kth_largest_in_array 
+ 3046  cmake --build --preset conan-debug
+ 3047  build/Debug/kth_largest_in_array 
+ 3048  cmake --build --preset conan-debug
+ 3049  build/Debug/kth_largest_in_array 
+ 3050  cmake --build --preset conan-debug
+ 3051  build/Debug/kth_largest_in_array 
+ 3052  cmake --build --preset conan-debug
+ 3053  build/Debug/kth_largest_in_array 
+ 3054  cmake --build --preset conan-debug
+ 3055  build/Debug/kth_largest_in_array 
+ 3056  cmake --build --preset conan-debug
+ 3057  build/Debug/kth_largest_in_array 
+ 3058  cmake --build --preset conan-debug
+ 3059  build/Debug/kth_largest_in_array 
+ 3060  git status
+ 3061  cmake --build --preset conan-debug
+ 3062  build/Debug/is_anonymous_letter_constructible 
+ 3063  cmake --build --preset conan-debug
+ 3064  build/Debug/is_anonymous_letter_constructible 
+ 3065  cmake --build --preset conan-debug
+ 3066  build/Debug/is_anonymous_letter_constructible 
+ 3067  :wa
+ 3068  build/Debug/is_anonymous_letter_constructible 
+ 3069  cmake --build --preset conan-debug
+ 3070  build/Debug/is_anonymous_letter_constructible 
+ 3071  cmake --build --preset conan-debug
+ 3072  conan install --build=missing --profile=default 
+ 3073  cmake --preset conan-release
+ 3074  build/Debug/is_anonymous_letter_constructible 
+ 3075  build/Release/is_anonymous_letter_constructible 
+ 3076  cmake --preset conan-release
+ 3077  cmake --build --preset conan-release
+ 3078  build/Release/is_anonymous_letter_constructible 
+ 3079  cmake --build --preset conan-release
+ 3080  build/Release/is_anonymous_letter_constructible 
+ 3081  cmake --build --preset conan-release
+ 3082  build/Release/is_anonymous_letter_constructible 
+ 3083  cmake --build --preset conan-release
+ 3084  build/Release/is_anonymous_letter_constructible 
+ 3085  cmake --build --preset conan-release
+ 3086  build/Release/is_anonymous_letter_constructible 
+ 3087  build/Release/nearest_repeated_entries 
+ 3088  build/Release/is_anonymous_letter_constructible 
+ 3089  cmake --build --preset conan-release
+ 3090  build/Release/is_anonymous_letter_constructible 
+ 3091  build/Release/nearest_repeated_entries 
+ 3092  cmake --build --preset conan-release
+ 3093  build/Release/nearest_repeated_entries 
+ 3094  cmake --build --preset conan-release
+ 3095  build/Release/nearest_repeated_entries 
+ 3096  cmake --build --preset conan-release
+ 3097  build/Release/nearest_repeated_entries 
+ 3098  cmake --build --preset conan-release
+ 3099  build/Release/lru_cache 
+ 3100  cmake --build --preset conan-release
+ 3101  build/Release/lru_cache 
+ 3102  cmake --build --preset conan-release
+ 3103  build/Release/lru_cache 
+ 3104  exit
+ 3105  exit
+ 3106  ag prirority_queue -l
+ 3107  rg priority_queue -l
+ 3108  rg priority_queue 
+ 3109  fzf
+ 3110  cp -f build/Debug/compile_commands.json .
+ 3111  tmux new -s muxy
+ 3112  cd Downloads/
+ 3113  yt-dlp --help
+ 3114  yt-dlp -f best https://www.dailymotion.com/video/x9tvmj2
+ 3115  ls
+ 3116  zathura-sandbox 3.\ HJD\ _\ ASE\ _\ SIG.pdf 
+ 3117  clear
+ 3118  exit
+ 3119  cfg
+ 3120  nvim .
+ 3121  git status
+ 3122  git diff
+ 3123  stow -d . -t ~ zathura/
+ 3124  cd .config/
+ 3125  nvim .
+ 3126  nvim
+ 3127  tmux new -s muxy
+ 3128  nvim
+ 3129  clear
+ 3130  tmux attach -t muxy
+ 3131  nvim 
+ 3132  conan install --build=missing --profile=debug
+ 3133  nvim .
+ 3134  conan remove "**/*" -c
+ 3135  conan install --build=missing --profile=debug
+ 3136  nvim .
+ 3137  conan install --build=missing --profile=debug
+ 3138  fg
+ 3139  nvim .
+ 3140  fg
+ 3141  nvim .
+ 3142  conan remove "**/*" -c
+ 3143  conan install --build=missing --profile=debug
+ 3144  cmake --preset conan-debug
+ 3145  cmake --build --preset conan-debug
+ 3146  clear
+ 3147  nvim .
+ 3148  clear
+ 3149  nvim
+ 3150  git status
+ 3151  nvim .
+ 3152  git status
+ 3153  clear
+ 3154  nvim 
+ 3155  git status
+ 3156  clear
+ 3157  exit
+ 3158  conan install --build=missing --profile=debug
+ 3159  exit
+ 3160  # Check current DNS
+ 3161  cat /etc/resolv.conf
+ 3162  ping 8.8.8.8          # If this works but ping google.com fails = DNS issue
+ 3163  ping google.com       # If both fail = connection/routing issue
+ 3164  rfkill list           # Check for software blocks
+ 3165  sudo journalctl -u iwd -f  # Watch iwd logs in real-time
+ 3166  rfkill list           # Check for software blocks
+ 3167  iwctl
+ 3168  sudo pacman -S linux-firmware
+ 3169  ping google.com       # If both fail = connection/routing issue
+ 3170  ping 8.8.8.8          # If this works but ping google.com fails = DNS issue
+ 3171  ssh sambhav@100.101.0.84
+ 3172  tailscale --status
+ 3173  tailscaled --status
+ 3174  tailscaled -status
+ 3175  tailscaled 
+ 3176  ssh  -vvv sambhav@100.101.0.84
+ 3177  ssh  -vvv whitewalker7@100.101.0.84
+ 3178  ssh  -vvv sambhav@100.101.0.84
+ 3179  exit
+ 3180  ssh sambhav@100.101.0.84
+ 3181  curl -fsSL https://tailscale.com/install.sh | sh
+ 3182  ssh sambhav@100.101.0.84
+ 3183  sudo tailscale up
+ 3184  ssh sambhav@100.101.0.84~ ❯ ssh sambhav@100.101.0.84                                                                            │
+ 3185  sudo tailscale up
+ 3186  ps -ef | grep i tailscale
+ 3187  ps -ef | grep -i tailscale
+ 3188  clear
+ 3189  exit
+ 3190  # Check tracy's CMakeLists.txt between versions
+ 3191  cd /tmp
+ 3192  git clone --depth 1 --branch v0.12.2 https://github.com/wolfpld/tracy.git tracy-old
+ 3193  git clone --depth 1 --branch v0.13.1 https://github.com/wolfpld/tracy.git tracy-new
+ 3194  diff tracy-old/CMakeLists.txt tracy-new/CMakeLists.txt
+ 3195  ls
+ 3196  rm -rf tracy-* 
+ 3197  ls tmux-1000/
+ 3198  clear
+ 3199  exit
+ 3200  ping 100.101.0.84 -c 4
+ 3201  curl -fsSL https://tailscale.com/install.sh | sh
+ 3202  sudo tailscale up
+ 3203  tailscale ip
+ 3204  tailscale status
+ 3205  ssh -vvv sambhav@101.0.63.142 -p 55029
+ 3206  ssh -vvv sambhav@100.101.0.84
+ 3207  exit
+ 3208  ssh -vvv sambhav@100.101.0.84
+ 3209  tailscale set --sh
+ 3210  tailscale set --ssh
+ 3211  sudo tailscale set --ssh
+ 3212  clear
+ 3213  exit
+ 3214  conan install --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 3215  pwd
+ 3216  conan install --build=missing --profile=debug
+ 3217  conan install --build=missing --profile=conan/conan-profiles/debug 
+ 3218  cmake --preset conan-debug
+ 3219  cmake --build --preset conan-debug
+ 3220  conan profile --create
+ 3221  conan profile create
+ 3222  conan profile detect
+ 3223  git branch
+ 3224  git status
+ 3225  git diff
+ 3226  clear
+ 3227  gcc --version
+ 3228  clear
+ 3229  # Check what's actually being linked
+ 3230  grep -r "lft" Makefile CMakeLists.txt
+ 3231  # Search for libft files
+ 3232  find /usr -name "*libft*" 2>/dev/null
+ 3233  # Or using locate (faster, but needs updated db)
+ 3234  sudo updatedb && locate libft
+ 3235  # Check if it's from a package
+ 3236  pacman -Qs libft
+ 3237  # Search all .so and .a files for "ft"
+ 3238  find /usr/lib -name "libft*" 2>/dev/null
+ 3239  # If you know the package that should provide it
+ 3240  pacman -Ql <package-name> | grep "\.so\|\.a"
+ 3241  ps -ef | grep -i tail
+ 3242  git status
+ 3243  git diff 
+ 3244  tailscale set --sh
+ 3245  tailscale set --ssh
+ 3246  sudo tailscale set --ssh
+ 3247  git status
+ 3248  git checkout master
+ 3249  git status
+ 3250  git pull --rebase --autostash --verbose
+ 3251  git status
+ 3252  exit
+ 3253  conan install --build=missing --profile=debug ./epi_judge_cpp 
+ 3254  cmake --preset conan-debug
+ 3255  cd epi_judge_cpp
+ 3256  conan install --build=missing --profile=debug .
+ 3257  cmake --preset conan-debug
+ 3258  conan install --build=missing --profile=debug .
+ 3259  cmake --build --preset conan-debug
+ 3260  conan install --build=missing --profile=debug .
+ 3261  cmake --preset conan-debug
+ 3262  cmake --build --preset conan-debug
+ 3263  conan install --build=missing --profile=debug .
+ 3264  cmake --preset conan-debug
+ 3265  an install . --build=tracy/* --profile=debug
+ 3266  conan install . --build=tracy/* --profile=debug
+ 3267  cmake --preset conan-debug
+ 3268  ~/.conan2/p/tracy*/p/*/lib/
+ 3269  ls ~/.conan2/p/tracy*/p/*/lib/
+ 3270  conan cache path tracy/0.13.1:$(conan list tracy/0.13.1:* --format=json | jq -r '.["Local Cache"]["tracy/0.13.1"]["revisions"][].packages | keys[0]')
+ 3271  conan cache path tracy/0.13.1 --folder=package
+ 3272  conan cache path tracy/0.13.1 
+ 3273  conan install . --build=tracy/* --profile=release
+ 3274  conan install . --build=tracy/* --profile=default
+ 3275  conan install . --build=missing --profile=default
+ 3276  cmake --preset conan-release
+ 3277  cmake --build --preset conan-release
+ 3278  fzf
+ 3279  ./build/Release/parity 
+ 3280  exit
+ 3281  docker compose build 
+ 3282  docker compose up -d 
+ 3283  docker compose exec quant-dev bash
+ 3284  pwd
+ 3285  conan install --build=missing --profile=conan/conan-profiles/default .
+ 3286  cmake --preset conan-release
+ 3287  cmake --build --preset conan-release
+ 3288  git status
+ 3289  git diff
+ 3290  git status
+ 3291  git restore src/libraries/core/include/core/market_book/
+ 3292  git status
+ 3293  git diff --cached
+ 3294  git status
+ 3295  git add conan/
+ 3296  git status
+ 3297  git add README.md 
+ 3298  git commit -m "minor modifications"
+ 3299  git pull --rebase --autostash --verbose
+ 3300  git push --force-with-lease origin HEAD
+ 3301  conan install --build=missing --profile=conan/conan-profiles/omarchy-default .
+ 3302  cmake --preset conan-release
+ 3303  cmake --build --preset conan-release
+ 3304  cd build/Release/
+ 3305  ls
+ 3306  cd src/libraries/co
+ 3307  cd src/libraries/core/test/
+ 3308  ls
+ 3309  ./acce-core_test 
+ 3310  cd ..
+ 3311  ls
+ 3312  cd bench/
+ 3313  ls
+ 3314  pwd
+ 3315  cd ../../../../../
+ 3316  pwd
+ 3317  cd ..
+ 3318  fzf
+ 3319  cp -f build/Release/compile_commands.json
+ 3320  cp -f build/Release/compile_commands.json .
+ 3321  cmake --preset conan-release
+ 3322  cmake --build --preset conan-release
+ 3323  cd ~/Downloads/
+ 3324  sha256sum tracy-0.13.1.tar.gz 
+ 3325  cd -
+ 3326  conan export . --version=0.11.0
+ 3327  conan list tracy/*
+ 3328  fzf
+ 3329  cd recipes/tracy/all/conanfile.py
+ 3330  cd recipes/tracy/all/
+ 3331  ls
+ 3332  conan export . --version=0.13.1
+ 3333  pwd
+ 3334  conan test test_package tracy/0.13.1
+ 3335  conan export . --version=0.13.1
+ 3336  conan list tracy/*
+ 3337  conan test test_package tracy/0.13.1 --build/tracy/*
+ 3338  conan test test_package tracy/0.13.1 --build=tracy/*
+ 3339  ./test_package/
+ 3340  ./test_package
+ 3341  conan test test_package tracy/0.13.1 
+ 3342  conan export . --version=0.13.1
+ 3343  # List actual library files in cache
+ 3344  find ~/.conan2/p/tracy* -name "*.a" -o -name "*.so" 2>/dev/null
+ 3345  # List actual library files in cache
+ 3346  find ~/.conan2/p/tracy* -name "*.a" -o -name "*.so" 2>/dev/null
+ 3347  conan cache path tracy/0.13.1 --folder=package
+ 3348  pwd
+ 3349  exit
+ 3350  git status
+ 3351  git add conan/
+ 3352  git commit --amend
+ 3353  git push --set-upstream origin sambhav/u24.04-changes 
+ 3354  ./docker-build.sh release
+ 3355  docker-compose build
+ 3356  ./docker-build.sh release
+ 3357  docker-compose build
+ 3358  ./docker-build.sh release
+ 3359  docker-compose build
+ 3360  docker compose up -d 
+ 3361  docker compose exec builder bash
+ 3362  docker compose up -d 
+ 3363  docker-compose run --rm builder bash -c
+ 3364  docker-compose run --rm builder bash 
+ 3365  docker compose build 
+ 3366  docker compose up -d 
+ 3367  docker compose exec builder 
+ 3368  docker compose exec builder  bash
+ 3369  docker-compose build
+ 3370  docker-compose up -d 
+ 3371  docker-compose exec builder  bash
+ 3372  docker-compose exec builder  bash
+ 3373  ./docker-troubleshoot.sh 
+ 3374  docker-compose down -v
+ 3375  docker-compose build --no-chache
+ 3376  docker-compose build --no-cache
+ 3377  ./docker-build.sh release
+ 3378  ./cv-gen 
+ 3379  git status
+ 3380  git diff
+ 3381  git status
+ 3382  git add artifacts/input_markdown/
+ 3383  git add config.yaml 
+ 3384  git status
+ 3385  git log
+ 3386  git commit -m "update input artifacts"
+ 3387  git pull --rebase --autostash --verbose
+ 3388  git push --force-with-lease origin HEAD
+ 3389  git status
+ 3390  cp ~/Downloads/akhil-detailed-hft.md artifacts/input_markdown/akhil-detailed-hft-cv.md
+ 3391  ./cv-gen 
+ 3392  fzf
+ 3393  mkdir build
+ 3394  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 3395  git status
+ 3396  git stash
+ 3397  git stash clear
+ 3398  git status
+ 3399  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 3400  cfg
+ 3401  nvim .
+ 3402  nvim
+ 3403  nvim .
+ 3404  git status
+ 3405  git log
+ 3406  git status
+ 3407  git diff
+ 3408  git status
+ 3409  git diff zathura/
+ 3410  git diff ghostty/
+ 3411  git status
+ 3412  git add zathura/ ghostty/ lazyvim/
+ 3413  git status
+ 3414  git commit -m "[lazyvim|zathura|ghostty] obsidian template fixes to lazyvim and minor asthetic update to zathura/ghostty"
+ 3415  git pull --rebase --autostash --verbose
+ 3416  git push --force-with-lease origin HEAD
+ 3417  nvim .
+ 3418  work
+ 3419  cd books/
+ 3420  rga -i "fixed income"
+ 3421  clear
+ 3422  work
+ 3423  files
+ 3424  cd .config/
+ 3425  nvim .
+ 3426  stow -d . -t ~ sioyek
+ 3427  rm -rf ~/.config/sioyek
+ 3428  stow -d . -t ~ sioyek
+ 3429  git status
+ 3430  git add setup/ zathura/ sioyek/
+ 3431  git diff --cached sioyek/
+ 3432  git diff --cached zathura/
+ 3433  git status
+ 3434  git commit -m "[zathura|setup|sioyek] add sioyek config (great pdf viewer with vim-like navigation)"
+ 3435  git pull --rebase --autostash --verbose
+ 3436  git push --force-with-lease origin HEAD
+ 3437  work
+ 3438  cd books/
+ 3439  rga -i "fixed income"
+ 3440  which zathura
+ 3441  cfg
+ 3442  nvim .
+ 3443  clear
+ 3444  exit
+ 3445  rg mutable -cpp -l
+ 3446  clear
+ 3447  rga -i "fixed income"
+ 3448  cleaar
+ 3449  clear
+ 3450  work
+ 3451  rga -i "fixed income"
+ 3452  rag -i "fixed income" --pdf
+ 3453  rga -i "fixed income" --pdf
+ 3454  rga -i "fixed income" -f pdf
+ 3455  rga -i "fixed income" *.pdf
+ 3456  rga -i "fixed income" pdf
+ 3457  rga -i "fixed income"
+ 3458  pwd
+ 3459  cd books/
+ 3460  rga -i "fixed income"
+ 3461  clera
+ 3462  cd
+ 3463  books
+ 3464  clear
+ 3465  rga -i "fixed income"
+ 3466  sioyek for-elaeocarpus/elaeocarpus-readables/code-along-refs/Developing_High_Frequency_Trading_Systems_Learn_How_to_Implement.pdf 
+ 3467  clear
+ 3468  nvim.
+ 3469  exit
+ 3470  books
+ 3471  rga -i "fixed income"
+ 3472  tmux new -s muxy
+ 3473  cfg
+ 3474  nvim 
+ 3475  git status
+ 3476  gitstatus
+ 3477  git status
+ 3478  git stash list
+ 3479  git stash push -m "sioyek catppuccin dark changes"
+ 3480  exit
+ 3481  tmux attach -t muxy
+ 3482  git status
+ 3483  python2
+ 3484  python3
+ 3485  books
+ 3486  rga -i "fixed income"
+ 3487  exit
+ 3488  books
+ 3489  rga -i "smallfun"
+ 3490  rga -i "small fun"
+ 3491  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 3492  cmake --preset conan-debug
+ 3493  cmake --build --preset conan-debug
+ 3494  cp -f build/Debug/compile_commands.json .
+ 3495  notes
+ 3496  nvim .
+ 3497  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-gcc 
+ 3498  which clang
+ 3499  clang --version
+ 3500  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-clang 
+ 3501  alias cc
+ 3502  alias cxx
+ 3503  alias cpp
+ 3504  which cc
+ 3505  info cc
+ 3506  alias cc
+ 3507  clang --version
+ 3508  fd clang
+ 3509  cd
+ 3510  cd -
+ 3511  cd /
+ 3512  fd clang
+ 3513  cd -
+ 3514  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3515  clear
+ 3516  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3517  cd /
+ 3518  fd clang
+ 3519  cd -
+ 3520  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3521  cd /
+ 3522  fd libc++
+ 3523  cd -
+ 3524  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3525  cd /
+ 3526  fd
+ 3527  fd libc++
+ 3528  cd -
+ 3529  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3530  clang --version
+ 3531  which clang
+ 3532  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3533  clang+ --version
+ 3534  clang++ --version
+ 3535  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3536  cmake --preset list
+ 3537  cmake --preset conan-debug 
+ 3538  cmake --build --preset conan-debug
+ 3539  cp -f build/Debug/compile_commands.json .
+ 3540  fzf
+ 3541  ./build/Debug/playground/exp-boost/boost_ptree
+ 3542  cmake --build --preset conan-debug
+ 3543  ./build/Debug/playground/exp-boost/boost_ptree
+ 3544  cmake --build --preset conan-debug
+ 3545  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3546  cmake --preset conan-debug 
+ 3547  cmake --build --preset conan-debug
+ 3548  cp -f build/Debug/compile_commands.json .
+ 3549  fzf
+ 3550  ./build/Debug/playground/exp-boost/boost_accumulators
+ 3551  cmake --build --preset conan-debug
+ 3552  conan install . --build=missing --profile=conan/conan-profiles/debug-omarchy-x86-clang 
+ 3553  cmake --preset conan-debug 
+ 3554  cmake --build --preset conan-debug
+ 3555  books
+ 3556  fzf
+ 3557  rga -i "boost log"
+ 3558  rga -i "boost::log"
+ 3559  rga -i "boost log"
+ 3560  rga -i "boost logging"
+ 3561  rga -i "boost*log"
+ 3562  rga -i "boost::log"
+ 3563  rga -i "log" | grep -i boost
+ 3564  unzip pqr/
+ 3565  zip pqr
+ 3566  ls
+ 3567  cd pqr/
+ 3568  docker compose exec quant-dev bash
+ 3569  fzf
+ 3570  ./platform/testbuild/core/test/acce-core_test
+ 3571  fzf
+ 3572  sudo kill -9 acce-*
+ 3573  ps -ef | grep acce
+ 3574  sudo kill -9 1684767
+ 3575  ps -ef | grep acce
+ 3576  git stash list
+ 3577  git stash pop
+ 3578  learn
+ 3579  ls
+ 3580  exit
+ 3581  learn
+ 3582  ls
+ 3583  git clone git@github.com:akhiltiwari13/Building-Low-Latency-Applications-with-CPP.git llappswcpp
+ 3584  cd llappswcpp/
+ 3585  nvim .
+ 3586  exit
+ 3587  cmake -S . -B build/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=On 
+ 3588  cd build/
+ 3589  make
+ 3590  fzf
+ 3591  cp -f compile_commands.json ..
+ 3592  tmux attach -t muxy
+ 3593  cfg
+ 3594  nvim .
+ 3595  nvim
+ 3596  nvim
+ 3597  nvim .
+ 3598  git status
+ 3599  nvim .
+ 3600  nvim .
+ 3601  conan install --build=missing --profile=conan/conan-profiles/debug .
+ 3602  conan install --build=missing --profile=conan/conan-profiles/omarchy-debug 
+ 3603  cmake --preset conan-debug
+ 3604  cmake --build --preset conan-debug
+ 3605  conan install --build=missing --profile=conan/conan-profiles/omarchy-debug-clang 
+ 3606  clear
+ 3607  conan install --build=missing --profile=conan/conan-profiles/omarchy-debug-clang 
+ 3608  nvim .
+ 3609  proj
+ 3610  git clone https://github.com/conan-io/conan-center-index.git
+ 3611  cd conan-center-index/
+ 3612  git branch -a
+ 3613  fzf
+ 3614  nvim .
+ 3615  clear
+ 3616  git status
+ 3617  nvim .
+ 3618  git status
+ 3619  git diff
+ 3620  git diff --cached
+ 3621  git status
+ 3622  git add core/CMakeLists.txt 
+ 3623  git status
+ 3624  glog
+ 3625  git log
+ 3626  git diff --cached
+ 3627  git status
+ 3628  git restore --staged core/include/core/market_book/details/market_book_cmd_impl.h 
+ 3629  git status
+ 3630  git diff --cached infra/src/infra_main.cpp
+ 3631  conan install --build=missing --profile=debug
+ 3632  pwd
+ 3633  cd ../..
+ 3634  conan install --build=missing --profile=debug
+ 3635  cmake --preset conan-debug
+ 3636  cmake --build --preset conan-debug
+ 3637  conan install --build=missing --profile=conan/conan-profiles/default 
+ 3638  cmake --preset conan-release 
+ 3639  cmake --build --preset conan-release 
+ 3640  nvim 
+ 3641  git status
+ 3642  git checkout main
+ 3643  git status
+ 3644  git stash list
+ 3645  git stash push -m "changes to build on ubuntu 24.04 lts"
+ 3646  git checkout main
+ 3647  git status
+ 3648  git checkout -b sambhav/u24.04-changes
+ 3649  git stash pop
+ 3650  git add cmake/ src/libraries/core/ src/libraries/infra/ .dockerignore DOCKER.md Dockerfile docker-build.sh docker-compose.yml 
+ 3651  git commit -m "[ai gen changes] build code on ubuntu 24.04 with minimal changes"
+ 3652  git status
+ 3653  nvim 
+ 3654  nvim
+ 3655  cledar
+ 3656  clear
+ 3657  nvim .
+ 3658  clear
+ 3659  git status
+ 3660  git diff
+ 3661  git stash list
+ 3662  git stash push -m "[docker/cmake] update build script for smabhav's ws"
+ 3663  git checkout akhil/min-morphed 
+ 3664  gprav
+ 3665  git pull origin --rebase --autostash --verbose
+ 3666  fzf
+ 3667  cp -f build/Debug/compile_commands.json .
+ 3668  nvim .
+ 3669  nvim
+ 3670  git status
+ 3671  nvim .
+ 3672  nvim
+ 3673  nvim .
+ 3674  nvim 
+ 3675  nvim
+ 3676  nvim .
+ 3677  clear
+ 3678  fg
+ 3679  clera
+ 3680  nvim .
+ 3681  nvim
+ 3682  nvim 
+ 3683  nvim
+ 3684  nvim .
+ 3685  nvim
+ 3686  nvim
+ 3687  which conan
+ 3688  conan --version
+ 3689  nvim git status
+ 3690  git status
+ 3691  git remote -v
+ 3692  clear
+ 3693  pwd
+ 3694  ls
+ 3695  cd ..
+ 3696  ls
+ 3697  git status
+ 3698  ls
+ 3699  cd ..
+ 3700  ls
+ 3701  cd quant-research/
+ 3702  ls
+ 3703  nvim .
+ 3704  ls
+ 3705  docker compose up -d
+ 3706  docker compose exec quant-research bash
+ 3707  docker compose exec quant-dev 
+ 3708  docker compose exec quant-dev bash
+ 3709  nvim .
+ 3710  pwd
+ 3711  cd epi_judge_cpp
+ 3712  conan install . --build=missing --profile=debug
+ 3713  cmake --preset conan-debug 
+ 3714  conan install . --build=missing --profile=debug
+ 3715  conan list tracy/*
+ 3716  conan remove "tracy/*" -c
+ 3717  conan install . --build=missing --profile=debug
+ 3718  cmake --preset conan-debug
+ 3719  clear
+ 3720  git status
+ 3721  cmake --build --preset conan-debug
+ 3722  learn
+ 3723  git clone git@github.com:tokyo-night/wallpapers.git
+ 3724  file wallpapers/
+ 3725  open wallpapers/
+ 3726  rm -rf wallpapers/
+ 3727  which ls
+ 3728  which eza
+ 3729  zoxide
+ 3730  eza
+ 3731  which ls
+ 3732  alias ls
+ 3733  alias cd
+ 3734  fd main.cpp
+ 3735  work
+ 3736  ls
+ 3737  cd projects/
+ 3738  ls
+ 3739  try configfiles/
+ 3740  pwd
+ 3741  try
+ 3742  wokrk
+ 3743  work
+ 3744  ls
+ 3745  try
+ 3746  pwd
+ 3747  ls
+ 3748  proj
+ 3749  cd configfiles/
+ 3750  learn
+ 3751  proj
+ 3752  ls
+ 3753  ls -lart
+ 3754  books
+ 3755  clear
+ 3756  fd elements*.pdf
+ 3757  fzf
+ 3758  rga "small fun" 
+ 3759  learn
+ 3760  git clone https://github.com/zhichaoh/catppuccin-wallpapers.git
+ 3761  ls
+ 3762  books
+ 3763  rga -i "stuttering" 
+ 3764  clear
+ 3765  books
+ 3766  rga -i "study guide"
+ 3767  rga -i "study"
+ 3768  rga "study*guide"
+ 3769  rga -h
+ 3770  learn
+ 3771  cd llappswcpp/
+ 3772  nvim .
+ 3773  nvim
+ 3774  date
+ 3775  cal
+ 3776  which elephant
+ 3777  elephant --version
+ 3778  elephant --help
+ 3779  clear
+ 3780  tmux new -s muxy
+ 3781  ls
+ 3782  conan install . --build=missing --profile=debug
+ 3783  cmake --preset conan-debug
+ 3784  cmake --build --preset conan-debug
+ 3785  fzf
+ 3786  ./build/Debug/is_tree_a_bst
+ 3787  cmake --build --preset conan-debug
+ 3788  ./build/Debug/is_tree_a_bst
+ 3789  cmake --build --preset conan-debug
+ 3790  ./build/Debug/is_tree_a_bst
+ 3791  cmake --build --preset conan-debug
+ 3792  ./build/Debug/is_tree_a_bst
+ 3793  cmake --build --preset conan-debug
+ 3794  ./build/Debug/is_tree_a_bst
+ 3795  cmake --build --preset conan-debug
+ 3796  ./build/Debug/is_tree_a_bst
+ 3797  cmake --build --preset conan-debug
+ 3798  ./build/Debug/is_tree_a_bst
+ 3799  cmake --build --preset conan-debug
+ 3800  ./build/Debug/is_tree_a_bst
+ 3801  cmake --build --preset conan-debug
+ 3802  ./build/Debug/is_tree_a_bst
+ 3803  cmake --build --preset conan-debug
+ 3804  ./build/Debug/is_tree_a_bst
+ 3805  cmake --build --preset conan-debug
+ 3806  ./build/Debug/is_tree_a_bst
+ 3807  cmake --build --preset conan-debug
+ 3808  ./build/Debug/is_tree_a_bst
+ 3809  cmake --build --preset conan-debug
+ 3810  ./build/Debug/search_first_greater_value_in_bst 
+ 3811  cmake --build --preset conan-debug
+ 3812  ./build/Debug/search_first_greater_value_in_bst 
+ 3813  cmake --build --preset conan-debug
+ 3814  ./build/Debug/search_first_greater_value_in_bst 
+ 3815  cmake --build --preset conan-debug
+ 3816  ./build/Debug/search_first_greater_value_in_bst 
+ 3817  cmake --build --preset conan-debug
+ 3818  ./build/Debug/k_largest_values_in_bst 
+ 3819  cmake --build --preset conan-debug
+ 3820  ./build/Debug/k_largest_values_in_bst 
+ 3821  cmake --build --preset conan-debug
+ 3822  ./build/Debug/k_largest_values_in_bst 
+ 3823  cmake --build --preset conan-debug
+ 3824  ./build/Debug/k_largest_values_in_bst 
+ 3825  cmake --build --preset conan-debug
+ 3826  fzf
+ 3827  ./build/Debug/hanoi
+ 3828  cmake --build --preset conan-debug
+ 3829  ./build/Debug/hanoi
+ 3830  cmake --build --preset conan-debug
+ 3831  ./build/Debug/hanoi
+ 3832  cmake --build --preset conan-debug
+ 3833  ./build/Debug/hanoi
+ 3834  cmake --build --preset conan-debug
+ 3835  ./build/Debug/hanoi
+ 3836  cmake --build --preset conan-debug
+ 3837  ./build/Debug/hanoi
+ 3838  exit
+ 3839  clear
+ 3840  exit
+ 3841  mv -f ~/Downloads/catppuccin-* zathura/.config/zathura/
+ 3842  cd zathura/.config/zathura/
+ 3843  ls
+ 3844  cd ~/.config/
+ 3845  ls
+ 3846  cd zathura/
+ 3847  ls
+ 3848  # Most recommended first try
+ 3849  git log --all -- "**[dD][eE][xX]*" --oneline --date=short
+ 3850  # Or simpler wildcard (case-sensitive, but often enough)
+ 3851  git log --all -- "*dex*" --oneline
+ 3852  # Case-insensitive via grep on output
+ 3853  git log --all --name-status --pretty=format: | grep -i dex
+ 3854  cd
+ 3855  cd Downloads/
+ 3856  yt-dlp -f best Many C++ features, such as dynamic polymorphism, dynamic memory allocation, and exception 
+ 3857  handling, are great additions to the language for most applications. However, these are best avoided 
+ 3858  yt-dlp -f best https://www.dailymotion.com/video/x9tvmj2
+ 3859  yt-dl -f best https://www.dailymotion.com/video/x9tvmj2
+ 3860  youtubedr -h
+ 3861  youtubedr https://www.dailymotion.com/video/x9tvmj2
+ 3862  youtubedr download https://www.dailymotion.com/video/x9tvmj2
+ 3863  sudo pip install --upgrade youtube_dl
+ 3864  sudo pip3 install --upgrade youtube_dl
+ 3865  sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+ 3866  sudo chmod a+rx /usr/local/bin/youtube-dl
+ 3867  youtube-dl -f best https://www.dailymotion.com/video/x9tvmj2
+ 3868  youtube-dl 
+ 3869  sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+ 3870  sudo chmod a+rx /usr/local/bin/youtube-dl
+ 3871  youtube-dl 
+ 3872  rm -rf /usr/local/bin/youtube-dl 
+ 3873  sudo rm -rf /usr/local/bin/youtube-dl 
+ 3874  yt-dlp -f best https://www.dailymotion.com/video/x9tvmj2
+ 3875  yt-dlp -U
+ 3876  yt-dlp https://www.dailymotion.com/video/x9tvmj2
+ 3877  yt-dlp -F https://www.dailymotion.com/video/x9tvmj2
+ 3878  yt-dlp -F https://dai.ly/x9tvmj2
+ 3879  clear
+ 3880  cd -
+ 3881  cd Work/notes/
+ 3882  git status
+ 3883  clear
+ 3884  git log --oneline -- defx.md
+ 3885  git log --oneline -- *.md
+ 3886  git log --oneline -- defx.md
+ 3887  git log --oneline -- dex.md
+ 3888  git log --oneline -- defx
+ 3889  git log -- Defx.md
+ 3890  git log --all --full-history -- "**[dD][eE][xX]*" --pretty="format:%C(yellow)%h %C(cyan)%ad %Creset%s" --date=short
+ 3891  fzf
+ 3892  # Most recommended first try
+ 3893  git log --all -- "**[dD][eE][xX]*" --oneline --date=short
+ 3894  # Or simpler wildcard (case-sensitive, but often enough)
+ 3895  git log --all -- "*dex*" --oneline
+ 3896  # Case-insensitive via grep on output
+ 3897  git log --all --name-status --pretty=format: | grep -i dex
+ 3898  git log --all --name-status --pretty=format: | grep -i defx
+ 3899  git log --all --name-status --pretty=format:
+ 3900  git log --all --name-status --pretty=format: | grep -i defx
+ 3901  git log --follow --oneline --graph -- zettelkasten/defx.md
+ 3902  git restore --source=018a0e3 -- zettelkasten/defx.md
+ 3903  git status
+ 3904  git add zettelkasten/ 
+ 3905  git status
+ 3906  git commit -m "restore defx.md and a job opportunity call with axtior"
+ 3907  git pull origin --rebase --autostash --verbose
+ 3908  git push --force-with-lease origin HEAD
+ 3909  fuse
+ 3910  which fuse
+ 3911  exit
+ 3912  notes
+ 3913  nvim 
+ 3914  exit
+ 3915  rga -i "custodian"
+ 3916  cfg
+ 3917  nvim .
+ 3918  cd
+ 3919  cd .config/
+ 3920  ls
+ 3921  clear
+ 3922  exit
+ 3923  cd Downloads/
+ 3924  ls
+ 3925  pwd
+ 3926  ls guddu/
+ 3927  exit
+ 3928  openvpn3 sessions-list
+ 3929  openvpn3 session-manage --path /net/openvpn/v3/sessions/ff4ac3d7sba38s4f9dsa04csa90f2ac8d339 --disconnect
+ 3930  openvpn3 sessions-list
+ 3931  exit
+ 3932  tmux new -s muxy
+ 3933  tmux attach -t mux
+ 3934  openvpn3 sessions-list
+ 3935  openvpn3 config-lists
+ 3936  nvim 
+ 3937  nvim
+ 3938  cd
+ 3939  cfg
+ 3940  cd 
+ 3941  cd .config/
+ 3942  ls
+ 3943  ls sioyek/
+ 3944  cat sioyek/prefs_user.config 
+ 3945  clear
+ 3946  cd
+ 3947  cd Downloads/
+ 3948  mkdir guddu
+ 3949  cd guddu/
+ 3950  yt-dlp -f best https://www.youtube.com/watch?v=JUgvb0wmNl4
+ 3951  yt-dlp -f best https://www.youtube.com/watch?v=GQz2LIdCbAs
+ 3952  yt-dlp -f best https://www.youtube.com/watch?v=s13B4dR7kOU
+ 3953  mkdir antix-core videos
+ 3954  cd antix-core/
+ 3955  yt-dlp -f best https://www.youtube.com/playlist?list=PLTRkAa6x1htX4mWfyIK9q3dFngWfb5b1M
+ 3956  yt-dlp -f best https://www.youtube.com/watch?v=dQ8JgDUS8DA&list=PLS1QulWo1RIb9WVQGJ_vh-RQusbZgO_As&index=2
+ 3957  pwd
+ 3958  ls
+ 3959  rm -rf Linux\ Command\ Line\ Tutorial\ For\ Beginners\ 2\ -\ ls\ command\ in\ Linux\ \[dQ8JgDUS8DA\].mp4 
+ 3960  cd ..
+ 3961  mkdir linux-tutorials-hindi
+ 3962  cd linux-tutorials-hindi/
+ 3963  yt-dlp -f best https://www.youtube.com/playlist?list=PLS1QulWo1RIb9WVQGJ_vh-RQusbZgO_As
+ 3964  hostname -I
+ 3965  hostname
+ 3966  hostname -a
+ 3967  ifconfig -a
+ 3968  ipconfig -a
+ 3969  ip inete
+ 3970  clear
+ 3971  ip addr
+ 3972  hostname -I
+ 3973  hostname 
+ 3974  hostname --help
+ 3975  hostname -i
+ 3976  w
+ 3977  hostname -i
+ 3978  cd
+ 3979  cd -
+ 3980  cd ..
+ 3981  ls
+ 3982  rm -rf guddu/
+ 3983  nvim SoftsolutionsHQ_UDP_Tunnelblick\ \(1\).ovpn 
+ 3984  mkdir -p ~/vpn
+ 3985  nvim SoftsolutionsHQ_UDP_Tunnelblick\ \(1\).ovpn 
+ 3986  mv -f SoftsolutionsHQ_UDP_Tunnelblick\ \(1\).ovpn  ~/vpn/softsolutions.ovpn
+ 3987  openvpn3 config-import --config ~/vpn/softsolutions.ovpn --name softsolutions --persistent
+ 3988  openvpn3 configs-list
+ 3989  openvpn3 session-start --config softsolutions
+ 3990  openvpn3 configs-list
+ 3991  openvpn3 session-start --config softsolutions
+ 3992  clear
+ 3993  cd 
+ 3994  cd vpn/
+ 3995  nvim softsolutions.ovpn 
+ 3996  ls
+ 3997  cd
+ 3998  cd -
+ 3999  nvim .
+ 4000  openvpn3 configs-list
+ 4001  git log --all --full-history -- "**[dD][eE][xX]*" --pretty="format:%C(yellow)%h %C(cyan)%ad %Creset%s" --date=short
+ 4002  Most recommended first try
+ 4003  git log --all -- "**[dD][eE][xX]*" --oneline --date=short
+ 4004  nvim 
+ 4005  cd
+ 4006  cd Downloads/
+ 4007  ls
+ 4008  nvim SoftsolutionsHQ_UDP_Tunnelblick\ \(1\).ovpn 
+ 4009  ls -lart
+ 4010  nvim
+ 4011  clear
+ 4012  nvim
+ 4013  nvim 
+ 4014  cal
+ 4015  man fuse
+ 4016  nvim
+ 4017  fzf
+ 4018  cd /
+ 4019  fzf
+ 4020  exit
+ 4021  sudo openvpn3 config-import --config ~/vpn/softsolutions.ovpn --name softsolutions --persistent
+ 4022  nmcli
+ 4023  NetworkManager 
+ 4024  networkctl 
+ 4025  ssh akhil.tiwari@dev-at-loc-729.softsolutions.local
+ 4026  exit
+ 4027  nmcli connection up softsol 
+ 4028  openvpn3 session-start --config ~/vpn/softsol.ovpn --persist-tun
+ 4029  sudo openvpn3 sessions-list
+ 4030  sudo openvpn3 session-manage --path /net/openvpn/v3/sessions/70128385s870as45fcsb242sdf8f5dc1286f --disconnect
+ 4031  sudo openvpn3 sessions-list
+ 4032  sudo openvpn3 session-manage --path  --disconnect
+ 4033  sudo openvpn3 sessions-list
+ 4034  sudo openvpn3 session-manage --path /net/openvpn/v3/sessions/e417a532s09c1s46fasa304s632ad41ba7fd --disconnect
+ 4035  openvpn3 config-lists
+ 4036  openvpn3 configs-list
+ 4037  openvpn3 sessions-list
+ 4038  echo "akhil.tiwari" > ~/vpn/credentials.txt
+ 4039  echo "Hello-2026" > ~/vpn/credentials.txt
+ 4040  chmod 600 ~/vpn/credentials.txt 
+ 4041  openvpn3 session-start --config softsolutions
+ 4042  openvpn3 configs-list
+ 4043  openvpn3 config-remove --config softsolutions --force
+ 4044  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions
+ 4045  openvpn3 session-start --config softsolutions
+ 4046  openvpn3 config-remove --config softsolutions --force
+ 4047  openvpn3 configs-list --verbose
+ 4048  openvpn3 config-remove --path /net/openvpn/v3/configuration/fe679842xe17dx477exaa13x2fdacc8f098a 
+ 4049  openvpn3 config-remove --path /net/openvpn/v3/configuration/4010f21fx7e70x4433x9195xf9009f77ab19
+ 4050  openvpn3 config-remove --path /net/openvpn/v3/configuration/fe679842xe17dx477exaa13x2fdacc8f098a
+ 4051  openvpn3 configs-list --verbose
+ 4052  openvpn3 config-remove --path /net/openvpn/v3/configuration/899f4060xdbb1x4f75xb4aax4147d7a72611
+ 4053  openvpn3 configs-list --verbose
+ 4054  openvpn3 session-start --config softsolutions
+ 4055  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions
+ 4056  openvpn3 sessions-list
+ 4057  git status
+ 4058  openvpn3 configs-list --verbose
+ 4059  openvpn3 sessions-list
+ 4060  sudo openvpn3 session-manage --path /net/openvpn/v3/sessions/1f74005bs6204s4a53s86f2s35c90b3f5d8a --disconnect
+ 4061  openvpn3 sessions-list
+ 4062  openvpn3 configs-list --verbose
+ 4063  openvpn3 sessions-list
+ 4064  cat ~/vpn/credentials.txt 
+ 4065  openvpn
+ 4066  openvpn3
+ 4067  openvpn
+ 4068  yay --remove balena-etcher 
+ 4069  chmod +x ~/.config/waybar/scripts/vpn-toggle.sh
+ 4070  chmod +x ~/.config/waybar/scripts/openvpn.sh 
+ 4071  openvpn3
+ 4072  openvpn3 --help
+ 4073  chmod +x ~/.config/waybar/scripts/openvpn.sh
+ 4074  yay --remove opnvpn3
+ 4075  yay --remove openvpn3
+ 4076  yay --remove openvpn3-git
+ 4077  yay --remove openvpn
+ 4078  pacman -Qs openvpn
+ 4079  pacman -R openvpn
+ 4080  sudo pacman -R openvpn
+ 4081  sudo pacman -R openvpn3-git-debug 
+ 4082  openvpn3 configs-list
+ 4083  sudo killall openvpn3
+ 4084  sudo killall openvpn
+ 4085  ps -ef | grep openvpn
+ 4086  # Disconnect all openvpn3 sessions properly
+ 4087  openvpn3 sessions-list --verbose
+ 4088  # Disconnect each session
+ 4089  for session in $(openvpn3 sessions-list | grep "Path:" | awk '{print $2}'); do   openvpn3 session-manage --path "$session" --disconnect; done
+ 4090  # Remove duplicate configs
+ 4091  openvpn3 configs-list
+ 4092  openvpn3 config-remove --config softsolutions --force
+ 4093  # Kill any stuck processes
+ 4094  pkill -f "openvpn3 session-start"
+ 4095  # Restart openvpn3 D-Bus services (clean slate)
+ 4096  sudo systemctl restart openvpn3-session@\*.service
+ 4097  sudo systemctl restart openvpn3.service
+ 4098  # Verify everything is clean
+ 4099  ps -ef | grep openvpn
+ 4100  openvpn3 sessions-list
+ 4101  openvpn3 configs-list
+ 4102  ps -ef | grep openvpn
+ 4103  # Disconnect all openvpn3 sessions properly
+ 4104  openvpn3 sessions-list --verbose
+ 4105  # Disconnect each session
+ 4106  for session in $(openvpn3 sessions-list | grep "Path:" | awk '{print $2}'); do   openvpn3 session-manage --path "$session" --disconnect; done
+ 4107  # Remove duplicate configs
+ 4108  openvpn3 configs-list
+ 4109  openvpn3 config-remove --config softsolutions --force
+ 4110  # Kill any stuck processes
+ 4111  pkill -f "openvpn3 session-start"
+ 4112  # Restart openvpn3 D-Bus services (clean slate)
+ 4113  sudo systemctl restart openvpn3-session@\*.service
+ 4114  sudo systemctl restart openvpn3.service
+ 4115  # Verify everything is clean
+ 4116  ps -ef | grep openvpn
+ 4117  openvpn3 sessions-list
+ 4118  openvpn3 configs-list
+ 4119  openvpn3 config-remove --config softsolutions --force
+ 4120  for session in $(openvpn3 sessions-list | grep "Path:" | awk '{print $2}'); do   openvpn3 session-manage --path "$session" --disconnect; done
+ 4121  openvpn3 sessions-list --verbose
+ 4122  openvpn3 sessions-list 
+ 4123  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4124  openvpn3 configs-list
+ 4125  openvpn3 session-start --config softsolutions
+ 4126  openvpn3 sessions-list 
+ 4127  openvpn3 session-start --config softsolutions
+ 4128  sudo pacman -R openvpn
+ 4129  sudo pacman -R openvpn3
+ 4130  pacman -Qs openvpn
+ 4131  sudo pacman -R openvpn3-debug 
+ 4132  clear
+ 4133  pkexec
+ 4134  sudo openvpn --config ~/vpn/softsol.ovpn 
+ 4135  nvim ~/vpn/softsol.ovpn 
+ 4136  sudo openvpn --config ~/vpn/softsol.ovpn 
+ 4137  sudo openvpn --config ~/vpn/softsol.ovpn --proto tcp --nobind --persist-key --persist-tun
+ 4138  nc -zv 94.185.79.217 4430
+ 4139  sudo openvpn --config ~/vpn/softsol.ovpn --proto tcp --nobind --persist-key --persist-tun
+ 4140  nvim ~/vpn/softsol.ovpn 
+ 4141  fzf
+ 4142  cd .config/waybar/
+ 4143  ls
+ 4144  mkdir scripts
+ 4145  cd ..
+ 4146  ls
+ 4147  cd -
+ 4148  ls
+ 4149  nvim scripts/
+ 4150  nvim .
+ 4151  exit
+ 4152  openvpn3 configs-list --verbose
+ 4153  openvpn3 config-remove --path /net/openvpn/v3/configuration/c4b5ba47xfc0ax4112xb805x151c040cb93b
+ 4154  openvpn3 config-remove --path /net/openvpn/v3/configuration/ee1be555xd6b9x40fcxa4cfxe66c94b52c97
+ 4155  git status
+ 4156  openvpn3 configs-list --verbose
+ 4157  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions
+ 4158  openvpn3 configs-list --verbose
+ 4159  openvpn3 session-start --config softsolutions
+ 4160  openvpn3 config-remove --path /net/openvpn/v3/configuration/d250945bx87d4x409axb099x98bbbbf81e69
+ 4161  openvpn3 configs-list --verbose
+ 4162  openvpn --config ~/vpn/softsol.ovpn --auth-user-pass ~/vpn/credentials.txt --daemon
+ 4163  sudo systemctl status openvpn-client@softsol
+ 4164  sudo killall openvpn
+ 4165  sudo openvpn --config ~/vpn/softsol.ovpn --auth-user-pass ~/vpn/credentials.txt --daemon
+ 4166  ip addr show tun0
+ 4167  ip addr show tun
+ 4168  ps aux | grep openvpn
+ 4169  sudo killall openvpn
+ 4170  ps aux | grep openvpn
+ 4171  killall openvpn
+ 4172  ps aux | grep openvpn
+ 4173  killall openvpn
+ 4174  sudo killall openvpn
+ 4175  ps aux | grep openvpn
+ 4176  sudo killall openvpn3
+ 4177  sudo kill 1808136
+ 4178  ps aux | grep openvpn
+ 4179  clear
+ 4180  sudo openvpn --config ~/vpn/softsol.ovpn --auth-user-pass ~/vpn/credentials.txt --daemon
+ 4181  sudo systemctl status openvpn-client@softsol
+ 4182  ps aux | grep openvpn
+ 4183  sudo killall openvpn3
+ 4184  sudo killall openvpn
+ 4185  ps aux | grep openvpn
+ 4186  sudo killall openvpn3
+ 4187  sudo killall 1910744
+ 4188  sudo kill 1910744
+ 4189  sudo killall 1910744
+ 4190  ps aux | grep openvpn
+ 4191  clear
+ 4192  akhil.tiwari
+ 4193  ip addr
+ 4194  openvpn
+ 4195  for session in $(openvpn3 sessions-list | grep "Path:" | awk '{print $2}'); do   openvpn3 session-manage --path "$session" --disconnect 2>/dev/null; done
+ 4196  openvpn 
+ 4197  ps -ef | grep -i openvpn3
+ 4198  yay -Rns openvpn3-git
+ 4199  paru
+ 4200  sudo pacman -S openvpn 
+ 4201  sudo mkdir -p /etc/openvpn/client/
+ 4202  sudo vim
+ 4203  sudo vi
+ 4204  sudo nvim
+ 4205  sudo cp ~/Downloads/SoftsolutionsHQ_UDP_Tunnelblick\ \(2\).ovpn /etc/openvpn/client/softsol.conf
+ 4206  sudo cp ~/vpn/credentials.txt /etc/openvpn/client/credentials.txt
+ 4207  sudo chmod 600 /etc/openvpn/client/softsol.conf
+ 4208  sudo rm -rf /etc/openvpn/client/softsol.conf
+ 4209  sudo cp ~/Downloads/SoftsolutionsHQ_UDP_Tunnelblick\ \(2\).ovpn /etc/openvpn/client/softsol.conf
+ 4210  sudo ls /etc/openvpn/client/
+ 4211  sudo chmod 600 /etc/openvpn/client/credentials.txt
+ 4212  sudo nvim /etc/openvpn/client/softsol.conf
+ 4213  sudo systemctl start openvpn-client@softsol
+ 4214  sudo systemctl enable openvpn-client@softsol
+ 4215  sudo systemctl status openvpn-client@softsol
+ 4216  ip addr show tun0
+ 4217  sudo systemctl status openvpn-client@softsol
+ 4218  ip addr show tun0
+ 4219  sudo journalctl -u openvpn-client@softsol --no-pager -n 100 | grep -i "auth\|password\|tls\|error"
+ 4220  sudo journalctl -u openvpn-client@softsol --no-pager -n 100
+ 4221  sudo cat /etc/openvpn/client/credentials.txt
+ 4222  sudo grep "auth-user-pass" /etc/openvpn/client/softsol.conf
+ 4223  sudo systemctl restart openvpn-client@softsol
+ 4224  sudo nvim /etc/openvpn/client/softsol.conf
+ 4225  sudo chmod 600 /etc/openvpn/client/softsol.conf
+ 4226  sudo chmod 600 /etc/openvpn/client/credentials.txt
+ 4227  sudo systemctl restart openvpn-client@softsol
+ 4228  ls -la /etc/openvpn/client/
+ 4229  sudo ls -la /etc/openvpn/client/
+ 4230  sudo chown openvpn:openvpn /etc/openvpn/client/credentials.txt
+ 4231  chmod 600 /etc/openvpn/client/credentials.txt
+ 4232  sudo chown openvpn:openvpn /etc/openvpn/client/credentials.txt
+ 4233  sudo chmod 600 /etc/openvpn/client/credentials.txt
+ 4234  sudo chown openvpn:openvpn /etc/openvpn/client/softsol.conf
+ 4235  sudo chmod 600 /etc/openvpn/client/softsol.conf
+ 4236  ls -la /etc/openvpn/client/
+ 4237  sudo ls -la /etc/openvpn/client/
+ 4238  sudo systemctl restart openvpn-client@softsol
+ 4239  ip addr show tun0
+ 4240  time
+ 4241  datetime
+ 4242  date -t
+ 4243  date
+ 4244  ip addr show tun0
+ 4245  ping -c 3 94.185.79.217
+ 4246  ping -c 3 176.107.152.172
+ 4247  sudo pacman -S nmap
+ 4248  sudo nmap -sU -p 4430 94.185.79.217
+ 4249  sudo nvim /etc/openvpn/client/softsol.conf
+ 4250  sudo systemctl restart openvpn-client@softsol
+ 4251  ip addr show tun0
+ 4252  sudo systemctl stop openvpn-client@softsol
+ 4253  sudo systemctl disable openvpn-client@softsol
+ 4254  sudo journalctl -u openvpn-client@softsol -f
+ 4255  tmux new -s muxy
+ 4256  openvpn3 config-lists
+ 4257  history | grep -i openvpn
+ 4258  openvpn3 configs-list
+ 4259  openvpn3 sessions-list
+ 4260  openvpn3 session-start --config softsolutions
+ 4261  openvpn3 sessions-list
+ 4262  sudo openvpn3 sessions-list
+ 4263  nvim vpn/softsol.ovpn 
+ 4264  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions
+ 4265  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4266  openvpn3 configs-list
+ 4267  openvpn3 sessions-list
+ 4268  openvpn3 session-manage --path /net/openvpn/v3/sessions/ebbce565sf922s4e52sbb61s27c154826e35 --disconnect
+ 4269  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions --persistent
+ 4270  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions 
+ 4271  openvpn3 sessions-list
+ 4272  openvpn3 session-manage --path /net/openvpn/v3/sessions/adc070e3s0ad5s4c0bs84bds37a075dce046 --disconnec
+ 4273  openvpn3 session-manage --path /net/openvpn/v3/sessions/adc070e3s0ad5s4c0bs84bds37a075dce046 --disconnect
+ 4274  openvpn3 sessions-list
+ 4275  sudo pkill openvpn3
+ 4276  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4277  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions
+ 4278  openvpn3 
+ 4279  chmod 600 ~/vpn/credentials.txt 
+ 4280  nvim ~/vpn/credentials.txt 
+ 4281  openvpn3 config-remove --config /home/quomptrade/vpn/softsol.ovpn --force
+ 4282  openvpn3 session-manage --path /net/openvpn/v3/sessions/c2b08f37sa447s476bs985esba7d9476be13 --disconnect
+ 4283  openvpn3 config-remove --config /home/quomptrade/vpn/softsol.ovpn --force
+ 4284  openvpn3 configs-list
+ 4285  openvpn3 config-remove --config softsolutions --force
+ 4286  fg
+ 4287  nvim
+ 4288  ls
+ 4289  watch -n 2 'openvpn3 sessions-list'
+ 4290  openvpn3 log --config softsolution
+ 4291  sudo nvim ~/vpn/softsol.ovpn 
+ 4292  openvpn3 configs-list
+ 4293  openvpn3 config-remove --config softsolutions --force 2>/dev/null
+ 4294  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4295  openvpn3 session-start --config softsolutions
+ 4296  openvpn3 sessions-list 
+ 4297  openvpn3 configs-list
+ 4298  openvpn3 config-remove --config softsolutions --force 2>/dev/null
+ 4299  openvpn3 configs-list
+ 4300  rm -rf ~/vpn/softsol.ovpn 
+ 4301  cp -f ~/Downloads/SoftsolutionsHQ_UDP_Tunnelblick\ \(2\).ovpn ~/vpn/softsol.ovpn
+ 4302  openvpn3 config-remove --config softsolutions --force 2>/dev/null
+ 4303  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4304  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions
+ 4305  ls
+ 4306  nvim softsolutions.ovpn 
+ 4307  cd
+ 4308  cd Downloads/
+ 4309  ls
+ 4310  rm -rf ~/vpn/softsolutions.ovpn 
+ 4311  cp -f ~/Downloads/softsolutions.ovpn ~/vpn/
+ 4312  openvpn3 configs-list
+ 4313  openvpn3 session-start --config softsolutions
+ 4314  sudo openvpn3 session-start --config softsolutions
+ 4315  rm -rf ~/vpn/softsolutions.ovpn 
+ 4316  cp -f ~/Downloads/softsolutions.ovpn ~/vpn/
+ 4317  sudo openvpn3 session-start --config softsolutions
+ 4318  rm -rf softsolutions.ovpn 
+ 4319  systemctl --user status NetworkManager
+ 4320  nmcli
+ 4321  iwctl
+ 4322  nmcli
+ 4323  systemctl --user status NetworkManager
+ 4324  nmcli
+ 4325  systemctl --user status NetworkManager
+ 4326  nmcli
+ 4327  sudo systemctl start NetworkManager
+ 4328  sudo systemctl enable NetworkManager
+ 4329  systemctl status NetworkManager
+ 4330  nmcli
+ 4331  sudo nmcli connection import type openvpn file ~/vpn/softsolutions.ovpn 
+ 4332  nmcli connection show
+ 4333  nmcli connection up softsolutions 
+ 4334  nmcli device connect enp0s31f6 
+ 4335  nmcli device status
+ 4336  nmcli device connect wlan0 
+ 4337  nmcli device show
+ 4338  nmcli device status
+ 4339  ip route show
+ 4340  ip addr show
+ 4341  sudo openvpn3 session-start --config softsolutions
+ 4342  rm -rf ~/vpn/softsolutions.ovpn 
+ 4343  sudo openvpn3 session-start --config softsolutions
+ 4344  rm -rf ~/vpn/softsolutions.ovpn 
+ 4345  cp -f ~/Downloads/softsolutions.ovpn ~/vpn/softsol.ovpn
+ 4346  cp -f ~/Downloads/SoftsolutionsHQ_UDP_Tunnelblick\ \(2\).ovpn ~/vpn/softsol.ovpn
+ 4347  sudo openvpn3 session-start --config ~/vpn/softsol.ovpn 
+ 4348  openvpn3 configs-lists
+ 4349  openvpn3 config-lists
+ 4350  openvpn3 configs-list
+ 4351  openvpn3 sessions-list
+ 4352  sudo openvpn3 session-start --config ~/vpn/softsol.ovpn 
+ 4353  lsmod | grep tun
+ 4354  ip link show
+ 4355  ping google.com
+ 4356  sudo ufw status verbose
+ 4357  which openvpn3
+ 4358  openvpn3 version
+ 4359  systemctl status openvpn3.service
+ 4360  ls -lh ~/vpn/
+ 4361  cat ~/vpn/credentials.txt 
+ 4362  openvpn3 configs-list
+ 4363  openvpn3 session-start --config softsolutions
+ 4364  openvpn3 config-remove --config softsolutions --force
+ 4365  openvpn3 configs-list
+ 4366  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4367  openvpn3 session-start --config softsolutions
+ 4368  systemctl status openvpn3.service
+ 4369  systemctl --user status openvpn3-session@\*.service
+ 4370  ps aux | grep openvpn3
+ 4371  openvpn3 log --config softsolutions
+ 4372  openvpn3 session-start --config softsolutions
+ 4373  for session in $(openvpn3 sessions-list | grep "Path:" | awk '{print $2}'); do   openvpn3 session-manage --path "$session" --disconnect 2>/dev/null; done
+ 4374  openvpn3 configs-list
+ 4375  openvpn3 config-remove --config softsolutions --force
+ 4376  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions --persistent
+ 4377  openvpn3 session-start --config softsolutions
+ 4378  openvpn3 sessions-list
+ 4379  clear
+ 4380  openvpn3 session-start --config softsolutions
+ 4381  watch -n 1 'openvpn3 sessions-list; echo "---"; ip addr show tun0 2>&1'
+ 4382  openvpn3 sessions-list
+ 4383  openvpn3 session-manage --path /net/openvpn/v3/sessions/641e536fs0039s4daesb850s9ebbb217f8ce --disconnect
+ 4384  openvpn3 sessions-list
+ 4385  openvpn3 session-start --config softsolutions
+ 4386  openvpn3 sessions-list
+ 4387  openvpn3 session-start --config softsolutions
+ 4388  openvpn3 configs-list
+ 4389  openvpn3 config-remove --config softsolutions --force
+ 4390  openvpn3 configs-list
+ 4391  openvpn3 configs-list
+ 4392  openvpn3 session-start --config softsolutions
+ 4393  openvpn3 config-remove --config softsolutions --force
+ 4394  openvpn3 sessions-list
+ 4395  openvpn3 config-import --config ~/vpn/softsol.ovpn --name softsolutions
+ 4396  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions 
+ 4397  clear
+ 4398  nvim vpn/
+ 4399  exit
+ 4400  tmux new -s muxy
+ 4401  chmod +x ~/.config/waybar/scripts/vpn-toggle.sh
+ 4402  books
+ 4403  rga -i "rfq"
+ 4404  ls
+ 4405  cd for-elaeocarpus/
+ 4406  rga -i "rfq"
+ 4407  tmux attach -t muxy
+ 4408  nvim vpn/
+ 4409  nvim .
+ 4410  notes
+ 4411  gst
+ 4412  git status
+ 4413  nvim .
+ 4414  ssh akhil.tiwari@dev-at-loc-729.softsolutions.local
+ 4415  openvpn3 sessions-list
+ 4416  sudo openvpn3 session-start --config softsolutions
+ 4417  openvpn3 session-start --config ~/vpn/softsol.ovpn softsolutions
+ 4418  ssh akhil.tiwari@dev-at-loc-729.softsolutions.local
+ 4419  openvpn3 sessions-list
+ 4420  openvpn3 session-manage --path /net/openvpn/v3/sessions/9887ef02s91c9s4834sb7f7s46ea08491e8f
+ 4421  openvpn3 session-manage --path /net/openvpn/v3/sessions/9887ef02s91c9s4834sb7f7s46ea08491e8f --restart
+ 4422  openvpn3 session-manage --path /net/openvpn/v3/sessions/9887ef02s91c9s4834sb7f7s46ea08491e8f --resume
+ 4423  ssh akhil.tiwari@dev-at-loc-729.softsolutions.local
+ 4424  openvpn3 sessions-list
+ 4425  openvpn3 session-manage --path /net/openvpn/v3/sessions/9887ef02s91c9s4834sb7f7s46ea08491e8f 
+ 4426  openvpn3 session-manage --path /net/openvpn/v3/sessions/9887ef02s91c9s4834sb7f7s46ea08491e8f --disconnect
+ 4427  openvpn3 sessions-list
+ 4428  openvpn3 session-manage --path  /net/openvpn/v3/sessions/0addfb67sd850s4016s9504s0a7847294f2b
+ 4429  openvpn3 session-manage --path  /net/openvpn/v3/sessions/0addfb67sd850s4016s9504s0a7847294f2b --disconnect
+ 4430  openvpn3 sessions-list
+ 4431  notes
+ 4432  git status
+ 4433  git diff
+ 4434  nvim
+ 4435  nvim .
+ 4436  clear
+ 4437  nvim .
+ 4438  openvpn3 sessions-list
+ 4439  proj
+ 4440  learn 
+ 4441  mkdir ss
+ 4442  cd ss
+ 4443  git clone https://git.softsolutions.io/marketlibraries/sdpplus.git
+ 4444  echo $TERM
+ 4445  terminal
+ 4446  xdg-terminal-exec 
+ 4447  cd
+ 4448  cd .config/waybar/
+ 4449  nvim .
+ 4450  exit
+ 4451  openvpn3 sessions-list
+ 4452  openvpn3 session-manage --path  /net/openvpn/v3/sessions/3aa58f28s9048s430cs8184sea914b29a08e
+ 4453  openvpn3 session-manage --path  /net/openvpn/v3/sessions/3aa58f28s9048s430cs8184sea914b29a08e --disconnect
+ 4454  exit
+ 4455  openvpn3 sessions-list
+ 4456  exit
+ 4457  code .
+ 4458  claude .
+ 4459  clear
+ 4460  cfg
+ 4461  git status
+ 4462  git diff
+ 4463  git status
+ 4464  mkdir waybar
+ 4465  mkdir -p waybar/.config
+ 4466  mv -f ~/.config/waybar/ waybar/.config/
+ 4467  stow -d . -t ~ waybar/
+ 4468  exit
+ 4469  GDK_BACKEND=x11 remmina
+ 4470  echo $GDK_BACKEND 
+ 4471  clear
+ 4472  exit
+ 4473  openvpn3 sessions-list
+ 4474  openvpn3 sessions-list
+ 4475  clear
+ 4476  openvpn3 sessions-list
+ 4477  claude .
+ 4478  files
+ 4479  work
+ 4480  fzf
+ 4481  nvim scp://akhil.tiwari@dev-at-loc-729.softsolutions.local//home/akhil.tiwari/files/projects/sdpplus
+ 4482  nvim scp://akhil.tiwari@dev-at-loc-729.softsolutions.local//home/akhil.tiwari/files/projects
+ 4483  exit
+ 4484  ssh akhil.tiwari@dev-at-loc-729.softsolutions.local
+ 4485  make all
+ 4486  source ~/.bashrc 
+ 4487  make
+ 4488  source ~/.bashrc 
+ 4489  tmux new -s muxy
+ 4490  files
+ 4491  work
+ 4492  fzf
+ 4493  nvim
+ 4494  nvim .
+ 4495  clear
+ 4496  fg
+ 4497  clear
+ 4498  nvim .
+ 4499  files
+ 4500  work
+ 4501  cd axtior/
+ 4502  ls
+ 4503  rg -i "intellectual prpoperty"
+ 4504  rg "IP"
+ 4505  ls
+ 4506  rg -i axtior
+ 4507  rg -i axtior *.pdf
+ 4508  rga -i "intellectual prpoperty"
+ 4509  rga "IP"
+ 4510  rga -i "intellectual"
+ 4511  rga -i "esop"
+ 4512  rga -i "bvi"
+ 4513  cd ..
+ 4514  ls
+ 4515  ls remmina/
+ 4516  ls remmina/plugins/
+ 4517  ls btop/
+ 4518  ls btop/themes/
+ 4519  clear
+ 4520  cfg
+ 4521  work
+ 4522  ssh akhil.tiwari@dev-at-loc-729.softsolutions.local
+ 4523  ls
+ 4524  nvim .
+ 4525  gst
+ 4526  git status
+ 4527  work
+ 4528  ls
+ 4529  cd softsolutions/
+ 4530  ls;
+ 4531  cd ..
+ 4532  cd projects/
+ 4533  ls
+ 4534  mkdir sslns-729
+ 4535  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/ -o nonemptpy, allow_other
+ 4536  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/ -o nonemptpy,allow_other
+ 4537  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/ -o nonempty,allow_other
+ 4538  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/ -o allow_other
+ 4539  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/ 
+ 4540  nvim sslns-729/
+ 4541  clear
+ 4542  ls
+ 4543  python3 clean_dump.py sdpp.txt sdpp_clean.txt
+ 4544  :wa
+ 4545  iexit
+ 4546  gprav
+ 4547  git pull origin --rebase --autostash --verbose
+ 4548  git push --force-with-lease origin HEAD
+ 4549  cfg
+ 4550  cd -
+ 4551  git status
+ 4552  git push --force-with-lease origin HEAD
+ 4553  cd Downloads/
+ 4554  clear
+ 4555  ssh axt-aws-tokyo0 
+ 4556  exit
+ 4557  ssh axt-aws-tokyo0 
+ 4558  exit
+ 4559  ssh ss-729 
+ 4560  clear
+ 4561  exit
+ 4562  ssh axt-aws-tokyo0 
+ 4563  openvpn3 sessions-list
+ 4564  clear
+ 4565  gcc --version
+ 4566  exit
+ 4567  books
+ 4568  rga -i "boost*log"
+ 4569  rga -i "boost"
+ 4570  rga -i "boost::optional"
+ 4571  clear
+ 4572  books
+ 4573  fzf
+ 4574  zathura for-elaeocarpus/architecture/Developing_High_Frequency_Trading_Systems_Learn_How_to_Implement.pdf
+ 4575  curl https://cursor.com/install -fsS | bash
+ 4576  rm -rf /home/quomptrade/.local/share/cursor-agent/versions/.tmp-2026.01.28-fd13201-1769803095
+ 4577  sudo rm -rf /home/quomptrade/.local/share/cursor-agent/versions/.tmp-2026.01.28-fd13201-1769803095
+ 4578  proj
+ 4579  cd sslns-729/
+ 4580  nvim .
+ 4581  clear
+ 4582  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/  -f
+ 4583  nvim sslns-729/
+ 4584  cd ..
+ 4585  pwd
+ 4586  proj
+ 4587  ls
+ 4588  nvim sslns-729/
+ 4589  sshfs akhil.tiwari@dev-at-loc-729.softsolutions.local:/home/akhil.tiwari/files/projects/sdpplus sslns-729/ -o allow_other
+ 4590  nvim sslns-729/
+ 4591  mkdir -p ~/.ssh/keys
+ 4592  nvim ~/.ssh/keys/axtior-aws-tokyo-box0.pem
+ 4593  chmod 400 ~/.ssh/keys/axtior-aws-tokyo-box0.pem
+ 4594  nvim ~/.ssh/config 
+ 4595  clear
+ 4596  ssh axt-aws-tokyo0 
+ 4597  clera
+ 4598  ssh axt-aws-tokyo0 
+ 4599  git status
+ 4600  git push --force-with-lease origin HEAD
+ 4601  git pull origin --rebase --autostash --verbose
+ 4602  cd ~/Downloads/
+ 4603  ls
+ 4604  ls -lart
+ 4605  ll
+ 4606  ls
+ 4607  openvpn3 sessions-list
+ 4608  notes
+ 4609  git status
+ 4610  git pull origin --rebase --autostash --verbose
+ 4611  openvpn3 sessions-list
+ 4612  openvpn3 session-manage --path  /net/openvpn/v3/sessions/76d3f3c9s58f5s4355sbcb5s798f998c6634 --disconnect
+ 4613  openvpn3 session-manage --path  /net/openvpn/v3/sessions/3ace66fds2343s41b0sad80s4ef8b6d11bfa --disconnect
+ 4614  openvpn3 sessions-list
+ 4615  openvpn3 session-manage --path  /net/openvpn/v3/sessions/3a34ba74scf13s47d3sb1ads9b7ecc33d139 --disconnect
+ 4616  openvpn3 sessions-list
+ 4617  git status
+ 4618  git push --force-with-lease origin HEAD
+ 4619  git status
+ 4620  openvpn3 sessions-list
+ 4621  openvpn3 session-manage --path  /net/openvpn/v3/sessions/d683afbfs108ds4a2fs92cfsb945a7c717f5 --disconnect
+ 4622  books
+ 4623  rga -i "memmber functions"
+ 4624  rga -i "memmber function"
+ 4625  rga -i "member function"
+ 4626  proj
+ 4627  git clone https://git.softsolutions.io/commonlibraries/ssutils.git
+ 4628  nvim .
+ 4629  ssh  ss-729 
+ 4630  clear
+ 4631  work
+ 4632  proj
+ 4633  ls
+ 4634  git clone https://git.softsolutions.io/commonlibraries/sscommunicator.git
+ 4635  cal
+ 4636  cal march
+ 4637  ls
+ 4638  nvim sscommunicator/
+ 4639  ls
+ 4640  mkdir ssprojs
+ 4641  exit
+ 4642  notes
+ 4643  nvim .
+ 4644  git status
+ 4645  git push --force-with-lease origin HEAD
+ 4646  git pull origin --rebase --autostash --verbose
+ 4647  git push --force-with-lease origin HEAD
+ 4648  ssh axt-aws-tokyo0 
+ 4649  clear
+ 4650  exit
+ 4651  openvpn3 sessions-list
+ 4652  ping vpn1.softsolutions.it
+ 4653  exit
+ 4654  ssh axt-aws-tokyo0 
+ 4655  cd Downloads/
+ 4656  ls
+ 4657  cd src/
+ 4658  ls
+ 4659  rm -rf __MACOSX/
+ 4660  cd src/
+ 4661  exit
+ 4662  cd
+ 4663  cd Downloads/
+ 4664  scp -r src ubuntu@54.92.80.9:/home/ubuntu/axtior-mm/srcPreprod 
+ 4665  ssh ubuntu@54.92.80.9
+ 4666  scp -r src ubuntu@axt-aws-tokyo0:/home/ubuntu/axtior-mm/srcPreprod 
+ 4667  cd Downloads/
+ 4668  ls
+ 4669  work
+ 4670  cd axtior/
+ 4671  ls
+ 4672  cd ..
+ 4673  ls
+ 4674  proj
+ 4675  cd axtior-mm/
+ 4676  ls
+ 4677  cd
+ 4678  cd Downloads/
+ 4679  ls
+ 4680  nvim ~/.ssh/known_hosts
+ 4681  nvim ~/.ssh/agent/
+ 4682  cd 
+ 4683  cd .ssh/
+ 4684  nvim
+ 4685  clear
+ 4686  exit
+ 4687  openvpn3 sessions-list
+ 4688  openvpn3 session-manage --path  /net/openvpn/v3/sessions/64be1b94s1681s4b0fsa521sd8ad5adb2d19 --disconnect
+ 4689  openvpn3 sessions-list
+ 4690  openvpn3 session-stats --path /net/openvpn/v3/sessions/a14d04e2sa331s49e2sa91escd01cc1ee0c0
+ 4691  speedtest-cli
+ 4692  speedtest-cli 
+ 4693  speedtest-cli
+ 4694  openvpn3 sessions-list
+ 4695  openvpn3 session-manage --path  /net/openvpn/v3/sessions/acdc7261s1963s4327sa0e0s8cf4273d1f46 --disconnect
+ 4696  speedtest-cli 
+ 4697  openvpn3 sessions-list
+ 4698  clear
+ 4699  openvpn3 sessions-list
+ 4700  openvpn3 session-stats --path /net/openvpn/v3/sessions/a5942906s3e21s4925sa76bs87b991d9d895
+ 4701  speedtest-cli 
+ 4702  make clean
+ 4703  bear -- make TGT_64=1 all
+ 4704  make clean
+ 4705  bear -- make TGT_64=1 all
+ 4706  fzf
+ 4707  cp ~/Downloads/harshit-axtior-2026 ~/vpn/axtior.ovpn
+ 4708  cp -f ~/Downloads/harshit-axtior-2026 ~/vpn/axtior.ovpn
+ 4709  cp -f ~/Downloads/harshit-axtior-2026 ~/vpn/
+ 4710  cp ~/Downloads/harshit-axtior-2026.ovpn ~/vpn/axtior.ovpn
+ 4711  openvpn3 config-import --config ~/vpn/axtior.ovpn --name axtior --persistent
+ 4712  openvpn3 session-start --config axtior
+ 4713  chmod +x ~/.config/waybar/scripts/vpn-multi-toggle.sh
+ 4714  which wofi
+ 4715  openvpn3 sessions-list
+ 4716  clear
+ 4717  bear -- make TGT_64=1 all
+ 4718  clear
+ 4719  ls /etx
+ 4720  # Check where boost is
+ 4721  pacman -Ql boost | grep "/usr/include"
+ 4722  # Check where xerces-c is
+ 4723  pacman -Ql xerces-c | grep "/usr/include"
+ 4724  pacman -Ql boost | grep "/usr/include"
+ 4725  pacman -Ql xerces-c | grep "/usr/include"
+ 4726  git status
+ 4727  git diff
+ 4728  git status
+ 4729  git restore Makefile src/Makefile 
+ 4730  openvpn3 sessions-list
+ 4731  openvpn3 session-manage --path  /net/openvpn/v3/sessions/01d4cc9fsc45as414fsb345s6fff70d6ea39 --disconnect
+ 4732  openvpn3 sessions-list
+ 4733  openvpn3 session-manage --path  /net/openvpn/v3/sessions/35af3d5ds8b6ds4d03s9ea7se6267cb64bc5 --disconnect
+ 4734  git status
+ 4735  openvpn3 sessions-list
+ 4736  speedtest
+ 4737  speedtest-cli 
+ 4738  exit
+ 4739  hostname -i
+ 4740  ssh akhil@omarchyx1
+ 4741  ssh akhil@192.168.1.14
+ 4742  hostname
+ 4743  cp -r ~/.config/ ~/Work/projects/configfiles/
+ 4744  cp -r ~/.config/ ~/Work/projects/configfiles/omarchy-config
+ 4745  cd ~/Work/projects/configfiles/omarchy-config
+ 4746  cd ~/Work/projects/configfiles/
+ 4747  ls
+ 4748  rm -rf .config/
+ 4749  ls
+ 4750  pacman -Qqe > ~/explicit-official.txt
+ 4751  pacman -Qqm > ~/aur-packages.txt
+ 4752  rm -rf ~/explicit-official.txt ~/aur-packages.txt 
+ 4753  pacman -Qent 2>&1 | tee official-explicit-omarchypkgs.txt
+ 4754  pacman -Qent 2>&1 | tee aur-omrachypkgs.txt
+ 4755  nvim .
+ 4756  history
+ 4757  history > omarchy-history.txt

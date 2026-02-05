@@ -11376,3 +11376,4 @@ sudo dnf install luarocks
 sudo dnf install terraform_fmt
 n
 sudo dnf install terraform
+diff -r --brief ~/.config ~/omarchy-fresh-config | grep -v "Only in"
