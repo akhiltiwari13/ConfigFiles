@@ -3,7 +3,7 @@
 # VPN Configurations: name|path|display_name|needs_auth
 declare -A VPNS=(
   # ["softsolutions"]="$HOME/vpn/softsol.ovpn|SoftSolutions|true"
-  ["axtior"]="$HOME/vpn/axtior.ovpn|Axtior|true"
+  ["axtior"]="$HOME/vpn/axtior.ovpn|Axtior|false"
 )
 
 notify() {
@@ -63,9 +63,9 @@ toggle)
   fi
   ;;
 
-# connect-softsolutions)
-#   connect_vpn "softsolutions"
-#   ;;
+connect-softsolutions)
+  connect_vpn "softsolutions"
+  ;;
 
 connect-axtior)
   connect_vpn "axtior"
