@@ -37,6 +37,10 @@ alias plat='cd ${projects}/platform'
 alias platref='cd ${projects}/platform_reference'
 alias aqprodlg='cd ${work}/aqprodlogs/'
 
+# jupyter setup
+alias jpt="uv run jupyter lab"
+alias jpt-course="cd ~/algo-trading-master && uv run jupyter lab"
+
 # if command -v neofetch >/dev/null 2>&1; then
 #   neofetch
 # else
