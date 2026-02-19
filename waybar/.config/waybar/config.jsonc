@@ -11,8 +11,9 @@
   "modules-center": [
     "clock#local",
     "clock#sgpore",
-    "clock#est",
     "clock#dubai",
+    "clock#est",
+    "clock#mst",
     "custom/update",
     "custom/screenrecording-indicator"
   ],
@@ -78,6 +79,13 @@
     "tooltip": false,
     "timezone": "Asia/Singapore"
   },
+  "clock#dubai": {
+    "format": "|Dubai=>{:L%H:%M}",
+    "tooltip": false,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    "timezone": "Asia/Dubai"
+  },
   "clock#est": {
     "format": "|US(est)=>{:L%H:%M}",
     "tooltip": false,
@@ -85,12 +93,12 @@
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
     "timezone": "EST"
   },
-  "clock#dubai": {
-    "format": "|Dubai=>{:L%H:%M}",
+  "clock#mst": {
+    "format": "|denver(mst)=>{:L%H:%M}",
     "tooltip": false,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-    "timezone": "Asia/Dubai"
+    "timezone": "MST"
   },
   "network": {
     "format-icons": [
