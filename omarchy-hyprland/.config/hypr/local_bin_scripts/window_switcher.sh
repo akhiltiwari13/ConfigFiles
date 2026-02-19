@@ -4,4 +4,4 @@ WINDOW=$(hyprctl clients | grep "class: " | awk '{gsub("class: ", "");print}' | 
 if [ "$WINDOW" = "" ]; then
   exit
 fi
-hyprctl dispatch focuswindow $WINDOW
+hyprctl dispatch focuswindow "$WINDOW"
