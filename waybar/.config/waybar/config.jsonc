@@ -67,34 +67,27 @@
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
   "clock#local": {
-    "format": "**IST**: {:L%A %H:%M}",
-    "format-alt": "*IST*: {:L%d %B %V %Y}",
-    // "format-alt": "{:L%d %B %Y}",
+    "format": "Bharat=>{:L%d/%b/%Y (%A) %H:%M}",
     "tooltip": true,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
     "timezone": "Asia/Kolkata"
   },
   "clock#sgpore": {
-    "format": "|*sgpore*: {:L%A %H:%M}",
-    "format-alt": "|*sgpore*: {:L%d %B %V %Y}",
-    "tooltip": true,
+    "format": "|Singapore=>{:L%H:%M}",
+    "tooltip": false,
     "timezone": "Asia/Singapore"
   },
   "clock#est": {
-    "format": "|*EST*: {:L%A %H:%M}",
-    "format-alt": "|*EST*: {:L%d %B %V %Y}",
-    // "format-alt": "*UTC*: {:L%d %B %Y}",
-    "tooltip": true,
+    "format": "|US(est)=>{:L%H:%M}",
+    "tooltip": false,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
     "timezone": "EST"
   },
   "clock#dubai": {
-    "format": "|*dubai*: {:L%A %H:%M}",
-    "format-alt": "|*dubai*: {:L%d %B %V %Y}",
-    // "format-alt": "*UTC*: {:L%d %B %Y}",
-    "tooltip": true,
+    "format": "|Dubai=>{:L%H:%M}",
+    "tooltip": false,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
     "timezone": "Asia/Dubai"

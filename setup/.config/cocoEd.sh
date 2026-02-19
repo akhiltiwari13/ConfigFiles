@@ -30,16 +30,13 @@ alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
 alias cctx='cd ${projects}/elaeocarpus-arm/tools/scripts/codectx'
 alias zigpg='cd ${projects}/zigplayground'
 alias cctxo='cd ${learn}/codectx_out'
+alias jptlearn='cd ${learn}/algo-trading && uv run jupyter lab'
 
 # pertaining to AQ setup.
 alias pqr='cd ${projects}/pqr'
 alias plat='cd ${projects}/platform'
 alias platref='cd ${projects}/platform_reference'
 alias aqprodlg='cd ${work}/aqprodlogs/'
-
-# jupyter setup
-alias jpt="uv run jupyter lab"
-alias jpt-course="cd ~/algo-trading-master && uv run jupyter lab"
 
 # if command -v neofetch >/dev/null 2>&1; then
 #   neofetch
