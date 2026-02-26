@@ -12,6 +12,7 @@
     "clock#local",
     "clock#sgpore",
     "clock#dubai",
+    "clock#utc",
     "clock#est",
     "clock#mst",
     "custom/update",
@@ -86,6 +87,13 @@
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
     "timezone": "Asia/Dubai"
   },
+  "clock#utc": {
+    "format": "|UTC=>{:L%H:%M}",
+    "tooltip": false,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    "timezone": "UTC"
+  },
   "clock#est": {
     "format": "|US(est)=>{:L%H:%M}",
     "tooltip": false,
@@ -94,7 +102,7 @@
     "timezone": "EST"
   },
   "clock#mst": {
-    "format": "|denver(mst)=>{:L%H:%M}",
+    "format": "|Denver(mst)=>{:L%H:%M}",
     "tooltip": false,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
