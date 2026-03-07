@@ -4,6 +4,7 @@
 declare -A VPNS=(
   # ["softsolutions"]="$HOME/vpn/softsol.ovpn|SoftSolutions|true"
   ["axtior"]="$HOME/vpn/axtior.ovpn|Axtior|false"
+  ["nautilus"]="$HOME/vpn/axtnaut.ovpn|Nautilus|false"
 )
 
 notify() {
@@ -71,6 +72,9 @@ connect-axtior)
   connect_vpn "axtior"
   ;;
 
+connect-nautilus)
+  connect_vpn "nautilus"
+  ;;
 *)
   # Status for waybar
   if is_connected; then
