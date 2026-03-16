@@ -14,3 +14,4 @@ Session.vim
 
 # don't commit omtmux files.
 omtmux/.config/tmux/plugins/
+/lazyvim/nvim/.config/nvim/spell/en.utf-8.add.spl
