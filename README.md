@@ -51,3 +51,4 @@
 | wezterm | macOS | Terminal |
 | karabiner | macOS | Keyboard remapping |
 | rectangle | macOS | Window management |
+| Brewfile | macOS | Homebrew package manifest |

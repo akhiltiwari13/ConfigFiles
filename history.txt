@@ -10130,7 +10130,7 @@ sudo dnf install gdm
 sudo dnf reinstall gdm
 sudo dnf update --refresh
 ping google.com
-nmcli device wifi connect Airtel_prakhnet password 01122022
+nmcli device wifi connect Airtel_prakhnet password <REDACTED>
 nmcli device wifi list
 sudo shutdown -h now
 nmcli device status
@@ -10279,10 +10279,10 @@ exit
 htop
 sudo docker run -it -v $(pwd):/pqr --entrypoint /bin/bash quant-research
 ngrok tcp 22
-ngrok config add-authtoken 34g9TVRBgg82D2xgUbe0m90TTNo_2G2CFpBgEtWPAYT8Emqo8
-export NGROK_AUTHTOKEN=1YYHJwTq4JEmVrSUcbOPYyVu0M6_3fbZRBLL6hcwRyo2WufMM
+ngrok config add-authtoken <REDACTED>
+export NGROK_AUTHTOKEN=<REDACTED>
 sudo firewall-cmd --add-port=22/tcp --permanent; sudo firewall-cmd --reload
-ngrok config add-authtoken 1YYHJwTq4JEmVrSUcbOPYyVu0M6_3fbZRBLL6hcwRyo2WufMM
+ngrok config add-authtoken <REDACTED>
 ngrok version
 whoami
 cc --version

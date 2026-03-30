@@ -2420,7 +2420,7 @@
  2420  cmake --build . --preset=conan-debug --target all
  2421  ./build/Debug/playground/fmt-exp
  2422  exit
- 2423  ngrok config add-authtoken 34g9TVRBgg82D2xgUbe0m90TTNo_2G2CFpBgEtWPAYT8Emqo8
+ 2423  ngrok config add-authtoken <REDACTED>
  2424  ngrok ssh 22
  2425  exit
  2426  hyprctl monitors 
@@ -4035,8 +4035,8 @@
  4035  openvpn3 config-lists
  4036  openvpn3 configs-list
  4037  openvpn3 sessions-list
- 4038  echo "akhil.tiwari" > ~/vpn/credentials.txt
- 4039  echo "Hello-2026" > ~/vpn/credentials.txt
+ 4038  echo "<REDACTED>" > ~/vpn/credentials.txt
+ 4039  echo "<REDACTED>" > ~/vpn/credentials.txt
  4040  chmod 600 ~/vpn/credentials.txt 
  4041  openvpn3 session-start --config softsolutions
  4042  openvpn3 configs-list
