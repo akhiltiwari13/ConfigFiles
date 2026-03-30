@@ -29,3 +29,7 @@
 [user]
 	name = akhil tiwari
 	email = akhiltiwari.13@gmail.com
+
+# Use work email for anything under ~/Work/
+[includeIf "gitdir:~/Work/"]
+	path = ~/.config/git/config-work
