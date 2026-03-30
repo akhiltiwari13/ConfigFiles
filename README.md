@@ -18,3 +18,36 @@
 
   > [!NOTE]
   > This repo has been re-formatted, so it could be used with gnu-stow to setup the dotfiles
+
+## Cross-Platform Compatibility
+
+| Package | Platform | Notes |
+|---------|----------|-------|
+| opencode | Cross-Platform | |
+| claudecode | Cross-Platform | `statusline-command.sh` has hardcoded `/home/akhil/` path |
+| gitconfig | Cross-Platform | |
+| lazygit | Cross-Platform | |
+| lazydocker | Cross-Platform | |
+| btop | Cross-Platform | |
+| starship | Cross-Platform | |
+| fish | Cross-Platform | |
+| crush | Cross-Platform | |
+| ssh | Cross-Platform | Machine-specific IPs/hostnames |
+| vim | Cross-Platform | |
+| lazyvim | Cross-Platform | |
+| setup | Cross-Platform | Shell env (`cocoEd.sh`/`cocoEd-fish.sh`) |
+| omarchy-hyprland | Omarchy | Hyprland window manager |
+| hyprland | Omarchy | Standalone Hyprland bindings |
+| waybar | Omarchy | Status bar |
+| zathura | Omarchy | PDF viewer |
+| ghostty | Omarchy | Terminal (Omarchy theme integration) |
+| alacritty | Omarchy | Terminal (Omarchy theme integration) |
+| fastfetch | Omarchy | References `omarchy-*` commands |
+| elephant | Omarchy | App launcher |
+| omtmux | Omarchy | tmux config |
+| dunst | Omarchy | Notification daemon |
+| rofi | Omarchy | App launcher |
+| sioyek | Omarchy | PDF viewer (Omarchy only) |
+| wezterm | macOS | Terminal |
+| karabiner | macOS | Keyboard remapping |
+| rectangle | macOS | Window management |
