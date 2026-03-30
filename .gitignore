@@ -16,3 +16,29 @@ Session.vim
 omtmux/.config/tmux/plugins/
 /lazyvim/nvim/.config/nvim/spell/en.utf-8.add.spl
 /.sisyphus/plans
+
+# OpenCode secrets and runtime
+opencode/.config/opencode/antigravity-accounts.json
+opencode/.config/opencode/antigravity-signature-cache.json
+opencode/.config/opencode/antigravity-logs/
+opencode/.config/opencode/node_modules/
+opencode/.config/opencode/package.json
+opencode/.config/opencode/bun.lock
+
+# Claude Code runtime (not config)
+claudecode/.claude/.credentials.json
+claudecode/.claude/history.jsonl
+claudecode/.claude/sessions/
+claudecode/.claude/projects/
+claudecode/.claude/cache/
+claudecode/.claude/telemetry/
+claudecode/.claude/backups/
+claudecode/.claude/transcripts/
+claudecode/.claude/session-env/
+claudecode/.claude/file-history/
+claudecode/.claude/paste-cache/
+claudecode/.claude/debug/
+claudecode/.claude/downloads/
+claudecode/.claude/ide/
+claudecode/.claude/tasks/
+claudecode/.claude/shell-snapshots/
