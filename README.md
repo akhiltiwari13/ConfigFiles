@@ -43,7 +43,6 @@
 | ghostty | Omarchy | Terminal (Omarchy theme integration) |
 | alacritty | Omarchy | Terminal (Omarchy theme integration) |
 | fastfetch | Omarchy | References `omarchy-*` commands |
-| elephant | Omarchy | App launcher |
 | omtmux | Omarchy | tmux config |
 | dunst | Omarchy | Notification daemon |
 | rofi | Omarchy | App launcher |
