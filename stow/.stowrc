@@ -1,4 +1,5 @@
 # ~/.stowrc
 --target=${HOME}     # Default target directory
---ignore=.git        # Ignore .git directories
---ignore=README.*    # Ignore README files
+--ignore=^\.git$     # Ignore .git directories
+--ignore=^README\.   # Ignore README files
+--ignore=^AGENTS\.   # Ignore AGENTS.md files

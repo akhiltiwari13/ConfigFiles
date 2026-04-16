@@ -43,3 +43,6 @@ claudecode/.claude/ide/
 claudecode/.claude/tasks/
 claudecode/.claude/shell-snapshots/
 /.sisyphus
+
+# btop themes (auto-generated/runtime)
+btop/.config/btop/themes/
