@@ -46,3 +46,4 @@ claudecode/.claude/shell-snapshots/
 
 # btop themes (auto-generated/runtime)
 btop/.config/btop/themes/
+/opencode/.config/opencode/opencode-notifier-state.json
