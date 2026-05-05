@@ -51,8 +51,7 @@ These differ per workstation and require care when editing:
 
 - `omarchy-hyprland/.config/hypr/monitors.conf` — display layout
 - `setup/.config/cocoEd.sh` — uses `hostname` to switch Mac vs Linux paths (extend for new machines). The fish counterpart `cocoEd-fish.sh` lacks hostname detection.
-- `ssh/.ssh/config` — IPs/hostnames
-- `claudecode/.claude/statusline-command.sh` — hardcodes `/home/akhil/`
+- `ssh/.ssh/config` — IPs/hostnames (ported live → repo on Omarchy in commit `c8aed1b`; Mac Air sync requires manual merge against this baseline)
 
 ## Notable Quirks
 
