@@ -1,0 +1,28 @@
+```
+```
+```
+████████▄     ▄████████ ▄██   ▄      ▄████████  ▄██████▄  ▀████    ▐████▀ 
+███   ▀███   ███    ███ ███   ██▄   ███    ███ ███    ███   ███▌   ████▀  
+███    ███   ███    ███ ███▄▄▄███   ███    █▀  ███    ███    ███  ▐███    
+███    ███   ███    ███ ▀▀▀▀▀▀███  ▄███▄▄▄     ███    ███    ▀███▄███▀    
+███    ███ ▀███████████ ▄██   ███ ▀▀███▀▀▀     ███    ███    ████▀██▄     
+███    ███   ███    ███ ███   ███   ███        ███    ███   ▐███  ▀███    
+███   ▄███   ███    ███ ███   ███   ███        ███    ███  ▄███     ███▄  
+████████▀    ███    █▀   ▀█████▀    ███         ▀██████▀  ████       ███▄ 
+                                                                          
+```
+
+Based on the [Dayfox variant of the nightfox neovim theme](https://github.com/EdenEast/nightfox.nvim) by @EdenEast.
+
+Note that I am not the best color picker, just wanted something to match the nvim theme I use.
+
+<img width="2880" height="1800" alt="Theme Preview" src="https://github.com/defer/omarchy-dayfox-theme/blob/main/preview.png" />
+
+# Installation
+
+`omarchy-theme-install https://github.com/defer/omarchy-dayfox-theme.git`
+
+Or, via walker:
+1. `SUPER+ALT+SPACE`, Install > Style > Theme
+2. Paste `https://github.com/defer/omarchy-dayfox-theme.git`
+3. Return
