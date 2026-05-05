@@ -96,10 +96,9 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 - **DO NOT** edit Omarchy defaults at `~/.local/share/omarchy/default/` — updates overwrite them
 - **DO NOT** commit secrets: `credentials.txt`, `antigravity-accounts.json`, `.credentials.json`, API keys
 - **DO NOT** commit `lazy-lock.json` (gitignored, machine-specific plugin versions)
-- **DO NOT** modify `omtmux/.config/tmux/tmux.conf` — file says `DO NOT MODIFY`; edit `tmux.conf.local` instead
+- **DO NOT** modify `omtmux/.config/tmux/tmux.conf` — Omarchy-managed; add user customizations to `omtmux/.config/tmux/tmux.user.conf` (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` is shimmed by `omarchy-overrides/` to prevent clobber — see `KEYBINDINGS.md` §6.
 - **DO NOT** stow `dumpyard/` — archived configs, not meant for linking
 - **NEVER** `stow` without dry-run (`stow -n -v`) first on a new package
-- **DO NOT** stow both `hyprland/` and `omarchy-hyprland/` — both target `~/.config/hypr/` and will conflict
 
 ## Machine-Specific Values
 
@@ -115,8 +114,8 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 - **Starship**: Config is `~/.config/starship.toml` (flat file), NOT `~/.config/starship/starship.toml`
 - **lazyvim/nvim**: Extra nesting (`lazyvim/nvim/.config/nvim/`) — the `nvim/` layer is intentional
 - **Theme hotreload**: LazyVim has `omarchy-theme-hotreload.lua` that reloads themes via `User LazyReload` autocmd
-- Evolution: i3 → Hyprland, AstroNvim → LazyVim, zsh/bash → fish (old configs in `dumpyard/`)
-- **hyprland/ vs omarchy-hyprland/**: Separate stow packages both targeting `~/.config/hypr/`. `omarchy-hyprland/` is for Omarchy systems (3-layer); `hyprland/` has standalone bindings. Never stow both.
+- Evolution: i3 → Hyprland, AstroNvim → LazyVim, zsh/bash → fish (old configs in `dumpyard/`); the standalone `hyprland/` package was removed — only `omarchy-hyprland/` remains.
 - **setup/ has two files**: `cocoEd.sh` (bash) and `cocoEd-fish.sh` (fish) — fish version lacks hostname detection (always uses `~/files`)
-- **Empty packages**: `fabric/`, and several others (`ccls/`, `clangd/`, `neofetch/`) may be minimal placeholders
+- **Empty/minimal packages**: `neofetch/` may still be a placeholder. `ccls/` and `clangd/` have small LSP configs as of May 2026.
+- **Cross-platform audit**: see `README.md` § "Cross-Platform Compatibility" for per-package portability classification across Omarchy + macOS Air.
 - **waybar scripts**: `waybar/.config/waybar/scripts/` contains 4 VPN toggle scripts (`vpn-toggle.sh`, `vpn-multi-toggle.sh`, `openvpn.sh`, `openvpn3.sh`)
