@@ -47,3 +47,10 @@ claudecode/.claude/shell-snapshots/
 # btop themes (auto-generated/runtime)
 btop/.config/btop/themes/
 /opencode/.config/opencode/opencode-notifier-state.json
+
+# SSH: never commit private keys, known_hosts, or agent sockets even if package layout grows
+ssh/.ssh/id_*
+!ssh/.ssh/id_*.pub
+ssh/.ssh/keys/
+ssh/.ssh/known_hosts*
+ssh/.ssh/agent/
