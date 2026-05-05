@@ -42,8 +42,9 @@ plugin/after/
 
 - **Formatting**: `stylua` — 2 spaces, 120 col width (see `stylua.toml`)
 - **Plugin spec**: Standard LazyVim format — `return { { "author/plugin", opts = {} } }`
-- **Disable a plugin**: `if true then return {} end` at top of file (see `example.lua`)
+- **Disable a plugin**: `if true then return {} end` at top of file
 - **Backup a plugin**: Rename to `.lua_bkp` (see AI plugins below)
+- **Neovim API types**: enabled via `.neoconf.json` at config root (neodev + lua_ls); editing files in `lua/` gives full `vim.*` autocomplete and hover types
 
 ## AI Plugins (Currently Disabled)
 
