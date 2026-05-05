@@ -23,7 +23,7 @@ Rationale per layer:
 
 - **Layer 0 — Hyprland** owns `SUPER+*` because SUPER is the only chord family the WM actually needs to listen to globally without conflicting with terminal apps. Ghostty/tmux/nvim never bind SUPER.
 - **Layer 1 — Ghostty** is intentionally near-transparent. The four bindings it does claim (`Shift+Insert`, `Ctrl+Insert`, and the deeply-nested `SUPER+CTRL+SHIFT+ALT+arrows` for split resize) are designed not to collide with anything inner.
-- **Layer 2 — tmux** uses `C-Space` as the prefix (Omarchy's choice; replaces oh-my-tmux's older `C-a`). It also uses unprefixed `M-1..M-9` / `M-arrows` / `C-M-arrows` for fast pane/window/session navigation — these all live in the ALT family which Hyprland deliberately leaves alone.
+- **Layer 2 — tmux** uses `C-Space` as the prefix (Omarchy's choice; replaces oh-my-tmux's older `C-a`). It also uses unprefixed `M-1..M-9` / `M-arrows` / `C-M-arrows` for fast pane/window/session navigation, plus `C-h/j/k/l` (cross-boundary nav via vim-tmux-navigator) and `M-h/j/k/l` (pane resize) — these all live in the ALT family which Hyprland deliberately leaves alone.
 - **Layer 3 — Neovim (LazyVim)** uses `Space` as the leader. Tmux's prefix is `C-Space`, not bare `Space`, so they don't collide. LazyVim's plugin bindings (e.g. `<leader>fp`) are scoped to vim modes only.
 - **Layer 4 — TUI apps** like lazygit/lazydocker bind only single letters within their focused pane — they never claim any chord that an outer layer would intercept.
 
@@ -38,7 +38,8 @@ Audited 2026-05-05. Severity scale: **NONE** (no overlap), **LOW** (theoretical 
 | `M-Left/Right` | tmux (window prev/next) | No other layer binds `M-arrows` | NONE |
 | `M-Up/Down` | tmux (session prev/next) | Same | NONE |
 | `M-S-Left/Right` | tmux (window swap) | Same | NONE |
-| `C-M-S-arrows` | tmux (pane resize) | Deep chord; nothing else binds it | NONE |
+| `C-h/j/k/l` | tmux (vim-tmux-navigator) + Neovim (split nav) | Intentional shared chord; tmux's `is_vim` predicate routes the chord to nvim when nvim is the focused pane process | NONE |
+| `M-h/j/k/l` | tmux (pane resize) + Neovim (split resize) | Same `is_vim` passthrough as above; replaces the old `C-M-S-arrows` resize binding | NONE |
 | `C-Space` | tmux prefix | Hyprland uses `SUPER+SPACE` for walker — different chord | NONE |
 | `C-b` | tmux secondary prefix | Theoretically conflicts with readline `back-char` inside copy-mode; in practice you switch to copy-mode intentionally | LOW |
 | `Space` | LazyVim leader | Tmux prefix is `C-Space`, not `Space`. Ghostty does not intercept | NONE |
@@ -65,6 +66,7 @@ The plugins loaded via [`omtmux/.config/tmux/tmux.user.conf`](omtmux/.config/tmu
 | `tmux-plugins/tmux-logging` | `prefix + Alt+Shift+P` | Save complete pane history |
 | `tmux-plugins/tmux-logging` | `prefix + Alt+c` | Clear pane history |
 | `timvx/tmux-assistant-resurrect` | (in-picker only) | UI overlay on resurrect; bindings live inside the picker, no global tmux chord |
+| `christoomey/vim-tmux-navigator` | unprefixed `C-h/j/k/l`, `C-\` | Cross-boundary pane/split nav (tmux ↔ nvim). Pairs with the `lua/plugins/vim-tmux-navigator.lua` half on the nvim side. |
 
 Omarchy's tmux base only claims these prefixed letters: `c, C, h, k, K, m, P, N, q, r, R, v, x` — no overlap with any plugin default above.
 
@@ -141,8 +143,8 @@ This is a static snapshot of the audit results from 2026-05-05. The aggregator s
 |---|---|---|
 | Hyprland | `SUPER+letter`, `SUPER+SHIFT+letter`, `SUPER+CTRL+*`, `SUPER+arrows`, `SUPER+code:N`, `ALT+TAB`, media keys | NONE |
 | Ghostty | `Shift+Insert`, `Ctrl+Insert`, `SUPER+CTRL+SHIFT+ALT+arrows` | NONE |
-| tmux (Omarchy base) | prefix=`C-Space`/`C-b`, prefix-letter (`c, C, h, k, K, m, P, N, q, r, R, v, x`), unprefixed `M-1..9` / `M-arrows` / `C-M-arrows` / `C-M-S-arrows` | NONE |
-| tmux (plugin layer) | prefix-`Ctrl-s/r`, prefix-`O`, prefix-`Shift-P` / `Alt-P` / `Alt-Shift-P` / `Alt-c` | NONE (verified §4) |
+| tmux (Omarchy base) | prefix=`C-Space`/`C-b`, prefix-letter (`c, C, h, k, K, m, P, N, q, r, R, v, x`), unprefixed `M-1..9` / `M-arrows` / `C-M-arrows` (user layer unbinds the shipped `C-M-S-arrows` resize) | NONE |
+| tmux (plugin layer) | prefix-`Ctrl-s/r`, prefix-`O`, prefix-`Shift-P` / `Alt-P` / `Alt-Shift-P` / `Alt-c`, unprefixed `C-h/j/k/l` (navigator) + `M-h/j/k/l` (resize) | NONE (verified §4) |
 | Neovim (LazyVim) | `<Space>`-leader chords, vim-mode-scoped CTRL/ALT chords | NONE |
 | lazygit / lazydocker | single letters in focused pane | NONE |
 
