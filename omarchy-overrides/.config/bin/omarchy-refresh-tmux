@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Stow-managed shim. Shadows ~/.local/share/omarchy/bin/omarchy-refresh-tmux
+# because ~/.config/bin/ is prepended to PATH via environment.d/00-omarchy-overrides.conf.
+#
+# Why blocked: the upstream command runs `omarchy-refresh-config tmux/tmux.conf`,
+# which writes through the symlink at ~/.config/tmux/tmux.conf and clobbers
+# the customization we keep there (specifically the trailing
+# `source-file ~/.config/tmux/tmux.user.conf` line that loads our TPM plugin
+# layer). See KEYBINDINGS.md for full context.
+
+set -euo pipefail
+
+bypass='command ~/.local/share/omarchy/bin/omarchy-refresh-tmux'
+msg="omarchy-refresh-tmux is blocked by your dotfiles overrides — it would clobber ~/.config/tmux/tmux.conf customizations. To bypass deliberately: ${bypass}"
+
+if command -v notify-send >/dev/null 2>&1; then
+  notify-send -u critical -t 6000 "BLOCKED: omarchy-refresh-tmux" "$msg"
+fi
+
+printf '\n[BLOCKED] %s\n\n' "$msg" >&2
+exit 1
