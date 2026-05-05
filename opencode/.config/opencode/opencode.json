@@ -4,7 +4,7 @@
   "plugin": [
     // "oh-my-openagent",
     "opencode-claude-auth",
-    "opencode-antigravity-auth",
+    // "opencode-google-antigravity-auth@latest", google suspends accounts when using them from opencode.
     "@mohak34/opencode-notifier@latest"
   ]
 }
