@@ -37,7 +37,9 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 | lazydocker |                                                                                |
 | lazygit    |                                                                                |
 | lazyvim    | Note the intentional extra `nvim/` nesting in path                             |
+| mise       | Tool versions (`config.toml`)                                                  |
 | opencode   |                                                                                |
+| ripgrep-all | rga config (`config.jsonc`); auto-gen schema not tracked                      |
 | setup      | `cocoEd.sh` (bash) has hostname-switch; `cocoEd-fish.sh` lacks it              |
 | ssh        | Machine-specific IPs/hostnames; current baseline ported from Omarchy live      |
 | starship   | Flat file at `~/.config/starship.toml` (not under `starship/.config/...`)      |
