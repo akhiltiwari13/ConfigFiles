@@ -103,6 +103,67 @@ Each profile's package list is in `scripts/bootstrap.sh`'s `<PROFILE>_PKGS` arra
 
 Conflicts during stow (e.g. live real file where the repo wants to symlink) are reported but not auto-resolved — investigate per-package.
 
+## Manual stow sequence (Ubuntu 24.04 desktop)
+
+Step-by-step replication for a fresh Ubuntu 24.04 desktop. The bootstrap script's `ubuntu` profile is scoped for headless remotes (skips `ghostty` + `vimium`); this manual recipe includes them since a desktop has a GUI.
+
+### Prereqs
+
+```bash
+sudo apt update
+sudo apt install -y git stow bash fish
+```
+
+Plus install the runtime tools as needed: `btop`, `tmux`, `lazygit`, `lazydocker`, `fzf`, `ripgrep`, `ripgrep-all`, `mise`, `neovim` (≥ 0.11), etc. See `scripts/deps_install.sh` for apt+snap variants.
+
+### Clone & seed
+
+```bash
+git clone <repo-url> ~/Work/projects/quomptrade/configfiles
+cd ~/Work/projects/quomptrade/configfiles
+stow stow                        # one-time: seeds ~/.stowrc with --target=$HOME + ignores
+```
+
+### Stow each package
+
+Alphabetised. Run with `-n -v` first to dry-run if you want to preview. Conflicts (`WARNING! stowing X would cause conflicts`) usually mean a live real file at the target needs to be removed first — investigate per-package.
+
+```bash
+for pkg in bash btop ccls clangd claudecode fish ghostty gitconfig \
+           lazydocker lazygit mise opencode ripgrep-all setup ssh \
+           starship tmux vim vimium; do
+  stow -v "$pkg"
+done
+```
+
+### lazyvim — special invocation (extra `nvim/` nesting)
+
+The `lazyvim/` package has an intentional extra `nvim/` directory level so the real stow command differs from the others:
+
+```bash
+stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
+```
+
+(`scripts/bootstrap.sh` already special-cases this internally — see the `run_stow()` function.)
+
+### Verify
+
+```bash
+ls -la ~/.config/{tmux,nvim,lazygit,lazydocker,git,claudecode,clangd,ccls,fish,mise,ripgrep-all}
+ls -la ~/.bashrc ~/.ssh/config
+```
+
+Each should be a symlink into `~/Work/projects/quomptrade/configfiles/<pkg>/...`.
+
+### Equivalent automation
+
+```bash
+./scripts/bootstrap.sh ubuntu --dry-run
+./scripts/bootstrap.sh ubuntu
+```
+
+Note: `bootstrap.sh`'s `ubuntu` profile omits `ghostty` and `vimium`. To use it on a desktop, either edit the `UBUNTU_PKGS` array in the script or stow those two manually after the script runs.
+
 ## Keymap audit (cross-program)
 
 `omarchy-overrides/.config/bin/keybind-audit` aggregates keybinding inventories across the whole stack — Hyprland (`hyprctl binds`), Ghostty (config keybinds), tmux (`list-keys` if a server is up; static parse otherwise), Neovim (`nvim --headless` map dump) — into a single markdown report. Run it any time the stack changes to verify there are no chord collisions:
