@@ -26,6 +26,7 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 
 | Package    | Notes                                                                          |
 | ---------- | ------------------------------------------------------------------------------ |
+| bash       | `~/.bashrc` for interactive shell — leaves `~/.profile` and `~/.bash_profile` alone (OS defaults stay) |
 | btop       | Set `save_config_on_exit = false` on new install to avoid git noise            |
 | ccls       | C/C++ LSP config                                                               |
 | clangd     | C/C++ LSP config                                                               |
