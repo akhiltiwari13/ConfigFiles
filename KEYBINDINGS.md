@@ -53,7 +53,7 @@ Audited 2026-05-05. Severity scale: **NONE** (no overlap), **LOW** (theoretical 
 
 ## 4. tmux plugin layer
 
-The plugins loaded via [`omtmux/.config/tmux/tmux.user.conf`](omtmux/.config/tmux/tmux.user.conf) add the following bindings. All defaults verified non-conflicting with the matrix above:
+The plugins loaded via [`tmux/.config/tmux/tmux.user.conf`](tmux/.config/tmux/tmux.user.conf) add the following bindings. All defaults verified non-conflicting with the matrix above:
 
 | Plugin | Default binding | Action |
 |---|---|---|
@@ -129,7 +129,7 @@ When the stack changes meaningfully (e.g. a new TUI tool joins, an Omarchy updat
 
 1. **Hyprland**: `omarchy-hyprland/.config/hypr/bindings.conf`, `hyprland.conf`, plus `~/.local/share/omarchy/default/hypr/*.conf` for the Omarchy-shipped defaults.
 2. **Ghostty**: `ghostty/.config/ghostty/config` — grep `^[[:space:]]*keybind[[:space:]]*=`.
-3. **tmux**: `omtmux/.config/tmux/tmux.conf` (Omarchy base) + `omtmux/.config/tmux/tmux.user.conf` (plugin layer). For plugin defaults, read each plugin's README at `~/.config/tmux/plugins/<name>/README.md`.
+3. **tmux**: `tmux/.config/tmux/tmux.conf` (Omarchy base) + `tmux/.config/tmux/tmux.user.conf` (plugin layer). For plugin defaults, read each plugin's README at `~/.config/tmux/plugins/<name>/README.md`.
 4. **LazyVim**: `lazyvim/nvim/.config/nvim/lua/config/keymaps.lua` plus `lua/plugins/*.lua` (grep for `keys = {` tables).
 5. **lazygit / lazydocker**: read `~/.config/{lazygit,lazydocker}/config.yml` if present, otherwise document the well-known defaults.
 

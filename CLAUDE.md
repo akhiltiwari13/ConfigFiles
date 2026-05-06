@@ -18,12 +18,12 @@ stow -R <pkg>        # Restow (unlink + relink)
 stow --adopt <pkg>   # Pull live files INTO repo, then link
 ```
 
-Standard layout: `pkg/.config/app/file → ~/.config/app/file`. Home dotfiles: `pkg/.<file> → ~/.<file>`. Non-standard packages (rectangle, ticker, vimium, vpn) place files at the package root.
+Standard layout: `pkg/.config/app/file → ~/.config/app/file`. Home dotfiles: `pkg/.<file> → ~/.<file>`. Non-standard packages (vimium, vpn) place files at the package root.
 
 ## Critical Anti-Patterns
 
 - **Never edit `~/.local/share/omarchy/default/`** — Omarchy updates overwrite it. User overrides go in `~/.config/<app>/` (i.e. this repo's package).
-- **Treat `omtmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `~/.local/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `omtmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6.
+- **Treat `tmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `~/.local/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6.
 - **Never stow `dumpyard/`** — archived configs (i3, AstroNvim, old zsh/bash, retired oh-my-tmux conf.local), not meant for linking.
 - **Never commit** `lazy-lock.json`, `credentials.txt`, `antigravity-accounts.json`, `.credentials.json` (most are gitignored; verify).
 

@@ -31,7 +31,7 @@ configfiles/
 | Edit Neovim/LazyVim | `lazyvim/nvim/.config/nvim/lua/plugins/` | See lazyvim AGENTS.md for plugin conventions |
 | Shell environment | `setup/.config/cocoEd.sh`, `cocoEd-fish.sh` | Bash has hostname detection; fish version hardcodes `~/files` |
 | Install deps on new machine | `scripts/deps_install.sh` | Uses snap→apt fallback; needs sudo |
-| Reference old configs | `dumpyard/` | i3, AstroNvim, bashrc, zshrc, old tmux |
+| Reference old configs | `dumpyard/` | i3/i3status, AstroNvim, bashrc, zshrc, old tmux, dunst, crush, karabiner, neofetch, rectangle, sioyek, ticker |
 
 ## Stow Package Convention
 
@@ -45,8 +45,6 @@ ssh/.ssh/config  →  ~/.ssh/config
 ```
 
 **Non-standard packages** (don't follow `.config/` convention):
-- `rectangle/` — `RectangleConfig.json` at root (macOS app)
-- `ticker/` — `ticker.yaml` at root
 - `vimium/` — `vimium-options.json` at root
 - `vpn/` — credentials + ovpn at root
 
@@ -96,7 +94,7 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 - **DO NOT** edit Omarchy defaults at `~/.local/share/omarchy/default/` — updates overwrite them
 - **DO NOT** commit secrets: `credentials.txt`, `antigravity-accounts.json`, `.credentials.json`, API keys
 - **DO NOT** commit `lazy-lock.json` (gitignored, machine-specific plugin versions)
-- **DO NOT** modify `omtmux/.config/tmux/tmux.conf` — Omarchy-managed; add user customizations to `omtmux/.config/tmux/tmux.user.conf` (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` is shimmed by `omarchy-overrides/` to prevent clobber — see `KEYBINDINGS.md` §6.
+- **DO NOT** modify `tmux/.config/tmux/tmux.conf` — Omarchy-managed; add user customizations to `tmux/.config/tmux/tmux.user.conf` (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` is shimmed by `omarchy-overrides/` to prevent clobber — see `KEYBINDINGS.md` §6.
 - **DO NOT** stow `dumpyard/` — archived configs, not meant for linking
 - **NEVER** `stow` without dry-run (`stow -n -v`) first on a new package
 
@@ -116,6 +114,6 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 - **Theme hotreload**: LazyVim has `omarchy-theme-hotreload.lua` that reloads themes via `User LazyReload` autocmd
 - Evolution: i3 → Hyprland, AstroNvim → LazyVim, zsh/bash → fish (old configs in `dumpyard/`); the standalone `hyprland/` package was removed — only `omarchy-hyprland/` remains.
 - **setup/ has two files**: `cocoEd.sh` (bash) and `cocoEd-fish.sh` (fish) — fish version lacks hostname detection (always uses `~/files`)
-- **Empty/minimal packages**: `neofetch/` may still be a placeholder. `ccls/` and `clangd/` have small LSP configs as of May 2026.
+- **Empty/minimal packages**: `ccls/` and `clangd/` have small LSP configs as of May 2026.
 - **Cross-platform audit**: see `README.md` § "Cross-Platform Compatibility" for per-package portability classification across Omarchy + macOS Air.
 - **waybar scripts**: `waybar/.config/waybar/scripts/` contains 4 VPN toggle scripts (`vpn-toggle.sh`, `vpn-multi-toggle.sh`, `openvpn.sh`, `openvpn3.sh`)
