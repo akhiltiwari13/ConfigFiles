@@ -19,24 +19,26 @@ alias loki='cd ${learn}/loki-lib'
 alias notes='cd ${notes}'
 alias books='cd ${books}'
 alias ll='ls -larth'
-alias cfg='cd ${projects}/configfiles'
-alias indica='cd ${projects}/Indica'
-alias cassia='cd ${projects}/CassiaFistula'
-alias phyl='cd ${projects}/phyllanthus_emblica'
-alias elaeox86='cd ${projects}/elaeocarpus-x86'
-alias elaeoarm='cd ${projects}/elaeocarpus-arm'
+alias quompt='cd ${projects}/quomptrade/'
+alias alkimi='cd ${projects}/alkimi/'
+alias softsol='cd ${projects}/softsolutions/'
+alias cfg='cd ${quompt}/configfiles'
+alias elaeox86='cd ${quompt}/elaeocarpus-x86'
+alias elaeoarm='cd ${quompt}/elaeocarpus-arm'
+alias indica='cd ${learn}/Indica'
+alias cassia='cd ${learn}/CassiaFistula'
+alias phyl='cd ${learn}/phyllanthus_emblica'
 alias epi='cd ${projects}/EPIJudge'
 alias tmc='cd ${projects}/The-Modern-Cpp-Challenge'
-alias cctx='cd ${projects}/elaeocarpus-arm/tools/scripts/codectx'
-alias zigpg='cd ${projects}/zigplayground'
-alias cctxo='cd ${learn}/codectx_out'
+# alias cctx='cd ${projects}/elaeocarpus-arm/tools/scripts/codectx'
+# alias cctxo='cd ${learn}/codectx_out'
 alias jptlearn='cd ${learn}/algo-trading && uv run jupyter lab'
 
 # pertaining to AQ setup.
-alias pqr='cd ${projects}/pqr'
-alias plat='cd ${projects}/platform'
-alias platref='cd ${projects}/platform_reference'
-alias aqprodlg='cd ${work}/aqprodlogs/'
+alias pqr='cd ${quompt}/pqr'
+alias plat='cd ${quompt}/platform'
+alias platref='cd ${quompt}/platform_reference'
+# alias aqprodlg='cd ${work}/aqprodlogs/'
 
 # if command -v neofetch >/dev/null 2>&1; then
 #   neofetch
@@ -49,12 +51,12 @@ alias cocomessage="echo \"I love my dearest nephew, \"Coco\". He is the sweetest
 #***********************
 # catppuccin theme setup
 #***********************
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
---color=selected-bg:#45475A \
---color=border:#313244,label:#CDD6F4"
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+# --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+# --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+# --color=selected-bg:#45475A \
+# --color=border:#313244,label:#CDD6F4"
 
 #********************
 # work specific setup.
