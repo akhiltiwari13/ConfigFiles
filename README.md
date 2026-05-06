@@ -77,6 +77,32 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 | dumpyard | Archived/retired configs: i3, i3status, dunst (X11 era); AstroNvim, vscode-neovim, old `nvim/` (pre-LazyVim); oh-my-tmux `conf.local`; crush, karabiner, neofetch, rectangle, sioyek, ticker (tried-and-discarded) |
 | scripts  | Utility scripts run directly, not symlinked                                                                                        |
 
+## Bootstrapping a new machine
+
+`scripts/bootstrap.sh` is the one-shot installer. Pick a profile based on the host:
+
+```bash
+./scripts/bootstrap.sh ubuntu --list      # show what would be stowed
+./scripts/bootstrap.sh ubuntu --dry-run   # preview without changes
+./scripts/bootstrap.sh ubuntu             # actually stow
+```
+
+| Profile | What it installs | Used on |
+| ------- | ---------------- | ------- |
+| `ubuntu` | 18 packages — cross-platform headless core (no GUI/Wayland deps; no `ghostty`/`vimium`) | Remote dev box (uburemote) |
+| `omarchy` | 29 packages — full set including `omarchy-*` and Wayland stack (no `starship` per dormancy) | Omarchy workstations (omarchy-tp) |
+| `macair` | 21 packages — cross-platform core + `wezterm` | macOS Air (macair) |
+
+Each profile's package list is in `scripts/bootstrap.sh`'s `<PROFILE>_PKGS` arrays — that file is the source of truth for "what's installed where" across the 3 workstations.
+
+**First-time setup on a fresh box:**
+1. Install `git`, `stow` (and `bash` if not default).
+2. Clone this repo to `~/Work/projects/quomptrade/configfiles` (or anywhere, but the path is referenced from `setup/`'s scripts).
+3. Run `stow stow` once manually (seeds `~/.stowrc` with the right `--target` + ignore patterns).
+4. Run `./scripts/bootstrap.sh <profile>`.
+
+Conflicts during stow (e.g. live real file where the repo wants to symlink) are reported but not auto-resolved — investigate per-package.
+
 ## Keymap audit (cross-program)
 
 `omarchy-overrides/.config/bin/keybind-audit` aggregates keybinding inventories across the whole stack — Hyprland (`hyprctl binds`), Ghostty (config keybinds), tmux (`list-keys` if a server is up; static parse otherwise), Neovim (`nvim --headless` map dump) — into a single markdown report. Run it any time the stack changes to verify there are no chord collisions:
