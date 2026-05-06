@@ -34,5 +34,5 @@
 	email = akhiltiwari.13@gmail.com
 
 # Use work email for anything under ~/Work/
-[includeIf "gitdir:~/Work/projects/mmp/"]
+[includeIf "gitdir:~/Work/projects/alkimi/"]
 	path = ~/.config/git/config-work
