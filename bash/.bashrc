@@ -5,9 +5,12 @@
 # Don't edit these directly — override them below.
 [ -f ~/.local/share/omarchy/default/bash/rc ] && source ~/.local/share/omarchy/default/bash/rc
 [ -f ~/.config/cocoEd.sh ] && source ~/.config/cocoEd.sh
+# Point at the systemd-user ssh-agent socket (Arch/omarchy and Ubuntu both use this path).
+# Prereq once per machine: systemctl --user enable --now ssh-agent.socket
+[ -z "${SSH_AUTH_SOCK:-}" ] && [ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket" ] \
+  && export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
 
 # Add your own exports, aliases, and functions here.
-#
 # Make an alias for invoking commands you use constantly
 # alias p='python'
 
