@@ -76,3 +76,35 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | dumpyard | Archived/retired configs: i3, i3status, dunst (X11 era); AstroNvim, vscode-neovim, old `nvim/` (pre-LazyVim); oh-my-tmux `conf.local`; crush, karabiner, neofetch, rectangle, sioyek, ticker (tried-and-discarded) |
 | scripts  | Utility scripts run directly, not symlinked                                                                                        |
+
+## Keymap audit (cross-program)
+
+`omarchy-overrides/.config/bin/keybind-audit` aggregates keybinding inventories across the whole stack — Hyprland (`hyprctl binds`), Ghostty (config keybinds), tmux (`list-keys` if a server is up; static parse otherwise), Neovim (`nvim --headless` map dump) — into a single markdown report. Run it any time the stack changes to verify there are no chord collisions:
+
+```bash
+~/.config/bin/keybind-audit > /tmp/audit.md
+```
+
+The full leader hierarchy (Hyprland SUPER → Ghostty → tmux C-Space → Neovim Space → TUI letters) and the conflict matrix live in `KEYBINDINGS.md`.
+
+## Omarchy command shimming via `environment.d`
+
+Some Omarchy `omarchy-*` commands (notably `omarchy-refresh-tmux`) overwrite repo-managed config files when invoked. The `omarchy-overrides/` package shims those commands by:
+
+1. Placing a wrapper at `~/.config/bin/<cmd>` that prints a notification and exits 1
+2. Prepending `~/.config/bin` to `$PATH` for systemd-user services via `~/.config/environment.d/00-omarchy-overrides.conf`
+
+This makes the wrapper shadow the real binary for both interactive shells AND Hyprland-launched menu/walker invocations. To deliberately bypass the shim and run the upstream binary, invoke by absolute path:
+
+```bash
+command ~/.local/share/omarchy/bin/omarchy-refresh-tmux
+```
+
+Verify the shim still works after an Omarchy update:
+
+```bash
+which omarchy-refresh-tmux        # expect: ~/.config/bin/omarchy-refresh-tmux
+omarchy-refresh-tmux              # expect: BLOCKED stderr + exit 1
+```
+
+See `KEYBINDINGS.md` §6 for the full rationale.
