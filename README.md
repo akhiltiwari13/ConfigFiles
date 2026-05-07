@@ -24,9 +24,10 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 
 ### Cross-platform (works on Mac + Omarchy + Ubuntu)
 
-| Package    | Notes                                                                          |
-| ---------- | ------------------------------------------------------------------------------ |
-| bash       | `~/.bashrc` for interactive shell — leaves `~/.profile` and `~/.bash_profile` alone (OS defaults stay) |
+| Package      | Notes                                                                          |
+| ------------ | ------------------------------------------------------------------------------ |
+| bash-omarchy | `~/.bashrc` for Arch/omarchy + macOS — sources `~/.local/share/omarchy/default/bash/rc` (guarded so it's harmless elsewhere) |
+| bash-ubuntu  | `~/.bashrc` for Ubuntu — `/etc/skel`-derived prompt/aliases + same toolchain init block as `bash-omarchy` |
 | btop       | Set `save_config_on_exit = false` on new install to avoid git noise            |
 | ccls       | C/C++ LSP config                                                               |
 | clangd     | C/C++ LSP config                                                               |
@@ -89,7 +90,7 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 
 | Profile | What it installs | Used on |
 | ------- | ---------------- | ------- |
-| `ubuntu` | 18 packages — cross-platform headless core (no GUI/Wayland deps; no `ghostty`/`vimium`) | Remote dev box (uburemote) |
+| `ubuntu` | 17 packages — cross-platform headless core (uses `bash-ubuntu`; no GUI/Wayland deps; no `ghostty`/`vimium`/`starship`) | Remote dev box (uburemote) |
 | `omarchy` | 29 packages — full set including `omarchy-*` and Wayland stack (no `starship` per dormancy) | Omarchy workstations (omarchy-tp) |
 | `macair` | 21 packages — cross-platform core + `wezterm` | macOS Air (macair) |
 
@@ -129,7 +130,7 @@ stow stow                        # one-time: seeds ~/.stowrc with --target=$HOME
 Alphabetised. Run with `-n -v` first to dry-run if you want to preview. Conflicts (`WARNING! stowing X would cause conflicts`) usually mean a live real file at the target needs to be removed first — investigate per-package.
 
 ```bash
-for pkg in bash btop ccls clangd claudecode fish ghostty gitconfig \
+for pkg in bash-omarchy btop ccls clangd claudecode fish ghostty gitconfig \
            lazydocker lazygit mise opencode ripgrep-all setup ssh \
            starship tmux vim vimium; do
   stow -v "$pkg"

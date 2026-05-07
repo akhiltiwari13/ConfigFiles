@@ -28,14 +28,14 @@ readonly REPO_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # Keep alphabetised within each section for diff-friendliness.
 
 readonly UBUNTU_PKGS=(
-  bash btop ccls clangd claudecode fish gitconfig
+  bash-ubuntu btop ccls clangd claudecode fish gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
-  ssh starship tmux vim
+  ssh tmux vim
 )
 
 readonly OMARCHY_PKGS=(
   # cross-platform core
-  bash btop ccls clangd claudecode fish ghostty gitconfig
+  bash-omarchy btop ccls clangd claudecode fish ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh tmux vim vimium
   # Omarchy-specific (Wayland/Hyprland stack + omarchy-* infra)
@@ -45,7 +45,7 @@ readonly OMARCHY_PKGS=(
 
 readonly MACAIR_PKGS=(
   # cross-platform core
-  bash btop ccls clangd claudecode fish ghostty gitconfig
+  bash-omarchy btop ccls clangd claudecode fish ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh starship tmux vim vimium
   # macOS-specific

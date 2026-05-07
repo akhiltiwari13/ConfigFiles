@@ -44,6 +44,10 @@ claudecode/.claude/tasks/
 claudecode/.claude/shell-snapshots/
 /.sisyphus
 
+# Tmux server/client log files (e.g. when tmux runs from inside the configfiles dir)
+tmux-server-*.log
+tmux-client-*.log
+
 # btop themes (auto-generated/runtime)
 btop/.config/btop/themes/
 /opencode/.config/opencode/opencode-notifier-state.json
