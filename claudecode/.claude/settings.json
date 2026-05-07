@@ -4,6 +4,6 @@
     "type": "command",
     "command": "bash /home/quomptrade/.claude/statusline-command.sh"
   },
-  "theme": "dark",
+  "theme": "auto",
   "skipAutoPermissionPrompt": true
 }

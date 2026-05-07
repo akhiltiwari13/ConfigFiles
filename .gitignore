@@ -58,3 +58,5 @@ ssh/.ssh/id_*
 ssh/.ssh/keys/
 ssh/.ssh/known_hosts*
 ssh/.ssh/agent/
+/claudecode/.claude/policy-limits.json
+/claudecode/.claude/plugins

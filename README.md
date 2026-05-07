@@ -101,6 +101,13 @@ Each profile's package list is in `scripts/bootstrap.sh`'s `<PROFILE>_PKGS` arra
 2. Clone this repo to `~/Work/projects/quomptrade/configfiles` (or anywhere, but the path is referenced from `setup/`'s scripts).
 3. Run `stow stow` once manually (seeds `~/.stowrc` with the right `--target` + ignore patterns).
 4. Run `./scripts/bootstrap.sh <profile>`.
+5. Generate per-machine SSH keypairs and enroll their public halves with the matching GitHub identities. The repo only ships `~/.ssh/config` — keys themselves are per-machine and live locally:
+   ```bash
+   ssh-keygen -t ed25519 -C "akhiltiwari.13@gmail.com" -f ~/.ssh/id_ed25519
+   ssh-keygen -t ed25519 -C "akhil@kensaltensi.org"     -f ~/.ssh/id_ed25519_kensalt
+   ssh-add ~/.ssh/id_ed25519 ~/.ssh/id_ed25519_kensalt
+   ```
+   Then enroll `~/.ssh/id_ed25519.pub` under the personal GitHub account and `~/.ssh/id_ed25519_kensalt.pub` under the Alkimi-org-linked account. The `Host github` / `Host github-work` aliases in `ssh/.ssh/config` use `IdentitiesOnly yes`, so without the matching local key file ssh has nothing to offer — agent forwarding from another box is *not* a substitute on a persistent dev box (forwarded sockets break across tmux reconnects and unattended jobs). Use `git@github-work:Alkimi-Exchange/...` URLs for work clones, or rely on the `url.insteadOf` rewrite that auto-routes `git@github.com:Alkimi-Exchange/...` URLs through the work alias.
 
 Conflicts during stow (e.g. live real file where the repo wants to symlink) are reported but not auto-resolved — investigate per-package.
 
