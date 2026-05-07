@@ -131,7 +131,17 @@ esac
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 [ -d "$HOME/.config/composer/vendor/bin" ] && export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 command -v mise >/dev/null && eval "$(mise activate bash)"
-command -v zoxide >/dev/null && eval "$(zoxide init bash)"
+# zoxide rebinds `cd` itself (not just `z`) — cd <partial> jumps to most-frecent match
+command -v zoxide >/dev/null && eval "$(zoxide init --cmd cd bash)"
+
+# eza replaces ls — overrides the /etc/skel ls aliases set above
+if command -v eza >/dev/null; then
+  alias ls='eza'
+  alias ll='eza -lah --git --group-directories-first'
+  alias la='eza -A'
+  alias l='eza -CF'
+  alias tree='eza --tree'
+fi
 
 # fzf keybinds (Ubuntu ships them under /usr/share/doc/fzf/)
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && \
