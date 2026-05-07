@@ -46,3 +46,71 @@ function y() {
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
+
+# rga inherits rg's RIPGREP_CONFIG_PATH (color flags etc). See ~/.ripgreprc.
+[ -f "$HOME/.ripgreprc" ] && export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# bs <query> — search the ebook library with rga, pick a hit in fzf,
+# open it in zathura at the matching page (PDFs) or page 1 (EPUBs).
+# Override the search root with $BOOKS_ROOT.
+bs() {
+  local root="${BOOKS_ROOT:-$HOME/Work/books/book-inventory/readables}"
+  case "${1-}" in
+    ''|-h|--help)
+      cat <<'EOF'
+bs — book search: rga | fzf | zathura
+
+USAGE
+  bs <query> [rga-flags...]
+  BOOKS_ROOT=<dir> bs <query>
+
+EXAMPLES
+  bs concurrency                       # full-text search readables/
+  bs -F "Bjarne Stroustrup"            # fixed-string (no regex)
+  bs -i memory                         # case-insensitive
+  bs -t pdf "lock free"                # restrict to PDFs
+  BOOKS_ROOT=~/Work/books/for-elaeocarpus bs networking
+
+KEYS (in fzf picker)
+  Enter  open match in zathura at the matching page (PDFs)
+  Esc    cancel
+
+ENV
+  BOOKS_ROOT   search root (default: ~/Work/books/book-inventory/readables)
+
+NOTES
+  • Cache lives at ~/.cache/ripgrep-all/. First search is slow.
+  • Append --rga-no-cache to bypass the cache for one call.
+  • Colors / --smart-case live in ~/.ripgreprc.
+EOF
+      return 0 ;;
+  esac
+  command -v rga >/dev/null || { echo "rga not installed" >&2; return 127; }
+  command -v fzf >/dev/null || { echo "fzf not installed" >&2; return 127; }
+
+  local sel
+  sel=$(rga --no-heading -H --color=always "$@" "$root" 2>/dev/null |
+    fzf --ansi \
+        --delimiter=: \
+        --tiebreak=begin \
+        --preview-window='right:60%:wrap' \
+        --preview='
+          file=$(printf "%s" {} | sed -E "s/\x1b\[[0-9;]*m//g" | cut -d: -f1)
+          page=$(printf "%s" {} | sed -E "s/\x1b\[[0-9;]*m//g" | grep -oE "Page [0-9]+" | head -1 | grep -oE "[0-9]+")
+          case "$file" in
+            *.pdf) pdftotext -f "${page:-1}" -l "${page:-1}" "$file" - 2>/dev/null | head -200 ;;
+            *)     printf "%s\n" {} ;;
+          esac') || return 130
+
+  local clean file page
+  clean=$(sed -E 's/\x1b\[[0-9;]*m//g' <<<"$sel")
+  file=$(cut -d: -f1 <<<"$clean")
+  page=$(grep -oE 'Page [0-9]+' <<<"$clean" | head -1 | grep -oE '[0-9]+')
+  [ -z "$file" ] && return 1
+  if [ -n "$page" ]; then
+    zathura -P "$page" "$file" >/dev/null 2>&1 &
+  else
+    zathura "$file" >/dev/null 2>&1 &
+  fi
+  disown
+}

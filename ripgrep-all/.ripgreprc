@@ -1,0 +1,9 @@
+--smart-case
+--max-columns=200
+--max-columns-preview
+
+--colors=path:fg:cyan
+--colors=path:style:bold
+--colors=line:fg:magenta
+--colors=match:fg:yellow
+--colors=match:style:bold
