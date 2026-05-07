@@ -14,6 +14,10 @@
 # Make an alias for invoking commands you use constantly
 # alias p='python'
 
+# Drop into a persistent tmux session on the qomp remote — survives disconnects.
+# `-A` attaches if "main" exists, else creates it. `-t` allocates a TTY.
+alias qomp='ssh -t qomp "tmux new-session -A -s main"'
+
 # Ensure ~/.local/bin is on PATH first — mise, zoxide, starship symlinks, fd/bat shims live here.
 # Must come before the `command -v mise` check below or mise activation silently no-ops.
 case ":$PATH:" in
