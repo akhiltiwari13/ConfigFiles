@@ -7,8 +7,8 @@
 [ -f ~/.config/cocoEd.sh ] && source ~/.config/cocoEd.sh
 # Point at the systemd-user ssh-agent socket (Arch/omarchy and Ubuntu both use this path).
 # Prereq once per machine: systemctl --user enable --now ssh-agent.socket
-[ -z "${SSH_AUTH_SOCK:-}" ] && [ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket" ] \
-  && export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
+[ -z "${SSH_AUTH_SOCK:-}" ] && [ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket" ] &&
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
 
 # Add your own exports, aliases, and functions here.
 # Make an alias for invoking commands you use constantly
@@ -16,13 +16,13 @@
 
 # Drop into a persistent tmux session on the qomp remote — survives disconnects.
 # `-A` attaches if "main" exists, else creates it. `-t` allocates a TTY.
-alias qomp='ssh -t qomp "tmux new-session -A -s main"'
+alias quompt='ssh -t quompt "tmux new-session -A -s muxy-qblr"'
 
 # Ensure ~/.local/bin is on PATH first — mise, zoxide, starship symlinks, fd/bat shims live here.
 # Must come before the `command -v mise` check below or mise activation silently no-ops.
 case ":$PATH:" in
-  *":$HOME/.local/bin:"*) ;;
-  *) export PATH="$HOME/.local/bin:$PATH" ;;
+*":$HOME/.local/bin:"*) ;;
+*) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
 # Toolchain activation — each guard avoids breaking shell startup if the tool isn't installed yet
