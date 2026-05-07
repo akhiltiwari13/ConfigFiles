@@ -14,12 +14,18 @@
 # Make an alias for invoking commands you use constantly
 # alias p='python'
 
+# Ensure ~/.local/bin is on PATH first — mise, zoxide, starship symlinks, fd/bat shims live here.
+# Must come before the `command -v mise` check below or mise activation silently no-ops.
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
 # Toolchain activation — each guard avoids breaking shell startup if the tool isn't installed yet
 [ -f "$HOME/.local/share/../bin/env" ] && . "$HOME/.local/share/../bin/env"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 [ -d "$HOME/.config/composer/vendor/bin" ] && export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 command -v mise >/dev/null && eval "$(mise activate bash)"
-command -v starship >/dev/null && eval "$(starship init bash)"
 command -v zoxide >/dev/null && eval "$(zoxide init bash)"
 
 # fzf keybinds (Arch and Ubuntu ship them at different paths)
