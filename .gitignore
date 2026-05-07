@@ -12,7 +12,8 @@ lazy-lock.json
 *tags
 Session.vim
 
-# don't commit omtmux files.
+# don't commit tmux plugins (cloned by TPM into stowed dirs at runtime)
+tmux/.config/tmux/plugins/
 omtmux/.config/tmux/plugins/
 /lazyvim/nvim/.config/nvim/spell/en.utf-8.add.spl
 /.sisyphus/plans

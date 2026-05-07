@@ -34,9 +34,9 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 
 | Profile | Packages | Used on |
 |---------|----------|---------|
-| `ubuntu` | 17 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium`/`starship` | Remote dev box (uburemote) |
-| `omarchy` | 29 — full set incl. `omarchy-*` and Wayland stack (no `starship` per dormancy) | Omarchy workstations (omarchy-tp) |
-| `macair` | 21 — cross-platform core + `wezterm` | macOS Air |
+| `ubuntu` | 15 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium` | Remote dev box (uburemote) |
+| `omarchy` | 27 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
+| `macair` | 18 — cross-platform core + `wezterm` | macOS Air |
 
 ```bash
 ./scripts/bootstrap.sh <profile> --list      # show what would be stowed
@@ -76,13 +76,12 @@ Source order in user `hyprland.conf` matters; do not reorder.
 These differ per workstation and require care when editing:
 
 - `omarchy-hyprland/.config/hypr/monitors.conf` — display layout
-- `setup/.config/cocoEd.sh` — uses `hostname` to switch Mac vs Linux paths (extend for new machines). The fish counterpart `cocoEd-fish.sh` lacks hostname detection.
+- `setup/.config/cocoEd.sh` — uses `hostname` to switch Mac vs Linux paths (extend for new machines). The retired fish counterpart now lives at `dumpyard/cocoEd-fish.sh`.
 - `ssh/.ssh/config` — IPs/hostnames (ported live → repo on Omarchy in commit `c8aed1b`; Mac Air sync requires manual merge against this baseline)
 - **`bash-omarchy` vs `bash-ubuntu`** — mutually exclusive `~/.bashrc` packages. `bash-omarchy` covers Arch + macOS (sources `~/.local/share/omarchy/default/bash/rc`, guarded so it's harmless elsewhere). `bash-ubuntu` is for the Ubuntu remote (`/etc/skel`-derived prompt, same toolchain init block). Only stow one per host.
 
 ## Notable Quirks
 
-- Starship config is the flat file `~/.config/starship.toml`, not nested under `starship/`.
-- btop: if added to a new machine, set `save_config_on_exit = false` (otherwise it auto-saves and dirties git on every exit).
+- btop: `save_config_on_exit = False` is set in the tracked config to stop btop from rewriting the file on exit (older btop versions also silently strip newer fields they don't understand — e.g. v1.3.0 drops `gpu0` from `shown_boxes` if the host has no detected GPU). **Don't change settings in btop's UI expecting them to persist** — edit `btop/.config/btop/btop.conf` directly.
 - LazyVim has `omarchy-theme-hotreload.lua` reloading colorschemes via `User LazyReload`.
 - `KEYBINDINGS.md` (repo root) is the authoritative keybind hierarchy doc; `omarchy-overrides/.config/bin/keybind-audit` regenerates the cross-program audit on demand.

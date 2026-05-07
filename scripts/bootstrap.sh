@@ -11,7 +11,7 @@
 #
 # Profiles:
 #   ubuntu   — headless remote (no GUI/Wayland packages)
-#   omarchy  — Arch + Hyprland workstation (full set, minus starship)
+#   omarchy  — Arch + Hyprland workstation (full set)
 #   macair   — macOS Air (cross-platform + Mac-only apps)
 #
 # Pre-reqs: git, stow installed.
@@ -28,16 +28,16 @@ readonly REPO_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # Keep alphabetised within each section for diff-friendliness.
 
 readonly UBUNTU_PKGS=(
-  bash-ubuntu btop ccls clangd claudecode fish gitconfig
+  bash-ubuntu btop ccls clangd claudecode gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
-  ssh tmux vim
+  ssh tmux
 )
 
 readonly OMARCHY_PKGS=(
   # cross-platform core
-  bash-omarchy btop ccls clangd claudecode fish ghostty gitconfig
+  bash-omarchy btop ccls clangd claudecode ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
-  ssh tmux vim vimium
+  ssh tmux vimium
   # Omarchy-specific (Wayland/Hyprland stack + omarchy-* infra)
   alacritty fastfetch omarchy-hyprland omarchy-overrides omarchy-themes
   rofi vpn wallpapers waybar zathura
@@ -45,9 +45,9 @@ readonly OMARCHY_PKGS=(
 
 readonly MACAIR_PKGS=(
   # cross-platform core
-  bash-omarchy btop ccls clangd claudecode fish ghostty gitconfig
+  bash-omarchy btop ccls clangd claudecode ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
-  ssh starship tmux vim vimium
+  ssh tmux vimium
   # macOS-specific
   wezterm
 )

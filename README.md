@@ -32,7 +32,6 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 | ccls       | C/C++ LSP config                                                               |
 | clangd     | C/C++ LSP config                                                               |
 | claudecode | settings.json + portable statusline (uses `$HOME`)                             |
-| fish       |                                                                                |
 | ghostty    | Terminal — Omarchy theme integration applies if Omarchy is in use              |
 | gitconfig  | `includeIf` switches to work email on path match (see `gitconfig/.gitconfig`)  |
 | lazydocker |                                                                                |
@@ -41,12 +40,10 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 | mise       | Tool versions (`config.toml`)                                                  |
 | opencode   |                                                                                |
 | ripgrep-all | rga config (`config.jsonc`); auto-gen schema not tracked                      |
-| setup      | `cocoEd.sh` (bash) has hostname-switch; `cocoEd-fish.sh` lacks it              |
+| setup      | `cocoEd.sh` (bash) has hostname-switch                                         |
 | ssh        | Machine-specific IPs/hostnames; current baseline ported from Omarchy live      |
-| starship   | Flat file at `~/.config/starship.toml` (not under `starship/.config/...`)      |
 | stow       | Just `.stowrc`                                                                 |
 | tmux       | `tmux.conf` is Omarchy-vendored — edit `tmux.user.conf` for user customizations |
-| vim        |                                                                                |
 | vimium     | Browser extension JSON                                                         |
 
 ### Omarchy / Linux only
@@ -75,7 +72,7 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 
 | Path     | Purpose                                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| dumpyard | Archived/retired configs: i3, i3status, dunst (X11 era); AstroNvim, vscode-neovim, old `nvim/` (pre-LazyVim); oh-my-tmux `conf.local`; crush, karabiner, neofetch, rectangle, sioyek, ticker (tried-and-discarded) |
+| dumpyard | Archived/retired configs: i3, i3status, dunst (X11 era); AstroNvim, vscode-neovim, old `nvim/` (pre-LazyVim); oh-my-tmux `conf.local`; crush, karabiner, neofetch, rectangle, sioyek, ticker (tried-and-discarded); fish, starship, vim, `cocoEd-fish.sh` (retired 2026-05-07) |
 | scripts  | Utility scripts run directly, not symlinked                                                                                        |
 
 ## Bootstrapping a new machine
@@ -90,9 +87,9 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 
 | Profile | What it installs | Used on |
 | ------- | ---------------- | ------- |
-| `ubuntu` | 17 packages — cross-platform headless core (uses `bash-ubuntu`; no GUI/Wayland deps; no `ghostty`/`vimium`/`starship`) | Remote dev box (uburemote) |
-| `omarchy` | 29 packages — full set including `omarchy-*` and Wayland stack (no `starship` per dormancy) | Omarchy workstations (omarchy-tp) |
-| `macair` | 21 packages — cross-platform core + `wezterm` | macOS Air (macair) |
+| `ubuntu` | 15 packages — cross-platform headless core (uses `bash-ubuntu`; no GUI/Wayland deps; no `ghostty`/`vimium`) | Remote dev box (uburemote) |
+| `omarchy` | 27 packages — full set including `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
+| `macair` | 18 packages — cross-platform core + `wezterm` | macOS Air (macair) |
 
 Each profile's package list is in `scripts/bootstrap.sh`'s `<PROFILE>_PKGS` arrays — that file is the source of truth for "what's installed where" across the 3 workstations.
 
@@ -119,7 +116,7 @@ Step-by-step replication for a fresh Ubuntu 24.04 desktop. The bootstrap script'
 
 ```bash
 sudo apt update
-sudo apt install -y git stow bash fish
+sudo apt install -y git stow bash
 ```
 
 Plus install the runtime tools as needed: `btop`, `tmux`, `lazygit`, `lazydocker`, `fzf`, `ripgrep`, `ripgrep-all`, `mise`, `neovim` (≥ 0.11), etc. See `scripts/deps_install.sh` for apt+snap variants.
@@ -137,9 +134,9 @@ stow stow                        # one-time: seeds ~/.stowrc with --target=$HOME
 Alphabetised. Run with `-n -v` first to dry-run if you want to preview. Conflicts (`WARNING! stowing X would cause conflicts`) usually mean a live real file at the target needs to be removed first — investigate per-package.
 
 ```bash
-for pkg in bash-omarchy btop ccls clangd claudecode fish ghostty gitconfig \
+for pkg in bash-omarchy btop ccls clangd claudecode ghostty gitconfig \
            lazydocker lazygit mise opencode ripgrep-all setup ssh \
-           starship tmux vim vimium; do
+           tmux vimium; do
   stow -v "$pkg"
 done
 ```
@@ -157,7 +154,7 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 ### Verify
 
 ```bash
-ls -la ~/.config/{tmux,nvim,lazygit,lazydocker,git,claudecode,clangd,ccls,fish,mise,ripgrep-all}
+ls -la ~/.config/{tmux,nvim,lazygit,lazydocker,git,claudecode,clangd,ccls,mise,ripgrep-all}
 ls -la ~/.bashrc ~/.ssh/config
 ```
 

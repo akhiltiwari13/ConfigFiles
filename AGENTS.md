@@ -29,9 +29,9 @@ configfiles/
 | Add new stow package | `mkdir -p pkg/.config/app && stow pkg` | Always dry-run first: `stow -n -v pkg` |
 | Edit Hyprland config | `omarchy-hyprland/.config/hypr/` | 3-layer source hierarchy — see hypr AGENTS.md |
 | Edit Neovim/LazyVim | `lazyvim/nvim/.config/nvim/lua/plugins/` | See lazyvim AGENTS.md for plugin conventions |
-| Shell environment | `setup/.config/cocoEd.sh`, `cocoEd-fish.sh` | Bash has hostname detection; fish version hardcodes `~/files` |
+| Shell environment | `setup/.config/cocoEd.sh` | Bash has hostname detection; retired fish version archived at `dumpyard/cocoEd-fish.sh` |
 | Install deps on new machine | `scripts/deps_install.sh` | Uses snap→apt fallback; needs sudo |
-| Reference old configs | `dumpyard/` | i3/i3status, AstroNvim, bashrc, zshrc, old tmux, dunst, crush, karabiner, neofetch, rectangle, sioyek, ticker |
+| Reference old configs | `dumpyard/` | i3/i3status, AstroNvim, bashrc, zshrc, old tmux, dunst, crush, karabiner, neofetch, rectangle, sioyek, ticker, fish, starship, vim |
 
 ## Stow Package Convention
 
@@ -40,7 +40,6 @@ configfiles/
 ghostty/.config/ghostty/config  →  ~/.config/ghostty/config
 
 # Home dotfile — links to ~/.<file>
-vim/.vimrc  →  ~/.vimrc
 ssh/.ssh/config  →  ~/.ssh/config
 ```
 
@@ -75,7 +74,7 @@ Applies to: hyprland, alacritty, ghostty, kitty (any config with `source` or `in
 |--------|----------|-------|
 | Lua | lazyvim | 2 spaces, 120 cols, `stylua` formatter |
 | .conf | hyprland, omarchy-hyprland | `#` comments, wiki links |
-| TOML | starship, alacritty | Standard TOML |
+| TOML | alacritty | Standard TOML |
 | JSONC | waybar | 2 spaces, `//` comments |
 | Shell | scripts, setup | `#!/usr/bin/env bash`, `snake_case` funcs, quote vars |
 
@@ -109,11 +108,10 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 ## Notes
 
 - **btop**: If ported, set `save_config_on_exit = false` — otherwise auto-saves dirty git on every exit
-- **Starship**: Config is `~/.config/starship.toml` (flat file), NOT `~/.config/starship/starship.toml`
 - **lazyvim/nvim**: Extra nesting (`lazyvim/nvim/.config/nvim/`) — the `nvim/` layer is intentional
 - **Theme hotreload**: LazyVim has `omarchy-theme-hotreload.lua` that reloads themes via `User LazyReload` autocmd
-- Evolution: i3 → Hyprland, AstroNvim → LazyVim, zsh/bash → fish (old configs in `dumpyard/`); the standalone `hyprland/` package was removed — only `omarchy-hyprland/` remains.
-- **setup/ has two files**: `cocoEd.sh` (bash) and `cocoEd-fish.sh` (fish) — fish version lacks hostname detection (always uses `~/files`)
+- Evolution: i3 → Hyprland, AstroNvim → LazyVim, zsh → bash (old configs in `dumpyard/`); the standalone `hyprland/` package was removed — only `omarchy-hyprland/` remains. `fish`, `starship`, and `vim` were retired and archived to `dumpyard/` on 2026-05-07.
+- **setup/**: only `cocoEd.sh` (bash) is active; the retired fish counterpart is at `dumpyard/cocoEd-fish.sh`
 - **Empty/minimal packages**: `ccls/` and `clangd/` have small LSP configs as of May 2026.
 - **Cross-platform audit**: see `README.md` § "Cross-Platform Compatibility" for per-package portability classification across Omarchy + macOS Air.
 - **waybar scripts**: `waybar/.config/waybar/scripts/` contains 4 VPN toggle scripts (`vpn-toggle.sh`, `vpn-multi-toggle.sh`, `openvpn.sh`, `openvpn3.sh`)
