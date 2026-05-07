@@ -39,6 +39,6 @@
 [url "git@github-work:Alkimi-Exchange/"]
 	insteadOf = git@github.com:Alkimi-Exchange/
 
-# Use work email for anything under ~/Work/
+# Use work email for alkimi projects
 [includeIf "gitdir:~/Work/projects/alkimi/"]
 	path = ~/.config/git/config-work
