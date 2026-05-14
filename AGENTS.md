@@ -115,3 +115,4 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 - **Empty/minimal packages**: `ccls/` and `clangd/` have small LSP configs as of May 2026.
 - **Cross-platform audit**: see `README.md` § "Cross-Platform Compatibility" for per-package portability classification across Omarchy + macOS Air.
 - **waybar scripts**: `waybar/.config/waybar/scripts/` contains 4 VPN toggle scripts (`vpn-toggle.sh`, `vpn-multi-toggle.sh`, `openvpn.sh`, `openvpn3.sh`)
+- **Remote GUI forwarding**: xpra per-app + reattachable from uburemote. Helpers `xrun`/`xrejoin`/`xls`/`xstop` in `bash-omarchy/.bashrc` (display `:100`); SSH X11 forwarding scoped to the `quompt` Host block only. See README § "Remote GUI from uburemote (xpra)".

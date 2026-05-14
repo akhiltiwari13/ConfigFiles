@@ -108,6 +108,32 @@ Each profile's package list is in `scripts/bootstrap.sh`'s `<PROFILE>_PKGS` arra
 
 Conflicts during stow (e.g. live real file where the repo wants to symlink) are reported but not auto-resolved — investigate per-package.
 
+## Remote GUI from uburemote (xpra)
+
+Run individual GUI apps on the headless Ubuntu remote (`quompt`) and render their windows on whichever client you're SSH'd in from. Sessions survive disconnects and reattach cleanly from a different client — start Firefox on the Mac, suspend the laptop, open the ThinkPad, `xrejoin`, same window.
+
+**Server (uburemote) — once:**
+```bash
+./scripts/deps_install.sh        # installs xpra, xauth, x11-xserver-utils, xvfb
+```
+SSH X11 forwarding is already opt-in on the `quompt` host block in `ssh/.ssh/config`.
+
+**Client install:**
+- **macOS Air** — `brew bundle --file=Brewfile` (or `brew install --cask xquartz && brew install xpra`). XQuartz needs a logout/login after first install.
+- **Omarchy ThinkPad** — `sudo pacman -S xpra` (the snapshot in `official-explicit-omarchypkgs.txt` is a `pacman -Qe` dump and isn't a manifest, so it's not auto-installed). XWayland is already enabled by Hyprland's defaults — no extra config.
+
+**Daily use** (aliases live in `bash-omarchy/.bashrc`, gated by `command -v xpra`):
+```bash
+xrun firefox            # start firefox on uburemote, window renders locally
+xrun "code ~/Work"      # quote multi-arg commands
+# ... disconnect, switch clients, whatever ...
+xrejoin                 # reattach display :100 from any machine
+xls                     # list live sessions on uburemote
+xstop                   # tear down :100
+```
+
+**Fallback — `ssh -X`:** for trivial one-shots (`ssh quompt xeyes`). Untrusted X11, dies with the SSH session. xpra is preferred for anything you want to come back to.
+
 ## Manual stow sequence (Ubuntu 24.04 desktop)
 
 Step-by-step replication for a fresh Ubuntu 24.04 desktop. The bootstrap script's `ubuntu` profile is scoped for headless remotes (skips `ghostty` + `vimium`); this manual recipe includes them since a desktop has a GUI.
