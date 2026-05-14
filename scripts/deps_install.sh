@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#@brief:  install script for ubuntu (mirrors pkg in my omarchy and mac workstations)
 # Update and upgrade package lists
 sudo apt update -y && sudo apt upgrade -y
 
