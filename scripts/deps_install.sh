@@ -9,7 +9,7 @@ install_package() {
     local snap_pkg="${2:-}"
     local apt_pkg="${3:-$1}"
 
-    if snap list "$snap_pkg" &> /dev/null || sudo snap install "$snap_pkg"; then
+    if snap list "$snap_pkg" &>/dev/null || sudo snap install "$snap_pkg"; then
         echo "Installed $snap_pkg via snap."
     elif sudo apt install -y "$apt_pkg"; then
         echo "Installed $apt_pkg via apt."
@@ -66,6 +66,11 @@ install_package tree
 install_package yarn
 install_package zig
 
+install_package xpra
+install_package xauth
+install_package x11-xserver-utils
+install_package xvfb
+
 # Fonts - use manual download for nerd fonts if needed
 echo "Fonts may need manual installation. Refer to Nerd Fonts website."
 
@@ -81,7 +86,7 @@ install_package tor
 install_package zoom-client
 
 # VSCode Extensions (requires VSCode CLI to be installed)
-if command -v code &> /dev/null; then
+if command -v code &>/dev/null; then
     echo "Installing VSCode extensions..."
     code --install-extension adpyke.codesnap
     code --install-extension asvetliakov.vscode-neovim
