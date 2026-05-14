@@ -43,6 +43,8 @@ claudecode/.claude/downloads/
 claudecode/.claude/ide/
 claudecode/.claude/tasks/
 claudecode/.claude/shell-snapshots/
+claudecode/.claude/.last-cleanup
+claudecode/.claude/plans/
 /.sisyphus
 
 # Tmux server/client log files (e.g. when tmux runs from inside the configfiles dir)

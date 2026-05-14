@@ -1,11 +1,5 @@
 {
   "model": "opus[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "bash /home/quomptrade/.claude/statusline-command.sh"
-  },
-  "theme": "auto",
-  "skipAutoPermissionPrompt": true,
   "hooks": {
     "SessionStart": [
       {
@@ -29,5 +23,14 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/quomptrade/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "code-modernization@claude-plugins-official": true
+  },
+  "theme": "light",
+  "skipAutoPermissionPrompt": true
 }
