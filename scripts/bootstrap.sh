@@ -49,7 +49,7 @@ readonly MACAIR_PKGS=(
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh tmux vimium
   # macOS-specific
-  wezterm
+  wezterm zsh
 )
 
 usage() {
