@@ -36,7 +36,7 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium` | Remote dev box (uburemote) |
 | `omarchy` | 27 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
-| `macair` | 18 — cross-platform core + `wezterm` | macOS Air |
+| `macair` | 19 — cross-platform core + `wezterm` + `zsh` | macOS Air |
 
 ```bash
 ./scripts/bootstrap.sh <profile> --list      # show what would be stowed
@@ -78,7 +78,7 @@ These differ per workstation and require care when editing:
 - `omarchy-hyprland/.config/hypr/monitors.conf` — display layout
 - `setup/.config/cocoEd.sh` — uses `hostname` to switch Mac vs Linux paths (extend for new machines). The retired fish counterpart now lives at `dumpyard/cocoEd-fish.sh`.
 - `ssh/.ssh/config` — IPs/hostnames (ported live → repo on Omarchy in commit `c8aed1b`; Mac Air sync requires manual merge against this baseline)
-- **`bash-omarchy` vs `bash-ubuntu`** — mutually exclusive `~/.bashrc` packages. `bash-omarchy` covers Arch + macOS (sources `~/.local/share/omarchy/default/bash/rc`, guarded so it's harmless elsewhere). `bash-ubuntu` is for the Ubuntu remote (`/etc/skel`-derived prompt, same toolchain init block). Only stow one per host.
+- **`bash-omarchy` vs `bash-ubuntu` vs `zsh`** — mutually exclusive shell packages. `bash-omarchy` covers Arch + macOS-via-bash (sources `~/.local/share/omarchy/default/bash/rc`, guarded so it's harmless elsewhere). `bash-ubuntu` is for the Ubuntu remote (`/etc/skel`-derived prompt, same toolchain init block). `zsh` is the macOS-via-zsh package (oh-my-zsh + Mac Homebrew paths). Pick one per host. xpra helpers (`xrun`/`xrejoin`/`xls`/`xstop`) and the `quompt` alias live in `bash-omarchy` and `zsh` — the client packages — but not in `bash-ubuntu`, since uburemote *is* the xpra server.
 
 ## Notable Quirks
 

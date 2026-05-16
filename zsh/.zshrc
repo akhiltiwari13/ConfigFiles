@@ -163,3 +163,37 @@ alias la='eza -la'
 
 # zoxide replaces cd (use `zd <dir>` or `zd -` etc.)
 eval "$(zoxide init zsh --cmd zd)"
+
+# =============================================================================
+# Parity with bash-omarchy/.bashrc — keep these in sync across hosts.
+# =============================================================================
+
+# Drop into a persistent tmux session on uburemote — survives disconnects.
+# `-A` attaches if it exists, else creates it. `-t` allocates a TTY.
+alias quompt='ssh -t quompt "tmux new-session -A -s muxy-qblr"'
+
+# Per-app GUI forwarding from uburemote via xpra. Spawns a virtual display on
+# the server, launches one app into it, forwards the window over SSH. Persistent
+# across SSH disconnects, reattachable from a different client. All four helpers
+# share display :100 so xrejoin from any machine finds the same session.
+if command -v xpra >/dev/null 2>&1; then
+  xrun()    { xpra start ssh://quompt/100 --start="${*:?usage: xrun <command> [args...]}" --exit-with-children=no; }
+  xrejoin() { xpra attach ssh://quompt/100; }
+  xls()     { xpra list ssh://quompt/; }
+  xstop()   { xpra stop ssh://quompt/100; }
+fi
+
+# mise — runtime version manager (parity with bash-omarchy)
+command -v mise >/dev/null && eval "$(mise activate zsh)"
+
+# rga inherits rg's RIPGREP_CONFIG_PATH (color flags etc). See ~/.ripgreprc.
+[ -f "$HOME/.ripgreprc" ] && export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# shell wrapper for yazi — `cd` to the directory yazi exits in
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}

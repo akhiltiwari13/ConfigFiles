@@ -110,7 +110,7 @@ Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle sc
 - **btop**: If ported, set `save_config_on_exit = false` — otherwise auto-saves dirty git on every exit
 - **lazyvim/nvim**: Extra nesting (`lazyvim/nvim/.config/nvim/`) — the `nvim/` layer is intentional
 - **Theme hotreload**: LazyVim has `omarchy-theme-hotreload.lua` that reloads themes via `User LazyReload` autocmd
-- Evolution: i3 → Hyprland, AstroNvim → LazyVim, zsh → bash (old configs in `dumpyard/`); the standalone `hyprland/` package was removed — only `omarchy-hyprland/` remains. `fish`, `starship`, and `vim` were retired and archived to `dumpyard/` on 2026-05-07.
+- Evolution: i3 → Hyprland, AstroNvim → LazyVim (old configs in `dumpyard/`); the standalone `hyprland/` package was removed — only `omarchy-hyprland/` remains. `fish`, `starship`, and `vim` were retired and archived to `dumpyard/` on 2026-05-07. The `zsh` package (macOS, oh-my-zsh) was added 2026-05-15 — mutually exclusive with `bash-omarchy` on the same host.
 - **setup/**: only `cocoEd.sh` (bash) is active; the retired fish counterpart is at `dumpyard/cocoEd-fish.sh`
 - **Empty/minimal packages**: `ccls/` and `clangd/` have small LSP configs as of May 2026.
 - **Cross-platform audit**: see `README.md` § "Cross-Platform Compatibility" for per-package portability classification across Omarchy + macOS Air.

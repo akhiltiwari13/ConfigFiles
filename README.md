@@ -63,10 +63,11 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 
 ### macOS only
 
-| Package | Notes                          |
-| ------- | ------------------------------ |
-| Brewfile | Homebrew package manifest     |
-| wezterm | Terminal (used Mac-only today) |
+| Package | Notes                                                                       |
+| ------- | --------------------------------------------------------------------------- |
+| Brewfile | Homebrew package manifest                                                  |
+| wezterm | Terminal (used Mac-only today)                                              |
+| zsh     | `~/.zshrc` for macOS — pairs with oh-my-zsh; mutually exclusive with `bash-omarchy` on the same host |
 
 ### Not stowed (kept for reference)
 
@@ -89,7 +90,7 @@ Audit of which stow packages port cleanly across the 3 workstations (2× Omarchy
 | ------- | ---------------- | ------- |
 | `ubuntu` | 15 packages — cross-platform headless core (uses `bash-ubuntu`; no GUI/Wayland deps; no `ghostty`/`vimium`) | Remote dev box (uburemote) |
 | `omarchy` | 27 packages — full set including `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
-| `macair` | 18 packages — cross-platform core + `wezterm` | macOS Air (macair) |
+| `macair` | 19 packages — cross-platform core + `wezterm` + `zsh` (oh-my-zsh) | macOS Air (macair) |
 
 Each profile's package list is in `scripts/bootstrap.sh`'s `<PROFILE>_PKGS` arrays — that file is the source of truth for "what's installed where" across the 3 workstations.
 
