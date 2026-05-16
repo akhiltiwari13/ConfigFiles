@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash '/home/atiwari/.config/tmux/plugins/tmux-assistant-resurrect/hooks/claude-session-track.sh'"
+            "command": "bash \"$HOME/.config/tmux/plugins/tmux-assistant-resurrect/hooks/claude-session-track.sh\""
           }
         ]
       }
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash '/home/atiwari/.config/tmux/plugins/tmux-assistant-resurrect/hooks/claude-session-cleanup.sh'"
+            "command": "bash \"$HOME/.config/tmux/plugins/tmux-assistant-resurrect/hooks/claude-session-cleanup.sh\""
           }
         ]
       }
@@ -26,10 +26,11 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash /home/quomptrade/.claude/statusline-command.sh"
+    "command": "bash \"$HOME/.claude/statusline-command.sh\""
   },
   "enabledPlugins": {
-    "code-modernization@claude-plugins-official": true
+    "code-modernization@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
   },
   "theme": "light",
   "skipAutoPermissionPrompt": true
