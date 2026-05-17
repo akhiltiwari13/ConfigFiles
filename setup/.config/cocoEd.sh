@@ -48,6 +48,13 @@ alias platref='cd ${quompt}/platform_reference'
 #
 alias cocomessage="echo \"I love my dearest nephew, \"Coco\". He is the sweetest kid. He is very smart and creative. I wish him all the happiness. Lots of love.-Shivu Chachu\""
 
+# eza — canonical ls/lt/tree shared across omarchy, ubuntu, macair
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza -lh --group-directories-first --icons=auto'
+  alias lt='eza --tree --level=2 --long --icons --git'
+  alias tree='eza --tree'
+fi
+
 #***********************
 # catppuccin theme setup
 #***********************

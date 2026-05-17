@@ -156,10 +156,8 @@ export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-# eza replaces ls
-alias ls='eza'
-alias ll='eza -l'
-alias la='eza -la'
+# eza aliases (ls/lt/tree) are defined centrally in setup/.config/cocoEd.sh,
+# sourced earlier — shared across omarchy, ubuntu, macair.
 
 # zoxide replaces cd (use `zd <dir>` or `zd -` etc.)
 eval "$(zoxide init zsh --cmd zd)"

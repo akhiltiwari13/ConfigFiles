@@ -134,14 +134,8 @@ command -v mise >/dev/null && eval "$(mise activate bash)"
 # zoxide rebinds `cd` itself (not just `z`) — cd <partial> jumps to most-frecent match
 command -v zoxide >/dev/null && eval "$(zoxide init --cmd cd bash)"
 
-# eza replaces ls — overrides the /etc/skel ls aliases set above
-if command -v eza >/dev/null; then
-  alias ls='eza'
-  alias ll='eza -lah --git --group-directories-first'
-  alias la='eza -A'
-  alias l='eza -CF'
-  alias tree='eza --tree'
-fi
+# eza aliases (ls/lt/tree) are defined centrally in setup/.config/cocoEd.sh,
+# sourced above — shared across omarchy, ubuntu, macair.
 
 # fzf keybinds (Ubuntu ships them under /usr/share/doc/fzf/)
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && \
