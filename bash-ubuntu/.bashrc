@@ -131,8 +131,8 @@ esac
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 [ -d "$HOME/.config/composer/vendor/bin" ] && export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 command -v mise >/dev/null && eval "$(mise activate bash)"
-# zoxide rebinds `cd` itself (not just `z`) — cd <partial> jumps to most-frecent match
-command -v zoxide >/dev/null && eval "$(zoxide init --cmd cd bash)"
+# zoxide provides `z`; the `zd` wrapper + `cd`->zd alias come from cocoEd.sh
+command -v zoxide >/dev/null && eval "$(zoxide init bash)"
 
 # eza aliases (ls/lt/tree) are defined centrally in setup/.config/cocoEd.sh,
 # sourced above — shared across omarchy, ubuntu, macair.

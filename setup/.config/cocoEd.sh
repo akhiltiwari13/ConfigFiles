@@ -55,6 +55,24 @@ if command -v eza >/dev/null 2>&1; then
   alias tree='eza --tree'
 fi
 
+# zd: literal cd to a real path, else zoxide-jump (mirrors Omarchy's default zd).
+# `z` is provided by `zoxide init` later in each shell rc (resolved lazily at
+# call time). Guard: skip if zd already exists (omarchy's default rc defines it,
+# sourced before this file) so we never override the native omarchy version.
+if ! typeset -f zd >/dev/null 2>&1; then
+  zd() {
+    if (( $# == 0 )); then
+      builtin cd ~ || return
+    elif [[ -d $1 ]]; then
+      builtin cd "$1" || return
+    else
+      if ! z "$@"; then echo "Error: Directory not found"; return 1; fi
+      printf "\U000F17A9 "; pwd
+    fi
+  }
+  alias cd=zd
+fi
+
 #***********************
 # catppuccin theme setup
 #***********************

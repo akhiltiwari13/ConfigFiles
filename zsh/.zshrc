@@ -159,8 +159,8 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 # eza aliases (ls/lt/tree) are defined centrally in setup/.config/cocoEd.sh,
 # sourced earlier — shared across omarchy, ubuntu, macair.
 
-# zoxide replaces cd (use `zd <dir>` or `zd -` etc.)
-eval "$(zoxide init zsh --cmd zd)"
+# zoxide provides `z`; the `zd` wrapper + `cd`->zd alias come from cocoEd.sh
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # =============================================================================
 # Parity with bash-omarchy/.bashrc — keep these in sync across hosts.
