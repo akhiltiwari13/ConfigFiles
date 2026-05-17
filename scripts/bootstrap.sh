@@ -47,7 +47,7 @@ readonly MACAIR_PKGS=(
   # cross-platform core (Mac is zsh-only — bash-omarchy intentionally excluded)
   btop ccls clangd claudecode ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
-  ssh tmux vimium
+  ssh tmux vimium zathura
   # macOS-specific
   wezterm zsh
 )
