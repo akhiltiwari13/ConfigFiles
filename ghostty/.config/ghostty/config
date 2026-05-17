@@ -22,6 +22,10 @@ cursor-style-blink = false
 # (all shell integration options must be passed together)
 shell-integration-features = no-cursor,ssh-env
 
+# macOS: left Option sends Alt/Meta (needed for tmux M-* bindings).
+# Right Option stays as the macOS composer key (é, ñ, ∆, …).
+macos-option-as-alt = left
+
 # Keyboard bindings
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
