@@ -44,8 +44,8 @@ readonly OMARCHY_PKGS=(
 )
 
 readonly MACAIR_PKGS=(
-  # cross-platform core
-  bash-omarchy btop ccls clangd claudecode ghostty gitconfig
+  # cross-platform core (Mac is zsh-only — bash-omarchy intentionally excluded)
+  btop ccls clangd claudecode ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh tmux vimium
   # macOS-specific
