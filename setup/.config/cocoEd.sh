@@ -1,11 +1,8 @@
 #! /bin/sh
 # my utility scripts.
 
-if [[ "$(hostname)" == "akhils-MacBook-Air.local" ]]; then
-  export work="${HOME}/files"
-else
-  export work="${HOME}/Work"
-fi
+# Unified across all hosts (Mac ~/files was renamed to ~/Work to match Linux).
+export work="${HOME}/Work"
 
 export projects="${work}/projects"
 export learn="${work}/learn"

@@ -16,7 +16,7 @@ return {
     workspaces = {
       {
         name = "my-zettelkasten",
-        path = "~/Work/notes:~/files/notes",
+        path = "~/Work/notes",
       },
     },
     templates = {
