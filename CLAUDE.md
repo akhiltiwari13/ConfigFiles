@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 GNU Stow-managed dotfiles for 3 workstations: 2× Omarchy (Arch + Hyprland), 1× macOS Air. **No build system, no tests, no CI.** Each top-level directory is a stow package mirroring `$HOME` structure.
 
-`stow/.stowrc` sets `--target=$HOME` and ignores `.git`, `README.*`, `AGENTS.md`. The repo's authoritative knowledge base is `AGENTS.md` at the root, plus per-package AGENTS.md files (currently `omarchy-hyprland/.config/hypr/AGENTS.md`) — read these for full context before non-trivial edits.
+`stow/.stowrc` sets `--target=$HOME` and ignores `.git`, `README.*`, `AGENTS.md`. The repo's authoritative knowledge base is `AGENTS.md` at the root, plus per-package AGENTS.md files (currently `lazyvim/nvim/.config/nvim/AGENTS.md`) — read these for full context before non-trivial edits. `KEYBINDINGS.md` at the root is the authoritative cross-program keybinding hierarchy (Hyprland → terminal → tmux → Neovim → TUI letters); consult it before touching any chord-bearing config.
 
 ## Stow Workflow
 
@@ -43,6 +43,8 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 ./scripts/bootstrap.sh <profile> --dry-run   # preview without changes
 ./scripts/bootstrap.sh <profile>             # actually stow
 ```
+
+On a fresh box, run `stow stow` once manually before `bootstrap.sh` — that seeds `~/.stowrc` with the right `--target` and ignore patterns. `scripts/deps_install.sh` is the companion runtime-deps installer (apt+snap fallback, also handles xpra server bits for uburemote).
 
 `scripts/` itself is **not a stow package** — it holds utility scripts run directly. Same goes for `dumpyard/` (archived configs).
 

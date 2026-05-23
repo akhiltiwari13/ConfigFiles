@@ -63,3 +63,4 @@ ssh/.ssh/known_hosts*
 ssh/.ssh/agent/
 /claudecode/.claude/policy-limits.json
 /claudecode/.claude/plugins
+/opencode/.config/opencode/plugins/session-tracker.js

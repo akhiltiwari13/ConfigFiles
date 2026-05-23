@@ -125,3 +125,6 @@ EOF
   fi
   disown
 }
+
+# direnv: load per-directory environments (e.g. nix dev shells via .envrc)
+eval "$(direnv hook bash)"
