@@ -42,3 +42,10 @@
 # Use work email for alkimi projects
 [includeIf "gitdir:~/Work/projects/alkimi/"]
 	path = ~/.config/git/config-work
+[includeIf "gitdir:~/Work/tries/alkimi-mmp-rearcht/"]
+	path = ~/.config/git/config-work
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

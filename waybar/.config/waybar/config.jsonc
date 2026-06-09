@@ -3,30 +3,19 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 30,
-  "modules-left": [
-    "custom/omarchy",
-    "hyprland/workspaces"
-  ],
+  "height": 26,
+  "modules-left": ["custom/omarchy", "hyprland/workspaces"],
   "modules-center": [
-    "clock#local",
-    "clock#sgpore",
-    "clock#dubai",
-    "clock#utc",
-    "clock#est",
-    "clock#mst",
+    "clock",
+    "custom/clock#utc",
+    "custom/weather",
     "custom/update",
-    "custom/screenrecording-indicator"
+    "custom/voxtype",
+    "custom/screenrecording-indicator",
+    "custom/idle-indicator",
+    "custom/notification-silencing-indicator",
   ],
-  "modules-right": [
-    "group/tray-expander",
-    "bluetooth",
-    "network",
-    "custom/openvpn",
-    "pulseaudio",
-    "cpu",
-    "battery"
-  ],
+  "modules-right": ["group/tray-expander", "bluetooth", "network", "pulseaudio", "cpu", "battery"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -42,18 +31,21 @@
       "8": "8",
       "9": "9",
       "10": "0",
-      "active": "󱓻"
+      "active": "󱓻",
     },
     "persistent-workspaces": {
       "1": [],
-      "2": []
-    }
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+    },
   },
   "custom/omarchy": {
     "format": "<span font='omarchy'>\ue900</span>",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
   },
   "custom/update": {
     "format": "",
@@ -61,71 +53,40 @@
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
     "tooltip-format": "Omarchy update available",
     "signal": 7,
-    "interval": 21600
+    "interval": 21600,
   },
+
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "omarchy-launch-or-focus-tui btop"
+    "on-click": "omarchy-launch-or-focus-tui btop",
+    "on-click-right": "alacritty",
   },
-  "clock#local": {
-    "format": "Bharat=>{:L%d/%b/%Y (%A) %H:%M}",
-    "tooltip": true,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-    "timezone": "Asia/Kolkata"
-  },
-  "clock#sgpore": {
-    "format": "|Singapore=>{:L%H:%M}",
+  "clock": {
+    "format": "{:L%A %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
-    "timezone": "Asia/Singapore"
-  },
-  "clock#dubai": {
-    "format": "|Dubai=>{:L%H:%M}",
-    "tooltip": false,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-    "timezone": "Asia/Dubai"
   },
-  "clock#utc": {
-    "format": "|UTC=>{:L%H:%M}",
+  "custom/weather": {
+    "exec": "$OMARCHY_PATH/default/waybar/weather.sh",
+    "return-type": "json",
+    "interval": 60,
     "tooltip": false,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-    "timezone": "UTC"
-  },
-  "clock#est": {
-    "format": "|US(est)=>{:L%H:%M}",
-    "tooltip": false,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-    "timezone": "EST"
-  },
-  "clock#mst": {
-    "format": "|Denver(mst)=>{:L%H:%M}",
-    "tooltip": false,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-    "timezone": "MST"
+    "on-click": "notify-send -u low \"$(omarchy-weather-status)\"",
   },
   "network": {
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)",
+    "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "omarchy-launch-wifi"
+    "on-click": "omarchy-launch-wifi",
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -133,30 +94,8 @@
     "format-charging": "{icon}",
     "format-plugged": "",
     "format-icons": {
-      "charging": [
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
-      ],
-      "default": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-      ]
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     },
     "format-full": "󰂅",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
@@ -166,17 +105,17 @@
     "on-click-right": "notify-send -u low \"$(omarchy-battery-status)\"",
     "states": {
       "warning": 20,
-      "critical": 10
-    }
+      "critical": 10,
+    },
   },
   "bluetooth": {
     "format": "",
-    "format-disabled": "󰂲",
     "format-off": "󰂲",
+    "format-disabled": "󰂲",
     "format-connected": "󰂱",
     "format-no-controller": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omarchy-launch-bluetooth"
+    "on-click": "omarchy-launch-bluetooth",
   },
   "pulseaudio": {
     "format": "{icon}",
@@ -188,33 +127,42 @@
     "format-icons": {
       "headphone": "",
       "headset": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
+      "default": ["", "", ""],
+    },
   },
   "group/tray-expander": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 600,
-      "children-class": "tray-group-item"
+      "children-class": "tray-group-item",
     },
-    "modules": [
-      "custom/expand-icon",
-      "tray"
-    ]
+    "modules": ["custom/expand-icon", "tray"],
   },
   "custom/expand-icon": {
     "format": "",
-    "tooltip": false
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-scroll-left": "",
+    "on-scroll-right": "",
   },
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-capture-screenrecording",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
-    "return-type": "json"
+    "return-type": "json",
+  },
+  "custom/idle-indicator": {
+    "on-click": "omarchy-toggle-idle",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
+    "signal": 9,
+    "return-type": "json",
+  },
+  "custom/notification-silencing-indicator": {
+    "on-click": "omarchy-toggle-notification-silencing",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
+    "signal": 10,
+    "return-type": "json",
   },
   "custom/voxtype": {
     "exec": "omarchy-voxtype-status",
@@ -223,27 +171,22 @@
     "format-icons": {
       "idle": "",
       "recording": "󰍬",
-      "transcribing": "󰔟"
+      "transcribing": "󰔟",
     },
     "tooltip": true,
     "on-click-right": "omarchy-voxtype-config",
-    "on-click": "omarchy-voxtype-model"
-  },
-  "custom/idle-indicator": {
-    "on-click": "omarchy-toggle-idle",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
-    "signal": 9,
-    "return-type": "json"
-  },
-  "custom/notification-silencing-indicator": {
-    "on-click": "omarchy-toggle-notification-silencing",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
-    "signal": 10,
-    "return-type": "json"
+    "on-click": "omarchy-voxtype-model",
   },
   "tray": {
     "icon-size": 12,
-    "spacing": 17
+    "spacing": 17,
+  },
+  // quomptrade custom changes
+  "custom/clock#utc": {
+    "format": "|utc=>{:L%A %H:%M}",
+    "tooltip": false,
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    "timezone": "UTC",
   },
   "custom/openvpn": {
     "exec": "~/.config/waybar/scripts/vpn-multi-toggle.sh",
@@ -251,6 +194,6 @@
     "format": "{}",
     "return-type": "json",
     "on-click": "~/.config/waybar/scripts/vpn-multi-toggle.sh toggle",
-    "tooltip": true
-  }
+    "tooltip": true,
+  },
 }
