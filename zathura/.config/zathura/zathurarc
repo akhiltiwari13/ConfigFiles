@@ -1,6 +1,6 @@
-include "zathura-lighthaus/src/zathurarc"
-# include catppuccin-macchiato
-# include "catppuccin-mocha"
+# include "zathura-lighthaus/src/zathurarc"
+# include "zathura-tokyonight.zathurarc"
+include "catppuccin-macchiato.zathurarc"
 # include "catppuccin-latte"
 # set font "Cascadia Mono Bold 9.5"
 set font "CaskaydiaMono Nerd Font Bold 9.5"
