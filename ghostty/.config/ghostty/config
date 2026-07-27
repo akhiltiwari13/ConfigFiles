@@ -3,8 +3,8 @@ config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
 # Font
 font-family = "CaskaydiaMono Nerd Font"
-font-style = Bold
-font-size = 8
+font-style = Normal
+font-size = 9
 
 # Window
 window-theme = ghostty
