@@ -14,8 +14,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-  *) return ;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -47,7 +47,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-  xterm-color | *-256color) color_prompt=yes ;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -72,10 +72,10 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-  xterm* | rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-  *) ;;
+xterm* | rxvt*)
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
+*) ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -117,14 +117,14 @@ fi
 
 # Point at the systemd-user ssh-agent socket. Prereq once per machine:
 #   systemctl --user enable --now ssh-agent.socket
-[ -z "${SSH_AUTH_SOCK:-}" ] && [ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket" ] \
-  && export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
+[ -z "${SSH_AUTH_SOCK:-}" ] && [ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket" ] &&
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
 
 # Ensure ~/.local/bin is on PATH first — mise, zoxide, fd/bat shims live here.
 # Must come before the `command -v mise` check or activation silently no-ops.
 case ":$PATH:" in
-  *":$HOME/.local/bin:"*) ;;
-  *) export PATH="$HOME/.local/bin:$PATH" ;;
+*":$HOME/.local/bin:"*) ;;
+*) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
 # Toolchain activation — guards keep shell startup clean if a tool isn't installed yet
@@ -138,7 +138,7 @@ command -v zoxide >/dev/null && eval "$(zoxide init bash)"
 # sourced above — shared across omarchy, ubuntu, macair.
 
 # fzf keybinds (Ubuntu ships them under /usr/share/doc/fzf/)
-[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && \
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] &&
   source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # shell wrapper for yazi
@@ -149,3 +149,16 @@ function y() {
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
+
+# bash/zsh (~/.bashrc or ~/.zshrc)
+eval "$(try init ~/Work/tries)"
+
+# default editor
+export EDITOR=nvim
+
+# opencode
+export PATH=/home/atiwari/.opencode/bin:$PATH
+
+# >>> oh-my-opencode-slim background subagents >>>
+export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
+# <<< oh-my-opencode-slim background subagents <<<

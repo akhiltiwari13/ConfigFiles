@@ -1,4 +1,5 @@
 [tools]
+conan = "latest"
 go = "latest"
 node = "latest"
 python = "latest"
