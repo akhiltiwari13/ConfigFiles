@@ -39,8 +39,10 @@ readonly OMARCHY_PKGS=(
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh tmux vimium
   # Omarchy-specific (Wayland/Hyprland stack + omarchy-* infra)
-  alacritty fastfetch omarchy-hyprland omarchy-overrides omarchy-themes
-  rofi vpn wallpapers waybar zathura
+  # herdr + omarchy-shell are Omarchy 4 ("quattro") tools; waybar and
+  # omarchy-themes retired to dumpyard/ when quickshell replaced waybar.
+  alacritty fastfetch herdr omarchy-hyprland omarchy-overrides omarchy-shell
+  rofi vpn wallpapers zathura
 )
 
 readonly MACAIR_PKGS=(
