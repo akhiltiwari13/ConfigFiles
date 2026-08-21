@@ -64,3 +64,10 @@ ssh/.ssh/agent/
 /claudecode/.claude/policy-limits.json
 /claudecode/.claude/plugins
 /opencode/.config/opencode/plugins/session-tracker.js
+
+# herdr runtime (sockets, logs, session state) — only config.toml is tracked
+herdr/.config/herdr/*.log
+herdr/.config/herdr/*.sock
+herdr/.config/herdr/.plugins.lock
+herdr/.config/herdr/session.json
+herdr/.config/herdr/release-notes.json
