@@ -34,19 +34,24 @@ Non-standard:    `vimium/` and `vpn/` place files at the package root.
 stow -d <repo>/lazyvim nvim
 ```
 
-## Omarchy 3-Layer Hierarchy
+## Omarchy 4 Layer Hierarchy
 
-Configs with `source`/`include` (hyprland, alacritty, ghostty, kitty) use this precedence:
+Host runs Omarchy `4.0.0.alpha` ("quattro"). Precedence:
 
-1. `~/.local/share/omarchy/default/` — **DO NOT EDIT** (overwritten on update)
-2. `~/.config/omarchy/current/theme/` — managed by theme system
+1. `/usr/share/omarchy/default/` — **DO NOT EDIT** (root-owned pacman package, overwritten on update). `~/.local/share/omarchy` is a compat symlink to it.
+2. `~/.local/state/omarchy/current/theme/` — managed by theme system (**moved** from `~/.config/omarchy/current/`)
 3. `~/.config/<app>/` — user overrides (this repo)
 
-Source order in `omarchy-hyprland/.config/hypr/hyprland.conf` matters — do not reorder.
+**Hyprland is configured in Lua now**, not `.conf` — verify with `hyprctl systeminfo | grep -i configprovider` → `configProvider: lua`. Entry point `omarchy-hyprland/.config/hypr/hyprland.lua` does `dofile(bootstrap.lua)` → `require("default.hypr.omarchy")` → `require("hypr.{monitors,input,bindings,looknfeel,autostart}")` → `require("default.hypr.toggles")`. **Require order matters — do not reorder.** `bootstrap.lua` sets `package.path` to `~/.local/state/?.lua;~/.config/?.lua;$OMARCHY_PATH/?.lua`.
+
+Alacritty, ghostty, and kitty still use plain `source`/`include` — only hypr moved.
+
+**The port to Lua is complete** (2026-08-22). All `source`-based `.conf` files were deleted; five `.lua` modules remain. Only genuine deviations from Omarchy's defaults belong there — 23 of the original 27 `bindd` lines were dropped because Omarchy 4 ships them verbatim, and re-adding one would double-bind it. Check `grep -n 'o\.bind' /usr/share/omarchy/default/hypr/bindings/*.lua` before adding (note: some lines read `o.bind( "KEY"` with a space, which a naive grep misses). `hyprctl binds` is ground truth. Still-live `.conf` files (separate daemons): `hypridle.conf`, `hyprlock.conf`, `hyprsunset.conf`, `xdph.conf`.
 
 ## Anti-Patterns
 
-- **DO NOT** edit `~/.local/share/omarchy/default/` — updates clobber it
+- **DO NOT** edit `/usr/share/omarchy/default/` — updates clobber it (`~/.local/share/omarchy` is a compat symlink to it)
+- **DO NOT** run `stow opencode` or `bootstrap.sh` on this box yet — `~/.config/opencode` is a hand-made symlink to the *package root*, so the live config is the untracked `opencode/{opencode.json,tui.json,plugins/,skills/}` and the tracked `opencode/.config/opencode/` files are shadowed. `stow -n -v opencode` shows it would UNLINK the working link and litter `$HOME` with `node_modules`, `opencode.json`, `package.json`. `opencode` is in all three profiles
 - **DO NOT** modify `tmux/.config/tmux/tmux.conf` — it's Omarchy-vendored. Add customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf`). The upstream `omarchy-refresh-tmux` is shimmed/blocked by `omarchy-overrides/`
 - **DO NOT** stow `dumpyard/` — archived configs (i3, AstroNvim, old shell configs), not for linking
 - **DO NOT** commit: `credentials.txt`, `lazy-lock.json`, `antigravity-accounts.json`, `.credentials.json` (most are gitignored)
@@ -56,7 +61,7 @@ Source order in `omarchy-hyprland/.config/hypr/hyprland.conf` matters — do not
 
 | Package | Hosts |
 |---------|-------|
-| `bash-omarchy` | Omarchy (Arch) + macOS when using bash (sources `~/.local/share/omarchy/default/bash/rc`, guarded) |
+| `bash-omarchy` | Omarchy (Arch) + macOS when using bash (sources `~/.local/share/omarchy/default/bash/rc` — still resolves via the Omarchy 4 compat symlink; guarded) |
 | `bash-ubuntu` | Ubuntu remote (`/etc/skel`-derived, same toolchain init) |
 | `zsh` | macOS oh-my-zsh |
 
@@ -65,19 +70,24 @@ Pick **one** per host. xpra helpers (`xrun`/`xrejoin`/`xls`/`xstop`) live in the
 ## Config Quirks
 
 - **btop**: `save_config_on_exit = false` — edits via the UI won't persist; edit `btop/.config/btop/btop.conf` directly
-- **Hyprland**: use `bindd` (with description), not `bind`
+- **Hyprland bindings**: `o.bind("SUPER + SHIFT + R", "Description", "cmd")`; `hl.unbind(...)` before replacing a default; `hl.monitor({...})`, `hl.env(...)`, `o.window(...)`. Kill-switches `omarchy_default_bindings = false` / `omarchy_preinstalled_bindings = false` go in `hyprland.lua` *before* `require("default.hypr.omarchy")`. The old `bindd =` syntax is dead
+- **Monitors**: `monitors.lua` matches by `desc:` not `DP-N` (port numbers shuffle across dock/replug), pins workspaces 1/2/3 to left BenQ / middle BenQ / laptop, and runs both BenQs at **75Hz** — the Omarchy-generated template had silently dropped them to 60
+- **Hypr Lua tooling**: `omarchy-hyprland/.config/hypr/.luarc.json` points lua-ls at `/usr/share/hypr/stubs` and declares globals `hl`, `o`
+- **herdr**: Omarchy 4's terminal workspace manager (tmux replacement), bound to `SUPER + CTRL + RETURN`. Its `herdr/.config/herdr/config.toml` is hand-tuned to mirror the tmux setup — same `ctrl+space` prefix, same pane/tab/workspace chords — so it shares tmux's conflict surface. Only `config.toml` is tracked; logs, sockets, and session state are gitignored
 - **Keybindings**: `KEYBINDINGS.md` is the authoritative hierarchy doc; `omarchy-overrides/.config/bin/keybind-audit` regenerates the cross-program audit
 - **Remote GUI**: xpra on `:100` — helpers `xrun`/`xrejoin`/`xls`/`xstop` in `bash-omarchy/.bashrc` (also `zsh`)
-- **waybar VPN scripts**: `waybar/.config/waybar/scripts/` has 4 VPN toggle scripts (`vpn-toggle.sh`, `vpn-multi-toggle.sh`, `openvpn.sh`, `openvpn3.sh`)
+- **waybar is retired**: Omarchy 4 replaced it with **quickshell** (`quickshell -n -p /usr/share/omarchy/shell`, started by `omarchy-launch-shell`). `waybar/` and `omarchy-themes/` moved to `dumpyard/`. Bar config is now the **`omarchy-shell/`** package → `~/.config/omarchy/{shell.json,shell.toml}` (via `omarchy-bar` / `omarchy-toggle-bar` / `omarchy-shell-config`, reload `omarchy-refresh-shell`). Those tools rewrite `shell.json` **through the symlink into this repo** — expect `git status` churn after using the bar's settings UI; it is mode `0600`
+- **VPN scripts**: salvaged from the retired waybar package into `omarchy-overrides/.config/bin/` (already on `PATH`). They still work as CLI toggles; only their waybar-JSON status mode has no consumer now
 
 ## File Formats
 
 | Format | Packages | Style |
 |--------|----------|-------|
 | Lua | lazyvim | 2 spaces, 120 cols, `stylua` formatter |
-| .conf | hyprland, omarchy-hyprland | `#` comments, wiki links |
-| TOML | alacritty | Standard TOML |
-| JSONC | waybar | 2 spaces, `//` comments |
+| Lua | omarchy-hyprland | 2 spaces; keep Omarchy's commented template examples as inline docs |
+| .conf | omarchy-hyprland (daemons only: hypridle, hyprlock, hyprsunset, xdph) | `#` comments, wiki links |
+| TOML | alacritty, herdr, omarchy shell (`shell.toml`) | Standard TOML |
+| JSON | omarchy shell (`shell.json`) | managed via `omarchy-shell-config`, not hand-edited |
 | Shell | scripts, setup | `#!/usr/bin/env bash`, `snake_case` funcs, quote vars |
 
 ## Commit Convention
@@ -86,4 +96,4 @@ Pick **one** per host. xpra helpers (`xrun`/`xrejoin`/`xls`/`xstop`) live in the
 [package|package] description
 ```
 
-Examples: `[lazyvim|ssh] comment out ai plugins`, `[waybar] update vpn toggle script`
+Examples: `[lazyvim|ssh] comment out ai plugins`, `[hypr] retire .conf for .lua`

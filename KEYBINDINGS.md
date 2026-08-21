@@ -14,16 +14,25 @@ A separate audit aggregator lives at [`omarchy-overrides/.config/bin/keybind-aud
 Layer 0  Hyprland (WM)        →  SUPER family + ALT+TAB                 (outermost)
 Layer 1  Ghostty (terminal)   →  transparent except 4 minor binds
 Layer 2  tmux (multiplexer)   →  prefix=C-Space + unprefixed M-* / C-M-*
+     2'  herdr (workspace mgr)→  same prefix=C-Space, by design (tmux replacement)
 Layer 3  Neovim (LazyVim)     →  Space leader + standard vim chords
 Layer 4  TUI apps (lazygit,   →  single letters, in-pane only           (innermost)
          lazydocker, ...)
 ```
+
+**tmux and herdr occupy the same layer slot and never run inside one another** — herdr is
+Omarchy 4's tmux replacement, and `herdr/.config/herdr/config.toml` deliberately mirrors the
+tmux keymap (`prefix = "ctrl+space"`, `prefix+c/r/k` tabs, `alt+1..9`, `alt+arrows`,
+`ctrl+alt+arrows` pane focus). That is a feature: whichever one is running, the chords are the
+same. It also means **any change to the tmux rows below must be mirrored into herdr's
+`config.toml`**, or the two drift apart.
 
 Rationale per layer:
 
 - **Layer 0 — Hyprland** owns `SUPER+*` because SUPER is the only chord family the WM actually needs to listen to globally without conflicting with terminal apps. Ghostty/tmux/nvim never bind SUPER.
 - **Layer 1 — Ghostty** is intentionally near-transparent. The four bindings it does claim (`Shift+Insert`, `Ctrl+Insert`, and the deeply-nested `SUPER+CTRL+SHIFT+ALT+arrows` for split resize) are designed not to collide with anything inner.
 - **Layer 2 — tmux** uses `C-Space` as the prefix (Omarchy's choice; replaces oh-my-tmux's older `C-a`). It also uses unprefixed `M-1..M-9` / `M-arrows` / `C-M-arrows` for fast pane/window/session navigation, plus `C-h/j/k/l` (cross-boundary nav via vim-tmux-navigator) and `M-h/j/k/l` (pane resize) — these all live in the ALT family which Hyprland deliberately leaves alone.
+- **Layer 2' — herdr** mirrors tmux rather than competing with it. Its only deliberate divergence is `rename_pane = "prefix+shift+o"`, because herdr's stock `prefix+shift+p` collides with previous-workspace. Launch chord is `SUPER+CTRL+RETURN` (Omarchy 4 default).
 - **Layer 3 — Neovim (LazyVim)** uses `Space` as the leader. Tmux's prefix is `C-Space`, not bare `Space`, so they don't collide. LazyVim's plugin bindings (e.g. `<leader>fp`) are scoped to vim modes only.
 - **Layer 4 — TUI apps** like lazygit/lazydocker bind only single letters within their focused pane — they never claim any chord that an outer layer would intercept.
 
@@ -48,8 +57,13 @@ Audited 2026-05-05. Severity scale: **NONE** (no overlap), **LOW** (theoretical 
 | `ALT+TAB` / `ALT+SHIFT+TAB` | Hyprland (window cycle) | tmux does not intercept ALT+TAB | NONE |
 | `SUPER+SPACE` | Hyprland (walker) | Distinct from tmux's `C-Space` | NONE |
 | `SUPER+letter`, `SUPER+SHIFT+letter`, `SUPER+CTRL+*` | Hyprland (workspace, window mgmt, system utils) | No other layer binds SUPER | NONE |
+| `SUPER+CTRL+RETURN` | Hyprland → **herdr** (Omarchy 4 default) | Took over this chord in the quattro upgrade. The remote-tmux binding it displaced moved to `SUPER+CTRL+SHIFT+RETURN` | NONE |
+| `SUPER+CTRL+SHIFT+RETURN` | Hyprland (Tmux remote — ssh `quomptblr`) | Relocated here rather than unbinding Herdr | NONE |
+| `SUPER+ALT+RETURN` | Hyprland (Tmux, session `muxy-tp`, workspace 1) | Overrides Omarchy's generic terminal-tmux launch | NONE |
+| `SUPER+SHIFT+W` / `SUPER+SHIFT+S` | Hyprland (Typora / Slack) | Override Omarchy 4 defaults (Omawrite / Google Maps); each `hl.unbind` first | NONE |
+| herdr `prefix+shift+o` | herdr (rename pane) | Deliberate divergence from herdr's stock `prefix+shift+p`, which collides with previous-workspace | NONE |
 
-**No MED or HIGH conflicts as of 2026-05-05.**
+**No MED or HIGH conflicts as of 2026-08-22** (re-verified after the Omarchy 4 upgrade and the Hyprland Lua port).
 
 ## 4. tmux plugin layer
 
@@ -91,12 +105,12 @@ Omarchy ships an `omarchy-refresh-tmux` command (also reachable from `omarchy-me
 To prevent this, the [`omarchy-overrides/`](omarchy-overrides/) stow package installs:
 
 - A wrapper at `~/.config/bin/omarchy-refresh-tmux` that calls `notify-send -u critical` and exits 1.
-- A systemd-user `PATH` prepend at `~/.config/environment.d/00-omarchy-overrides.conf` so `~/.config/bin` comes before `~/.local/share/omarchy/bin`. This makes the wrapper shadow the real command for both interactive shells AND Hyprland-launched menu/walker invocations.
+- A systemd-user `PATH` prepend at `~/.config/environment.d/00-omarchy-overrides.conf` so `~/.config/bin` comes before `/usr/share/omarchy/bin`. This makes the wrapper shadow the real command for both interactive shells AND Hyprland-launched menu/walker invocations.
 
 **To deliberately bypass the block** (e.g., you really do want to reset tmux to Omarchy's default), invoke the upstream binary by absolute path:
 
 ```bash
-command ~/.local/share/omarchy/bin/omarchy-refresh-tmux
+command /usr/share/omarchy/bin/omarchy-refresh-tmux
 ```
 
 **After an Omarchy update, re-verify the block still works:**
@@ -127,11 +141,12 @@ Produces a markdown report on stdout with sections for Hyprland (`hyprctl binds`
 
 When the stack changes meaningfully (e.g. a new TUI tool joins, an Omarchy update changes Hyprland defaults), launch parallel Explore agents with these scoped reads:
 
-1. **Hyprland**: `omarchy-hyprland/.config/hypr/bindings.conf`, `hyprland.conf`, plus `~/.local/share/omarchy/default/hypr/*.conf` for the Omarchy-shipped defaults.
+1. **Hyprland**: `omarchy-hyprland/.config/hypr/bindings.lua`, `hyprland.lua`, plus `/usr/share/omarchy/default/hypr/**/*.lua` for the Omarchy-shipped defaults. Under Omarchy 4 the `.conf` files are no longer read — `hyprctl binds` is the ground truth.
 2. **Ghostty**: `ghostty/.config/ghostty/config` — grep `^[[:space:]]*keybind[[:space:]]*=`.
 3. **tmux**: `tmux/.config/tmux/tmux.conf` (Omarchy base) + `tmux/.config/tmux/tmux.user.conf` (plugin layer). For plugin defaults, read each plugin's README at `~/.config/tmux/plugins/<name>/README.md`.
 4. **LazyVim**: `lazyvim/nvim/.config/nvim/lua/config/keymaps.lua` plus `lua/plugins/*.lua` (grep for `keys = {` tables).
 5. **lazygit / lazydocker**: read `~/.config/{lazygit,lazydocker}/config.yml` if present, otherwise document the well-known defaults.
+6. **herdr**: `herdr/.config/herdr/config.toml` — the `[keys]` table. Mirrors tmux by design, so audit the two together and mirror any change.
 
 Each agent should return: chord families used, specific chords claimed, and any inheritance-from-defaults vs explicit-rebind. Aggregate into the matrix in §3.
 
@@ -139,12 +154,19 @@ Each agent should return: chord families used, specific chords claimed, and any 
 
 This is a static snapshot of the audit results from 2026-05-05. The aggregator script provides an up-to-the-minute version on demand.
 
+> [!NOTE]
+> Re-verified 2026-08-22, after the Omarchy 4 upgrade and the Hyprland `.conf` → `.lua` port.
+> All 27 of the original personal bindings were confirmed still reachable; 23 of them are now
+> served by Omarchy 4's own defaults rather than by this repo. `hyprctl binds` remains the
+> ground truth — the repo's `bindings.lua` intentionally holds only the 4 deviations.
+
 | Layer | Chord families used | Conflicts found |
 |---|---|---|
 | Hyprland | `SUPER+letter`, `SUPER+SHIFT+letter`, `SUPER+CTRL+*`, `SUPER+arrows`, `SUPER+code:N`, `ALT+TAB`, media keys | NONE |
 | Ghostty | `Shift+Insert`, `Ctrl+Insert`, `SUPER+CTRL+SHIFT+ALT+arrows` | NONE |
 | tmux (Omarchy base) | prefix=`C-Space`/`C-b`, prefix-letter (`c, C, h, k, K, m, P, N, q, r, R, v, x`), unprefixed `M-1..9` / `M-arrows` / `C-M-arrows` (user layer unbinds the shipped `C-M-S-arrows` resize) | NONE |
 | tmux (plugin layer) | prefix-`Ctrl-s/r`, prefix-`O`, prefix-`Shift-P` / `Alt-P` / `Alt-Shift-P` / `Alt-c`, unprefixed `C-h/j/k/l` (navigator) + `M-h/j/k/l` (resize) | NONE (verified §4) |
+| herdr | prefix=`C-Space` (mirrors tmux), `prefix+c/r/k` tabs, `alt+1..9`, `alt+arrows`, `ctrl+alt+arrows`, `ctrl+alt+shift+arrows` | NONE (mirrors tmux by design) |
 | Neovim (LazyVim) | `<Space>`-leader chords, vim-mode-scoped CTRL/ALT chords | NONE |
 | lazygit / lazydocker | single letters in focused pane | NONE |
 
