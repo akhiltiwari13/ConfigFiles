@@ -111,13 +111,13 @@ Conflicts during stow (e.g. live real file where the repo wants to symlink) are 
 
 ## Remote GUI from uburemote (xpra)
 
-Run individual GUI apps on the headless Ubuntu remote (`quompt`) and render their windows on whichever client you're SSH'd in from. Sessions survive disconnects and reattach cleanly from a different client — start Firefox on the Mac, suspend the laptop, open the ThinkPad, `xrejoin`, same window.
+Run individual GUI apps on the headless Ubuntu remote (`quomptblr`) and render their windows on whichever client you're SSH'd in from. Sessions survive disconnects and reattach cleanly from a different client — start Firefox on the Mac, suspend the laptop, open the ThinkPad, `xrejoin`, same window.
 
 **Server (uburemote) — once:**
 ```bash
 ./scripts/deps_install.sh        # installs xpra, xauth, x11-xserver-utils, xvfb
 ```
-SSH X11 forwarding is already opt-in on the `quompt` host block in `ssh/.ssh/config`.
+xpra tunnels its own protocol over SSH, so it needs no X11 forwarding. Note that `ForwardX11` is deliberately **commented out** in the `quomptblr` host block in `ssh/.ssh/config` — X11 forwarding does not work over the tailscale connection.
 
 **Client install:**
 - **macOS Air** — `brew bundle --file=Brewfile` (or `brew install --cask xquartz && brew install xpra`). XQuartz needs a logout/login after first install.
@@ -133,7 +133,7 @@ xls                     # list live sessions on uburemote
 xstop                   # tear down :100
 ```
 
-**Fallback — `ssh -X`:** for trivial one-shots (`ssh quompt xeyes`). Untrusted X11, dies with the SSH session. xpra is preferred for anything you want to come back to.
+**Fallback — `ssh -X`:** unavailable as configured, since `ForwardX11` is commented out for the tailscale reason above. Re-enable it in the `quomptblr` host block if you want `ssh -X quomptblr xeyes` style one-shots; xpra is preferred for anything you want to come back to.
 
 ## Manual stow sequence (Ubuntu 24.04 desktop)
 

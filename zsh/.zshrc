@@ -168,17 +168,17 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # Drop into a persistent tmux session on uburemote — survives disconnects.
 # `-A` attaches if it exists, else creates it. `-t` allocates a TTY.
-alias quompt='ssh -t quompt "tmux new-session -A -s muxy-qblr"'
+alias quompt='ssh -t quomptblr "tmux new-session -A -s muxy-qblr"'
 
 # Per-app GUI forwarding from uburemote via xpra. Spawns a virtual display on
 # the server, launches one app into it, forwards the window over SSH. Persistent
 # across SSH disconnects, reattachable from a different client. All four helpers
 # share display :100 so xrejoin from any machine finds the same session.
 if command -v xpra >/dev/null 2>&1; then
-  xrun()    { xpra start ssh://quompt/100 --start="${*:?usage: xrun <command> [args...]}" --exit-with-children=no; }
-  xrejoin() { xpra attach ssh://quompt/100; }
-  xls()     { xpra list ssh://quompt/; }
-  xstop()   { xpra stop ssh://quompt/100; }
+  xrun()    { xpra start ssh://quomptblr/100 --start="${*:?usage: xrun <command> [args...]}" --exit-with-children=no; }
+  xrejoin() { xpra attach ssh://quomptblr/100; }
+  xls()     { xpra list ssh://quomptblr/; }
+  xstop()   { xpra stop ssh://quomptblr/100; }
 fi
 
 # mise — runtime version manager (parity with bash-omarchy)
