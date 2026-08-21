@@ -33,16 +33,14 @@
 	name = akhil tiwari
 	email = akhiltiwari.13@gmail.com
 
-# Route clones of Alkimi work repos through the github-work SSH alias.
+# Route clones of work repos through the github-work SSH alias.
 # Top-level (not inside includeIf) because includeIf gitdir: doesn't fire
 # during `git clone` — the new gitdir doesn't exist yet.
-[url "git@github-work:Alkimi-Exchange/"]
-	insteadOf = git@github.com:Alkimi-Exchange/
+[url "git@github-work:<work-repo-name>/"]
+	insteadOf = git@github.com:<work-repo-name>/
 
-# Use work email for alkimi projects
-[includeIf "gitdir:~/Work/projects/alkimi/"]
-	path = ~/.config/git/config-work
-[includeIf "gitdir:~/Work/tries/alkimi-mmp-rearcht/"]
+# Use work email for work projects
+[includeIf "gitdir:~/Work/projects/<work-repo-root>/"]
 	path = ~/.config/git/config-work
 [filter "lfs"]
 	required = true
