@@ -1,0 +1,1 @@
+/home/quomptrade/.config/tmux/plugins/tmux-assistant-resurrect/hooks/opencode-session-track.js
