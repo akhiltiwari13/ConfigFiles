@@ -1,8 +1,0 @@
-{
-  "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
-  "autoupdate": false,
-  "plugin": [
-    "@cortexkit/opencode-magic-context@0.38.1"
-  ]
-}
