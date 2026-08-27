@@ -14,7 +14,7 @@ lua/
 │   ├── keymaps.lua     # Empty — uses LazyVim defaults
 │   └── autocmds.lua    # Empty — uses LazyVim defaults
 └── plugins/
-    ├── theme.lua                      # TokyoNight (active theme)
+    ├── theme.lua                      # SYMLINK → Omarchy theme state (untracked)
     ├── all-themes.lua                 # 10 themes pre-loaded lazily for hot-swap
     ├── omarchy-theme-hotreload.lua    # Reloads on User LazyReload autocmd
     ├── oil.lua                        # File explorer (- keymap)
@@ -34,9 +34,33 @@ plugin/after/
 | Task | File | Notes |
 |------|------|-------|
 | Add a plugin | `lua/plugins/<name>.lua` | Return LazyVim plugin spec table |
-| Change theme | `lua/plugins/theme.lua` | Also check `all-themes.lua` for available options |
+| Change theme | *not a file* | Run `omarchy theme set <name>` — see Theme Wiring below |
 | Edit keybindings | `lua/config/keymaps.lua` | Currently empty, add vim.keymap.set calls |
 | Obsidian vault path | `lua/plugins/obsidian.lua` | Hardcoded `~/Work/notes` |
+
+## Theme Wiring
+
+The colorscheme is owned by Omarchy, not by this repo. `lua/plugins/theme.lua` is an
+**absolute symlink** to `~/.local/state/omarchy/current/theme/neovim.lua` and is
+**gitignored** — it is machine state, so a fresh clone on the Mac/Ubuntu boxes simply
+has no `theme.lua` and falls back to LazyVim's default colorscheme.
+
+- **To change the theme:** `omarchy theme set <name>` — never edit `theme.lua`.
+- **To recreate the link** on a fresh Omarchy box:
+  `scripts/link_omarchy_nvim_theme.sh` (also run automatically by
+  `scripts/bootstrap.sh omarchy`).
+- **How the live swap works:** `omarchy theme set` restages the state file;
+  lazy.nvim's reloader polls every 2s with `fs_stat`, which follows the symlink, and
+  fires `User LazyReload`; `omarchy-theme-hotreload.lua` catches that, re-applies the
+  colorscheme, and re-sources `plugin/after/transparency.lua`.
+- Change detection is disabled under `nvim --headless` (`lazy/core/config.lua`), so
+  hot-reload can only be observed in a real UI session.
+- `all-themes.lua` preloads the theme plugins so a swap has something to load. Its
+  list has drifted from what the stock themes actually name — e.g. `everforest` wants
+  `neanias/everforest-nvim`, `nord` wants `EdenEast/nightfox.nvim`, and
+  `bjarneo/aether.nvim` (the template fallback for the 7 themes shipping no
+  `neovim.lua`) is absent. Switching to one of those needs a `:Lazy sync` + restart
+  the first time.
 
 ## Conventions
 

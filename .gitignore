@@ -2,6 +2,12 @@
 *.swp
 *.swo
 
+# Omarchy owns the Neovim colorscheme: on Omarchy hosts this is an absolute
+# symlink to ~/.local/state/omarchy/current/theme/neovim.lua, created by
+# scripts/link_omarchy_nvim_theme.sh. Machine state, not config.
+/lazyvim/nvim/.config/nvim/lua/plugins/theme.lua
+/lazyvim/nvim/.config/nvim/lua/plugins/theme.lua.bak
+
 
 node_modules
 package-lock.json

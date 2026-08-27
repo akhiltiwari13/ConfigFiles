@@ -23,7 +23,9 @@ return {
 						local theme_plugin_name = nil
 						for _, spec in ipairs(theme_spec) do
 							if spec[1] and spec[1] ~= "LazyVim/LazyVim" then
-								theme_plugin_name = spec.name or spec[1]
+								-- lazy keys Config.plugins by the repo basename (Spec.get_name),
+								-- so "rebelot/kanagawa.nvim" must be looked up as "kanagawa.nvim".
+								theme_plugin_name = spec.name or spec[1]:match("([^/]+)$")
 								break
 							end
 						end
