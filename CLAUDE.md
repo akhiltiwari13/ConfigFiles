@@ -55,6 +55,9 @@ On a fresh box, run `stow stow` once manually before `bootstrap.sh` — that see
 - **Treat `tmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `/usr/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6.
 - **Never stow `dumpyard/`** — archived configs (i3, AstroNvim, old zsh/bash, retired oh-my-tmux conf.local), not meant for linking.
 - **Never commit** `lazy-lock.json`, `credentials.txt`, `antigravity-accounts.json`, `.credentials.json` (most are gitignored; verify).
+- **Never re-add `lazyvim/nvim/.config/nvim/lua/plugins/theme.lua` to git** — it is an
+  absolute, machine-specific symlink into `~/.local/state/omarchy/`, deliberately
+  gitignored. See Notable Quirks.
 
 ## Omarchy 4 Layer Hierarchy (host runs `4.0.0.alpha`, "quattro")
 
@@ -162,6 +165,22 @@ Omarchy 4 replaced waybar with **quickshell** (pacman `quickshell-git`), running
 ## Notable Quirks
 
 - btop: `save_config_on_exit = False` is set in the tracked config to stop btop from rewriting the file on exit (older btop versions also silently strip newer fields they don't understand — e.g. v1.3.0 drops `gpu0` from `shown_boxes` if the host has no detected GPU). **Don't change settings in btop's UI expecting them to persist** — edit `btop/.config/btop/btop.conf` directly.
-- LazyVim has `omarchy-theme-hotreload.lua` reloading colorschemes via `User LazyReload`.
+- **Neovim's colorscheme is owned by Omarchy, not this repo.**
+  `lazyvim/nvim/.config/nvim/lua/plugins/theme.lua` must be an **absolute symlink** to
+  `~/.local/state/omarchy/current/theme/neovim.lua`. `omarchy theme set` restages that
+  target; lazy.nvim's reloader polls every 2s with `fs_stat` (which follows symlinks)
+  and fires `User LazyReload`, which `omarchy-theme-hotreload.lua` turns into a live
+  colorscheme swap plus a re-source of `plugin/after/transparency.lua`.
+  - The file is **gitignored** — it is machine state, and a relative link would resolve
+    against the repo rather than `$HOME` (`~/.config/nvim/lua` is one stow symlink to
+    the package dir, so the physical file lives in `lazyvim/`).
+  - Recreate it on a fresh Omarchy box with `scripts/link_omarchy_nvim_theme.sh`;
+    `scripts/bootstrap.sh omarchy` runs it automatically after stowing. It is a no-op
+    on hosts without `~/.local/state/omarchy`.
+  - Replacing it with a regular file silently breaks theme switching *and* is invisible
+    to Omarchy's own repair migrations (`1781158082.sh`, `1785002349.sh`), which both
+    start with `[[ -L $theme_link ]] || exit 0`.
+  - `nvim --headless` disables lazy's change detection entirely, so hot-reload cannot
+    be verified headlessly — only cold start can.
 - `KEYBINDINGS.md` (repo root) is the authoritative keybind hierarchy doc; `omarchy-overrides/.config/bin/keybind-audit` regenerates the cross-program audit on demand.
 - Remote GUI from uburemote uses **xpra** (not VNC/x2go/NoMachine). Aliases `xrun`/`xrejoin`/`xls`/`xstop` in `bash-omarchy/.bashrc` and `zsh/.zshrc` target display `:100` on the **`quomptblr`** host (the `quompt` alias was dropped from `ssh/.ssh/config`; the shell alias keeps the short name but now ssh's to `quomptblr`). xpra tunnels over SSH and needs no X11 forwarding — `ForwardX11` is commented out in that Host block because it does not work over tailscale. Server deps install via `scripts/deps_install.sh`; clients install `xpra` + (macOS) XQuartz manually.

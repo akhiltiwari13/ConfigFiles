@@ -14,10 +14,13 @@
 #   omarchy  — Arch + Hyprland workstation (full set)
 #   macair   — macOS Air (cross-platform + Mac-only apps)
 #
-# Pre-reqs: git, stow installed.
-# First-time setup: run `stow stow` once manually to seed ~/.stowrc;
-# then this script handles everything else. For deps install, see
-# scripts/deps_install.sh.
+# On the omarchy profile, this also runs
+# scripts/link_omarchy_nvim_theme.sh after stowing, which points Neovim's
+# colorscheme at the Omarchy theme state.
+#
+# Pre-reqs: git, stow installed. First-time setup: run `stow stow` once
+# manually to seed ~/.stowrc; then this script handles everything else.
+# For deps install, see scripts/deps_install.sh.
 
 set -euo pipefail
 
@@ -55,7 +58,7 @@ readonly MACAIR_PKGS=(
 )
 
 usage() {
-  sed -n '2,20p' "${BASH_SOURCE[0]}" | sed 's/^# \?//'
+  sed -n '2,23p' "${BASH_SOURCE[0]}" | sed 's/^# \?//'
   exit 1
 }
 
@@ -115,6 +118,16 @@ main() {
   for pkg in "${pkgs[@]}"; do
     run_stow "$pkg" "$mode"
   done
+
+  # Omarchy owns the Neovim colorscheme via a symlink stow cannot create.
+  if [ "$profile" = "omarchy" ]; then
+    echo ""
+    if [ "$mode" = "dry" ]; then
+      "${SCRIPT_DIR}/link_omarchy_nvim_theme.sh" --dry-run
+    else
+      "${SCRIPT_DIR}/link_omarchy_nvim_theme.sh"
+    fi
+  fi
 
   echo ""
   echo "✓ done"
