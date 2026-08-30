@@ -1,7 +1,9 @@
 [tools]
+agy = "latest"
 claude = "latest"
 codex = "latest"
 conan = "latest"
+crush = "latest"
 gh = "latest"
 go = "latest"
 node = "latest"
