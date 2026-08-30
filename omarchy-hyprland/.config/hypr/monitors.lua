@@ -56,7 +56,6 @@ hl.env("GDK_SCALE", tostring(omarchy_gdk_scale))
 -- o.window("chromium", { workspace = "2" })
 -- Slack webapp: chromium derives this class from the URL, and --class is
 -- ignored under Wayland, so match the derived class instead.
--- o.window("chrome-app.slack.com.*", { workspace = "3" })
 --
 --
 -- -------------------------------------------------------------- Eldecco Work Setup ------------------------------------------------------
@@ -65,3 +64,6 @@ local laptop_monitor = "desc:AU Optronics 0xFA9B"
 hl.monitor({ output = top_monitor, mode = "2560x1440@60", position = "0x0", scale = omarchy_monitor_scale })
 -- Laptop panel (eDP-1) -- centered under the top LG monitor.
 hl.monitor({ output = laptop_monitor, mode = "1920x1200@60", position = "320x1440", scale = omarchy_monitor_scale })
+hl.workspace_rule({ workspace = "1", monitor = top_monitor, default = true }) -- tmux/ghostty (muxy)
+hl.workspace_rule({ workspace = "2", monitor = laptop_monitor, default = false }) -- chromium
+o.window("chromium", { workspace = "2" })
