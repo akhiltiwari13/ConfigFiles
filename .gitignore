@@ -77,3 +77,16 @@ herdr/.config/herdr/*.sock
 herdr/.config/herdr/.plugins.lock
 herdr/.config/herdr/session.json
 herdr/.config/herdr/release-notes.json
+
+# omarchy-shell: ~/.config/omarchy mixes user config with machine state that
+# Omarchy rewrites. Only curated files are tracked (shell.json, shell.toml,
+# branding/, extensions/, hooks/post-update.d/setup-agent.hook); the rest is
+# Omarchy-generated and stays out even if a future copy drags it in.
+omarchy-shell/.config/omarchy/*.bak.*
+omarchy-shell/.config/omarchy/**/*.sample
+omarchy-shell/.config/omarchy/**/*.omarchy-upgrade-to-*.bak
+omarchy-shell/.config/omarchy/defaults/
+omarchy-shell/.config/omarchy/backgrounds/
+omarchy-shell/.config/omarchy/themed/
+omarchy-shell/.config/omarchy/plugins/
+omarchy-shell/.config/omarchy/themes/
