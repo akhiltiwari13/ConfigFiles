@@ -69,31 +69,31 @@ bs() {
   case "${1-}" in
     '' | -h | --help)
       cat <<'EOF'
-      bs — book search: rga | fzf | zathura
+bs — book search: rga | fzf | zathura
 
-      USAGE
-      bs <query> [rga-flags...]
-      BOOKS_ROOT=<dir> bs <query>
+USAGE
+  bs <query> [rga-flags...]
+  BOOKS_ROOT=<dir> bs <query>
 
-      EXAMPLES
-      bs concurrency                       # full-text search readables/
-      bs -F "Bjarne Stroustrup"            # fixed-string (no regex)
-      bs -i memory                         # case-insensitive
-      bs -t pdf "lock free"                # restrict to PDFs
-      BOOKS_ROOT=~/Work/books/for-elaeocarpus bs networking
+EXAMPLES
+  bs concurrency                       # full-text search readables/
+  bs -F "Bjarne Stroustrup"            # fixed-string (no regex)
+  bs -i memory                         # case-insensitive
+  bs -t pdf "lock free"                # restrict to PDFs
+  BOOKS_ROOT=~/Work/books/for-elaeocarpus bs networking
 
-      KEYS (in fzf picker)
-      Enter  open match in zathura at the matching page (PDFs)
-      Esc    cancel
+KEYS (in fzf picker)
+  Enter  open match in zathura at the matching page (PDFs)
+  Esc    cancel
 
-      ENV
-      BOOKS_ROOT   search root (default: ~/Work/books/book-inventory/readables)
+ENV
+  BOOKS_ROOT   search root (default: ~/Work/books/book-inventory/readables)
 
-      NOTES
-      • Cache lives at ~/.cache/ripgrep-all/. First search is slow.
-      • Append --rga-no-cache to bypass the cache for one call.
-      • Colors / --smart-case live in ~/.ripgreprc.
-      EOF
+NOTES
+  • Cache lives at ~/.cache/ripgrep-all/. First search is slow.
+  • Append --rga-no-cache to bypass the cache for one call.
+  • Colors / --smart-case live in ~/.ripgreprc.
+EOF
       return 0
       ;;
   esac
