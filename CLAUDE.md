@@ -35,7 +35,7 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 | Profile | Packages | Used on |
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium` | Remote dev box (uburemote) |
-| `omarchy` | 27 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
+| `omarchy` | 28 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
 | `macair` | 19 — cross-platform core + `wezterm` + `zsh` | macOS Air |
 
 ```bash
@@ -51,10 +51,10 @@ On a fresh box, run `stow stow` once manually before `bootstrap.sh` — that see
 ## Critical Anti-Patterns
 
 - **Never edit `/usr/share/omarchy/default/`** — Omarchy 4 ships this as a root-owned pacman package; updates overwrite it. User overrides go in `~/.config/<app>/` (i.e. this repo's package). `~/.local/share/omarchy` is now just a compat **symlink** to `/usr/share/omarchy`, so old docs/scripts referencing it still resolve.
-- **Never run `stow opencode` (or `bootstrap.sh`) on this box until the package layout is fixed** — `~/.config/opencode` is a hand-made symlink to the *package root*, so `stow -n -v opencode` shows it would `UNLINK` that working link and litter `$HOME` with `~/node_modules`, `~/opencode.json`, `~/package.json`, `~/opencode.jsonc.bak`. `opencode` is in **all three** profile arrays in `scripts/bootstrap.sh`. See Notable Quirks.
+- **`opencode/` is an empty placeholder** — tracked config was removed in commit `4fb4537` ("to be ported on later"), but `opencode` is still in **all three** profile arrays. `stow opencode` / `bootstrap.sh` no-op on it; `~/.config/opencode` is now a plain unmanaged directory. Don't re-add config without first deciding the layout. See Notable Quirks.
 - **Treat `tmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `/usr/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6.
 - **Never stow `dumpyard/`** — archived configs (i3, AstroNvim, old zsh/bash, retired oh-my-tmux conf.local), not meant for linking.
-- **Never commit** `lazy-lock.json`, `credentials.txt`, `antigravity-accounts.json`, `.credentials.json` (most are gitignored; verify).
+- **Never commit** `lazy-lock.json`, `credentials.txt`, `antigravity-accounts.json`, `.credentials.json` (most are gitignored; verify). Runtime state is also already ignored: `herdr/.config/herdr/*.{log,sock,...}`, `voxtype/.local/` + Whisper models, and `omarchy-shell`'s Omarchy-generated `~/.config/omarchy` subdirs — see `.gitignore`.
 - **Never re-add `lazyvim/nvim/.config/nvim/lua/plugins/theme.lua` to git** — it is an
   absolute, machine-specific symlink into `~/.local/state/omarchy/`, deliberately
   gitignored. See Notable Quirks.
@@ -110,6 +110,7 @@ Kill-switches `omarchy_default_bindings = false` and `omarchy_preinstalled_bindi
 - **Hyprland bindings**: `o.bind("MOD + KEY", "Description", "command")` — always pass the description (it feeds `omarchy menu keybindings --print`). To replace a default, `hl.unbind(...)` first, then bind. The old `bindd =` `.conf` syntax is dead on this host.
 - **Lua (lazyvim)**: 2 spaces, 120 cols, `stylua` formatter.
 - **Lua (omarchy-hyprland)**: 2 spaces, follows Omarchy's shipped template comments; keep the commented-out examples as inline documentation.
+- **TOML (alacritty, herdr, `omarchy-shell`'s `shell.toml`)**: standard TOML. `omarchy-shell`'s `shell.json` is tool-managed (`omarchy-shell-config`), never hand-edited.
 - **Shell (scripts/, setup/)**: `#!/usr/bin/env bash`, `snake_case` funcs, quote vars.
 
 ## Machine-Specific Files
@@ -117,7 +118,7 @@ Kill-switches `omarchy_default_bindings = false` and `omarchy_preinstalled_bindi
 These differ per workstation and require care when editing:
 
 - `omarchy-hyprland/.config/hypr/monitors.lua` — display layout (the `.conf` sibling is legacy and no longer read)
-- `setup/.config/cocoEd.sh` — uses `hostname` to switch Mac vs Linux paths (extend for new machines). The retired fish counterpart now lives at `dumpyard/cocoEd-fish.sh`.
+- `setup/.config/cocoEd.sh` — `#!/bin/sh` alias/env script (`work`/`projects`/`learn`/… dirs). Unified on `~/Work` across all hosts since commit `6908581` (2026-05-18); the old `hostname`-based Mac/Linux path switch is gone. The retired fish counterpart now lives at `dumpyard/cocoEd-fish.sh`.
 - `ssh/.ssh/config` — IPs/hostnames (ported live → repo on Omarchy in commit `c8aed1b`; Mac Air sync requires manual merge against this baseline)
 - **`bash-omarchy` vs `bash-ubuntu` vs `zsh`** — mutually exclusive shell packages. `bash-omarchy` covers Arch + macOS-via-bash (sources `~/.local/share/omarchy/default/bash/rc` — still correct under Omarchy 4, since that path is a compat symlink to `/usr/share/omarchy`; guarded so it's harmless elsewhere). `bash-ubuntu` is for the Ubuntu remote (`/etc/skel`-derived prompt, same toolchain init block). `zsh` is the macOS-via-zsh package (oh-my-zsh + Mac Homebrew paths). Pick one per host. xpra helpers (`xrun`/`xrejoin`/`xls`/`xstop`) and the `quompt` alias live in `bash-omarchy` and `zsh` — the client packages — but not in `bash-ubuntu`, since uburemote *is* the xpra server.
 
@@ -127,7 +128,7 @@ The quattro upgrade landed on 2026-08-21 and the repo was brought in sync the ne
 
 ### Hyprland is Lua-only
 
-`omarchy-hyprland/.config/hypr/` holds **five `.lua` files** (`hyprland`, `monitors`, `input`, `bindings`, `looknfeel`, `autostart`) plus `.luarc.json`. All the `source`-based `.conf` files were deleted — they are recoverable from git history if ever needed.
+`omarchy-hyprland/.config/hypr/` holds **six `.lua` files** (`hyprland`, `monitors`, `input`, `bindings`, `looknfeel`, `autostart`) plus `.luarc.json`. All the `source`-based `.conf` files were deleted — they are recoverable from git history if ever needed.
 
 **Only genuine deviations from Omarchy's defaults belong in these files.** 23 of the original 27 `bindd` lines were dropped during the port because Omarchy 4 now ships them verbatim — same chord, same description, same URL. Re-adding one would double-bind it. The four that remain are documented inline in `bindings.lua`.
 
@@ -149,18 +150,26 @@ Still `.conf`, unaffected by the Lua move (separate daemons with their own parse
 
 Omarchy 4 replaced waybar with **quickshell** (pacman `quickshell-git`), running as `quickshell -n -p /usr/share/omarchy/shell`, launched by `omarchy-launch-shell` from Omarchy's default `autostart.lua`.
 
-- Bar config is the **`omarchy-shell/`** package → `~/.config/omarchy/{shell.json,shell.toml}`, driven by `omarchy-bar`, `omarchy-toggle-bar`, `omarchy-shell-config`; reload with `omarchy-refresh-shell`.
-- **`shell.json` is rewritten in place by those tools** — same hazard as the btop quirk, except here it writes *through the symlink into this repo*. That is intentional (changes get tracked), but expect `git status` churn after using the bar's settings UI. It is mode `0600`; preserve that.
+- **The `omarchy-shell/` package covers all of `~/.config/omarchy`, not just the bar** (since commit `7fea592`, 2026-08-30). Seven curated files are linked **per file**: `shell.json`, `shell.toml`, `branding/{about,screensaver}.txt`, `extensions/{menu.sh,omarchy-menu.jsonc}`, `hooks/post-update.d/setup-agent.hook`. Everything else in that directory is Omarchy-generated state (`defaults/`, `backgrounds/`, `themed/`, `*.sample`, `*.bak.*`) and is gitignored. Bar config is driven by `omarchy-bar`, `omarchy-toggle-bar`, `omarchy-shell-config`; reload with `omarchy-refresh-shell`.
+- **Never let `~/.config/omarchy` become a single symlink.** Per-file linking keeps it a real directory so Omarchy keeps writing its state there instead of into this repo. If a future copy/adopt drags the whole tree in, back it out.
+- **`shell.json` is rewritten in place by the bar tools** — same hazard as the btop quirk, except here it writes *through the symlink into this repo*. That is intentional (changes get tracked), but expect `git status` churn after using the bar's settings UI. It is mode `0600`; preserve that.
+- **`omarchy refresh shell` breaks these symlinks** — it backs up and replaces the file, leaving a real file plus `shell.json.bak.<epoch>` in `~/.config/omarchy`. This is exactly how the box ended up unstowed before 2026-08-30. After any `omarchy refresh`, re-link with `stow -n -v --adopt omarchy-shell` (dry-run) then `stow --adopt omarchy-shell`, and check `git diff` to see whether the refresh reverted your settings.
 - `waybar/` and `omarchy-themes/` were **retired to `dumpyard/`** — waybar is uninstalled, and the dayfox theme is in the retired per-app format (Omarchy 4 themes are `colors.toml` + `shell.lock.toml` + `neovim.lua`).
 - The 4 VPN toggle scripts were salvaged to **`omarchy-overrides/.config/bin/`**, already on `PATH`. They work as CLI toggles; only their waybar-JSON status mode (the `*)` case) has no consumer now.
 
-### `opencode/` package layout is still broken
+### `opencode/` package is empty, pending a re-port
 
-`~/.config/opencode` is a hand-made symlink to the **package root** (`configfiles/opencode`), not the stow-standard `opencode/.config/opencode`. So:
+The old hand-made `~/.config/opencode` → package-root symlink and its tracked
+config were removed in commit `4fb4537` ("to be ported on later"). Current state:
 
-- Live config is the **untracked** `opencode/{opencode.json,tui.json,plugins/,skills/}` at the package root.
-- The three git-tracked files under `opencode/.config/opencode/` are shadowed and effectively dead.
-- `stow opencode` would unlink the working setup and pollute `$HOME` — see Critical Anti-Patterns. **`bootstrap.sh` is therefore unsafe to run wholesale**; stow packages individually by name until this is reconciled.
+- `git ls-files opencode/` returns **nothing** — the package is an empty
+  placeholder still listed in all three profile arrays.
+- `~/.config/opencode` is now a plain directory holding live, **unmanaged**
+  config (`opencode.jsonc`, `tui.json`, `plugins/`, `node_modules/`).
+- `stow opencode` and `bootstrap.sh <profile>` both no-op on it. The earlier
+  "running bootstrap unlinks the working opencode setup" hazard no longer applies.
+- Any re-port must first pick a layout — stow-standard `opencode/.config/opencode/`
+  or the old package-root symlink — and update `.gitignore` accordingly.
 
 ## Notable Quirks
 
@@ -183,4 +192,7 @@ Omarchy 4 replaced waybar with **quickshell** (pacman `quickshell-git`), running
   - `nvim --headless` disables lazy's change detection entirely, so hot-reload cannot
     be verified headlessly — only cold start can.
 - `KEYBINDINGS.md` (repo root) is the authoritative keybind hierarchy doc; `omarchy-overrides/.config/bin/keybind-audit` regenerates the cross-program audit on demand.
+- **`herdr/`** — Omarchy 4's terminal workspace manager (tmux replacement), launched by `SUPER + CTRL + RETURN`. `herdr/.config/herdr/config.toml` is hand-tuned to **mirror the tmux keymap** (same `ctrl+space` prefix, same pane/tab/workspace chords), so it occupies tmux's layer in `KEYBINDINGS.md` §2 — **any tmux keymap change must be mirrored into `config.toml`** or the two drift. Its one deliberate divergence: `rename_pane = "prefix+shift+o"` (stock `prefix+shift+p` collides with previous-workspace). Only `config.toml` is tracked; logs/sockets/session state gitignored.
+- **`voxtype/`** — dictation daemon (`voxtype-bin`, AUR). Only `voxtype/.config/voxtype/config.toml` is tracked. **The hotkey is not in that file** (`[hotkey] enabled = false`) — the real bindings live in Hyprland (`SUPER+CTRL+X` toggle, `F9` push-to-talk) and only signal an already-running daemon. If a binding "does nothing", check `systemctl --user status voxtype` first — it runs as a user service (`~/.config/systemd/user/voxtype.service`, installed by `omarchy-voxtype-install`, not tracked). Whisper models live in `~/.local/share/voxtype/models/` (per-machine download, gitignored). `omarchy-voxtype-status` (= `voxtype status --follow`) streams forever — never invoke it non-interactively.
+- **`mise/.config/mise/config.toml`** pins the CLI agent toolchain (`agy`, `claude`, `codex`, `crush`, `gh`, `npm:@xai-official/grok`, `opencode`) plus language runtimes (go/node/python/ruby/zig/zls/conan). Stowed on all three profiles as of commit `8711d55`; `gemini` was retired.
 - Remote GUI from uburemote uses **xpra** (not VNC/x2go/NoMachine). Aliases `xrun`/`xrejoin`/`xls`/`xstop` in `bash-omarchy/.bashrc` and `zsh/.zshrc` target display `:100` on the **`quomptblr`** host (the `quompt` alias was dropped from `ssh/.ssh/config`; the shell alias keeps the short name but now ssh's to `quomptblr`). xpra tunnels over SSH and needs no X11 forwarding — `ForwardX11` is commented out in that Host block because it does not work over tailscale. Server deps install via `scripts/deps_install.sh`; clients install `xpra` + (macOS) XQuartz manually.
