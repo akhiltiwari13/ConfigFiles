@@ -90,3 +90,8 @@ omarchy-shell/.config/omarchy/backgrounds/
 omarchy-shell/.config/omarchy/themed/
 omarchy-shell/.config/omarchy/plugins/
 omarchy-shell/.config/omarchy/themes/
+
+# voxtype: only config.toml is tracked. Whisper models (~1.7 GB) live in
+# ~/.local/share/voxtype/models and are downloaded per machine, never committed.
+voxtype/.config/voxtype/config.toml.bak
+voxtype/.local/

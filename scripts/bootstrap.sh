@@ -45,7 +45,7 @@ readonly OMARCHY_PKGS=(
   # herdr + omarchy-shell are Omarchy 4 ("quattro") tools; waybar and
   # omarchy-themes retired to dumpyard/ when quickshell replaced waybar.
   alacritty fastfetch herdr omarchy-hyprland omarchy-overrides omarchy-shell
-  rofi vpn wallpapers zathura
+  rofi voxtype vpn wallpapers zathura
 )
 
 readonly MACAIR_PKGS=(
