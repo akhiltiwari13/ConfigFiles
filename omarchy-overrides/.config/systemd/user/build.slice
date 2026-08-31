@@ -1,0 +1,24 @@
+# Memory-capped slice for builds launched via `membuild`.
+#
+# A real unit file rather than a build.slice.d/ drop-in: with only a drop-in and
+# no unit, systemd reports "No files found for build.slice" and the settings are
+# never applied to the transient scope systemd-run creates.
+#
+# ManagedOOM* lets systemd-oomd kill inside this slice under sustained memory
+# pressure — a backstop to membuild's hard MemoryMax. Omarchy only marks
+# user@.service/app.slice as a kill candidate (/usr/lib/systemd/user/app.slice.d/
+# 10-oomd.conf), so a build would otherwise get no userspace OOM handling.
+#
+# The 40% limit is stricter than the global 50% in /etc/systemd/oomd.conf.d/
+# 10-omarchy.conf, deliberately: a wedged build is far cheaper to lose than the
+# browser or the session.
+#
+# See syshardening/PLAN.md Phase 2e.
+
+[Unit]
+Description=Memory-capped build slice (membuild)
+Before=slices.target
+
+[Slice]
+ManagedOOMMemoryPressure=kill
+ManagedOOMMemoryPressureLimit=40%

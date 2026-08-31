@@ -8,8 +8,13 @@
 # Every file installed is a discrete drop-in that OVERRIDES an Omarchy or distro
 # default without editing it. Remove one file to undo one change.
 #
+# A manifest at /var/lib/syshardening/manifest records what was installed, so a
+# file that is later renamed or dropped from the repo gets pruned from /etc
+# instead of lingering. (Learned the hard way: a udev rule renamed 50- -> 99- for
+# ordering reasons left the losing 50- copy behind and silently kept winning.)
+#
 # Usage:
-#   sudo ./syshardening/install.sh              # install + reload services
+#   sudo ./syshardening/install.sh              # install + prune + reload
 #   sudo ./syshardening/install.sh --dry-run    # show what would change
 #   sudo ./syshardening/install.sh --uninstall  # remove exactly what was installed
 #
@@ -19,9 +24,10 @@ set -euo pipefail
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly SRC_DIR="${SCRIPT_DIR}/etc"
+readonly MANIFEST="/var/lib/syshardening/manifest"
 
 usage() {
-  sed -n '2,19p' "${BASH_SOURCE[0]}" | sed 's/^# \?//'
+  sed -n '2,25p' "${BASH_SOURCE[0]}" | sed 's/^# \?//'
   exit 1
 }
 
@@ -34,21 +40,20 @@ require_root() {
   fi
 }
 
-# Emit each tracked file as a relative path under etc/, e.g. "sysctl.d/99-foo.conf".
-list_files() {
-  ( cd "$SRC_DIR" && find . -type f -printf '%P\n' | sort )
-}
+# Each tracked file as a path relative to etc/, e.g. "sysctl.d/99-foo.conf".
+list_files() { ( cd "$SRC_DIR" && find . -type f -printf '%P\n' | sort ); }
+
+# Files recorded by a previous run (may include ones since renamed/removed).
+list_manifest() { [ -f "$MANIFEST" ] && sort "$MANIFEST" || true; }
 
 do_install() {
-  local mode="$1" rel src dst changed=0
+  local mode="$1" rel src dst
   while IFS= read -r rel; do
-    src="${SRC_DIR}/${rel}"
-    dst="/etc/${rel}"
+    src="${SRC_DIR}/${rel}"; dst="/etc/${rel}"
     if [ -f "$dst" ] && cmp -s "$src" "$dst"; then
       log "unchanged  /etc/${rel}"
       continue
     fi
-    changed=1
     if [ "$mode" = "dry" ]; then
       log "would install  /etc/${rel}"
     else
@@ -56,21 +61,44 @@ do_install() {
       log "installed  /etc/${rel}"
     fi
   done < <(list_files)
-  return $(( changed == 0 ))
+}
+
+# Remove files this script installed previously that are no longer in the repo.
+prune_stale() {
+  local mode="$1" rel
+  while IFS= read -r rel; do
+    [ -n "$rel" ] || continue
+    if ! list_files | grep -Fxq "$rel"; then
+      if [ "$mode" = "dry" ]; then
+        log "would prune (stale)  /etc/${rel}"
+      else
+        rm -f "/etc/${rel}"
+        log "pruned (stale)  /etc/${rel}"
+      fi
+    fi
+  done < <(list_manifest)
+}
+
+write_manifest() {
+  [ "$1" = "dry" ] && return 0
+  install -d -m 0755 "$(dirname "$MANIFEST")"
+  list_files > "$MANIFEST"
 }
 
 do_uninstall() {
-  local mode="$1" rel dst
+  local mode="$1" rel
+  # Union of current tree and manifest, so renamed files are caught too.
   while IFS= read -r rel; do
-    dst="/etc/${rel}"
-    [ -e "$dst" ] || continue
+    [ -n "$rel" ] && [ -e "/etc/${rel}" ] || continue
     if [ "$mode" = "dry" ]; then
-      log "would remove  $dst"
+      log "would remove  /etc/${rel}"
     else
-      rm -f "$dst"
-      log "removed  $dst"
+      rm -f "/etc/${rel}"
+      log "removed  /etc/${rel}"
     fi
-  done < <(list_files)
+  done < <( { list_files; list_manifest; } | sort -u )
+  [ "$mode" = "real" ] && rm -f "$MANIFEST"
+  return 0
 }
 
 reload_services() {
@@ -79,14 +107,11 @@ reload_services() {
     log "would reload: sysctl, udev rules, upower"
     return 0
   fi
-
   log "applying sysctl settings"
   sysctl --system >/dev/null
-
   log "reloading udev rules and re-triggering USB"
   udevadm control --reload-rules
   udevadm trigger --action=add --subsystem-match=usb
-
   if systemctl is-active --quiet upower; then
     log "restarting upower"
     systemctl restart upower
@@ -99,7 +124,7 @@ print_verify() {
   Verify:
     sysctl kernel.sysrq kernel.hung_task_panic       # expect 1 and 1
     cat /sys/bus/usb/devices/3-6/power/control       # expect: on
-    upower --dump | grep -iE 'percentage|warning'    # thresholds in effect
+    grep -h ^Percentage /etc/UPower/UPower.conf.d/*.conf
 
   After ~2 hours, confirm the Goodix reset loop has stopped (baseline ~118/hour):
     journalctl -k -b 0 --since "-2h" | grep -c 'usb 3-6:.*reset'   # expect 0
@@ -112,7 +137,6 @@ EOF
 
 main() {
   local mode="real" action="install"
-
   case "${1:-}" in
     --dry-run)   mode="dry" ;;
     --uninstall) action="uninstall" ;;
@@ -121,13 +145,13 @@ main() {
   esac
 
   [ "$mode" = "real" ] && require_root
+  [ "$action" = "uninstall" ] && require_root
 
-  echo "syshardening: ${action}${mode:+ (${mode})}"
+  echo "syshardening: ${action} (${mode})"
   echo "source: ${SRC_DIR}"
   echo ""
 
   if [ "$action" = "uninstall" ]; then
-    require_root
     do_uninstall "$mode"
     [ "$mode" = "real" ] && reload_services "$mode"
     echo ""
@@ -135,7 +159,9 @@ main() {
     return 0
   fi
 
-  do_install "$mode" || log "nothing to do — all files already current"
+  do_install "$mode"
+  prune_stale "$mode"
+  write_manifest "$mode"
   reload_services "$mode"
   [ "$mode" = "real" ] && print_verify
   echo ""

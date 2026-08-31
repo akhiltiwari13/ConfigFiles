@@ -35,8 +35,8 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 | Profile | Packages | Used on |
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium` | Remote dev box (uburemote) |
-| `omarchy` | 28 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
-| `macair` | 19 — cross-platform core + `wezterm` + `zsh` | macOS Air |
+| `omarchy` | 29 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
+| `macair` | 20 — cross-platform core + `wezterm` + `zsh` | macOS Air |
 
 ```bash
 ./scripts/bootstrap.sh <profile> --list      # show what would be stowed

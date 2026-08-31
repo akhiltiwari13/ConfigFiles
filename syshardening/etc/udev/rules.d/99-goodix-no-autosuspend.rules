@@ -17,6 +17,10 @@
 # resume can block the system PM resume path, and boot -1's final kernel line was
 # one of these resets, logged the instant the lock screen opened the device.
 #
+# ORDERING: must sort AFTER /usr/lib/udev/rules.d/60-autosuspend.rules, which sets
+# power/control="auto" for USB devices. A 50- prefix loses that race (verified with
+# `udevadm test /sys/bus/usb/devices/3-6`), hence 99-.
+#
 # See syshardening/PLAN.md Phase 1a-bis.
 
 ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="27c6", ATTR{idProduct}=="659a", TEST=="power/control", ATTR{power/control}="on"

@@ -38,7 +38,7 @@ readonly UBUNTU_PKGS=(
 
 readonly OMARCHY_PKGS=(
   # cross-platform core
-  bash-omarchy btop ccls clangd claudecode ghostty gitconfig
+  bash-omarchy btop ccls clangd claudecode conan ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh tmux vimium
   # Omarchy-specific (Wayland/Hyprland stack + omarchy-* infra)
@@ -50,7 +50,7 @@ readonly OMARCHY_PKGS=(
 
 readonly MACAIR_PKGS=(
   # cross-platform core (Mac is zsh-only — bash-omarchy intentionally excluded)
-  btop ccls clangd claudecode ghostty gitconfig
+  btop ccls clangd claudecode conan ghostty gitconfig
   lazydocker lazygit lazyvim mise opencode ripgrep-all setup
   ssh tmux vimium zathura
   # macOS-specific
