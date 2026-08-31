@@ -19,7 +19,9 @@ Three profiles defined in `scripts/bootstrap.sh` (it's the source of truth for w
 | `omarchy` | 27 — full set incl. Wayland stack | Omarchy ThinkPad (omarchy-tp) |
 | `macair` | 19 — cross-platform + `wezterm` + `zsh` | macOS Air |
 
-`scripts/` and `dumpyard/` are NOT stow packages.
+`scripts/`, `dumpyard/` and `syshardening/` are NOT stow packages.
+
+`syshardening/` holds `/etc` drop-ins (stow targets `$HOME`, so it can't place them). Install with `sudo ./syshardening/install.sh` (`--dry-run` / `--uninstall`). `syshardening/PLAN.md` is the root-cause investigation into the recurring system freezes — leading finding is **s2idle suspend**, specifically UPower's critical-battery action: 9 of 9 boots that suspended ended abruptly, 0 of 8 that never suspended did. Memory/zram pressure was the original hypothesis and is not supported.
 
 ## Stow Conventions
 

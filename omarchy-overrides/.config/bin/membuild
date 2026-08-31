@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# membuild — run a build under a hard memory ceiling.
+#
+# A runaway compile or LTO link gets OOM-killed inside its own cgroup instead of
+# driving the whole machine into reclaim thrash. The desktop survives; the build
+# fails with a clean error.
+#
+# Sizing: ~15.1 GiB usable RAM, idle desktop holds ~6-8 GiB, so a build has to fit
+# in roughly 5-7 GiB. Override per invocation:
+#   MEMBUILD_HIGH=4G MEMBUILD_MAX=6G membuild ninja
+#
+#   MemoryHigh  soft limit — throttles via reclaim pressure, the build just slows
+#   MemoryMax   hard limit — cgroup OOM killer takes cc1plus/ld, not Hyprland
+#
+# Deliberately no CPUQuota: CPU was never the failure mode, -j6 already bounds
+# concurrency, and a quota only adds scheduling latency.
+#
+# Usage:
+#   membuild ./build.sh Release
+#   membuild cmake --build --preset conan-debug
+#   membuild conan install . --build=missing --profile <p>
+#
+# Watch it: systemd-cgtop -m  |  systemctl --user status build.slice
+#
+# NOTE: a full-program LTO link is a single process that can exceed any of these
+# limits on a 16 GiB machine. If the link is what dies, the fix is mold +
+# CMAKE_JOB_POOL_LINK, or building in the memory-capped Docker container — not a
+# bigger ceiling here. See syshardening/PLAN.md Part 6.
+
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+  sed -n '2,28p' "${BASH_SOURCE[0]}" | sed 's/^# \?//'
+  exit 1
+fi
+
+exec systemd-run --user --scope --collect --slice=build.slice \
+  --description="membuild: $*" \
+  -p MemoryHigh="${MEMBUILD_HIGH:-5G}" \
+  -p MemoryMax="${MEMBUILD_MAX:-7G}" \
+  -p MemorySwapMax="${MEMBUILD_SWAP:-4G}" \
+  -p CPUWeight=40 -p IOWeight=40 \
+  -- "$@"

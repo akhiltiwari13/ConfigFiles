@@ -1,0 +1,22 @@
+# Goodix fingerprint reader — disable USB autosuspend
+#
+# WHY: usb 3-6 (27c6:659a "Goodix USB2.0 MISC", driven from userspace by
+# libfprint's goodixmoc) sits in a continuous reset loop on this machine because
+# it fails to resume from USB autosuspend. Measured reset counts per boot:
+#
+#   boot -1 (abrupt): 851      boot -3 (clean, 2.7 days): 12
+#   boot -4 (abrupt): 469      boot -8 (clean, ~22h):      4
+#   boot  0 (current): 734 in ~13h
+#
+# Every reset targets 3-6 and nothing else. Default state was power/control=auto
+# with autosuspend_delay_ms=2000 (global usbcore.autosuspend=2) and no udev rule
+# matching 27c6 anywhere on the system.
+#
+# 851 spurious device resets per boot is a defect worth fixing on its own merits.
+# It is also a candidate contributor to the freezes: a USB device that fails to
+# resume can block the system PM resume path, and boot -1's final kernel line was
+# one of these resets, logged the instant the lock screen opened the device.
+#
+# See syshardening/PLAN.md Phase 1a-bis.
+
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="27c6", ATTR{idProduct}=="659a", TEST=="power/control", ATTR{power/control}="on"
