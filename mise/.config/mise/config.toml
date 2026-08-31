@@ -11,8 +11,6 @@ node = "latest"
 opencode = "latest"
 python = "latest"
 ruby = "latest"
-zig = "latest"
-zls = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
