@@ -35,7 +35,7 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 | Profile | Packages | Used on |
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium` | Remote dev box (uburemote) |
-| `omarchy` | 30 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
+| `omarchy` | 32 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
 | `macair` | 20 — cross-platform core + `wezterm` + `zsh` | macOS Air |
 
 ```bash
@@ -54,7 +54,14 @@ On a fresh box, run `stow stow` once manually before `bootstrap.sh` — that see
 
 - **Never edit `/usr/share/omarchy/default/`** — Omarchy 4 ships this as a root-owned pacman package; updates overwrite it. User overrides go in `~/.config/<app>/` (i.e. this repo's package). `~/.local/share/omarchy` is now just a compat **symlink** to `/usr/share/omarchy`, so old docs/scripts referencing it still resolve.
 - **`opencode/` is an empty placeholder** — tracked config was removed in commit `4fb4537` ("to be ported on later"), but `opencode` is still in **all three** profile arrays. `stow opencode` / `bootstrap.sh` no-op on it; `~/.config/opencode` is now a plain unmanaged directory. Don't re-add config without first deciding the layout. See Notable Quirks.
-- **Treat `tmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `/usr/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6.
+- **Treat `tmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `/usr/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6. **That shim depends on `~/.config/bin` preceding `/usr/share/omarchy/bin` on `PATH`.** It had silently stopped working: the `environment.d` prepend is read by the systemd user manager and never reached interactive shells, so `omarchy-refresh-tmux` resolved to the upstream command and `membuild` was unreachable. `bash-omarchy/.bashrc` now prepends the directory itself. Verify with `command -v omarchy-refresh-tmux` in a **fresh** terminal — it must resolve under `~/.config/bin`.
+- **Never stow from a linked git worktree** — only the primary at
+  `~/Work/projects/quomptrade/configfiles` may be stowed. `~/.stowrc` and every live
+  `$HOME` symlink hold absolute paths into it, so `stow` from a parallel-agent lane
+  repoints your desktop at that lane and deleting the lane then breaks bash, Hyprland
+  and the terminal. Enforced by `require_primary_worktree()` in `scripts/bootstrap.sh`
+  **and** the `PreToolUse` hook `claudecode/.claude/hooks/stow-guard.sh`. See the
+  "Parallel worktrees" section of `AGENTS.md`.
 - **Never stow `dumpyard/`** — archived configs (i3, AstroNvim, old zsh/bash, retired oh-my-tmux conf.local), not meant for linking.
 - **Never commit** `lazy-lock.json`, `credentials.txt`, `antigravity-accounts.json`, `.credentials.json` (most are gitignored; verify). Runtime state is also already ignored: `herdr/.config/herdr/*.{log,sock,...}`, `voxtype/.local/` + Whisper models, and `omarchy-shell`'s Omarchy-generated `~/.config/omarchy` subdirs — see `.gitignore`.
 - **Never re-add `lazyvim/nvim/.config/nvim/lua/plugins/theme.lua` to git** — it is an
@@ -215,6 +222,20 @@ config were removed in commit `4fb4537` ("to be ported on later"). Current state
     the symlink survives but the tracked file is replaced by the Omarchy default — recover with
     `git checkout -- foot/`. There is no `omarchy-refresh-foot`, so this only fires when invoked
     explicitly; no shim is needed.
+- **Parallel agent worktrees** — lanes live under a global root,
+  `~/Work/worktrees/<Repo>/wt-<lane>`, created with `gwq add -b wt/<lane>`
+  (`gwq` is pinned in mise; its config is the `gwq/` package). `gwq list -g` is the
+  cross-repo dashboard and `gwq cd` is an fzf jump that works in herdr, tmux and a
+  bare terminal alike — **herdr has no `tmux-sessionx` equivalent**, which is why
+  both tools are present. Lanes are edit-and-commit only; see the stow rule above.
+  - **quant-research is a pinned exception** and must keep its worktrees nested
+    inside `./pqr` and `./platform`: `docker-compose.yml` mounts those directories,
+    and `pqr/platform` is a symlink to the container-absolute
+    `/quant-research/platform/research00`. Moving them breaks the build.
+  - `worktree.baseRef` is set to `head` in `claudecode/.claude/settings.json`.
+    Claude's native `EnterWorktree` defaults to branching from
+    `origin/<default-branch>`, and this repo's `origin/HEAD` tracked `master` while
+    all work is on `main` — 123 commits ahead. `origin/HEAD` now points at `main`.
 - **`herdr/`** — Omarchy 4's terminal workspace manager (tmux replacement), launched by `SUPER + CTRL + RETURN`. `herdr/.config/herdr/config.toml` is hand-tuned to **mirror the tmux keymap** (same `ctrl+space` prefix, same pane/tab/workspace chords), so it occupies tmux's layer in `KEYBINDINGS.md` §2 — **any tmux keymap change must be mirrored into `config.toml`** or the two drift. Its one deliberate divergence: `rename_pane = "prefix+shift+o"` (stock `prefix+shift+p` collides with previous-workspace). Only `config.toml` is tracked; logs/sockets/session state gitignored.
 - **`voxtype/`** — dictation daemon (`voxtype-bin`, AUR). Only `voxtype/.config/voxtype/config.toml` is tracked. **The hotkey is not in that file** (`[hotkey] enabled = false`) — the real bindings live in Hyprland (`SUPER+CTRL+X` toggle, `F9` push-to-talk) and only signal an already-running daemon. If a binding "does nothing", check `systemctl --user status voxtype` first — it runs as a user service (`~/.config/systemd/user/voxtype.service`, installed by `omarchy-voxtype-install`, not tracked). Whisper models live in `~/.local/share/voxtype/models/` (per-machine download, gitignored). `omarchy-voxtype-status` (= `voxtype status --follow`) streams forever — never invoke it non-interactively.
 - **`mise/.config/mise/config.toml`** pins the CLI agent toolchain (`agy`, `claude`, `codex`, `crush`, `gh`, `npm:@xai-official/grok`, `opencode`) plus language runtimes (go/node/python/ruby/zig/zls/conan). Stowed on all three profiles as of commit `8711d55`; `gemini` was retired.

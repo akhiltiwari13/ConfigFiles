@@ -1,0 +1,46 @@
+# gwq — git worktree manager (github.com/d-kuro/gwq), pinned in mise as
+# "go:github.com/d-kuro/gwq/cmd/gwq".
+#
+# Why gwq is here alongside tmux-sessionx: sessionx is a tmux-only directory
+# picker, and herdr has no equivalent (its config.toml is keymap/theme/UI only).
+# gwq's fzf finder is multiplexer-agnostic, so `gwq cd` works identically in
+# herdr, tmux and a bare foot window — and `gwq list -g` is the cross-repo
+# dashboard of every in-flight lane.
+#
+# NOTE: `gwq config set` rewrites this file in place, i.e. through the stow
+# symlink into this repo — same as omarchy-shell's shell.json. That is
+# intentional (changes get tracked), but expect `git status` churn after using it.
+
+[worktree]
+# All lanes live under one global root, namespaced by repo. Rationale and the
+# one documented exception (quant-research, whose worktrees are pinned inside
+# ./pqr and ./platform by docker-compose mounts and a container-absolute
+# symlink) are in the "Parallel worktrees" section of AGENTS.md.
+basedir = "~/Work/worktrees"
+auto_mkdir = true
+
+[naming]
+# Default is ghq-style {{.Host}}/{{.Owner}}/{{.Repository}}/{{.Branch}}, which
+# nests four deep. Two levels is enough here and matches the layout used when
+# creating lanes by hand with `git worktree add`.
+# Branch "wt/agent-a" sanitises to "wt-agent-a" via sanitize_chars below.
+template = "{{.Repository}}/{{.Branch}}"
+
+# Stated explicitly rather than relying on gwq's defaults: this is what turns a
+# "wt/agent-a" branch into a single "wt-agent-a" directory instead of a nested one.
+[naming.sanitize_chars]
+"/" = "-"
+":" = "-"
+
+[finder]
+preview = true
+
+[ui]
+icons = true
+tilde_home = true
+
+[cd]
+# Don't jump into a new worktree on creation — the lane gets opened deliberately
+# in its own tmux session / herdr workspace, with its own agent CLI.
+auto_cd_on_add = false
+launch_shell = true

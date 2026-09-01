@@ -16,7 +16,7 @@ Three profiles defined in `scripts/bootstrap.sh` (it's the source of truth for w
 | Profile | Packages | Used on |
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core (no GUI/Wayland) | Remote dev box (uburemote) |
-| `omarchy` | 30 — full set incl. Wayland stack | Omarchy ThinkPad (omarchy-tp) |
+| `omarchy` | 32 — full set incl. Wayland stack | Omarchy ThinkPad (omarchy-tp) |
 | `macair` | 20 — cross-platform + `wezterm` + `zsh` | macOS Air |
 
 `scripts/`, `dumpyard/` and `syshardening/` are NOT stow packages.
@@ -49,6 +49,50 @@ Host runs Omarchy `4.0.0.alpha` ("quattro"). Precedence:
 Alacritty, foot, ghostty, and kitty still use plain `source`/`include` — only hypr moved.
 
 **The port to Lua is complete** (2026-08-22). All `source`-based `.conf` files were deleted; five `.lua` modules remain. Only genuine deviations from Omarchy's defaults belong there — 23 of the original 27 `bindd` lines were dropped because Omarchy 4 ships them verbatim, and re-adding one would double-bind it. Check `grep -n 'o\.bind' /usr/share/omarchy/default/hypr/bindings/*.lua` before adding (note: some lines read `o.bind( "KEY"` with a space, which a naive grep misses). `hyprctl binds` is ground truth. Still-live `.conf` files (separate daemons): `hypridle.conf`, `hyprlock.conf`, `hyprsunset.conf`, `xdph.conf`.
+
+## Parallel worktrees
+
+Multiple agent CLIs edit this repo in parallel via git worktrees. **One rule matters more than all the others: only the PRIMARY worktree may ever be stowed.**
+
+```
+~/Work/
+├── worktrees/                      ← global root (gwq worktree.basedir)
+│   └── ConfigFiles/wt-<lane>/        branch wt/<lane>
+├── projects/quomptrade/configfiles/  ← PRIMARY, branch main, the ONLY stowable tree
+└── learn/quant-research/           ← PINNED EXCEPTION — do not relocate
+    ├── pqr/reseachr00/
+    └── platform/research00/
+```
+
+**Why the primary is special.** `~/.stowrc` is itself a symlink into it and sets `--target=$HOME`, and every live symlink (`~/.bashrc`, `~/.config/hypr`, `~/.config/foot/foot.ini`) holds an *absolute* path into it. Stowing from a lane repoints `$HOME` at that lane; deleting the lane then breaks the shell, Hyprland and the terminal. `stow --adopt` from a lane is worse — it pulls live files in, silently reverting tracked config.
+
+**Enforced in two layers**, not just documented — a Claude-only guard would miss opencode/codex/crush and hand-typed commands:
+
+1. `scripts/bootstrap.sh` → `require_primary_worktree()`, covers every harness.
+2. `claudecode/.claude/hooks/stow-guard.sh` → `PreToolUse` hook, also catches bare `stow`.
+
+Both use the same path-independent test — true only in the primary:
+
+```sh
+[ "$(git rev-parse --absolute-git-dir)" = "$(realpath "$(git rev-parse --git-common-dir)")" ]
+```
+
+The hook is registered in the **global** `~/.claude/settings.json`, so it deliberately no-ops unless cwd is a linked worktree of a repo containing `stow/.stowrc` — it must never interfere with `pqr`, `platform` or anything else. Note the bootstrap guard only protects lanes created *after* it was committed, since a lane checks out a commit.
+
+**The quant-research exception is load-bearing, not laziness.** `docker-compose.yml` mounts `./pqr` and `./platform`; those worktrees are nested *inside* the mounts, which is the only reason they reach the container. And `pqr/platform` is a root-owned symlink to `/quant-research/platform/research00` — a container-absolute path that does not exist on the host. Relocating them breaks the mount and PQR's `../platform` resolution. General rule: **the build system's view of the filesystem outranks the filing convention.**
+
+**Tools.** `gwq` (pinned in mise, config in the `gwq/` package) creates lanes and gives `gwq list -g`, a cross-repo dashboard. Its fzf picker is multiplexer-agnostic, which is why it's here alongside `tmux-sessionx` — sessionx is tmux-only and **herdr has no equivalent** (its `config.toml` is keymap/theme/UI only). No new chords, so `KEYBINDINGS.md` is unaffected.
+
+```bash
+gwq add -b wt/agent-a          # lane at ~/Work/worktrees/ConfigFiles/wt-agent-a
+gwq list -g                    # every lane, every repo
+gwq cd                         # fzf jump — herdr, tmux, or bare terminal
+git worktree remove <path> && git branch -d wt/agent-a
+```
+
+Lanes are **edit-and-commit only**: commit on `wt/<lane>`, merge into `main`, then stow from the primary. Two worktrees cannot check out the same branch, which is the built-in guard against two agents committing to `main`.
+
+**`worktree.baseRef` is set to `head`** in `claudecode/.claude/settings.json`. Claude's native `EnterWorktree` defaults to `fresh` = branch from `origin/<default-branch>`; this repo's `origin/HEAD` tracked `master` while all work is on `main` (123 commits ahead), so `fresh` silently branched from a stale tree. `origin/HEAD` has since been repointed at `main`.
 
 ## Anti-Patterns
 

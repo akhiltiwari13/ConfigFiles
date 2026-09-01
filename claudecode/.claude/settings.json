@@ -1,5 +1,4 @@
 {
-  "model": "opus[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -22,6 +21,17 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/stow-guard.sh\""
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -30,8 +40,34 @@
   },
   "enabledPlugins": {
     "code-modernization@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "catppuccin@claude-themes": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
   },
-  "theme": "light",
-  "skipAutoPermissionPrompt": true
+  "extraKnownMarketplaces": {
+    "claudient": {
+      "source": {
+        "source": "github",
+        "repo": "claudient/claudient"
+      }
+    },
+    "claude-themes": {
+      "source": {
+        "source": "github",
+        "repo": "matcra587/claude-themes"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "model": "opus",
+  "worktree": {
+    "baseRef": "head"
+  }
 }

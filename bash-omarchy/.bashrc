@@ -36,6 +36,17 @@ case ":$PATH:" in
   *) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
+# Ensure ~/.config/bin (omarchy-overrides) is on PATH and SHADOWS /usr/share/omarchy/bin.
+# omarchy-overrides/.config/environment.d/00-omarchy-overrides.conf sets this for the
+# systemd user manager, but that never reached interactive shells — which silently
+# disabled the omarchy-refresh-tmux block shim and put membuild out of reach.
+# Prepending here is authoritative regardless of how the shell was launched.
+# Harmless where the dir doesn't exist (Ubuntu remote, macOS).
+case ":$PATH:" in
+  *":$HOME/.config/bin:"*) ;;
+  *) [ -d "$HOME/.config/bin" ] && export PATH="$HOME/.config/bin:$PATH" ;;
+esac
+
 # Toolchain activation — each guard avoids breaking shell startup if the tool isn't installed yet
 [ -f "$HOME/.local/share/../bin/env" ] && . "$HOME/.local/share/../bin/env"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

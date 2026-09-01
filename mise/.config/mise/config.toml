@@ -6,6 +6,11 @@ conan = "latest"
 crush = "latest"
 gh = "latest"
 go = "latest"
+# gwq — git worktree manager. Cross-repo `gwq list -g` dashboard plus an fzf
+# picker that works in herdr, tmux and a bare terminal alike (herdr has no
+# sessionx equivalent). Pinned here rather than a loose `go install` so it
+# survives a Go version bump. See "Parallel worktrees" in AGENTS.md.
+"go:github.com/d-kuro/gwq/cmd/gwq" = "latest"
 node = "latest"
 "npm:@xai-official/grok" = "latest"
 opencode = "latest"

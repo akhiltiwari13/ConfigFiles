@@ -44,8 +44,8 @@ readonly OMARCHY_PKGS=(
   # Omarchy-specific (Wayland/Hyprland stack + omarchy-* infra)
   # herdr + omarchy-shell are Omarchy 4 ("quattro") tools; waybar and
   # omarchy-themes retired to dumpyard/ when quickshell replaced waybar.
-  alacritty fastfetch foot herdr omarchy-hyprland omarchy-overrides omarchy-shell
-  rofi voxtype vpn wallpapers zathura
+  alacritty fastfetch foot gwq herdr omarchy-hyprland omarchy-overrides omarchy-shell
+  rofi starship voxtype vpn wallpapers zathura
 )
 
 readonly MACAIR_PKGS=(
@@ -72,6 +72,42 @@ resolve_pkgs() {
       usage
       ;;
   esac
+}
+
+# Stow may only ever run from the PRIMARY worktree.
+#
+# Every live symlink in $HOME (~/.bashrc, ~/.config/hypr, ~/.config/foot/foot.ini,
+# ~/.stowrc itself) holds an ABSOLUTE path into whichever tree was stowed last.
+# Stowing from a parallel-agent worktree silently repoints $HOME at that worktree;
+# deleting it afterwards then breaks the shell, Hyprland and the terminal. And
+# `stow --adopt` from a worktree pulls live files in, reverting tracked config.
+#
+# The test is path-independent: in the primary worktree the per-worktree gitdir and
+# the shared object store are the same directory; in a linked worktree the gitdir is
+# <common>/worktrees/<name>. See "Parallel worktrees" in AGENTS.md.
+require_primary_worktree() {
+  git -C "$REPO_DIR" rev-parse --git-dir >/dev/null 2>&1 || return 0  # not a repo: nothing to guard
+
+  local gitdir common
+  gitdir="$(git -C "$REPO_DIR" rev-parse --absolute-git-dir)"
+  common="$(cd "$REPO_DIR" && realpath "$(git rev-parse --git-common-dir)")"
+  [ "$gitdir" = "$common" ] && return 0
+
+  cat >&2 <<EOF
+error: refusing to stow from a linked worktree.
+
+  this tree : $REPO_DIR
+  primary   : $(dirname "$common")
+
+Stowing here would repoint your live \$HOME symlinks (~/.bashrc, ~/.config/hypr,
+~/.config/foot/foot.ini, ~/.stowrc) at this worktree. Deleting the worktree would
+then break your shell, window manager and terminal.
+
+Worktrees are edit-and-commit only. Merge into main, then stow from the primary:
+
+  cd $(dirname "$common") && ./scripts/bootstrap.sh $*
+EOF
+  exit 1
 }
 
 run_stow() {
@@ -105,6 +141,11 @@ main() {
   esac
 
   command -v stow >/dev/null 2>&1 || { echo "error: stow not installed" >&2; exit 1; }
+
+  # Guard runs for --dry-run too: the dry-run is the rehearsal, so it must fail
+  # in the same place the real thing would. --list exited above and stays usable
+  # from anywhere, since listing touches nothing.
+  require_primary_worktree "$profile" "${2:-}"
 
   local pkgs=()
   while IFS= read -r line; do pkgs+=("$line"); done < <(resolve_pkgs "$profile")
