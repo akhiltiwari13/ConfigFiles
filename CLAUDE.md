@@ -217,6 +217,13 @@ config were removed in commit `4fb4537` ("to be ported on later"). Current state
   - Colors come from the untouched `include=~/.local/state/omarchy/current/theme/foot.ini`;
     `omarchy-theme-set-foot` repaints *running* instances over OSC. Neither touches the font.
     Reload config without closing windows: `pkill -USR1 foot`.
+  - **`omarchy-font-set` BREAKS the symlink.** It runs `sed -i` on
+    `~/.config/foot/foot.ini`, and GNU `sed -i` writes a temp file and renames over the
+    target, replacing the symlink with a real file. It also hardcodes `size=9` and drops
+    `:weight=semibold`, which would silently undo the ghostty font match. Any tool that
+    edits this file in place has the same effect — one did on 2026-09-01. After any such
+    edit, re-link with `stow -n -v --adopt foot` then `stow --adopt foot`; `--adopt`
+    keeps whatever value you set and just brings it back under tracking.
   - **`omarchy-refresh-config foot/foot.ini` writes through the stow symlink into this repo.**
     Unlike `omarchy refresh shell`, it does a plain `cp -f` onto `~/.config/foot/foot.ini`, so
     the symlink survives but the tracked file is replaced by the Omarchy default — recover with
