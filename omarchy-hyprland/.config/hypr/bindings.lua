@@ -57,9 +57,6 @@ o.bind(
   [[uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd)" bash -c "ssh -t quomptblr 'tmux attach || tmux new -s qmuxyblr-elaeo-x86'"]]
 )
 
--- Typora in place of Omarchy's Omawrite.
-hl.unbind("SUPER + SHIFT + W")
-o.bind("SUPER + SHIFT + W", "Typora", { launch = "typora --enable-wayland-ime" })
 
 -- Slack in place of Omarchy's Google Maps.
 hl.unbind("SUPER + SHIFT + S")

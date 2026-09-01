@@ -66,4 +66,5 @@ hl.monitor({ output = top_monitor, mode = "2560x1440@60", position = "0x0", scal
 hl.monitor({ output = laptop_monitor, mode = "1920x1200@60", position = "320x1440", scale = omarchy_monitor_scale })
 hl.workspace_rule({ workspace = "1", monitor = top_monitor, default = true }) -- tmux/ghostty (muxy)
 hl.workspace_rule({ workspace = "2", monitor = laptop_monitor, default = false }) -- chromium
+o.window("foot", { workspace = "1" })
 o.window("chromium", { workspace = "2" })
