@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# post-checkout — detective layer of the worktree location policy.
+#
+# ~/.config/bin/git PREVENTS off-policy `git worktree add`, but only for callers
+# that resolve git through PATH. This catches what the shim cannot:
+#   - tools using libgit2/JGit instead of the git binary
+#   - anything invoking /usr/bin/git by absolute path
+#   - a harness that sanitises PATH, or runs with its own
+# Real git runs this hook no matter how it was invoked.
+#
+# It fires AFTER the worktree exists, so it can only report -- loudly, with the
+# exact fix. It never fails the operation: a nonzero exit here would make git
+# report an error for a worktree it already created, which is worse than a warning.
+#
+# Wired globally:  git config --global core.hooksPath ~/.config/git/hooks
+# Because that overrides .git/hooks for EVERY repo, this dispatches to a repo's own
+# hook first. No repo on this box had one when the policy was written; that will
+# not stay true.
+
+# args: $1 prev HEAD  $2 new HEAD  $3 branch-checkout flag (1) vs file-checkout (0)
+
+# --- dispatch to the repo's own hook, if any -------------------------------
+repo_hook="$(git rev-parse --git-common-dir 2>/dev/null)/hooks/post-checkout"
+if [ -x "$repo_hook" ] && [ "$repo_hook" != "${BASH_SOURCE[0]}" ]; then
+  "$repo_hook" "$@" || exit $?
+fi
+
+[ "${3:-0}" = "1" ] || exit 0        # only branch checkouts, not file checkouts
+
+WT_ROOT="${WT_POLICY_ROOT:-$HOME/Work/worktrees}"
+WT_SCOPE="${WT_POLICY_SCOPE:-$HOME/Work}"
+POLICY_CONF="${WT_POLICY_CONF:-$HOME/.config/worktree-policy.conf}"
+
+gitdir="$(git rev-parse --absolute-git-dir 2>/dev/null)" || exit 0
+common="$(realpath -m -- "$(git rev-parse --git-common-dir 2>/dev/null)" 2>/dev/null)" || exit 0
+
+# Only linked worktrees are of interest; in the primary these are equal.
+[ "$gitdir" != "$common" ] || exit 0
+
+top="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+top="$(realpath -m -- "$top" 2>/dev/null)" || exit 0
+primary="$(dirname "$common")"
+
+case "$primary/" in "$WT_SCOPE"/*) ;; *) exit 0 ;; esac   # out of scope
+case "$top/" in "$WT_ROOT"/*) exit 0 ;; esac              # on policy
+
+if [ -r "$POLICY_CONF" ]; then
+  while IFS= read -r pat || [ -n "$pat" ]; do
+    case "$pat" in ''|'#'*) continue ;; esac
+    pat="${pat/#\~/$HOME}"
+    # shellcheck disable=SC2254
+    case "$top" in $pat) exit 0 ;; esac
+    # shellcheck disable=SC2254
+    case "$primary" in $pat) exit 0 ;; esac
+  done < "$POLICY_CONF"
+fi
+
+branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+[ "$branch" = "HEAD" ] && branch="detached"
+dest="$WT_ROOT/$(basename "$primary")/${branch//\//-}"
+
+printf '\n\033[33m%s\033[0m\n' "WARNING: worktree created outside the policy location."
+printf '  created : %s\n'   "${top/#$HOME/\~}"
+printf '  policy  : %s\n\n' "${dest/#$HOME/\~}"
+printf '  This bypassed ~/.config/bin/git (libgit2, an absolute /usr/bin/git path,\n'
+printf '  or a sanitised PATH). It could not be prevented here, only reported.\n\n'
+printf '  Move it:  git -C %s worktree move %s \\\n              %s\n\n' \
+  "${primary/#$HOME/\~}" "${top/#$HOME/\~}" "${dest/#$HOME/\~}"
+printf '  Or add an exception to %s\n\n' "${POLICY_CONF/#$HOME/\~}"
+
+exit 0    # never fail the checkout

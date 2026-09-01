@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+# wt-audit — report every git worktree under ~/Work and flag policy violations.
+#
+# The reporting layer of the worktree policy. ~/.config/bin/git prevents new
+# violations and the global post-checkout hook catches shim bypasses, but neither
+# sees what already exists or what was created while the guard was off. This does.
+#
+# It enumerates via `git worktree list` on each PRIMARY repo rather than guessing
+# from directory depth -- a depth-limited directory scan missed four worktrees when
+# this policy was first written (mmp-cexbot, mmp-fe, mmp-fastapi-be, elaeocarpus-x86).
+
+set -uo pipefail
+
+WT_ROOT="${WT_POLICY_ROOT:-$HOME/Work/worktrees}"
+WT_SCOPE="${WT_POLICY_SCOPE:-$HOME/Work}"
+POLICY_CONF="${WT_POLICY_CONF:-$HOME/.config/worktree-policy.conf}"
+
+tilde() { printf '%s' "${1/#$HOME/\~}"; }
+
+allowlisted() {  # <worktree-path> <primary-path>
+  [ -r "$POLICY_CONF" ] || return 1
+  local pat
+  while IFS= read -r pat || [ -n "$pat" ]; do
+    case "$pat" in ''|'#'*) continue ;; esac
+    pat="${pat/#\~/$HOME}"
+    # shellcheck disable=SC2254
+    case "$1" in $pat) return 0 ;; esac
+    # shellcheck disable=SC2254
+    case "$2" in $pat) return 0 ;; esac
+  done < "$POLICY_CONF"
+  return 1
+}
+
+primaries="$(mktemp)"; trap 'rm -f "$primaries"' EXIT
+find "$WT_SCOPE" -maxdepth 7 -name .git -printf '%h\n' 2>/dev/null | sort -u |
+while read -r d; do
+  common="$(cd "$d" 2>/dev/null && git rev-parse --git-common-dir 2>/dev/null)" || continue
+  common="$(cd "$d" 2>/dev/null && realpath -m -- "$common" 2>/dev/null)" || continue
+  dirname "$common"
+done | sort -u > "$primaries"
+
+ok=0; viol=0; exempt=0; repos=0
+violations=""
+
+while read -r p; do
+  [ -d "$p" ] || continue
+  mapfile -t trees < <(git -C "$p" worktree list --porcelain 2>/dev/null |
+                        awk '/^worktree /{print substr($0,10)}')
+  [ "${#trees[@]}" -gt 1 ] || continue
+  repos=$((repos + 1))
+  printf '\n%s\n' "$(tilde "$p")"
+  for t in "${trees[@]}"; do
+    [ "$t" = "$p" ] && continue                      # the primary itself
+    br="$(git -C "$t" rev-parse --abbrev-ref HEAD 2>/dev/null)"
+    case "$t/" in
+      "$WT_ROOT"/*) printf '  \033[32mok     \033[0m %-52s %s\n' "$(tilde "$t")" "$br"; ok=$((ok + 1)); continue ;;
+    esac
+    if allowlisted "$t" "$p"; then
+      printf '  \033[33mexempt \033[0m %-52s %s\n' "$(tilde "$t")" "$br"; exempt=$((exempt + 1))
+    else
+      printf '  \033[31mVIOLATES\033[0m %-52s %s\n' "$(tilde "$t")" "$br"; viol=$((viol + 1))
+      violations="$violations$t|$p|$br"$'\n'
+    fi
+  done
+done < "$primaries"
+
+printf '\n%s\n' "----------------------------------------------------------------"
+printf 'repos with lanes: %d    on-policy: %d    exempt: %d    violating: %d\n' \
+       "$repos" "$ok" "$exempt" "$viol"
+
+if [ "$viol" -gt 0 ]; then
+  printf '\nto bring violations onto policy:\n'
+  while IFS='|' read -r t p br; do
+    [ -n "$t" ] || continue
+    printf '  git -C %s worktree move %s \\\n      %s\n' \
+      "$(tilde "$p")" "$(tilde "$t")" "$(tilde "$WT_ROOT/$(basename "$p")/${br//\//-}")"
+  done <<< "$violations"
+  printf '\n(check for path-baked state first: CMakeCache.txt, compile_commands.json,\n'
+  printf ' .venv shebangs and node_modules/.bin all hardcode absolute paths.)\n'
+  exit 1
+fi
+exit 0

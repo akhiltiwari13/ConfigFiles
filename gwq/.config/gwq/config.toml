@@ -21,9 +21,17 @@ auto_mkdir = true
 
 [naming]
 # Default is ghq-style {{.Host}}/{{.Owner}}/{{.Repository}}/{{.Branch}}, which
-# nests four deep. Two levels is enough here and matches the layout used when
-# creating lanes by hand with `git worktree add`.
-# Branch "wt/agent-a" sanitises to "wt-agent-a" via sanitize_chars below.
+# nests four deep. Two levels is enough here.
+#
+# CAVEAT: {{.Repository}} comes from the REMOTE, and those diverge sharply from
+# the local directory names on this box:
+#     mmp-cexbot -> MMP-CEX-GATE     vlad-plat   -> trading-platform
+#     mmp-fe     -> MMP-FE           mlm-sarvesh -> Sarvesh-MLM-Code
+#     configfiles-> ConfigFiles      mmp-fastapi-be -> MMP-BE
+# gwq's template language has no local-directory variable, so it cannot express
+# the convention we actually use. That is why `wt` (~/.config/bin/wt) is the
+# blessed creator: it computes ~/Work/worktrees/<local-dir>/<branch> instead.
+# This template only applies to a bare `gwq add` with no path argument.
 template = "{{.Repository}}/{{.Branch}}"
 
 # Stated explicitly rather than relying on gwq's defaults: this is what turns a

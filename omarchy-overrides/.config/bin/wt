@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# wt — create/list/remove worktree lanes at the one blessed location.
+#
+# The location policy is ENFORCED by ~/.config/bin/git (it refuses off-policy
+# `git worktree add`). This helper exists so the compliant path is also the
+# easiest one: it computes the destination for you.
+#
+#   ~/Work/worktrees/<local-repo-dir>/<branch with "/" -> "-">
+#
+# Why not just `gwq add`? gwq's naming.template only exposes
+# .Host/.Owner/.Repository/.Branch, and .Repository comes from the REMOTE, which
+# diverges sharply from the local directory names here (mmp-cexbot -> MMP-CEX-GATE,
+# vlad-plat -> trading-platform, configfiles -> ConfigFiles). This uses the local
+# directory name, which is how you actually navigate. gwq is still the dashboard:
+# `gwq list -g` and `gwq cd` discover anything under worktree.basedir regardless of
+# who created it.
+
+set -uo pipefail
+
+WT_ROOT="${WT_POLICY_ROOT:-$HOME/Work/worktrees}"
+
+die() { printf 'wt: %s\n' "$*" >&2; exit 1; }
+
+usage() {
+  cat <<'EOF'
+usage:
+  wt add <branch> [<base>]   create a lane for <branch> (new branch off <base>, default HEAD)
+  wt track <branch>          create a lane for a branch that already exists
+  wt path <branch>           print the policy path for <branch> without creating it
+  wt ls                      list this repo's lanes
+  wt rm <branch>             remove the lane (keeps the branch)
+
+Lanes live at ~/Work/worktrees/<repo>/<branch with / replaced by ->.
+EOF
+  exit "${1:-1}"
+}
+
+repo_root() {
+  local common
+  common="$(git rev-parse --git-common-dir 2>/dev/null)" || die "not inside a git repository"
+  common="$(realpath -m -- "$common")"
+  dirname "$common"
+}
+
+lane_path() {  # <branch>
+  local primary repo
+  primary="$(repo_root)" || exit 1
+  repo="$(basename "$primary")"
+  printf '%s/%s/%s\n' "$WT_ROOT" "$repo" "${1//\//-}"
+}
+
+cmd="${1:-}"; [ -n "$cmd" ] || usage
+shift || true
+
+case "$cmd" in
+  add|track)
+    branch="${1:-}"; [ -n "$branch" ] || usage
+    dest="$(lane_path "$branch")" || exit 1
+    [ -e "$dest" ] && die "already exists: $dest"
+    mkdir -p -- "$(dirname "$dest")"
+    if [ "$cmd" = "track" ]; then
+      git worktree add -- "$dest" "$branch" || exit 1
+    else
+      git worktree add -b "$branch" -- "$dest" ${2:+"$2"} || exit 1
+    fi
+    printf '\nlane ready: %s\n' "${dest/#$HOME/\~}"
+    printf 'open it:    cd %s\n' "${dest/#$HOME/\~}"
+    ;;
+  path) branch="${1:-}"; [ -n "$branch" ] || usage; lane_path "$branch" ;;
+  ls)   git worktree list ;;
+  rm)
+    branch="${1:-}"; [ -n "$branch" ] || usage
+    dest="$(lane_path "$branch")" || exit 1
+    git worktree remove -- "$dest" && printf 'removed %s (branch %s kept)\n' "${dest/#$HOME/\~}" "$branch"
+    ;;
+  -h|--help|help) usage 0 ;;
+  *) die "unknown command: $cmd (try: wt --help)" ;;
+esac

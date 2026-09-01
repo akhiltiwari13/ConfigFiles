@@ -1,0 +1,185 @@
+#!/usr/bin/env bash
+# git — pass-through shim enforcing the worktree location policy.
+#
+# WHY
+#   No LLM harness can be *instructed* into a guarantee; a CLAUDE.md/AGENTS.md line
+#   is advisory. Every harness (claude, codex, opencode, crush, grok, agy) creates
+#   worktrees by spawning `git`, and ~/.config/bin is first on PATH, so this is the
+#   one place the policy can be enforced without any agent cooperation.
+#
+#   Git itself has no worktree-location setting -- `git help -c` offers only
+#   worktree.guessRemote and worktree.useRelativePaths -- so there is nothing to
+#   configure and this wrapper is the only preventive option.
+#
+# THE CARDINAL RULE: FAIL OPEN.
+#   git runs constantly, in every tool, on every prompt draw. This script refuses
+#   ONLY when argv positively parses as `worktree add` with an off-policy
+#   destination in an in-scope repo. Every other path -- an unrecognised global
+#   option, an unparseable argument, a missing directory, anything at all
+#   surprising -- falls through to `exec "$REAL" "$@"`. A bug here must degrade to
+#   "policy missed once", never to "git is broken".
+#
+# SCOPE
+#   Only repos whose primary worktree lives under ~/Work. Repos elsewhere are none
+#   of this policy's business -- notably ~/.config/tmux/plugins/* and
+#   ~/.local/share/mise/**, which are git repos too.
+#
+# ESCAPES
+#   WT_POLICY_BYPASS=1 git worktree add ...   one-shot, deliberate
+#   ~/.config/worktree-policy.conf            persistent allowlist globs
+
+REAL=/usr/bin/git    # absolute on purpose: resolving via PATH would recurse into this shim
+
+# Fast path. Almost every invocation is not a worktree command; get out in one
+# string match rather than parsing argv. Keeps prompt-time git calls untouched.
+case " $* " in
+  *" worktree "*) ;;
+  *) exec "$REAL" "$@" ;;
+esac
+
+WT_ROOT="${WT_POLICY_ROOT:-$HOME/Work/worktrees}"
+WT_SCOPE="${WT_POLICY_SCOPE:-$HOME/Work}"
+POLICY_CONF="${WT_POLICY_CONF:-$HOME/.config/worktree-policy.conf}"
+
+[ -n "${WT_POLICY_BYPASS:-}" ] && exec "$REAL" "$@"
+
+# ---------------------------------------------------------------------------
+# 1. Walk git's global options to find the subcommand, tracking -C for cwd.
+#    Any option not in these lists => bail out and let real git handle it.
+# ---------------------------------------------------------------------------
+argv=("$@")
+i=0
+gitdir_cwd=""
+n=${#argv[@]}
+
+while [ "$i" -lt "$n" ]; do
+  a="${argv[$i]}"
+  case "$a" in
+    -C)
+      j=$((i + 1)); [ "$j" -lt "$n" ] || exec "$REAL" "$@"
+      gitdir_cwd="${argv[$j]}"; i=$((i + 2)) ;;
+    -c|--exec-path|--git-dir|--work-tree|--namespace|--super-prefix|--config-env|--attr-source)
+      i=$((i + 2)) ;;                       # option consuming a separate value
+    --*=*)
+      i=$((i + 1)) ;;                       # --opt=value, self-contained
+    -p|-P|--paginate|--no-pager|--bare|--no-replace-objects|--literal-pathspecs|\
+    --glob-pathspecs|--noglob-pathspecs|--icase-pathspecs|--no-optional-locks|\
+    --no-lazy-fetch|--no-advice|--exec-path)
+      i=$((i + 1)) ;;                       # known boolean
+    -*)
+      exec "$REAL" "$@" ;;                  # unknown option -> FAIL OPEN
+    *)
+      break ;;                              # first non-option: the subcommand
+  esac
+done
+
+[ "$i" -lt "$n" ] || exec "$REAL" "$@"
+[ "${argv[$i]}" = "worktree" ] || exec "$REAL" "$@"
+
+# ---------------------------------------------------------------------------
+# 2. `worktree` verb must be `add`; anything else (list/remove/move/prune) is fine.
+# ---------------------------------------------------------------------------
+i=$((i + 1))
+[ "$i" -lt "$n" ] || exec "$REAL" "$@"
+[ "${argv[$i]}" = "add" ] || exec "$REAL" "$@"
+
+# ---------------------------------------------------------------------------
+# 3. Find `add`'s first positional argument: the destination path.
+# ---------------------------------------------------------------------------
+i=$((i + 1))
+dest=""
+while [ "$i" -lt "$n" ]; do
+  a="${argv[$i]}"
+  case "$a" in
+    --) j=$((i + 1)); [ "$j" -lt "$n" ] && dest="${argv[$j]}"; break ;;
+    -b|-B|--reason)
+      i=$((i + 2)) ;;                       # consumes a value
+    --*=*)  i=$((i + 1)) ;;
+    -f|--force|--detach|--checkout|--no-checkout|--lock|--orphan|--quiet|-q|\
+    --guess-remote|--no-guess-remote|--track|--no-track|--relative-paths|--no-relative-paths)
+      i=$((i + 1)) ;;
+    -*) exec "$REAL" "$@" ;;                # unknown add option -> FAIL OPEN
+    *)  dest="$a"; break ;;
+  esac
+done
+
+[ -n "$dest" ] || exec "$REAL" "$@"          # no destination parsed -> FAIL OPEN
+
+# ---------------------------------------------------------------------------
+# 4. Resolve destination and repo. Anything unresolvable -> FAIL OPEN.
+# ---------------------------------------------------------------------------
+base="${gitdir_cwd:-$PWD}"
+case "$dest" in
+  /*)  abs="$dest" ;;
+  ~/*) abs="$HOME/${dest#\~/}" ;;
+  *)   abs="$base/$dest" ;;
+esac
+abs="$(realpath -m -- "$abs" 2>/dev/null)" || exec "$REAL" "$@"
+[ -n "$abs" ] || exec "$REAL" "$@"
+
+common="$(cd "$base" 2>/dev/null && "$REAL" rev-parse --git-common-dir 2>/dev/null)" \
+  || exec "$REAL" "$@"
+common="$(cd "$base" 2>/dev/null && realpath -m -- "$common" 2>/dev/null)" \
+  || exec "$REAL" "$@"
+primary="$(dirname "$common")"
+
+# Out of scope: repo is not under ~/Work -> not this policy's business.
+case "$primary/" in
+  "$WT_SCOPE"/*) ;;
+  *) exec "$REAL" "$@" ;;
+esac
+
+# ---------------------------------------------------------------------------
+# 5. Policy check.
+# ---------------------------------------------------------------------------
+case "$abs/" in
+  "$WT_ROOT"/*) exec "$REAL" "$@" ;;          # on policy
+esac
+
+if [ -r "$POLICY_CONF" ]; then
+  while IFS= read -r pat || [ -n "$pat" ]; do
+    case "$pat" in ''|'#'*) continue ;; esac
+    pat="${pat/#\~/$HOME}"
+    # shellcheck disable=SC2254
+    case "$abs" in $pat) exec "$REAL" "$@" ;; esac
+    # shellcheck disable=SC2254
+    case "$primary" in $pat) exec "$REAL" "$@" ;; esac
+  done < "$POLICY_CONF"
+fi
+
+# ---------------------------------------------------------------------------
+# 6. Refuse. Name the correct path rather than silently relocating -- an agent
+#    that asked for X and got Y would cd to X and fail confusingly.
+# ---------------------------------------------------------------------------
+repo="$(basename "$primary")"
+branch=""
+k=0
+while [ "$k" -lt "$n" ]; do
+  case "${argv[$k]}" in
+    -b|-B) j=$((k + 1)); [ "$j" -lt "$n" ] && branch="${argv[$j]}"; break ;;
+  esac
+  k=$((k + 1))
+done
+[ -n "$branch" ] || branch="<branch>"
+suggested="$WT_ROOT/$repo/${branch//\//-}"
+
+cat >&2 <<EOF
+
+BLOCKED: worktrees for repos under ${WT_SCOPE/#$HOME/\~} must live in ${WT_ROOT/#$HOME/\~}/<repo>/<lane>.
+
+  requested : ${abs/#$HOME/\~}
+  repo      : ${primary/#$HOME/\~}
+  use       : ${suggested/#$HOME/\~}
+
+  wt add $branch                     # helper: computes the path for you
+  git worktree add -b $branch ${suggested/#$HOME/\~}
+
+One shared location keeps every lane visible to \`gwq list -g\` and \`wt-audit\`,
+and keeps repo directories free of nested trees. Exceptions live in
+${POLICY_CONF/#$HOME/\~} (quant-research is already listed, pinned by its
+docker-compose mounts). For a deliberate one-off:
+
+  WT_POLICY_BYPASS=1 git worktree add ...
+
+EOF
+exit 1

@@ -55,6 +55,13 @@ On a fresh box, run `stow stow` once manually before `bootstrap.sh` — that see
 - **Never edit `/usr/share/omarchy/default/`** — Omarchy 4 ships this as a root-owned pacman package; updates overwrite it. User overrides go in `~/.config/<app>/` (i.e. this repo's package). `~/.local/share/omarchy` is now just a compat **symlink** to `/usr/share/omarchy`, so old docs/scripts referencing it still resolve.
 - **`opencode/` is an empty placeholder** — tracked config was removed in commit `4fb4537` ("to be ported on later"), but `opencode` is still in **all three** profile arrays. `stow opencode` / `bootstrap.sh` no-op on it; `~/.config/opencode` is now a plain unmanaged directory. Don't re-add config without first deciding the layout. See Notable Quirks.
 - **Treat `tmux/.config/tmux/tmux.conf` as Omarchy-managed** — it's byte-identical to Omarchy's shipped `/usr/share/omarchy/config/tmux/tmux.conf`. Add user customizations to `tmux/.config/tmux/tmux.user.conf` instead (sourced from `tmux.conf` at the bottom). The upstream `omarchy-refresh-tmux` command is shimmed/blocked by `omarchy-overrides/` — see `KEYBINDINGS.md` §6. **That shim depends on `~/.config/bin` preceding `/usr/share/omarchy/bin` on `PATH`.** It had silently stopped working: the `environment.d` prepend is read by the systemd user manager and never reached interactive shells, so `omarchy-refresh-tmux` resolved to the upstream command and `membuild` was unreachable. `bash-omarchy/.bashrc` now prepends the directory itself. Verify with `command -v omarchy-refresh-tmux` in a **fresh** terminal — it must resolve under `~/.config/bin`.
+- **Never create a worktree outside `~/Work/worktrees/<repo>/<lane>`** — this is
+  *enforced*, not advisory. `~/.config/bin/git` (a fail-open pass-through shim)
+  refuses off-policy `git worktree add` for every harness, and a global
+  `core.hooksPath` post-checkout hook reports anything that bypasses it. Use
+  `wt add <branch>`; audit with `wt-audit`. Exceptions go in
+  `~/.config/worktree-policy.conf` (quant-research is the only standing one, pinned
+  by its docker-compose mounts), or `WT_POLICY_BYPASS=1` for a deliberate one-off.
 - **Never stow from a linked git worktree** — only the primary at
   `~/Work/projects/quomptrade/configfiles` may be stowed. `~/.stowrc` and every live
   `$HOME` symlink hold absolute paths into it, so `stow` from a parallel-agent lane
@@ -230,11 +237,16 @@ config were removed in commit `4fb4537` ("to be ported on later"). Current state
     `git checkout -- foot/`. There is no `omarchy-refresh-foot`, so this only fires when invoked
     explicitly; no shim is needed.
 - **Parallel agent worktrees** — lanes live under a global root,
-  `~/Work/worktrees/<Repo>/wt-<lane>`, created with `gwq add -b wt/<lane>`
-  (`gwq` is pinned in mise; its config is the `gwq/` package). `gwq list -g` is the
+  `~/Work/worktrees/<local-repo-dir>/<branch with / → ->`, created with `wt add <branch>`
+  (`wt` and `gwq` both live on `PATH`; `gwq` is pinned in mise). `gwq list -g` is the
   cross-repo dashboard and `gwq cd` is an fzf jump that works in herdr, tmux and a
   bare terminal alike — **herdr has no `tmux-sessionx` equivalent**, which is why
-  both tools are present. Lanes are edit-and-commit only; see the stow rule above.
+  both tools are present. `wt` exists because gwq's naming template derives the repo
+  name from the **remote**, which diverges badly here (`mmp-cexbot`→`MMP-CEX-GATE`,
+  `configfiles`→`ConfigFiles`); `wt` uses the local directory name.
+  Lanes are edit-and-commit only; see the stow rule above. Full detail — the
+  enforcement layers, the fail-open rule, the exemption list — is in `AGENTS.md`
+  under "Parallel worktrees".
   - **quant-research is a pinned exception** and must keep its worktrees nested
     inside `./pqr` and `./platform`: `docker-compose.yml` mounts those directories,
     and `pqr/platform` is a symlink to the container-absolute

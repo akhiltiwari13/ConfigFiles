@@ -8,6 +8,13 @@
 	staash = stash --all
 [core]
 	editor = nvim
+	# Detective layer of the worktree location policy (see AGENTS.md "Parallel
+	# worktrees"). ~/.config/bin/git prevents off-policy `git worktree add`, but
+	# only for callers that resolve git through PATH; this hook fires whatever
+	# binary was invoked, so it catches libgit2 tools and absolute /usr/bin/git.
+	# NOTE: hooksPath overrides .git/hooks for EVERY repo, so the hook dispatches
+	# to a repo's own post-checkout first. Keep that behaviour if you add hooks.
+	hooksPath = ~/.config/git/hooks
 [init]
 	defaultBranch = master
 [pull]
