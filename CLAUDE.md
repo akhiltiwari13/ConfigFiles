@@ -35,7 +35,7 @@ stow -d ~/Work/projects/quomptrade/configfiles/lazyvim nvim
 | Profile | Packages | Used on |
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core, uses `bash-ubuntu`, no GUI/Wayland deps, no `ghostty`/`vimium` | Remote dev box (uburemote) |
-| `omarchy` | 29 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
+| `omarchy` | 30 — full set incl. `omarchy-*` and Wayland stack | Omarchy workstations (omarchy-tp) |
 | `macair` | 20 — cross-platform core + `wezterm` + `zsh` | macOS Air |
 
 ```bash
@@ -90,7 +90,7 @@ require("default.hypr.toggles")
 
 `bootstrap.lua` sets `package.path` to `~/.local/state/?.lua;~/.config/?.lua;$OMARCHY_PATH/?.lua`, which is why `require("hypr.monitors")` resolves to `~/.config/hypr/monitors.lua`.
 
-Only Hyprland moved to Lua — **alacritty, ghostty, and kitty still use plain `source`/`include`** and are unaffected.
+Only Hyprland moved to Lua — **alacritty, foot, ghostty, and kitty still use plain `source`/`include`** and are unaffected.
 
 Hyprland Lua API used in this repo:
 
@@ -112,6 +112,7 @@ Kill-switches `omarchy_default_bindings = false` and `omarchy_preinstalled_bindi
 - **Hyprland bindings**: `o.bind("MOD + KEY", "Description", "command")` — always pass the description (it feeds `omarchy menu keybindings --print`). To replace a default, `hl.unbind(...)` first, then bind. The old `bindd =` `.conf` syntax is dead on this host.
 - **Lua (lazyvim)**: 2 spaces, 120 cols, `stylua` formatter.
 - **Lua (omarchy-hyprland)**: 2 spaces, follows Omarchy's shipped template comments; keep the commented-out examples as inline documentation.
+- **INI (foot)**: Omarchy-vendored baseline — keep deviations minimal and documented. `include=` needs an absolute or `~/` path; last value wins.
 - **TOML (alacritty, herdr, `omarchy-shell`'s `shell.toml`)**: standard TOML. `omarchy-shell`'s `shell.json` is tool-managed (`omarchy-shell-config`), never hand-edited.
 - **Shell (scripts/, setup/)**: `#!/usr/bin/env bash`, `snake_case` funcs, quote vars.
 
@@ -194,6 +195,26 @@ config were removed in commit `4fb4537` ("to be ported on later"). Current state
   - `nvim --headless` disables lazy's change detection entirely, so hot-reload cannot
     be verified headlessly — only cold start can.
 - `KEYBINDINGS.md` (repo root) is the authoritative keybind hierarchy doc; `omarchy-overrides/.config/bin/keybind-audit` regenerates the cross-program audit on demand.
+- **`foot/`** — foot is the default terminal on omarchy-tp since 2026-09-01, selected by
+  `foot/.config/xdg-terminals.list` (`foot.desktop`), which is what `xdg-terminal-exec`
+  reads for `SUPER + RETURN` and the tmux launchers in `bindings.lua`. Switching terminals
+  via the Omarchy menu now surfaces as a repo diff.
+  - `foot/.config/foot/foot.ini` began as a byte-for-byte copy of Omarchy's shipped
+    `/usr/share/omarchy/config/foot/foot.ini` and deviates by **exactly one line**, the
+    `font=`. That makes `diff -u /usr/share/omarchy/config/foot/foot.ini ~/.config/foot/foot.ini`
+    a cheap drift check after an Omarchy update.
+  - **The font is kept in lockstep with ghostty**: `font=CaskaydiaMono Nerd Font:size=9:weight=semibold`
+    is the fontconfig spelling of ghostty's `font-family` + `font-style = Semi Bold` +
+    `font-size = 9`. Change one, change the other. Don't add `font-bold`/`font-italic` —
+    ghostty derives those from the regular face too, and adding them would make the two diverge.
+  - Colors come from the untouched `include=~/.local/state/omarchy/current/theme/foot.ini`;
+    `omarchy-theme-set-foot` repaints *running* instances over OSC. Neither touches the font.
+    Reload config without closing windows: `pkill -USR1 foot`.
+  - **`omarchy-refresh-config foot/foot.ini` writes through the stow symlink into this repo.**
+    Unlike `omarchy refresh shell`, it does a plain `cp -f` onto `~/.config/foot/foot.ini`, so
+    the symlink survives but the tracked file is replaced by the Omarchy default — recover with
+    `git checkout -- foot/`. There is no `omarchy-refresh-foot`, so this only fires when invoked
+    explicitly; no shim is needed.
 - **`herdr/`** — Omarchy 4's terminal workspace manager (tmux replacement), launched by `SUPER + CTRL + RETURN`. `herdr/.config/herdr/config.toml` is hand-tuned to **mirror the tmux keymap** (same `ctrl+space` prefix, same pane/tab/workspace chords), so it occupies tmux's layer in `KEYBINDINGS.md` §2 — **any tmux keymap change must be mirrored into `config.toml`** or the two drift. Its one deliberate divergence: `rename_pane = "prefix+shift+o"` (stock `prefix+shift+p` collides with previous-workspace). Only `config.toml` is tracked; logs/sockets/session state gitignored.
 - **`voxtype/`** — dictation daemon (`voxtype-bin`, AUR). Only `voxtype/.config/voxtype/config.toml` is tracked. **The hotkey is not in that file** (`[hotkey] enabled = false`) — the real bindings live in Hyprland (`SUPER+CTRL+X` toggle, `F9` push-to-talk) and only signal an already-running daemon. If a binding "does nothing", check `systemctl --user status voxtype` first — it runs as a user service (`~/.config/systemd/user/voxtype.service`, installed by `omarchy-voxtype-install`, not tracked). Whisper models live in `~/.local/share/voxtype/models/` (per-machine download, gitignored). `omarchy-voxtype-status` (= `voxtype status --follow`) streams forever — never invoke it non-interactively.
 - **`mise/.config/mise/config.toml`** pins the CLI agent toolchain (`agy`, `claude`, `codex`, `crush`, `gh`, `npm:@xai-official/grok`, `opencode`) plus language runtimes (go/node/python/ruby/zig/zls/conan). Stowed on all three profiles as of commit `8711d55`; `gemini` was retired.

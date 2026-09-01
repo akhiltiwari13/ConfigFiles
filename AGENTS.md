@@ -16,8 +16,8 @@ Three profiles defined in `scripts/bootstrap.sh` (it's the source of truth for w
 | Profile | Packages | Used on |
 |---------|----------|---------|
 | `ubuntu` | 15 — headless core (no GUI/Wayland) | Remote dev box (uburemote) |
-| `omarchy` | 27 — full set incl. Wayland stack | Omarchy ThinkPad (omarchy-tp) |
-| `macair` | 19 — cross-platform + `wezterm` + `zsh` | macOS Air |
+| `omarchy` | 30 — full set incl. Wayland stack | Omarchy ThinkPad (omarchy-tp) |
+| `macair` | 20 — cross-platform + `wezterm` + `zsh` | macOS Air |
 
 `scripts/`, `dumpyard/` and `syshardening/` are NOT stow packages.
 
@@ -46,7 +46,7 @@ Host runs Omarchy `4.0.0.alpha` ("quattro"). Precedence:
 
 **Hyprland is configured in Lua now**, not `.conf` — verify with `hyprctl systeminfo | grep -i configprovider` → `configProvider: lua`. Entry point `omarchy-hyprland/.config/hypr/hyprland.lua` does `dofile(bootstrap.lua)` → `require("default.hypr.omarchy")` → `require("hypr.{monitors,input,bindings,looknfeel,autostart}")` → `require("default.hypr.toggles")`. **Require order matters — do not reorder.** `bootstrap.lua` sets `package.path` to `~/.local/state/?.lua;~/.config/?.lua;$OMARCHY_PATH/?.lua`.
 
-Alacritty, ghostty, and kitty still use plain `source`/`include` — only hypr moved.
+Alacritty, foot, ghostty, and kitty still use plain `source`/`include` — only hypr moved.
 
 **The port to Lua is complete** (2026-08-22). All `source`-based `.conf` files were deleted; five `.lua` modules remain. Only genuine deviations from Omarchy's defaults belong there — 23 of the original 27 `bindd` lines were dropped because Omarchy 4 ships them verbatim, and re-adding one would double-bind it. Check `grep -n 'o\.bind' /usr/share/omarchy/default/hypr/bindings/*.lua` before adding (note: some lines read `o.bind( "KEY"` with a space, which a naive grep misses). `hyprctl binds` is ground truth. Still-live `.conf` files (separate daemons): `hypridle.conf`, `hyprlock.conf`, `hyprsunset.conf`, `xdph.conf`.
 
@@ -77,6 +77,9 @@ Pick **one** per host. xpra helpers (`xrun`/`xrejoin`/`xls`/`xstop`) live in the
 - **Hypr Lua tooling**: `omarchy-hyprland/.config/hypr/.luarc.json` points lua-ls at `/usr/share/hypr/stubs` and declares globals `hl`, `o`
 - **herdr**: Omarchy 4's terminal workspace manager (tmux replacement), bound to `SUPER + CTRL + RETURN`. Its `herdr/.config/herdr/config.toml` is hand-tuned to mirror the tmux setup — same `ctrl+space` prefix, same pane/tab/workspace chords — so it shares tmux's conflict surface. Only `config.toml` is tracked; logs, sockets, and session state are gitignored
 - **voxtype** (dictation, `voxtype-bin` from AUR): only `voxtype/.config/voxtype/config.toml` is tracked. The **hotkey is not in that file** -- `[hotkey] enabled = false` there, and the real bindings live in Hyprland (`SUPER+CTRL+X` toggle, `F9` push-to-talk). It runs as a **user service**, `~/.config/systemd/user/voxtype.service` (installed by `omarchy-voxtype-install`, not tracked); if a keybinding "does nothing", check `systemctl --user status voxtype` first -- the binding only signals a running daemon. Whisper models live in `~/.local/share/voxtype/models/` (~1.7 GB, per-machine download, gitignored). Note `omarchy-voxtype-status` is `voxtype status --follow` and streams forever -- do not call it non-interactively
+- **foot** is the default terminal on omarchy-tp (2026-09-01). `foot/.config/foot/foot.ini` started as a byte-for-byte copy of Omarchy's shipped `/usr/share/omarchy/config/foot/foot.ini` and deviates by **exactly one line** — the `font=` — so `diff -u /usr/share/omarchy/config/foot/foot.ini ~/.config/foot/foot.ini` is a cheap drift check after an Omarchy update. Font mirrors ghostty: `CaskaydiaMono Nerd Font:size=9:weight=semibold` ≡ ghostty's `font-family`/`font-style = Semi Bold`/`font-size = 9`; keep the two in sync and do **not** add `font-bold`/`font-italic` (ghostty derives those too). Colors come from the untouched `include=~/.local/state/omarchy/current/theme/foot.ini`, and `omarchy-theme-set-foot` repaints running instances over OSC — neither touches the font. Reload without closing windows: `pkill -USR1 foot`
+- **`omarchy-refresh-config foot/foot.ini` writes through the stow symlink into this repo.** Unlike `omarchy refresh shell` it does a plain `cp -f` onto `~/.config/foot/foot.ini`, so the symlink survives but the tracked file is replaced by the Omarchy default — recover with `git checkout -- foot/`. There is no `omarchy-refresh-foot`, so this only fires if invoked explicitly; no shim needed
+- **`foot/.config/xdg-terminals.list`** is what actually selects the default terminal for `xdg-terminal-exec` (hence `SUPER + RETURN` and the tmux launchers in `bindings.lua`). It ships in the `foot` package, so switching terminals via the Omarchy menu now shows up as a repo diff
 - **Keybindings**: `KEYBINDINGS.md` is the authoritative hierarchy doc; `omarchy-overrides/.config/bin/keybind-audit` regenerates the cross-program audit
 - **Remote GUI**: xpra on `:100` — helpers `xrun`/`xrejoin`/`xls`/`xstop` in `bash-omarchy/.bashrc` (also `zsh`)
 - **waybar is retired**: Omarchy 4 replaced it with **quickshell** (`quickshell -n -p /usr/share/omarchy/shell`, started by `omarchy-launch-shell`). `waybar/` and `omarchy-themes/` moved to `dumpyard/`. Bar config is now the **`omarchy-shell/`** package (via `omarchy-bar` / `omarchy-toggle-bar` / `omarchy-shell-config`, reload `omarchy-refresh-shell`). Those tools rewrite `shell.json` **through the symlink into this repo** — expect `git status` churn after using the bar's settings UI; it is mode `0600`
@@ -92,6 +95,7 @@ Pick **one** per host. xpra helpers (`xrun`/`xrejoin`/`xls`/`xstop`) live in the
 | Lua | omarchy-hyprland | 2 spaces; keep Omarchy's commented template examples as inline docs |
 | .conf | omarchy-hyprland (daemons only: hypridle, hyprlock, hyprsunset, xdph) | `#` comments, wiki links |
 | TOML | alacritty, herdr, omarchy shell (`shell.toml`) | Standard TOML |
+| INI | foot (`foot.ini`) | Omarchy-vendored baseline; `include=` needs an absolute or `~/` path, last value wins |
 | JSON | omarchy shell (`shell.json`) | managed via `omarchy-shell-config`, not hand-edited |
 | Shell | scripts, setup | `#!/usr/bin/env bash`, `snake_case` funcs, quote vars |
 

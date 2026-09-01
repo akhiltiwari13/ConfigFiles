@@ -44,7 +44,7 @@ readonly OMARCHY_PKGS=(
   # Omarchy-specific (Wayland/Hyprland stack + omarchy-* infra)
   # herdr + omarchy-shell are Omarchy 4 ("quattro") tools; waybar and
   # omarchy-themes retired to dumpyard/ when quickshell replaced waybar.
-  alacritty fastfetch herdr omarchy-hyprland omarchy-overrides omarchy-shell
+  alacritty fastfetch foot herdr omarchy-hyprland omarchy-overrides omarchy-shell
   rofi voxtype vpn wallpapers zathura
 )
 
